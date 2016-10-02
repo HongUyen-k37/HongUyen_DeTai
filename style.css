@@ -5,7 +5,7 @@ html{
 	-webkit-box-sizing:border-box;
 }
 body{
-	font-size: 100%;
+
 	font-family: "Helvetica Neue",Arial,sans-serif;
 	-webkit-font-smoothing:antialiased;
 	
@@ -58,9 +58,7 @@ tr td{
 .table-bordered>tfoot>tr>th, 
 .table-bordered>thead>tr>td,
 .table-bordered>tbody>tr>td,
-.table-bordered>tfoot>tr>td{
-   	padding: 12px !important;
-   } 
+.table-bordered>tfoot>tr>td,
 .clear{
 	clear: both;
 }

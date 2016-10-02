@@ -25,10 +25,10 @@
 					<li><a href="index.php">Trang chủ</a></li>
 					<li> <a href="home.php">Tổ chức thi </a>
 					<ul>
-						<li><a href="info.php">Thông tin kì thi</a></li>
-						<li><a href="Candidates.php">Thí sinh dự thi</a></li>
-						<li><a href="mark.php">Đánh số báo danh</a></li>
-						<li><a href="room.php">Phân phòng thi</a></li>
+						<li><a href="home.php?page=1">Thông tin kì thi</a></li>
+						<li><a href="home.php?page=2">Thí sinh dự thi</a></li>
+						<li><a href="home.php?page=3">Đánh số báo danh</a></li>
+						<li><a href="home.php?page=4">Phân phòng thi</a></li>
 					</ul>
 					</li>
 					<li><a href="#">Tổ chức chấm thi</a>
@@ -45,10 +45,13 @@
 		<!-- content -->
 		<div id="content" class=" row ">
 			<?php
+				
 				//include_once 'info.php';
 				//include_once 'Candidates.php';
 				//include_once 'mark.php'
-				include_once 'room.php'
+				//include_once 'room.php'
+				include_once 'dontui.php'
+				//include_once 'xulybaithi.php'
 			?>
 		</div>
 		<div class="clear"></div>

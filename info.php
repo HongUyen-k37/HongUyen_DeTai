@@ -1,3 +1,5 @@
+
+
 <div class="col-md-9 main-content">
 	<h3>Thông tin kì thi</h3>
 	<div class="main-table">
@@ -75,8 +77,9 @@
 		</div>
 		<div class="btn-group">
 			<button type="submit" class="btn btn-success" name='add'>Thêm</button>
+				<button type="submit" class="btn btn-success" name='update'>Lưu</button>
 			<button type="submit" class="btn btn-success" name='delete'>Xóa</button>
-			<button type="submit" class="btn btn-success" name='update'>Sửa</button>
+		
 		</div>
 	</form>
 	</div>

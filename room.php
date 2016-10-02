@@ -1,9 +1,10 @@
+
 <div class="col-md-9 main-content">
 	<div class="room">
 		<h3>Phòng thi</h3>
 		<form style="width:60%;margin-left:110px;">
 			<div class="form-group row">
-			<label class="col-md-4" for="shpt">Số hiện phòng thi:</label>
+			<label class="col-md-4" for="shpt">Số hiệu phòng thi:</label>
 			<div class="col-md-8 ">
 				<input type="text" class="form-control" name="shpt">
 			</div>

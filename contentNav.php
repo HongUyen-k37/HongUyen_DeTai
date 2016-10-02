@@ -1,9 +1,18 @@
+
 <div class="col-md-3 contentNav">
 	<div class="nameuser">
 	</div><!-- end nameuser -->
 	<h3>Thông tin kì thi</h3>
 	<div class="main-nav">
 	<form method="post" action="home.php">
+		<div class="form-group">
+			<label for="study">Tên kì thi:</label>
+			<select class="form-control">
+			<option value="1314">Kì I năm 2013 - 2014</option>
+			<option value="1415">Kì I năm 2014 - 2015</option>
+			<option value="1516">Kì I năm 2015 - 2016</option>
+		</select>
+		</div>
 		<div class="form-group">
 		<label for="study">Ngành:</label>
 		<select class="form-control">
