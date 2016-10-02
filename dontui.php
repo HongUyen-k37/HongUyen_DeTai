@@ -18,16 +18,11 @@
 			<div class="btn-group">
 				<button type="submit" class="btn btn-success" name='execute'>Thực hiện</button>
 			</div>
-			<div class="form-group row">
-				<label class="col-md-4" for="sbd" style="margin-top: 15px;">Lượt </label>
-				<p>Lượt dồn túi</p>
-				<div class="col-md-8 ">
-					<input type="number" class="form-control" name="sbd" min="1" style="margin-top: 15px; width: 30%;">
-				</div>	
-					<div class="col-md-8 ">
-					<input type="text" class="form-control" name="tdn">
-					</div>
-				
+			<div style="margin-top: 40px">
+				<label>Lượt</label>
+				<input class="form-control" type="number" name="luot" style="width: 30%; display: inline; margin-left: 10px">
+				<label>/Số lượt thực hiện</label>
+				<input class="form-control" type="text" name="soluot" style="width: 30%; display: inline; margin-left: 10px">
 			</div>
 		</form>
 	</div>
@@ -36,41 +31,91 @@
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
-					<th>Phòng 1</th>
-					<th>Phòng 2</th>
-					<th>Phòng 3</th>
-					<th>Phòng 4</th>
-					<th>Phòng 5</th>
+					<th></th>
+					<th colspan="2">Phòng 1</th>
+					<th colspan="2">Phòng 2</th>
+					<th colspan="2">Phòng 3</th>
+					<th colspan="2">Phòng 4</th>
+					<th colspan="2">Phòng 5</th>
 				</tr>
 			</thead>
 			<thead>
 				<tr>
+					<th></th>
 					<th>SBD</th>
-					<th>Phòng 2</th>
-					<th>Phòng 3</th>
-					<th>Phòng 4</th>
-					<th>Phòng 5</th>
+					<th>Số phách</th>
+					<th>SBD</th>
+					<th>Số phách</th>
+					<th>SBD</th>
+					<th>Số phách</th>
+					<th>SBD</th>
+					<th>Số phách</th>
+					<th>SBD</th>
+					<th>Số phách</th>
 				</tr>
 			</thead>
 			<tbody>
+			<thead>
 				<tr>
-					<td>1</td>
-					<td>01</td>
-					<td>Trần Nữ Như</td>
-					<td>Quỳnh</td>
+					<th>Túi 1</th>
+						<td>001</td>
+						<td>167</td>
+						<td>002</td>
+						<td>168</td>
+						<td>003</td>
+						<td>169</td>
+						<td>004</td>
+						<td>170</td>
+						<td>005</td>
+						<td>171</td>
 				</tr>
+
+			</thead>
+			<thead>
 				<tr>
-					<td>2</td>
-					<td>02</td>
-					<td>Trần Thị Hồng</td>
-					<td>Uyên</td>
+					<th>Túi 2</th>
+						<td>001</td>
+						<td>167</td>
+						<td>002</td>
+						<td>168</td>
+						<td>003</td>
+						<td>169</td>
+						<td>004</td>
+						<td>170</td>
+						<td>005</td>
+						<td>171</td>
 				</tr>
+			</thead>
+			<thead>
 				<tr>
-					<td>3</td>
-					<td>03</td>
-					<td>Phạm Như Ngọc</td>
-					<td>Tuấn</td>
+					<th>Túi 3</th>
+						<td>001</td>
+						<td>167</td>
+						<td>002</td>
+						<td>168</td>
+						<td>003</td>
+						<td>169</td>
+						<td>004</td>
+						<td>170</td>
+						<td>005</td>
+						<td>171</td>
 				</tr>
+			</thead>
+			<thead>
+				<tr>
+					<th>Túi 4</th>
+						<td>001</td>
+						<td>167</td>
+						<td>002</td>
+						<td>168</td>
+						<td>003</td>
+						<td>169</td>
+						<td>004</td>
+						<td>170</td>
+						<td>005</td>
+						<td>171</td>
+				</tr>
+			</thead>
 			</tbody>
 			</table>
 			<div class="totalCandidates">
