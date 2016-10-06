@@ -50,8 +50,8 @@
 				//include_once 'Candidates.php';
 				//include_once 'mark.php'
 				//include_once 'room.php'
-				include_once 'dontui.php'
-				//include_once 'xulybaithi.php'
+				//include_once 'dontui.php'
+				include_once 'xulybaithi.php'
 			?>
 		</div>
 		<div class="clear"></div>
