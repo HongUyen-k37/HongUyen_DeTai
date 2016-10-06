@@ -1,0 +1,75 @@
+
+/***********************Style content*************************/
+h3{
+	text-transform: uppercase;
+}
+/*style tochuckithi*/
+
+form{
+	height: 100%;
+}
+.form-horizontal .control-label {
+    text-align: left !important;
+}
+/*style list room*/
+ .phanphong{
+ 	width: 100%;
+ 	margin: 0 auto;
+ 	border: 1px solid #ccc;
+ 	height: 100%;
+ 	padding: 15px;
+ }
+ .phanphong #content-room{
+ 	padding: 20px;
+ }
+  .phanphong .header-room{
+  	display: inherit;
+  }
+ .phanphong .header-room .menu-child ul li{
+ 	list-style-type: none;
+ }
+ .menu-child ul{
+ 	height: 40px;
+ 	padding-left: 0px;
+ }
+ .menu-child ul li a{
+ 	text-decoration: none;
+ 	color: #000;
+
+ }
+ .menu-child ul li{
+ 	background:#20B2AA;
+ 	float: left;
+ 	padding-right: 10px;
+ 	line-height: 50px;
+ 	padding: 0 10px 0px 10px;
+ }
+ .file-excel a{
+ 	color: #000;
+ }
+ .content-room{
+
+ }
+ .title-content{
+ 	margin: 20px 0px;
+ }
+ .branch{
+ 	margin: 20px 0px 20px 0px;
+ }
+.branch #name{
+	text-align: center;
+	font-size: 16px;
+}
+.title-left{
+	padding-left: 85px !important;
+}
+.title-left h4,.title-left h5,.title-right h4{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.title-right h4{
+	te
+}
+.branch #name span{
+	font-weight: bold;
+}

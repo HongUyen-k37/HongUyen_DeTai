@@ -1,0 +1,168 @@
+/*Globals style*/
+html{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+body{
+	font-size: 100%;
+	font-family: "Helvetica Neue",Arial,sans-serif;
+	-webkit-font-smoothing:antialiased;
+	
+}
+img{
+	max-width: 100%;
+	height: auto;
+}
+a{
+	color:#000;
+	text-decoration: none;
+}
+a:hover,a:visited{
+	color: #20B2AA;
+	text-decoration: underline;
+}
+input,input[type="submit"],button{
+	border: 1px solid #c8c8c8 !important;
+	padding: 5px 10px;
+}
+h1{
+	font-size: 2.2em;
+}
+h2{
+	font-size: 2em;
+}
+h3{
+	font-size: 1.8em;
+
+}
+h4{
+	font-size: 1.55em;
+}
+h5{
+	font-size: 1.3em;
+}
+h6{
+	font-size: 1.1em;
+}
+table,table tr,table td{
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+tr td{
+	padding: 10px;
+}
+
+ .table-bordered>thead>tr>th,
+.table-bordered>tbody>tr>th, 
+.table-bordered>tfoot>tr>th, 
+.table-bordered>thead>tr>td,
+.table-bordered>tbody>tr>td,
+.table-bordered>tfoot>tr>td{
+   	padding: 12px !important;
+   } 
+.clear{
+	clear: both;
+}
+/*style container*/
+#container{
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+	padding: 0;
+}
+/***********************Style header*************************/
+#header{
+	width: 100%;
+	height: 100px;
+	background:  #fff;
+	margin: 0 auto; 	
+}
+#header p{
+	text-align: center;
+	color: #000;
+	font-size: 20px;
+	padding: 30px 0 0 0;
+}
+#header .choose-year{
+
+}
+/***********************Style navBar*************************/
+#navBar{
+	height: 60px;
+	margin: 0 auto;
+	background: 	#F5FFFA;
+}
+#navBar #link-log{
+	padding: 20px;
+	background: 	#4040DA;
+	 color: #fff;
+}
+#menu{
+	 background: #4040DA;
+
+}
+#menu ul {
+  	font-size: 0;
+  	margin: 0;
+  	padding: 0;
+}
+#menu ul li {
+  	display: inline-block;
+  	position: relative;
+}
+#menu ul li a {
+  	color: #fff;
+  	font-weight: bold;
+  	display: block;
+  	font-size: 14px;
+  	padding: 15px 14px;
+  	transition: 0.3s linear;
+}
+#menu ul li:hover {
+	 background: #126d9b;
+}
+#menu ul li ul {
+ 	 border-bottom: 5px solid #2ba0db;
+  	display: none;
+  	position: absolute;
+  	width: 250px;
+  	z-index: 1;
+}
+#menu ul li ul li {
+  	border-top: 1px solid #444;
+  	display: block;
+}
+#menu ul li ul li:first-child {
+	 border-top: none; 
+}
+#menu ul li ul li a {
+	background: #373737;
+  	display: block;
+  	padding: 10px 14px;
+}
+#menu ul li ul li a:hover { 
+	background: #126d9b; 
+}
+/****************************************/
+#sidebar{
+	width: 20%;
+	float: right;
+	height: 500px;
+	border-left: 1px solid #ccc;
+}
+#sidebar .login{
+	margin: 20px;
+}
+ 
+/***********************Style footer*************************/
+#footer{
+	margin: 0 auto;
+	padding-top: 10px;
+	height: 60px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	background: #4040DA;
+}
