@@ -1,13 +1,13 @@
 <div class="row">
-	<div class="thongtinkithi" style="height:400px;width:95%;margin:25px auto;border:1px solid #ccc;">
-		<div class="main-nav" style="height:100%;margin:30px;">
+	<div class="thongtinkithi" style="width:95%;margin:25px auto;border:1px solid #ccc;">
+		<div class="main-nav" style="margin:30px;">
 			<?php
 				include_once 'thongtin.php'; 
 			?>  
 			</form>
 		</div>
 	</div>
-	<div class="content-kithi" style="height:100%;width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
+	<div class="content-kithi" style="width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
 		<div class="room">
 		<h3>Phòng thi</h3>
 		<form style="width:60%;">

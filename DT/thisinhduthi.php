@@ -1,18 +1,18 @@
 <div class="row">
-	<div class="thongtinkithi" style="height:400px;width:95%;margin:25px auto;border:1px solid #ccc;">
-		<div class="main-nav" style="height:100%;margin:30px;">
+	<div class="thongtinkithi" style="width:95%;margin:25px auto;border:1px solid #ccc;">
+		<div class="main-nav" style="margin:30px;">
 			<?php
 				include_once 'thongtin.php'; 
 			?>  
 			</form>
 		</div>
 	</div>
-	<div class="content-kithi" style="height:100%;width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
+	<div class="content-kithi" style="width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
 		<div id="form" >
 			<h3 >Thí sinh dự thi</h3>
 			<div class="row">
 				<div class="col-md-6">
-					<form style="width:60%;">
+					<form style="width: 75%; float: right;">
 						<div class="form-group row">
 						<label class="col-md-4" for="first-name">Họ đệm:</label>
 						<div class="col-md-8 ">
@@ -47,7 +47,7 @@
 					</form>
 				</div>
 				<div class="col-md-6">
-					<form style="width:60%;">
+					<form style="width:75%;">
 						<div class="form-group row">
 						<label class="col-md-4" for="last-name">Tên:</label>
 						<div class="col-md-8 ">

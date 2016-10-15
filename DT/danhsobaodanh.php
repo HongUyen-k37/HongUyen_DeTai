@@ -1,16 +1,16 @@
 <div class="row">
-	<div class="thongtinkithi" style="height:400px;width:95%;margin:25px auto;border:1px solid #ccc;">
-		<div class="main-nav" style="height:100%;margin:30px;">
+	<div class="thongtinkithi" style="width:95%;margin:25px auto;border:1px solid #ccc;">
+		<div class="main-nav" style="margin:30px;">
 			<?php
 				include_once 'thongtin.php'; 
 			?>  
 			</form>
 		</div>
 	</div>
-	<div class="content-kithi" style="height:100%;width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
+	<div class="content-kithi" style="width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
 		<div class="numbered-list">
 		<h3>Đánh số báo danh</h3>
-		<form style="width:60%;">
+		<form style="width: 50%; margin-left: 25%;">
 			<div class="form-group row">
 			<label class="col-md-4" for="tdn">Tiếp đầu ngữ:</label>
 			<div class="col-md-8 ">
@@ -18,7 +18,7 @@
 			</div>
 			</div>
 			<div class="form-group row">
-			<label class="col-md-4" for="sbd">Số bắt đầu</label>
+			<label class="col-md-4" for="sbd">Số bắt đầu:</label>
 			<div class="col-md-8 ">
 				<input type="number" class="form-control" name="sbd" min="1">
 			</div>

@@ -5,10 +5,8 @@ html{
 	-webkit-box-sizing:border-box;
 }
 body{
-	font-size: 100%;
 	font-family: "Helvetica Neue",Arial,sans-serif;
 	-webkit-font-smoothing:antialiased;
-	
 }
 img{
 	max-width: 100%;
@@ -20,7 +18,8 @@ a{
 }
 a:hover,a:visited{
 	color: #20B2AA;
-	text-decoration: underline;
+	text-decoration: none;
+
 }
 input,input[type="submit"],button{
 	border: 1px solid #c8c8c8 !important;
@@ -53,23 +52,12 @@ tr td{
 	padding: 10px;
 }
 
- .table-bordered>thead>tr>th,
-.table-bordered>tbody>tr>th, 
-.table-bordered>tfoot>tr>th, 
-.table-bordered>thead>tr>td,
-.table-bordered>tbody>tr>td,
-.table-bordered>tfoot>tr>td{
-   	padding: 12px !important;
-   } 
 .clear{
 	clear: both;
 }
 /*style container*/
-#container{
-	width: 100%;
-	margin: 0 auto;
-	background: #fff;
-	padding: 0;
+.container{
+	background-color: red;
 }
 /***********************Style header*************************/
 #header{
@@ -80,12 +68,14 @@ tr td{
 }
 #header p{
 	text-align: center;
-	color: #000;
-	font-size: 20px;
-	padding: 30px 0 0 0;
+    color: #F44336;
+    font-size: 20px;
+    padding: 30px 0 0 0;
+    font-weight: bold;
 }
 #header .choose-year{
-
+    margin: 30px auto;
+    width: 16%;
 }
 /***********************Style navBar*************************/
 #navBar{
@@ -103,7 +93,6 @@ tr td{
 
 }
 #menu ul {
-  	font-size: 0;
   	margin: 0;
   	padding: 0;
 }
@@ -165,4 +154,19 @@ tr td{
 	font-size: 12px;
 	color: #fff;
 	background: #4040DA;
+}
+
+/*quoc-edit*/
+.group-content{
+	border: 1px solid #9e9e9e;
+	border-radius: 5px;
+	padding: 15px;
+    margin: 10px 0;
+}
+.log-out{
+	margin-left: 44%;
+	display: inline;
+}
+.file-excel, .menu-child{
+	text-decoration: underline;
 }

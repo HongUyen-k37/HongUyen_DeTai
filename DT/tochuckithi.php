@@ -1,11 +1,12 @@
 <div class="row">
-	<div class="thongtinkithi" style="height:400px;width:95%;margin:25px auto;border:1px solid #ccc;">
-		<div class="main-nav" style="height:100%;margin:30px;">
+	<div class="col-md-4">
+	<div class="thongtinkithi group-content">
+		<div class="main-nav">
 			<?php
-				include_once 'thongtin.php'; 
+				include_once 'thongtin-main.php'; 
 			?>
 			  	<div class="form-group"> 
-			    	<div class="col-sm-offset-2 col-sm-10">
+			    	<div style="text-align: center">
 			      		<button type="submit" class="btn btn-success">Thêm</button>
 			      		<button type="submit" class="btn btn-success">Lưu</button>
 			      		<button type="submit" class="btn btn-success">Xóa</button>
@@ -14,7 +15,9 @@
 			</form>
 		</div>
 	</div>
-	<div class="content-kithi" style="height:400px;width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
+	</div>
+	<div class="col-md-8">
+	<div class="content-kithi group-content">
 		<h3>Thông tin kì thi</h3>
 		<div class="main-table">
 			<table class="table table-bordered table-hover table-striped">
@@ -44,5 +47,6 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 	</div>
 </div>

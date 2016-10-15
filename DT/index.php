@@ -3,18 +3,17 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="css/test.css" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style_index.css" />
-	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/test.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/style_index.css" /> -->
+	<!-- <link href="css/bootstrap-theme.css" rel="stylesheet"> -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery.min.js"></script>
 	<title>Tuyển sinh</title>
 </head>
 <body>
-	<div id="container">
 		<!--Header -->
 		<div id="header" class="row">
 			<div class="col-md-10">
@@ -50,29 +49,31 @@
 						<li><a href="index.php?id=7">Dồn túi phách</a></li>
 					</ul>
 					</li>
-					<li> <a href="#">Hướng dẫn-Hỗ trợ </a></li>
+					<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
+					<div class="log-out">
+						<label style="color: #fff;">Xin chào, admin!</label>
+						<button type="submit" class="btn btn-success">Đăng xuất</button>
+					</div>
 				</ul>
 			</div>
-		
 		</div>
 		<div class="clear"></div>
 		<!-- content -->
-		<div id="content" style="padding:0px;margin:0 auto;">
+		<div class="container-fluid">
 			<?php
 				session_start();
-				$p = $_GET['id'];
-				$_SESSION['categary'] =$p;
-				if($_SESSION['categary']==1)
+				$_SESSION['category'] = $_GET['id'];
+				if($_SESSION['category']==1)
 					include_once 'tochuckithi.php';
-				else if($_SESSION['categary'] == 2)
+				else if($_SESSION['category'] == 2)
 					include_once 'thisinhduthi.php';
-				else if($_SESSION['categary'] == 3)
+				else if($_SESSION['category'] == 3)
 					include_once 'danhsobaodanh.php';
-				else if($_SESSION['categary'] == 4)
+				else if($_SESSION['category'] == 4)
 					include_once 'phanphongthi.php';
-				else if($_SESSION['categary'] == 5)
+				else if($_SESSION['category'] == 5)
 					include_once 'danhsachphongthi.php';
-				else if($_SESSION['categary'] == 6)
+				else if($_SESSION['category'] == 6)
 					include_once 'xulybaithi.php';
 				else
 					include_once 'dontui.php';
