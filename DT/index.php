@@ -14,12 +14,13 @@
 	<title>Tuyển sinh</title>
 </head>
 <body>
+	<div class="container">
 		<!--Header -->
 		<div id="header" class="row">
-			<div class="col-md-10">
+			<div class="col-md-9">
 				<p>CHƯƠNG TRÌNH QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 			</div>
-			<div class="choose-year col-md-2">
+			<div class="choose-year col-md-3">
 				<div class="form-group row">
 					<select class="form-control">
 						<option value="1">Đợt 1 Học kì I năm 16-17</option>
@@ -29,6 +30,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<!-- navBar -->
 		<div id="navBar row">
 			<div id="menu">
@@ -57,9 +59,8 @@
 				</ul>
 			</div>
 		</div>
-		<div class="clear"></div>
 		<!-- content -->
-		<div class="container-fluid">
+		<div class="container">
 			<?php
 				session_start();
 				$_SESSION['category'] = $_GET['id'];
@@ -75,23 +76,14 @@
 					include_once 'danhsachphongthi.php';
 				else if($_SESSION['category'] == 6)
 					include_once 'xulybaithi.php';
-				else
+				else if($_SESSION['category'] == 7)
 					include_once 'dontui.php';
-
-				//
-				//
-				//
-				//
-				//
-				
 			?>
 		</div>
-		<div class="clear"></div>
 		<!-- footer -->
 		<div id="footer">
 			<p> &copy; Bản quyền Trường Đại Học Khoa Học Huế </p>
 		</div>
-	</div>
 	<script type="text/javascript">
 	$('#menu li').hover(
   		function() {

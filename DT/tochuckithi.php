@@ -1,9 +1,8 @@
 <div class="row">
-	<div class="col-md-4">
 	<div class="thongtinkithi group-content">
 		<div class="main-nav">
 			<?php
-				include_once 'thongtin-main.php'; 
+				include_once 'thongtin.php'; 
 			?>
 			  	<div class="form-group"> 
 			    	<div style="text-align: center">
@@ -15,10 +14,8 @@
 			</form>
 		</div>
 	</div>
-	</div>
-	<div class="col-md-8">
 	<div class="content-kithi group-content">
-		<h3>Thông tin kì thi</h3>
+		<p class="title">Thông tin kì thi</p>
 		<div class="main-table">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
@@ -47,6 +44,5 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
 	</div>
 </div>

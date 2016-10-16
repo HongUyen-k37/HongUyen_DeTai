@@ -1,25 +1,25 @@
-<h3>Thông tin kì thi</h3>
+<p class="title">Thông tin kì thi</p>
 			<form class="form-horizontal">
 				<div class="form-group">
-			   		<label class="control-label col-sm-4">Tên kì thi:</label>
+			   		<label class="col-sm-4">Tên kì thi:</label>
 			    	<div class="col-sm-8">
 			      		<input type="text" class="form-control" id="tenkithi disabled">
 			    	</div>
 			  	</div>
 				<div class="form-group">
-			    	<label class="control-label col-sm-5" for="pwd">Năm tuyển sinh:</label>
-			    	<div class="col-sm-7"> 
+			    	<label class="col-sm-6" for="pwd">Năm tuyển sinh:</label>
+			    	<div class="col-sm-6"> 
 			      		<input type="number" class="form-control" id="namts" min="2015">
 			    	</div>
 			    </div>
 			    <div class="form-group">	
-			    	<label class="control-label col-sm-4">Ngày thi:</label>
+			    	<label class="col-sm-4">Ngày thi:</label>
 			    	<div class="col-sm-8">
 			      		<input type="text" class="form-control" id="ngaythi">
 			    	</div>
 			    </div>
-				<div class="form-group row">
-			    	<label class="control-label col-sm-4">Ngành:</label>
+				<div class="form-group">
+			    	<label class="col-sm-4">Ngành:</label>
 			    	<div class="col-sm-8">
 			      		<select class="form-control">
 							<option value="FPT">FPT</option>
@@ -28,8 +28,8 @@
 			    	</div>
 			    </div>
 			    <div class="form-group">
-			    	<label class="control-label col-sm-5">Hình thức đào tạo:</label>
-			    	<div class="col-sm-7">
+			    	<label class="col-sm-6">Hình thức đào tạo:</label>
+			    	<div class="col-sm-6">
 			    		<select class="form-control">
 							<option value="dh">Đại học</option>
 							<option value="ch">Cao học</option>
@@ -37,13 +37,13 @@
 		    		</div>
 			  	</div>
 			  	<div class="form-group">
-			    	<label class="control-label col-sm-6">Cơ sở liên kết đào tạo:</label>
+			    	<label class="col-sm-6">Cơ sở liên kết đào tạo:</label>
 			    	<div class="col-sm-6">
 			      		<input type="text" class="form-control" id="cslkdt">
 			    	</div>
 			  	</div>
 			  	<div class="form-group">
-			    	<label class="control-label col-sm-6">Danh sách các môn thi:</label>
+			    	<label class="col-sm-6">Danh sách các môn thi:</label>
 			    	<div class="col-sm-6">
 			      	<select class="form-control">
 						<option value="1">Môn 1: Toán</option>
