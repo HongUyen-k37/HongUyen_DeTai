@@ -1,4 +1,4 @@
-<h3>Thông tin kì thi</h3>
+<p class="title">Thông tin kì thi</p>
 			<form class="form-horizontal">
 				<div class="form-group">
 			   		<label class="control-label col-sm-2">Tên kì thi:</label>

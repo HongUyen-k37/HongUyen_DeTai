@@ -32,8 +32,8 @@
 		</div>
 	</div>
 		<!-- navBar -->
-		<div id="navBar row">
-			<div id="menu">
+		<div id="menu">
+			<div  class="container">
 				<ul>
 					<li><a href="login.php">Trang chủ</a></li>
 					<li> <a href="#">Tổ chức thi </a>
@@ -53,7 +53,7 @@
 					</li>
 					<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
 					<div class="log-out">
-						<label style="color: #fff;">Xin chào, admin!</label>
+						<span style="color: #fff;">Xin chào, <b>admin</b>!</span>
 						<button type="submit" class="btn btn-success">Đăng xuất</button>
 					</div>
 				</ul>
@@ -62,22 +62,47 @@
 		<!-- content -->
 		<div class="container">
 			<?php
-				session_start();
-				$_SESSION['category'] = $_GET['id'];
-				if($_SESSION['category']==1)
-					include_once 'tochuckithi.php';
-				else if($_SESSION['category'] == 2)
-					include_once 'thisinhduthi.php';
-				else if($_SESSION['category'] == 3)
-					include_once 'danhsobaodanh.php';
-				else if($_SESSION['category'] == 4)
-					include_once 'phanphongthi.php';
-				else if($_SESSION['category'] == 5)
-					include_once 'danhsachphongthi.php';
-				else if($_SESSION['category'] == 6)
-					include_once 'xulybaithi.php';
-				else if($_SESSION['category'] == 7)
-					include_once 'dontui.php';
+				// session_start();
+				// $_SESSION['category'] = $_GET['id'];
+				// if($_SESSION['category']==1)
+				// 	include_once 'tochuckithi.php';
+				// else if($_SESSION['category'] == 2)
+				// 	include_once 'thisinhduthi.php';
+				// else if($_SESSION['category'] == 3)
+				// 	include_once 'danhsobaodanh.php';
+				// else if($_SESSION['category'] == 4)
+				// 	include_once 'phanphongthi.php';
+				// else if($_SESSION['category'] == 5)
+				// 	include_once 'danhsachphongthi.php';
+				// else if($_SESSION['category'] == 6)
+				// 	include_once 'xulybaithi.php';
+				// else if($_SESSION['category'] == 7)
+				// 	include_once 'dontui.php';
+				$id=1;
+				if(isset($_GET['id'])) $id=$_GET['id'];
+				switch ($id) {
+					case 1:
+						include_once 'tochuckithi.php';
+						break;
+					case 2:
+						include_once 'thisinhduthi.php';
+						break;
+					case 3:
+						include_once 'danhsobaodanh.php';
+						break;
+					case 4:
+						include_once 'phanphongthi.php';
+						break;
+					case 5:
+						include_once 'danhsachphongthi.php';
+						break;
+					case 6:
+						include_once 'xulybaithi.php';
+						break;
+					case 7:
+						include_once 'dontui.php';
+						break;
+				}
 			?>
 		</div>
 		<!-- footer -->
