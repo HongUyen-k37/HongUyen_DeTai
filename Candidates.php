@@ -1,24 +1,4 @@
 
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="css/style_index.css" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery.min.js"></script>
-	<title>Tuyển sinh</title>
-</head>
-<body>
-<!--main content-->
 <div class="col-md-9 main-content">
 	<div class="candidates_info">
 		<div id="form" >
@@ -160,5 +140,3 @@
 <?php
 include_once 'contentNav.php';
 ?>
-</body>
-</html>

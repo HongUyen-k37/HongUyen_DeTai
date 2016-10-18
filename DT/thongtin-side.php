@@ -1,4 +1,4 @@
-<p class="title">Thông tin kì thi</p>
+<p class="title">THÔNG TIN KỲ THI</p>
 			<form class="form-horizontal">
 				<div class="form-group">
 			   		<label class="col-sm-4">Tên kì thi:</label>

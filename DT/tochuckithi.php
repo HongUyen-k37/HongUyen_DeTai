@@ -6,16 +6,17 @@
 			?>
 			  	<div class="form-group"> 
 			    	<div style="text-align: center">
-			      		<button type="submit" class="btn btn-success">Thêm</button>
-			      		<button type="submit" class="btn btn-success">Lưu</button>
-			      		<button type="submit" class="btn btn-success">Xóa</button>
+			      		<button type="submit" class="btn btn-success btn">Thêm</button>
+			      		<button type="submit" class="btn btn-success btn">Lưu</button>
+			      		<button type="submit" class="btn btn-success btn">Xóa</button>
 			    	</div>
 			  	</div>
 			</form>
 		</div>
 	</div>
 	<div class="content-kithi group-content">
-		<p class="title">Thông tin kì thi</p>
+	<div class="main-nav">
+		<p class="title">THÔNG TIN KỲ THI</p>
 		<div class="main-table">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
@@ -44,5 +45,6 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 	</div>
 </div>

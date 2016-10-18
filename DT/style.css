@@ -20,9 +20,10 @@ a:hover,a:visited,a:focus{
 	color: #20B2AA;
 	text-decoration: none;
 }
-input,input[type="submit"],button{
-	border: 1px solid #c8c8c8 !important;
-	padding: 5px 10px;
+input,input[type="submit"]{
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
 }
 h1{
 	font-size: 2.2em;
@@ -83,6 +84,7 @@ tr td{
 }
 #menu{
 	background: #3f51b5;
+	height: 30px;
 
 }
 #menu ul {
@@ -92,14 +94,16 @@ tr td{
 #menu ul li {
   	display: inline-block;
   	position: relative;
+  	height: 30px;
 }
 #menu ul li a {
   	color: #fff;
   	font-weight: bold;
   	display: block;
   	font-size: 14px;
-  	padding: 15px 14px;
+  	padding: 6px 14px;
   	transition: 0.3s linear;
+
 }
 #menu ul li:hover {
 	 background: #126d9b;
@@ -121,7 +125,7 @@ tr td{
 #menu ul li ul li a {
 	background: #373737;
   	display: block;
-  	padding: 10px 14px;
+  	padding: 6px 14px;
 }
 #menu ul li ul li a:hover { 
 	background: #126d9b; 
@@ -153,12 +157,12 @@ tr td{
 .group-content{
 	border: 1px solid #9e9e9e;
 	border-radius: 5px;
-	padding: 15px;
+	padding: 5px;
     margin: 10px 0;
+    padding-top: 2px;
 }
 .log-out{
 	float: right;
-    line-height: 50px;
 }
 .file-excel, .menu-child{
 	text-decoration: underline;
@@ -167,12 +171,36 @@ tr td{
 	margin-bottom: 7px;
 }
 .title{
-	font-size: 23px;
+	font-size: 16PX;
     text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    height: 20px;
 }
 .no-pad{
 	padding:0;
 }
 #form{
-	margin: 0 0 10px;
+	/*margin: 0 0 10px;*/
+}
+.col-md-9{
+	width: 100%;
+}
+.btn-logout{
+	height: 25px;
+    padding-top: 2px;
+    margin-top: 3px;
+}
+.col-sm-2{
+	padding-right: 5px;
+}
+.col-sm-4, .col-sm-10{
+	/*padding-left: 5px;*/
+}
+.btn{
+	height: 25px;
+	padding-top: 2px;
+}
+.main-nav{
+	margin: 5px;
 }

@@ -1,4 +1,4 @@
-<p class="title">Thông tin kì thi</p>
+<p class="title">THÔNG TIN KỲ THI</p>
 			<form class="form-horizontal">
 				<div class="form-group">
 			   		<label class="control-label col-sm-2">Tên kì thi:</label>
@@ -7,7 +7,7 @@
 			    	</div>
 			  	</div>
 				<div class="form-group row">
-			    	<label class="control-label col-sm-2" for="pwd">Năm tuyển sinh</label>
+			    	<label class="control-label col-sm-2" for="pwd">Năm tuyển sinh:</label>
 			    	<div class="col-sm-4"> 
 			      		<input type="number" class="form-control" id="namts" min="2015">
 			    	</div>

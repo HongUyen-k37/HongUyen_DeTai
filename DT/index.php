@@ -20,15 +20,6 @@
 			<div class="col-md-9">
 				<p>CHƯƠNG TRÌNH QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 			</div>
-			<div class="choose-year col-md-3">
-				<div class="form-group row">
-					<select class="form-control">
-						<option value="1">Đợt 1 Học kì I năm 16-17</option>
-						<option value="2">Đợt 2 Học kì I năm 16-17</option>
-						<option value="3">Đợt 3 Học kì I năm 16-17</option>
-					</select>
-				</div>
-			</div>
 		</div>
 	</div>
 		<!-- navBar -->
@@ -54,7 +45,7 @@
 					<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
 					<div class="log-out">
 						<span style="color: #fff;">Xin chào, <b>admin</b>!</span>
-						<button type="submit" class="btn btn-success">Đăng xuất</button>
+						<button type="submit" class="btn btn-success btn-logout">Đăng xuất</button>
 					</div>
 				</ul>
 			</div>

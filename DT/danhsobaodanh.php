@@ -9,7 +9,7 @@
 	</div>
 	<div class="content-kithi" style="width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
 		<div class="numbered-list">
-		<h3>Đánh số báo danh</h3>
+		<h3>ĐÁNH SỐ BÁO DANH</h3>
 		<form style="width: 50%; margin-left: 25%;">
 			<div class="form-group row">
 			<label class="col-md-4" for="tdn">Tiếp đầu ngữ:</label>
@@ -35,7 +35,7 @@
 		</form>
 	</div>
 	<div class="details-list">
-		<h3>Danh sách các thí sinh dự thi</h3>
+		<h3>DANH SÁCH CÁC THÍ SINH DỰ THI</h3>
 		<div class="main-list">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>

@@ -11,8 +11,8 @@
 	</div>
 	<div class="col-md-8">
 	<div class="content-kithi group-content">
-		<div id="form" class="row no-pad" >
-			<p class="title">Thông tin thí sinh dự thi</p>
+		<div id="form" class="row main-nav" >
+			<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>
 			<form action="" class="form-horizontal" method="POST" role="form">
 				<div class="col-md-6">
 					<div class="form-group ">
