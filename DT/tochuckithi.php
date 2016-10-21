@@ -6,9 +6,9 @@
 			?>
 			  	<div class="form-group"> 
 			    	<div style="text-align: center">
-			      		<button type="submit" class="btn btn-success btn">Thêm</button>
-			      		<button type="submit" class="btn btn-success btn">Lưu</button>
-			      		<button type="submit" class="btn btn-success btn">Xóa</button>
+			      		<button type="submit" class="btn btn-success btn-all">Thêm</button>
+			      		<button type="submit" class="btn btn-success btn-all">Lưu</button>
+			      		<button type="submit" class="btn btn-success btn-all">Xóa</button>
 			    	</div>
 			  	</div>
 			</form>

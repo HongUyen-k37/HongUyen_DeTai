@@ -18,7 +18,7 @@
 		<!--Header -->
 		<div id="header" class="row">
 			<div class="col-md-9">
-				<p>CHƯƠNG TRÌNH QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
+				<p>CHƯƠNG TRÌNH<br>QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 			</div>
 		</div>
 	</div>
@@ -45,7 +45,7 @@
 					<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
 					<div class="log-out">
 						<span style="color: #fff;">Xin chào, <b>admin</b>!</span>
-						<button type="submit" class="btn btn-success btn-logout">Đăng xuất</button>
+						<button type="submit" class="btn btn-success btn-all">Đăng xuất</button>
 					</div>
 				</ul>
 			</div>
