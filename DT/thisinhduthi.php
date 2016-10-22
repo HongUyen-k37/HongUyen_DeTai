@@ -4,7 +4,8 @@
 			<div class="main-nav">
 				<?php
 					include_once 'thongtin-side.php'; 
-				?>
+				?>  
+				</form>
 			</div>
 		</div>
 	</div>
@@ -36,7 +37,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-2 no-pad" for="email">Email</label>
+						<label class="col-md-2 no-pad" for="email">Email:</label>
 						<div class="col-md-10">
 							<input type="text" class="form-control" name="email">
 						</div>
@@ -55,7 +56,7 @@
 							<input type="text" class="form-control" name="birthday">
 						</div>
 					</div>
-						<div class="form-group">
+					<div class="form-group">
 						<label class="col-md-4 no-pad" for="area">Khu vực:</label>
 						<div class="col-md-8 ">
 							<select class="form-control" name="area">
@@ -78,8 +79,8 @@
 						<div class=" no-pad">
 							<textarea class="form-control" rows="4" cols="100" name="address"></textarea>
 						</div>
-					</div>
-		<div class="btn-center">
+		</div>
+		<div class="btn-gr">
 					<button type="submit" class="btn btn-success btn-all" name='add'>Thêm</button>
 					<button type="submit" class="btn btn-success btn-all" name='update'>Lưu</button>
 					<button type="submit" class="btn btn-success btn-all" name='delete'>Xoá</button>

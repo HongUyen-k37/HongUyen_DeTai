@@ -155,8 +155,8 @@ tr td{
 /*quoc-edit*/
 .group-content{
 	border: 1px solid #9e9e9e;
-	border-radius: 5px;
-	padding: 5px;
+    border-radius: 5px;
+    padding: 5px;
     margin: 10px 0;
     padding-top: 2px;
 }
@@ -177,8 +177,7 @@ tr td{
     height: 20px;
 }
 .no-pad{
-	padding-left: 0;
-	padding-right: 0;
+	padding: 0;
 }
 .col-md-9{
 	width: 100%;
@@ -188,7 +187,6 @@ tr td{
     padding-top: 2px;
     margin-top: 3px;
     font-size: 13px;
-    margin-bottom: 15px;
 }
 .pad-5{
 	padding-right: 0px;
@@ -204,8 +202,9 @@ tr td{
 .form-control{
 	font-size: 13px;
 }
-.btn-center{
+.btn-gr{
 	text-align: center;
+	margin-bottom: 15px;
 }
 .details_info{
 	margin: 5px;
