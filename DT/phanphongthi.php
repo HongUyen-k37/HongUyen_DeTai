@@ -9,25 +9,25 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="group-content content-kithi">
-			<div class="room">
-			<h3>Phòng thi</h3>
-			<form style="width: 50%; margin-left: 25%;">
+		<div class="group-content">
+			<div class="row main-nav">
+			<p class="title">PHÒNG THI</p>
+			<form>
 				<div class="form-group row">
 					<label class="col-md-4" for="first-name">Số hiệu phòng thi:</label>
-					<div class="col-md-8 ">
+					<div class="col-md-8">
 						<input type="text" class="form-control" name="shpt">
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-md-4" for="first-name">Số lượng thí sinh:</label>
-					<div class="col-md-8 ">
+					<div class="col-md-8">
 						<input type="text" class="form-control" name="slts">
 					</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-md-4" for="sl">Danh sách:</label>
-				<div class="col-md-8 ">
+				<div class="col-md-8">
 					<select class="form-control">
 						<option value="xtc">Xem tất cả</option>
 						<option value="01">Phòng số 01</option>
@@ -38,7 +38,7 @@
 				</div>
 			</form>
 			</div>
-			<div class="list-room">
+			<div class="details_info">
 				<table class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
@@ -75,10 +75,10 @@
 				</table>
 				<div class="row">
 					<div class="col-sm-10">
-						<p>Danh sách gồm có : <span> 50/100 </span> sinh viên</p>
+						<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
 					</div>
-					<div class="btn-group col-sm-2">
-						<button type="submit" class="btn btn-success" name='bienche'>Biên chế</button>
+					<div class="btn-group">
+						<button type="submit" class="btn btn-success btn-all" name='bienche'>Biên chế</button>
 					</div>
 				</div>
 			</div>
