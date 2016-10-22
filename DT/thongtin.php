@@ -41,10 +41,6 @@
 			  	<div class="form-group">
 			    	<label class="control-label col-sm-2 pad-5">Danh sách các môn thi:</label>
 			    	<div class="col-sm-4">
-			      	<select class="form-control">
-						<option value="1">Môn 1: Toán</option>
-						<option value="2">Môn 2: Lý</option>
-						<option value="3">Môn 3: Hóa</option>
-					</select>
+			      		<textarea class="form-control" rows="3"></textarea>
 			   		 </div>
 			  	</div>

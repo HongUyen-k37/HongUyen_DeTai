@@ -177,7 +177,8 @@ tr td{
     height: 20px;
 }
 .no-pad{
-	padding:0;
+	padding-left: 0;
+	padding-right: 0;
 }
 .col-md-9{
 	width: 100%;
@@ -187,9 +188,10 @@ tr td{
     padding-top: 2px;
     margin-top: 3px;
     font-size: 13px;
+    margin-bottom: 15px;
 }
 .pad-5{
-	padding-right: 5px;
+	padding-right: 0px;
 }
 .main-nav{
 	margin: 5px;
@@ -201,4 +203,10 @@ tr td{
 }
 .form-control{
 	font-size: 13px;
+}
+.btn-center{
+	text-align: center;
+}
+.details_info{
+	margin: 5px;
 }
