@@ -1,16 +1,18 @@
 <div class="row">
-	<div class="thongtinkithi" style="width:95%;margin:25px auto;border:1px solid #ccc;">
-		<div class="main-nav" style="margin:30px;">
-			<?php
-				include_once 'thongtin.php'; 
-			?>  
-			</form>
+	<div class="col-md-4 no-pad">
+		<div class="thongtinkithi group-content">
+			<div class="main-nav">
+				<?php
+					include_once 'thongtin-side.php'; 
+				?>
+			</div>
 		</div>
 	</div>
-	<div class="content-kithi" style="width:95%;margin:25px auto;padding:30px;border:1px solid #ccc;">
-		<div class="numbered-list">
-		<h3>XỬ LÝ BÀI THI</h3>
-		<h4 style="margin-left: 100px;">Phòng thi</h4>
+	<div class="col-md-8">
+		<div class="group-content">
+			<div class="row main-nav">
+			<p class="title">XỬ LÝ BÀI THI</p>
+		<h6><b>Phòng thi</b></h6>
 		<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
@@ -26,8 +28,8 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="details-list">
-		<h3>Danh sách các thí sinh dự thi</h3>
+	<div class="details_info">
+		<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 		<div class="main-list">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
@@ -88,13 +90,14 @@
 				</tr>
 			</tbody>
 			</table>
-			<div class="totalCandidates">
-					<p>Danh sách gồm có : <span> 50/100 </span> sinh viên</p>
+			<div class="col-sm-10">
+					<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
 			</div>
 			<div class="btn-group">
-				<button type="submit" class="btn btn-success" name='execute' style="margin-left: 100px;">In Danh sách</button>
+				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
 			</div>
 		</div>
 	</div>
 	</div>
+</div>
 </div>

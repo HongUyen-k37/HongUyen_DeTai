@@ -14,7 +14,7 @@
 			</form>
 		</div>
 	</div>
-	<div class="content-kithi group-content">
+	<div class="group-content">
 	<div class="main-nav">
 		<p class="title">THÔNG TIN KỲ THI</p>
 		<div class="main-table">
