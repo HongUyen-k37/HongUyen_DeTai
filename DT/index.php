@@ -9,7 +9,6 @@
 	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/style_index.css" /> -->
 	<!-- <link href="css/bootstrap-theme.css" rel="stylesheet"> -->
-	
 	<script src="//code.jquery.com/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<title>Tuyển sinh</title>
@@ -17,10 +16,8 @@
 <body>
 	<div class="container">
 		<!--Header -->
-		<div id="header" class="row">
-			<div class="col-md-9">
-				<p>CHƯƠNG TRÌNH<br>QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
-			</div>
+		<div id="header">
+			<p>CHƯƠNG TRÌNH<br>QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 		</div>
 	</div>
 		<!-- navBar -->
