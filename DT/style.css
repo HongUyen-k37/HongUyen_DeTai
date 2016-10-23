@@ -133,6 +133,7 @@ tr td{
 	float: right;
 	height: 500px;
 	border-left: 1px solid #ccc;
+	text-align: left;
 }
 #sidebar .login{
 	margin: 20px;
@@ -205,4 +206,7 @@ tr td{
 }
 .details_info{
 	margin: 5px;
+}
+.control-label{
+	text-align: left;
 }
