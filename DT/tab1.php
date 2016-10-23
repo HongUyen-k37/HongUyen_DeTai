@@ -1,19 +1,17 @@
-<div class="content-room row">
+<div class="main-nav row">
 			<div class="title-content">
 				<div class="title-left col-md-6">
-					<h4>Trường đại học khoa học</h4>
-					<h5>Hội đồng tuyển sinh năm</h5>
+					<h5>Trường đại học khoa học</h5>
+					<h6>Hội đồng tuyển sinh năm 2016</h6>
 				</div>
 				<div class="title-right col-md-6">
-					<h4>Danh sách thí sinh đăng ký dự thi</h4>
-					<h5>Loại hình đào tạo: Đại học bằng 2- vừa làm vừa học</h5>
+					<h5>Danh sách thí sinh đăng ký dự thi</h5>
+					<h6>Loại hình đào tạo: Đại học bằng 2- vừa làm vừa học</h6>
 				</div>
 			</div>
-			<div class="branch col-md-12">
-				<p id="name">Ngành: <span>Báo chí</span></p>
-			</div>
-<div class="room-info">
-	<h5>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</h5>
+			<p id="name" style="text-align: center">Ngành: <span>Báo chí</span></p>
+<div>
+	<h6>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</h6>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 		<tr>
@@ -54,4 +52,5 @@
 			<p>Chủ tịch</p>
 		</div>
 	</div>
+</div>
 </div>
