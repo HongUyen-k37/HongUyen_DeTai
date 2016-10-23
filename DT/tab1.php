@@ -9,9 +9,10 @@
 					<h6>Loại hình đào tạo: Đại học bằng 2- vừa làm vừa học</h6>
 				</div>
 			</div>
-			<p id="name" style="text-align: center">Ngành: <span>Báo chí</span></p>
-<div>
-	<h6>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</h6>
+			<div style="text-align: center">	
+				<p>Ngành: <span>Báo chí</span></p>
+				<p>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</p>
+			</div>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 		<tr>
@@ -44,13 +45,12 @@
 	</table>
 	<div class="row totalCandidates">
 		<div class="col-md-7">
-			<p>Danh sách gồm có : <span> 50/100 </span> sinh viên</p>
+			<p>Danh sách gồm có: <span> 50/100 </span> sinh viên.</p>
 		</div>
-		<div class="col-md-5 btn-group">
+		<div class="col-md-5 btn-group" style="text-align: center">
 			<p>Thừa Thiên Huế, ngày 10 tháng 12 năm 2016</p>
-			<p>T.M. Hộ đồng tuyển sinh</p>
+			<p>T.M. Hội đồng tuyển sinh</p>
 			<p>Chủ tịch</p>
 		</div>
 	</div>
-</div>
 </div>
