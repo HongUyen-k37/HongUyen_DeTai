@@ -219,3 +219,17 @@ tr td{
 .control-label{
 	text-align: left;
 }
+li.export-excel{
+	float:right;
+}
+li.export-excel>a{
+	color: #FFF;
+	background-color: #607D8B;
+	margin: 0;
+}
+li.export-excel>a:hover,li.export-excel>a:focus{
+	color: #20B2AA;
+}
+.group-content .nav>li>a{
+	padding: 6px 10px;
+}

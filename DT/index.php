@@ -9,8 +9,9 @@
 	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/style_index.css" /> -->
 	<!-- <link href="css/bootstrap-theme.css" rel="stylesheet"> -->
-	<script src="js/bootstrap.min.js"></script>
+	
 	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<title>Tuyển sinh</title>
 </head>
 <body>
