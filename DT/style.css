@@ -186,7 +186,7 @@ tr td{
 	padding: 0;
 }
 .col-md-9{
-	width: 100%;
+	/*width: 100%;*/
 }
 .btn-all{
 	padding: 4px 10px;
@@ -240,4 +240,7 @@ li.export-excel>a:hover,li.export-excel>a:focus{
     border-bottom: 1px solid #DDD;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+.form-group > label{
+	padding-top: 6px;
 }

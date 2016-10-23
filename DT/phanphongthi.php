@@ -14,20 +14,20 @@
 			<p class="title">PHÒNG THI</p>
 			<form>
 				<div class="form-group row">
-					<label class="col-md-4" for="first-name">Số hiệu phòng thi:</label>
-					<div class="col-md-8">
+					<label class="col-md-3" for="first-name">Số hiệu phòng thi:</label>
+					<div class="col-md-9">
 						<input type="text" class="form-control" name="shpt">
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-md-4" for="first-name">Số lượng thí sinh:</label>
-					<div class="col-md-8">
+					<label class="col-md-3" for="first-name">Số lượng thí sinh:</label>
+					<div class="col-md-9">
 						<input type="text" class="form-control" name="slts">
 					</div>
 				</div>
 				<div class="form-group row">
-				<label class="col-md-4" for="sl">Danh sách:</label>
-				<div class="col-md-8">
+				<label class="col-md-3" for="sl">Danh sách:</label>
+				<div class="col-md-9">
 					<select class="form-control">
 						<option value="xtc">Xem tất cả</option>
 						<option value="01">Phòng số 01</option>
