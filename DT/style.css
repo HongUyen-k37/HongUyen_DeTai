@@ -61,15 +61,15 @@ tr td{
 /***********************Style header*************************/
 #header{
 	width: 100%;
-	height: 100px;
 	background:  #fff;
-	margin: 0 auto; 	
+	margin: 0 auto; 
+	margin-bottom: 10px;	
 }
 #header p{
 	text-align: center;
     color: #F44336;
     font-size: 20px;
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
     font-weight: bold;
 }
 #header .choose-year{
@@ -84,7 +84,6 @@ tr td{
 }
 #menu{
 	background: #3f51b5;
-	height: 30px;
 
 }
 #menu ul {
@@ -94,13 +93,12 @@ tr td{
 #menu ul li {
   	display: inline-block;
   	position: relative;
-  	height: 30px;
 }
 #menu ul li a {
   	color: #fff;
   	display: block;
   	font-size: 14px;
-  	padding: 6px 14px;
+  	padding: 8px 12px;
   	transition: 0.3s linear;
 
 }
@@ -111,7 +109,7 @@ tr td{
  	border-bottom: 5px solid #2ba0db;
   	display: none;
   	position: absolute;
-  	width: 250px;
+  	width: 220px;
   	z-index: 1;
 }
 #menu ul li ul li {
@@ -124,7 +122,7 @@ tr td{
 #menu ul li ul li a {
 	background: #373737;
   	display: block;
-  	padding: 6px 14px;
+  	padding: 8px 12px;
 }
 #menu ul li ul li a:hover { 
 	background: #126d9b; 
@@ -154,14 +152,21 @@ tr td{
 
 /*quoc-edit*/
 .group-content{
-	border: 1px solid #9e9e9e;
+	border: 1px solid #a4adc5;
     border-radius: 5px;
     padding: 5px;
     margin: 10px 0;
-    padding-top: 2px;
+}
+.group-content .form-control{
+	padding: 6px 10px;
+	height: 100%;
+}
+.group-content label.control-label{
+	padding-top: 6px;
 }
 .log-out{
 	float: right;
+	line-height: 36px;
 }
 .file-excel, .menu-child{
 	text-decoration: underline;
@@ -183,10 +188,11 @@ tr td{
 	width: 100%;
 }
 .btn-all{
-	height: 25px;
-    padding-top: 2px;
-    margin-top: 3px;
+	padding: 4px 10px;
     font-size: 13px;
+}
+.log-out .btn-all{
+	margin-top: -2px;
 }
 .pad-5{
 	padding-right: 0px;
