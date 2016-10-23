@@ -199,8 +199,9 @@ tr td{
 	padding-right: 0px;
 }
 .main-nav{
-	margin: 5px;
-	font-size: 13px;
+    margin: 0;
+    font-size: 13px;
+    padding: 5px;
 }
 .table > thead > tr > th, .table > tbody > tr > td{
 	padding: 5px;
@@ -232,4 +233,11 @@ li.export-excel>a:hover,li.export-excel>a:focus{
 }
 .group-content .nav>li>a{
 	padding: 6px 10px;
+}
+.tab-pane .main-nav{
+	border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }

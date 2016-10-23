@@ -1,4 +1,4 @@
-<div class="content-room row">
+<div class="main-nav row">
 	<div class="title-content">
 		<div class="title-left col-md-6">
 			<h4>Trường đại học khoa học</h4>
