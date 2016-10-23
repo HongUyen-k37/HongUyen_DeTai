@@ -37,6 +37,11 @@
 				</div>
 				</div>
 			</form>
+			<div class="btn-gr">
+			<button type="submit" class="btn btn-success btn-all" name="add">Thêm</button>
+			<button type="submit" class="btn btn-success btn-all" name="update">Lưu</button>
+			<button type="submit" class="btn btn-success btn-all" name="delete">Xoá</button>
+		</div>
 			</div>
 			<div class="list-room">
 				<table class="table table-bordered table-hover table-striped">
