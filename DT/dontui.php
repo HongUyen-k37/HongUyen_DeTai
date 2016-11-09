@@ -14,21 +14,23 @@
 		<p class="title">DỒN TÚI</p>
 		<form>
 			<div class="form-group row">
-				<label class="col-md-2" for="tdn">Cơ số phòng:</label>
-				<div class="col-md-10">
+				<div class="col-md-6">
+				<label class="col-md-4">Cơ số phòng:</label>
+				<div class="col-md-8">
 					<input type="number" class="form-control" name="cosophong" min="1">
 				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-md-2" for="sbd">Cơ số túi:</label>
-				<div class="col-md-10">
+				</div>
+				<div class="col-md-6">
+				<label class="col-md-4">Cơ số túi:</label>
+				<div class="col-md-8">
 					<input type="number" class="form-control" name="cosotui" min="1">
+				</div>
 				</div>
 			</div>
 			<div class="btn-gr">
 				<button type="submit" class="btn btn-success btn-all" name='execute'>Thực hiện</button>
 			</div>
-			<div class="row">
+			<div class="row form-group">
 				<div class="col-md-5 no-pad">
 					<div class="col-md-2">
 						<label>Lượt:</label>

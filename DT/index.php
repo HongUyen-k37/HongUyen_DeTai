@@ -20,6 +20,8 @@
 			<p>CHƯƠNG TRÌNH<br>QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 		</div>
 	</div>
+
+	
 		<!-- navBar -->
 		<div id="menu">
 			<div  class="container">
@@ -38,6 +40,8 @@
 					<ul>
 						<li><a href="index.php?id=6">Xử lý bài thi</a></li>
 						<li><a href="index.php?id=7">Dồn túi phách</a></li>
+						<li><a href="index.php?id=8">Nhập điểm thi</a></li>
+						<li><a href="index.php?id=9">Xác định điểm chuẩn</a></li>
 					</ul>
 					</li>
 					<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
@@ -91,6 +95,12 @@
 					case 7:
 						include_once 'dontui.php';
 						break;
+					case 8:
+						include_once 'nhapdiemthi.php';
+						break;
+					case 9:
+						include_once 'xacdinhdiemchuan.php';
+						break;		
 				}
 			?>
 		</div>
