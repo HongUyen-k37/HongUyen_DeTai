@@ -13,14 +13,14 @@
 			<div class="row main-nav">
 		<p class="title">DỒN TÚI</p>
 		<form>
-			<div class="form-group row">
-				<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-6 form-group">
 				<label class="col-md-4">Cơ số phòng:</label>
 				<div class="col-md-8">
 					<input type="number" class="form-control" name="cosophong" min="1">
 				</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 form-group">
 				<label class="col-md-4">Cơ số túi:</label>
 				<div class="col-md-8">
 					<input type="number" class="form-control" name="cosotui" min="1">
@@ -30,17 +30,17 @@
 			<div class="btn-gr">
 				<button type="submit" class="btn btn-success btn-all" name='execute'>Thực hiện</button>
 			</div>
-			<div class="row form-group">
-				<div class="col-md-5 no-pad">
-					<div class="col-md-2">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="col-md-2 form-group">
 						<label>Lượt:</label>
 					</div>
 					<div class="col-md-10">
 						<input class="form-control" type="number" name="luot">
 					</div>
 				</div>
-				<div class="col-md-7 no-pad">
-					<div class="col-md-4 no-pad">
+				<div class="col-md-7">
+					<div class="col-md-4 no-pad form-group">
 						<label>/Số lượt thực hiện:</label>
 					</div>
 					<div class="col-md-8">
@@ -92,7 +92,36 @@
 						<td>005</td>
 						<td>171</td>
 				</tr>
-
+			</thead>
+			<thead>
+				<tr>
+					<th></th>
+						<td>001</td>
+						<td>167</td>
+						<td>002</td>
+						<td>168</td>
+						<td></td>
+						<td></td>
+						<td>004</td>
+						<td>170</td>
+						<td>005</td>
+						<td>171</td>
+				</tr>
+			</thead>
+			<thead>
+				<tr>
+					<th></th>
+						<td>001</td>
+						<td>167</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>004</td>
+						<td>170</td>
+						<td></td>
+						<td></td>
+				</tr>
 			</thead>
 			<thead>
 				<tr>

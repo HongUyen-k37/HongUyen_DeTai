@@ -12,21 +12,21 @@
 		<div class="group-content">
 			<div class="row main-nav">
 				<p class="title">XÁC ĐỊNH ĐIỂM CHUẨN</p>
-				<div class="col-md-6 form-group row">
+				<div class="row">
+				<div class="col-md-6 form-group">
 					<label class="col-md-4">Điểm liệt:</label>
 					<div class="col-md-8">
 						<input type="number" class="form-control" name="diemliet">
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<form>
+				<div class="col-sm-6 form-group">
 						<input type="radio" name="" checked>Bằng hoặc nhỏ hơn điểm liệt
 						<input type="radio" name="">Nhỏ hơn điểm liệt
-					</form>
 				</div>
-				<div>
-					<label class="col-md-6">Điểm chuẩn cho khu vực 3 - không ưu tiên:</label>
-					<div class="col-md-6">
+				</div>
+				<div class="form-group row">
+					<label class="col-md-5">Điểm chuẩn cho khu vực 3 - không ưu tiên:</label>
+					<div class="col-md-7">
 						<input type="number" class="form-control" name="diemchuan">
 					</div>
 				</div>
