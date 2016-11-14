@@ -20,8 +20,8 @@
 					</div>
 				</div>
 				<div class="col-sm-6 form-group">
-						<input type="radio" name="" checked>Bằng hoặc nhỏ hơn điểm liệt
-						<input type="radio" name="">Nhỏ hơn điểm liệt
+						<input type="radio" name="" checked><label>Bằng hoặc nhỏ hơn điểm liệt</label><br>
+						<input type="radio" name=""><label>Nhỏ hơn điểm liệt</label>
 				</div>
 				</div>
 				<div class="form-group row">
