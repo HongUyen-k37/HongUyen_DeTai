@@ -1,0 +1,1072 @@
+\chapter[Logic mô tả và cơ sở tri thức]{LOGIC MÔ TẢ VÀ CƠ SỞ TRI THỨC}
+\label{Chapter1}
+\thispagestyle{fancy}
+
+%-------------------------------------------------------------------
+\section{Giới thiệu về logic mô tả}
+\label{sec:Chap1.Introduction}
+\subsection{Tổng quan về logic mô tả}
+\label{sec:Chap1.Overview}
+Các nghiên cứu về biểu diễn tri thức được đặt ra từ những năm 70 của thế kỷ XX. Những công trình nghiên cứu đầu tiên về lĩnh vực này dựa trên hướng tiếp cận phi logic. Hướng tiếp cận này sử dụng đồ thị làm nền tảng, trong đó tri thức được biểu diễn bằng những cấu trúc dữ liệu đặc biệt và việc suy luận được thực hiện thông qua các thủ tục thao tác trên những cấu trúc đó. Năm 1967, Quillian~\cite{Quillian1967} đã sử dụng {\em mạng ngữ nghĩa} ({\em semantic networks}) để biểu diễn và suy luận tri thức thông qua các cấu trúc nhận thức dạng mạng lưới. Sau đó, năm 1974, Minsky giới thiệu {\em hệ thống khung} ({\em frame systems}) dựa trên các khái niệm về một ``khung'' như một giao thức và khả năng biểu diễn các mối quan hệ giữa các khung~\cite{Minski1974}. Hướng tiếp cận này đã không trang bị ngữ nghĩa dựa trên logic hình thức. Để khắc phục nhược điểm về ngữ nghĩa, người ta biểu diễn tri thức theo hướng tiếp cận dựa trên logic. Đối với hướng tiếp cận này ngôn ngữ biểu diễn thường là một biến thể của logic vị từ bậc nhất và việc tính toán, suy luận thường dựa vào các hệ quả logic.
+
+Logic mô tả được thiết kế như là một sự mở rộng của mạng ngữ nghĩa và hệ thống khung với ngữ nghĩa dựa trên logic. Thuật ngữ ``{\em logic mô tả}'' được sử dụng rộng rãi từ những năm 80 của thế kỷ XX. Logic mô tả là một họ các ngôn ngữ hình thức rất thích hợp cho việc biểu diễn và suy luận tri thức trong một miền quan tâm cụ thể~\cite{DLHandbook2007}. Ngày nay, cùng với sự phát triển của các hệ thống biểu diễn tri thức, logic mô tả đã trở thành một nền tảng quan trọng của Web ngữ nghĩa do nó được sử dụng để cung cấp mô hình lý thuyết trong việc thiết kế các ontology.
+%{\em bản thể} ({\em Ontology}).
+
+Năm 1985, hệ thống biểu diễn tri thức dựa trên logic mô tả đầu tiên \textsc{KL-one}~\cite{Schmolze1983,Brachman1986} ra đời đánh dấu một sự khởi đầu mạnh mẽ về nghiên cứu logic mô tả. Một số hệ thống biểu diễn tri thức dựa trên logic mô tả khác tiếp tục xuất hiện sau đó là LOOM~(1987), BACK~(1988), CLASSIC~(1991). Các hệ thống này có bộ suy luận sử dụng các {\em thuật toán bao hàm cấu trúc}. Gần đây, các hệ thống biểu diễn tri thức sử dụng các ngôn ngữ logic mô tả có khả năng biểu diễn tốt hơn như \SHOIN, \SHOIQ, \SROIQ,\,\ldots\, và các bộ suy luận hiệu quả hơn như FaCT~(1998), RACER~(2001), CEL~(2005) và KAON~2~(2005)~\cite{Sattler2014}. Các bộ suy luận này sử dụng các {\em thuật toán tableaux}.
+
+Logic mô tả được xây dựng dựa vào ba thành phần cơ bản gồm tập các {\em cá thể} (có thể hiểu như là các đối tượng), tập các {\em khái niệm nguyên tố} (có thể hiểu như là các lớp, các vị từ một đối) và tập các {\em vai trò nguyên tố} (có thể hiểu như là các quan hệ hai ngôi, các vị từ hai đối).
+%
+Các logic mô tả khác nhau được đặc trưng bởi tập các {\em tạo tử khái niệm} và {\em tạo tử vai trò} mà nó được phép sử dụng để xây dựng các {\em khái niệm phức}, {\em vai trò phức} từ các khái niệm nguyên tố (còn được gọi là {\em tên khái niệm}) và vai trò nguyên tố (còn được gọi là {\em tên vai~trò}).
+
+\begin{Example}\label{ex:PrimitiveConcept}
+	Giả sử chúng ta có các cá thể, khái niệm nguyên tố và vai trò nguyên tố như sau:\\[1.0ex]	
+	\begin{tabular}{c l l}
+		& $\iLAN, \iHAI, \iHUNG$  & là các cá thể, \\[0.5ex]
+		& $\Human$   & là khái niệm chỉ các đối tượng là người, \\[0.5ex]
+		& $\Female$  & là khái niệm chỉ các đối tượng là giống cái,\\[0.5ex]
+		% $\Male$ là khái niệm chỉ các đối tượng là giống đực\\
+		& $\Rich$    & là khái niệm chỉ những đối tượng giàu có,\\[0.5ex]
+		& $\hasChild$& là vai trò chỉ đối tượng này có con là đối tượng kia,\\[0.5ex]
+		& $\hasDescendant$& là vai trò chỉ đối tượng này có con cháu là đối tượng kia,\\[0.5ex]
+		& $\marriedTo$& là vai trò chỉ đối tượng này kết hôn với đối tượng kia.
+	\end{tabular}
+	
+	Với những khái niệm nguyên tố, vai trò nguyên tố đã cho ở trên và các tạo tử {\em phủ định của khái niệm} ($\neg$), {\em giao của các khái niệm} ($\mand$), {\em hợp của các khái niệm} ($\mor$), {\em lượng từ hạn chế tồn tại} ($\E$), {\em lượng từ hạn chế với mọi} ($\V$), chúng ta có thể xây dựng các khái niệm phức như sau:\\[1.0ex]
+	\begin{tabular}{c l l}
+		& $\Human \mand \Female$ &\!\!\!là khái niệm chỉ các đối tượng là người phụ nữ,\\[0.5ex]
+		& $\neg \Female$         &\!\!\!là khái niệm chỉ các đối tượng là giống đực,\\[0.5ex]
+		& $\Human \mand \neg \Female$ &\!\!\!là khái niệm chỉ các đối tượng là người đàn ông,\\[0.5ex]
+		& $\Human \mand \E \hasChild.\Female$ &\!\!\!là khái niệm chỉ các đối tượng là người có con gái,\\[0.5ex]
+		& $\Human \mand \E \marriedTo.\Human$ &\!\!\!là khái niệm chỉ những người đã kết hôn,\\[0.5ex]
+		& $\Human \mand \Female \mand \Rich$  &\!\!\!là khái niệm chỉ những người phụ nữ giàu có,\\[0.5ex]
+		& $\Human \mand \V \hasChild.\Female$ &\!\!\!là khái niệm chỉ những người chỉ có toàn con gái\\[-0.45ex]
+		&                                     &\!\!\!hoặc người không có con.
+	\end{tabular}
+	
+	Ngoài ra chúng ta có thể dùng {\em khái niệm đỉnh} (ký hiệu $\top$), khái niệm đại diện cho tất cả các đối tượng, và {\em khái niệm đáy} (ký hiệu $\bot$), khái niệm không đại diện cho bất kỳ đối tượng nào, để xây dựng các khái niệm phức. Chẳng hạn như sau:\\[1.0ex]
+	\begin{tabular}{c l l}
+		& $\Human \mand \E \hasChild.\top$ & là khái niệm chỉ các đối tượng là người có con,\\[0.5ex]
+		& $\Human \mand \V \hasChild.\bot$ & là khái niệm chỉ những người không có con.\hspace{2.03cm}\myend
+	\end{tabular}
+\end{Example}
+
+\subsection{Biểu diễn tri thức trong logic mô tả}
+\label{sec:Chap1.KnowledgeRepresentation}
+
+Từ các cá thể, các khái niệm và các vai trò, người ta có thể xây dựng một hệ thống để biểu diễn và suy luận tri thức dựa trên logic mô tả. Thông thường, một hệ thống biểu diễn và suy luận tri thức gồm có các thành phần sau~\cite{DLHandbook2007}:
+
+\begin{figure}[h]
+	\setlength{\unitlength}{1cm}
+	\begin{picture}(15, 6.0)(0,0)
+	\put(1.9,2.8){\circle{3}}
+	\put(1.6,2.65){\text{\textbf{DL}}}
+	\put(0.8,1.8){\text{\textbf{Logic mô tả}}}
+	\put(2.0,2.1){\vector(1,-2){1.0}}
+	\put(2.0,3.5){\vector(1,2){1.0}}
+	
+	\put(3,0){\framebox(7,6.0)}
+	\put(3.9,5.1){\text{\textbf{KB - CƠ SỞ TRI THỨC}}}
+	
+	\put(3.4,0.5){\framebox(6.2,1.1)}
+	\put(4.2,0.9){\text{\textbf{ABox - Bộ khẳng định}}}
+	
+	\put(3.4,2.0){\framebox(6.2,1.1)}
+	\put(3.5,2.4){\text{\textbf{TBox - Bộ tiên đề thuật ngữ}}}
+	
+	\put(3.4,3.5){\framebox(6.2,1.1)}
+	\put(3.8,3.9){\text{\textbf{RBox - Bộ tiên đề vai trò}}}
+	
+	\put(10.0,4.0){\vector(1,0){1.0}}
+	\put(11.0,3.0){\vector(-1,0){1.0}}
+	\put(10.0,2.0){\vector(1,0){1.0}}
+	\put(11.0,1.0){\vector(-1,0){1.0}}
+	
+	\put(11,0){\framebox(1,6.0)}
+	\put(11.35,5.60){\text{H}}
+	\put(11.35,5.15){\text{Ệ}}
+	
+	\put(11.35,4.75){\text{T}}
+	\put(11.35,4.35){\text{H}}
+	\put(11.35,3.90){\text{Ố}}
+	\put(11.35,3.55){\text{N}}
+	\put(11.35,3.15){\text{G}}
+	
+	\put(11.40,2.75){\text{S}}
+	\put(11.35,2.35){\text{U}}
+	\put(11.35,1.95){\text{Y}}
+	
+	\put(11.38,1.50){\text{L}}
+	\put(11.35,1.05){\text{U}}
+	\put(11.35,0.60){\text{Ậ}}
+	\put(11.35,0.15){\text{N}}
+	
+	\put(12.0,4.5){\vector(1,0){1.0}}
+	\put(13.0,3.5){\vector(-1,0){1.0}}
+	\put(12.0,2.5){\vector(1,0){1.0}}
+	\put(13.0,1.5){\vector(-1,0){1.0}}
+	
+	\put(13,0){\framebox(1,6.0)}
+	\put(13.35,4.75){\text{\textbf{G}}}
+	\put(13.42,4.25){\text{\textbf{I}}}
+	\put(13.35,3.70){\text{\textbf{A}}}
+	\put(13.35,3.25){\text{\textbf{O}}}
+	
+	\put(13.35,2.40){\text{\textbf{D}}}
+	\put(13.42,1.95){\text{\textbf{I}}}
+	\put(13.35,1.45){\text{\textbf{Ệ}}}
+	\put(13.35,0.95){\text{\textbf{N}}}
+	
+	\put(15.0,3.0){\vector(-1,0){1.0}}
+	\put(14.0,2.0){\vector(1,0){1.0}}
+	
+	\end{picture}
+	\caption{Kiến trúc của một hệ cơ sở tri thức trong logic mô tả\label{fig:DLSystem}}
+\end{figure}
+
+\semiBullet{Bộ tiên đề vai trò ({\em Role Box - RBox})}: Bộ tiên đề vai trò chứa các tiên đề về vai trò bao gồm các tiên đề bao hàm vai trò và các khẳng định vai trò. Thông qua bộ tiên đề vai trò, chúng ta có thể xây dựng các vai trò phức từ các vai trò nguyên tố và các tạo tử vai trò mà logic mô tả được phép sử dụng.
+
+\begin{Example}
+	\label{ex:RBox}
+	Với các vai trò nguyên tố đã cho trong Ví dụ~\ref{ex:PrimitiveConcept}, chúng ta có thể xây dựng bộ tiên đề vai trò như sau:\\[1.0ex]
+	\begin{tabular}{c l l}
+		& $\hasParent \equiv \hasChild^-$, & \\[0.5ex]
+		& $\hasChild \sqsubseteq \hasDescendant$, & \\[0.5ex]
+		& $\hasDescendant \circ \hasDescendant \sqsubseteq \hasDescendant$, & \\[0.5ex]
+		& $\Irr(\hasChild)$, & \\[0.5ex]
+		& $\Sym(\marriedTo)$. &
+		%  \hline
+	\end{tabular}
+	
+Phát biểu đầu tiên của bộ tiên đề vai trò dùng để định nghĩa vai trò mới $\hasParent$ là một vai trò nghịch đảo của vai trò $\hasChild$. Tiên đề thứ hai là một tiên đề bao hàm vai trò dùng để chỉ nếu một đối tượng này là con của đối tượng kia thì nó cũng là con cháu của đối tượng kia. Phát biểu thứ ba là một tiên đề thể hiện rằng $\hasDescendant$ là một vai trò bắc cầu (chúng ta cũng có thể thể hiện tiên đề này qua phát biểu khẳng định vai trò $\Tra(\hasDescendant)$). Phát biểu thứ tư để khẳng định vai trò $\hasChild$ là vai trò không phản xạ và phát biểu cuối cùng để khẳng định rằng $\marriedTo$ là một vai trò đối xứng.\myend
+\end{Example}
+
+\semiBullet{Bộ tiên đề thuật ngữ ({\em Terminology Box - TBox})}: Bộ tiên đề thuật ngữ chứa các tiên đề về thuật ngữ, nó cho phép xây dựng các khái niệm phức từ những khái niệm nguyên tố và vai trò nguyên tố, đồng thời bộ tiên đề thuật ngữ cho biết mối quan hệ giữa các khái niệm thông qua các tiên đề bao hàm tổng quát. Ngoài ra, bộ tiên đề thuật ngữ còn chứa các tri thức tiềm ẩn ở dưới dạng thuật ngữ và xác định ý nghĩa của các thuật ngữ trong miền xem xét.
+Chúng ta xét ví dụ sau về mối quan hệ giữa các con người với nhau thông qua bộ tiên đề thuật ngữ.
+
+\begin{Example}\label{ex:TBox}
+	Với các khái niệm nguyên tố, vai trò nguyên tố đã cho trong Ví dụ~\ref{ex:PrimitiveConcept}, chúng ta có thể xây dựng bộ tiên đề thuật ngữ như sau: \\[1.0ex]
+	\begin{tabular}{c l l}
+		& $\Human \equiv \top$, &\\[0.5ex]
+		& $\Parent \equiv \Human \mand \E \hasChild.\Human$,& \\[0.5ex]
+		& $\Male \equiv \neg \Female$, & \\[0.5ex]
+		& $\Husband \equiv \Male \mand \E \marriedTo.\Female$,& \\[0.5ex]
+		& $\Husband \sqsubseteq \V \marriedTo.\Female$,& \\[0.5ex]
+		& $\Male \mand \Female \equiv \bot$.&
+		%  \hline
+	\end{tabular}
+
+Phát biểu đầu tiên của bộ tiên đề thuật ngữ dùng để nói lên rằng miền quan tâm chỉ gồm các đối tượng là con người. Ba phát biểu tiếp theo dùng để định nghĩa các khái niệm mới đó là $\Parent$, $\Male$ và $\Husband$ tương ứng dùng để chỉ những đối tượng là bố mẹ, giống đực và chồng. Các phát biểu này được gọi là {\em định nghĩa khái niệm} (vế trái của dấu ``$\equiv$'' là một tên khái niệm).
+%
+Phát biểu thứ năm yêu cầu mọi thể hiện của $\Husband$ phải thỏa mãn khái niệm $\V \marriedTo.\Female$, nghĩa là, mọi người đàn ông đã kết hôn (được gọi là chồng) thì phải kết hôn với một người phụ nữ. Phát biểu này được gọi là một {\em bao hàm khái niệm}.
+%
+Phát biểu cuối cùng để biểu diễn hai khái niệm $\Male$ và $\Female$ không giao nhau.
+%Nói cách khác, hai khái niệm $\Male$ và $\Female$ là rời nhau.
+Phát biểu này được gọi là một {\em tương đương khái niệm} (vế trái của dấu ``$\equiv$'' là một biểu thức, không phải là một tên khái niệm).\myend
+%
+\end{Example}
+
+\semiBullet{Bộ khẳng định ({\em Assertion Box - ABox})}: Bộ khẳng định dùng để chứa những tri thức đã biết thông qua các khẳng định về các cá thể bao gồm khẳng định khái niệm, khẳng định vai trò (vai trò dương tính và vai trò âm tính), khẳng định đẳng thức, khẳng định bất đẳng thức,\,\ldots\, Chúng ta xét ví dụ sau đây với các khẳng định về thông tin của con người.
+
+\begin{Example}\label{ex:ABox}
+	Với các khái niệm nguyên tố, vai trò nguyên tố đã cho trong Ví dụ~\ref{ex:PrimitiveConcept} và các khái niệm được định nghĩa thêm trong Ví dụ~\ref{ex:TBox}, chúng ta có thể cung cấp những khẳng định sau đây:\\[1.0ex]
+	\begin{tabular}{c l l}
+		& $\Human(\iLAN)$, & \\[0.5ex]
+		& $\Male(\iHUNG)$, & \\[0.5ex]
+		& $\Husband(\iHAI)$, & \\[0.5ex]
+		& $\hasChild(\iLAN, \iHUNG)$, & \\[0.5ex]
+		& $(\neg \Female \mand \Rich)(\iHUNG)$. &
+	\end{tabular}
+
+Khẳng định thứ nhất cho biết cá thể $\iLAN$ là một con người, khẳng định thứ hai cho biết cá thể $\iHUNG$ là một đối tượng giống đực, khẳng định thứ ba cho biết cá thể $\iHAI$ là một người chồng, khẳng định thứ tư cho biết cá thể $\iLAN$ có con là cá thể $\iHUNG$ và khẳng định cuối cùng cho biết cá thể $\iHUNG$ là một người đàn ông giàu có.\myend
+\end{Example}
+
+Ngoài ra, một hệ thống biểu diễn tri thức còn có thêm các thành phần bổ trợ để thực hiện các chức năng mà hệ thống đó hướng tới. Thông thường, hệ thống biểu diễn tri thức còn có thêm những thành phần sau~\cite{DLHandbook2007}:
+
+\semiBullet{Hệ thống suy luận ({\em Inference System - IS})}: Hệ thống suy luận cho phép trích rút ra những tri thức tiềm ẩn từ những tri thức đã có được thể hiện trong RBox, TBox và ABox.
+%
+Một trong những bài toán suy luận phổ biến trong logic mô tả là kiểm tra thể hiện của một khái niệm. Nghĩa là xác định xem một cá thể có phải là một thể hiện của một khái niệm hay không. Thông qua Ví dụ~\ref{ex:TBox} và~\ref{ex:ABox}, chúng ta có thể suy luận ra rằng cá thể $\iLAN$ là một thể hiện của khái niệm $\Parent$. Ta cũng có thể suy luận cá thể $\iHAI$ không phải là thể hiện của khái niệm $\Female$. Lý do đưa ra khẳng định này là: $\iHAI$ là thể hiện của $\Husband$, mà $\Husband$ là khái niệm được định nghĩa thông qua phát biểu $\Husband \equiv \Male \mand \E \marriedTo.\Human$. Trong lúc đó, $\Male \mand \Female \equiv \bot$ chứa trong TBox.
+%
+Một bài toán suy luận khác cũng phổ biến của logic mô tả là kiểm tra tính bao hàm của các khái niệm. Thông qua Ví dụ~\ref{ex:TBox}, chúng ta thấy rằng cả $\Male$ và $\Female$ đều được bao hàm trong $\Human$. 
+	
+Một điểm lưu ý là, chúng ta không xem xét một cơ sở tri thức theo {\em giả thiết thế giới đóng} ({\em Closed World Assumption - CWA}) mà xem xét nó theo {\em giả thiết thế giới mở} ({\em Open World Assumption - OWA}). Nghĩa là, những khẳng định xuất hiện trong ABox thì được cho là đúng. Ngược lại, những khẳng định không xuất hiện trong ABox và không thể suy luận được thông qua bộ suy luận thì không được kết luận là sai mà phải được xem như là chưa biết, ngoại trừ chúng ta suy luận được khẳng định đó sai.
+	
+\semiBullet{Giao diện người dùng ({\em User Interface - UI})}: Giao diện người dùng được sử dụng để giao tiếp với người sử dụng. Thông qua giao diện này, người sử dụng có thể trích rút ra những thông tin từ cơ sở tri thức. Giao diện người dùng được thiết kế tùy thuộc vào từng ứng dụng cụ thể.  
+
+\subsection{Khả năng biểu diễn của logic mô tả}
+\label{sec:Chap1.Expressiveness}
+Logic mô tả được sử dụng trong việc biểu diễn và suy luận tri thức. Do vậy, nhiều công trình tập trung nghiên cứu khả năng biểu diễn của logic mô tả. Khả năng biểu diễn của logic mô tả có quan hệ mật thiết với độ phức tạp của các bài toán suy luận. Theo đó, thông thường nếu logic mô tả càng diễn cảm (có khả năng biểu diễn tốt) thì có độ phức tạp trong suy luận càng cao. Khả năng biểu diễn của logic mô tả được thể hiện thông qua các tạo tử khái niệm và tạo tử vai trò mà nó được phép sử dụng để xây dựng các khái niệm phức và vai trò phức. 
+Hiện nay, logic mô tả \ALC được xem là logic mô tả cơ bản nhất. Nó cho phép các khái niệm phức được xây dựng thông qua các tạo tử phủ định của khái niệm ($\neg$), giao của các khái niệm ($\mand$), hợp của các khái niệm ($\mor$), lượng từ hạn chế tồn tại ($\E$) và lượng từ hạn chế với mọi~($\V$).
+Trong mục này chúng tôi điểm qua thêm một số nét cơ bản của các tạo tử khái niệm và tạo tử vai trò dùng để xây dựng các logic mô tả mở rộng thông qua logic mô tả cơ bản \ALC.
+
+%-----------------------------------------------------------
+\subsubsection{Hạn chế số lượng}
+\label{sec:Chap1.NumberRestrictions}
+Tạo tử hạn chế số lượng thực sự đóng một vai trò quan trọng đối với khả năng biểu diễn của logic mô tả. Nó cho phép xây dựng những khái niệm có các ràng buộc về bản số của các đối tượng trong khái niệm đó.
+Trong logic mô tả, người ta sử dụng hai loại hạn chế số lượng:
+\begin{itemize}
+	\item {\em Hạn chế số lượng có định tính} ({\em qualified number restrictions}), ký hiệu là $\mathcal{Q}$, là hạn chế số lượng trên các vai trò có chỉ ra tính chất của các đối tượng cần hạn chế.
+	Chẳng hạn, để xây dựng khái niệm đại diện cho ``\textit{đối tượng là người có ít nhất hai con gái}'', chúng ta sử dụng biểu thức $\Human \mand (\geq\!2\,\hasChild.\Female)$. Ở đây, khái niệm $\Female$ đặt sau vai trò $\hasChild$ dùng để chỉ tính chất mà nó cần định tính thông qua vai trò. Tương tự như thế, chúng ta có thể xây dựng khái niệm $\Human \mand (\leq\!3\,\hasChild.(\neg \Female))$ để đại diện cho ``\textit{đối tượng là người có nhiều nhất ba con trai}''
+	
+	\item {\em Hạn chế số lượng không định tính} ({\em unqualified number restrictions}), ký hiệu là $\mathcal{N}$, là hạn chế số lượng trên các vai trò nhưng không chỉ ra tính chất của các đối tượng cần hạn chế. Đây là một dạng đặc biệt của hạn chế số lượng có định tính bằng cách thay khái niệm thể hiện tính chất cần định tính bằng khái niệm đỉnh.
+	Chẳng hạn, để xây dựng khái niệm đại diện cho ``\textit{những đối tượng là người có nhiều nhất ba con}'', chúng ta sử dụng biểu thức $\Human \mand (\leq\!3\,\hasChild)$ (là cách viết ngắn gọn của $\Human \mand (\leq\!3\,\hasChild.\top)$). Chúng ta thấy rằng sau vai trò $\hasChild$ không yêu cầu chỉ ra tính chất cần thỏa mãn (khái niệm $\top$ nói lên rằng tất cả các đối tượng đều phù hợp). Để xây dựng khái niệm đại diện ``\textit{những đối tượng là người có đúng hai con}'', chúng ta có thể viết $\Human \mand (\leq\!2\,\hasChild) \mand (\geq\!2\,\hasChild)$.
+\end{itemize}
+
+Chúng ta có thể nhận thấy rằng, khả năng biểu diễn của logic mô tả có sử dụng các tạo tử hạn chế số lượng không định tính và hạn chế số lượng có định tính phong phú hơn so với chỉ sử dụng lượng từ hạn chế tồn tại ($\E$) và lượng từ hạn chế với mọi ($\V$). Bằng cách dùng các tính chất về hạn chế số lượng, chúng ta có thể xây dựng khái niệm phức để biểu diễn ``{\em những người có nhiều nhất ba con, trong đó có ít nhất hai người con gái và có ít nhất hai người con giàu có.}'' như sau:
+
+$\Human \mand (\leq\!3\,\hasChild) \mand (\geq\!2\,\hasChild.\Female) \mand (\geq\!2\,\hasChild.\Rich)$
+
+Khi một đối tượng là thể hiện của khái niệm trên, chúng ta có thể suy ra được rằng đối tượng này phải có ít nhất một người con gái giàu có.
+
+%-----------------------------------------------------------
+\subsubsection{Tính chất hàm}
+\label{sec:Chap1.Functionality}
+Ràng buộc {\em tính chất hàm} ({\em functionality}), ký hiệu là $\mF$, là một trường hợp đặc biệt của ràng buộc hạn chế số lượng không định tính trong logic mô tả. Nó cho phép chỉ ra tính chất hàm cục bộ của các vai trò, nghĩa là mỗi thể hiện của khái niệm có quan hệ tối đa với một cá thể khác thông qua vai trò được chỉ định.
+Ví dụ, để quy định ``\textit{một đối tượng chỉ có thể được kết hôn với một đối tượng khác}'', chúng ta có thể sử dụng ràng buộc $\top \sqsubseteq\; \leq\!1\,\marriedTo$.
+
+%-----------------------------------------------------------
+\subsubsection{Định danh}
+\label{sec:Chap1.Nominal}
+Tạo tử {\em định danh} ({\em nominal}), ký hiệu là $\mO$, cho phép xây dựng khái niệm dạng $\{a\}$ từ một cá thể đơn lẻ $a$. Khái niệm này biểu diễn cho tập có thể hiện chỉ là một cá thể. Bằng cách sử dụng tạo tử định danh, chúng ta có thể xây dựng cấu trúc $\{a_1, a_2, \ldots, a_n\}$ để biểu diễn cho khái niệm gồm chính xác các thể hiện là những cá thể $a_1, a_2, \ldots, a_n$.
+Ví dụ, để biểu diễn ``\textit{các nước thành viên thường trực của Hội đồng Bảo an Liên hiệp quốc''}, chúng ta sử dụng khái niệm $\{\iANH, \iMY, \iNGA, \iPHAP, \iTRUNGQUOC\}$.
+Logic mô tả với sự cho phép của tạo tử định danh sẽ làm cho các bài toán suy luận trở nên phức tạp hơn.
+
+%-----------------------------------------------------------
+\subsubsection{Vai trò nghịch đảo}
+\label{sec:Chap1.RoleInverse}
+Một logic mô tả với {\em vai trò nghịch đảo} ({\em inverse role}), ký hiệu là $\mI$, cho phép người sử dụng định nghĩa các vai trò là nghịch đảo của nhau nhằm tăng khả năng ràng buộc đối với các đối tượng trong miền biểu diễn. Nghịch đảo của vai trò $r$ được viết là $r^-$. Nghĩa là, nếu $s$ là một vai trò nghịch đảo của $r$ ($s \equiv r^-$) thì $r(a, b)$ thỏa mãn khi và chỉ khi $s(b,a)$ thỏa mãn. Chẳng hạn, chúng ta có thể định nghĩa vai trò $\hasParent$ ({\em vai trò để chỉ đối tượng này có cha mẹ là đối tượng kia}) là vai trò nghịch đảo của vai trò $\hasChild$ và ký hiệu là $\hasParent \equiv \hasChild^-$. Rõ ràng, nếu đối tượng $a$ có con là đối tượng $b$, tức là $\hasChild(a,b)$ thỏa mãn, thì lúc đó đối tượng $b$ có cha/mẹ là đối tượng~$a$, tức là $\hasParent(b,a)$ thỏa mãn và ngược lại.
+
+%-----------------------------------------------------------
+\subsubsection{Vai trò bắc cầu}
+\label{sec:Chap1.Transitive}
+Tạo tử {\em vai trò bắc cầu} ({\em transitive role}), ký hiệu là $\mS$, được đưa vào logic mô tả nhằm tăng khả năng biểu diễn của logic mô tả đó. Một vai trò $r$ được gọi là bắc cầu nếu $r \circ r \sqsubseteq r$. Nghĩa là, khi $r$ là một vai trò bắc cầu, lúc đó nếu $r(a,b)$ và $r(b,c)$ thỏa mãn thì $r(a,c)$ cũng thỏa mãn. Để thể hiện một vai trò $r$ là bắc cầu trong một logic mô tả cụ thể, người ta ký hiệu là $\Tra(r)$.
+%
+Thông qua vai trò bắc cầu, một số vai trò được thể hiện một cách tự nhiên theo bản chất của nó. Chẳng hạn, xét vai trò $\hasDescendant$ ({\em vai trò để chỉ đối tượng này có con cháu là đối tượng kia}), giả sử rằng đối tượng~$a$ có con cháu là đối tượng~$b$ và đối tượng~$b$ có con cháu là đối tượng~$c$. Một cách tự nhiên, chúng ta thấy đối tượng~$a$ có con cháu là đối tượng~$c$. Nghĩa là, $\hasDescendant \circ \hasDescendant \sqsubseteq \hasDescendant$. Như vậy, vai trò $\hasDescendant$ có tính chất bắc cầu.
+
+%-----------------------------------------------------------
+\subsubsection{Phân cấp vai trò}
+\label{sec:Chap1.Hierarchive}
+Tạo tử {\em phân cấp vai trò} ({\em role hierarchive}), ký hiệu là $\mH$, cho phép người sử dụng biểu diễn mối quan hệ giữa các vai trò theo phương cách cụ thể hóa hoặc theo phương cách tổng quát hóa. Vai trò $r$ là cụ thể hóa của vai trò $s$ (hay nói cách khác, vai trò $s$ là tổng quát hóa của vai trò $r$) và được viết là $r \sqsubseteq s$. Khi đó nếu $r(a,b)$ thỏa mãn thì $s(a,b)$ cũng thỏa mãn.
+Xét hai vai trò $\hasChild$ và $\hasDescendant$. Chúng ta thấy nếu đối tượng~$a$ có con là đối tượng $b$ thì đối tượng~$a$ cũng có con cháu là đối tượng~$b$. Vì vậy, vai trò $\hasChild$ được bao hàm trong vai trò $\hasDescendant$ và được ký hiệu là $\hasChild \sqsubseteq \hasDescendant$.
+
+%-----------------------------------------------------------
+\subsubsection{Bao hàm vai trò phức}
+\label{sec:Chap1.RoleInclusion}
+Tạo tử {\em bao hàm vai trò phức} ({\em complex role inclusion}), ký hiệu là $\mR$, cho phép người sử dụng biểu diễn các tiên đề bao hàm dạng $r \circ s \sqsubseteq r$ (hoặc $r \circ s \sqsubseteq s$). Nghĩa là, nếu $r(a,b)$ và $s(b,c)$ thỏa mãn thì $r(a,c)$ (hoặc $s(a,c)$) cũng thỏa mãn. Ví dụ, với vai trò $\hasChild$ và $\hasDescendant$, giả sử đối tượng~$a$ có con là đối tượng~$b$ và đối tượng~$b$ có con cháu là đối tượng~$c$, lúc đó đối tượng~$a$ cũng có con cháu là đối tượng~$c$. Rõ ràng chúng ta có $\hasChild \circ \hasDescendant \sqsubseteq \hasDescendant$.
+
+%-------------------------------------------------------------------
+\section{Cú pháp và ngữ nghĩa của logic mô tả}
+\label{sec:Chap1.SyntaxSemantic}
+\subsection{Ngôn ngữ logic mô tả \ALC}
+\label{sec:Chap1.ALCLanguage}
+Logic mô tả cơ bản \ALC được Schmidt-Schaub\ss~và Smolka giới thiệu lần đầu tiên vào năm 1991~\cite{Schmidt1991}. Tên \ALC đại diện cho ``\textbf{A}ttribute concept \textbf{L}anguage with \textbf{C}omplements''. Logic mô tả \ALC là một mở rộng của logic mô tả \AL bằng cách cho phép sử dụng thêm tạo tử phủ định ($\neg$). 
+%
+Các khái niệm phức của \ALC được xây dựng từ các khái niệm đơn giản hơn và các tên vai trò bằng cách kết hợp với các tạo tử mà nó được phép sử dụng. Trên cơ sở logic mô tả cơ bản \ALC, người ta mở rộng nó để có các logic mô tả khác có khả năng biểu diễn tốt hơn bằng cách thêm vào các tạo tử khái niệm và tạo tử vai trò.
+Các định nghĩa sau đây trình bày cú pháp và ngữ nghĩa của logic mô tả cơ bản \ALC~\cite{Lehmann2006,Lehmann2010}.
+
+\begin{Definition}[Cú pháp của \ALC]
+\label{def:ALCSyntax}
+Cho $\SigmaC$ là tập các {\em tên khái niệm} và $\SigmaR$ là tập các {\em tên vai trò} ($\SigmaC \cap \SigmaR = \emptyset$). Các phần tử của $\SigmaC$ được gọi là {\em khái niệm nguyên tố}. {\em Logic mô tả} \ALC cho phép các khái niệm được định nghĩa một cách đệ quy như sau:
+\begin{itemize}
+	\item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của \ALC,
+	\item nếu $C$, $D$ là các khái niệm và $r \in \SigmaR$ là một vai trò thì $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E r.C$ và $\V r.C$ cũng là các khái niệm của \ALC.\myend
+\end{itemize}
+\end{Definition}
+%
+\noindent
+Các ký hiệu và các tạo tử khái niệm trong Định nghĩa~\ref{def:ALCSyntax} có ý nghĩa như sau:
+\begin{itemize}
+	\item $\top$ biểu diễn {\em khái niệm đỉnh},
+	\item $\bot$ biểu diễn {\em khái niệm đáy},
+	\item $\neg C$ biểu diễn {\em phủ định} của khái niệm $C$,
+	\item $C \mand D$ biểu diễn {\em giao} của khái niệm $C$ và $D$,
+	\item $C \mor D$ biểu diễn {\em hợp} của khái niệm $C$ và $D$,
+	\item $\E r.C$ biểu diễn {\em hạn chế tồn tại} của khái niệm $C$ bởi vai trò $r$.
+	\item $\V r.C$ biểu diễn {\em hạn chế phổ quát} của khái niệm $C$ bởi vai trò $r$.
+\end{itemize}
+
+\noindent
+Cú pháp của logic mô tả \ALC có thể mô tả một cách vắn tắt bằng các luật sau:
+\[
+	\begin{array}{r c l}
+		C, D & \longrightarrow&
+		A \mid
+		\top \mid
+		\bot \mid
+		\neg C \mid
+		C\mand D \mid
+		C \mor D \mid
+		\E r.C \mid
+		\V r.C
+	\end{array}
+\]
+
+\begin{Definition}[Ngữ nghĩa của \ALC]
+Một {\em diễn dịch} trong logic mô tả \ALC là một bộ \mbox{$\mI = \tuple{\Delta^\mI, \cdot^\mI}$}, trong đó $\Delta^\mI$ là một tập không rỗng được gọi là {\em miền} của $\mI$ và $\cdot^\mI$ là một ánh xạ, được gọi là {\em hàm diễn dịch} của $\mI$, cho phép ánh xạ mỗi cá thể $a \in \SigmaI$ thành một phần tử $a^\mI \in \Delta^\mI$, mỗi tên khái niệm $A \in \SigmaC$ thành một tập $A^\mI \subseteq \Delta^\mI$ và mỗi tên vai trò $r \in \SigmaR$ thành một quan hệ nhị phân $r^\mI \subseteq \Delta^\mI \times \Delta^\mI$.
+Diễn dịch của các khái niệm phức được xác định như sau:\\[1.5ex]
+\begin{tabular}{c l l}
+	& $\top^\mI$             & = $\Delta^\mI$, \\[0.5ex]
+	& $\bot^\mI$             & = $\emptyset$, \\[0.5ex]
+	& $(\neg C)^\mI$         & = $\Delta^\mI \setminus C^\mI$, \\[0.5ex]
+	& $(C \mand D)^\mI\!\!\!$& = $C^\mI \cap D^\mI$, \\[0.5ex]
+	& $(C \mor D)^\mI\!\!\!\!\!$ & = $C^\mI \cup D^\mI$, \\[0.5ex]
+	& $(\E r.C)^\mI$         & = $\{x \in \Delta^\mI \mid \E y\in \Delta^\mI\; [r^\mI(x,y) \wedge C^\mI(y)]\}$, \\[0.7ex]
+	& $(\V r.C)^\mI$         & = $\{ x \in \Delta^\mI \mid \V y \in \Delta^\mI\; [r^\mI(x,y) \Rightarrow C^\mI(y)]\}$.\hspace{5.15cm}\myend
+\end{tabular}
+\end{Definition}
+
+Hình~\ref{fig:Interpretation} là một minh họa ngắn gọn cho diễn dịch trong logic mô tả. Mỗi cá thể được diễn dịch thành một đối tượng, mỗi tên khái niệm được diễn dịch thành một tập các đối tượng và mỗi tên vai trò được diễn dịch thành một quan hệ nhị phân giữa các đối tượng~\cite{Rouene2013}.
+
+\begin{figure}[h!]
+\ramka{
+	\vspace{-1.7ex}
+	\begin{center}
+	\begin{tikzpicture}
+		\node[xshift=2cm,yshift=6.5cm,draw,fill=black!5!white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaI)
+		{
+			\begin{tabular}{c}
+			    Tên cá thể\\
+				$\ldots a \in \SigmaI \ldots$
+			\end{tabular}
+		};
+
+		\node[xshift=6cm,yshift=6.5cm,draw,fill=black!5!white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaC)
+		{
+			\begin{tabular}{c}
+				Tên khái niệm\\
+				$\ldots A \in \SigmaC \ldots$
+			\end{tabular}
+		};
+
+		\node[xshift=10cm,yshift=6.5cm,draw,fill=black!5!white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaR)
+		{
+			\begin{tabular}{c}
+				Tên vai trò\\
+				$\ldots r \in \SigmaR \ldots$
+			\end{tabular}
+		};
+
+		\node[rotate=-90,xshift=-6.5cm,yshift=12.7cm,minimum width=1.0cm,rectangle,inner sep=0pt,fill=white](deltaI)
+		{\textsc{bộ ký tự}};
+
+		\node[rotate=-90,xshift=-1.6cm,yshift=12.7cm,minimum width=1.0cm,rectangle,inner sep=0pt,fill=white](deltaI)
+		{\textsc{diễn dịch} $\mI$};
+
+		\draw[black,-,line width=1.1pt] ([xshift=-3cm,yshift=-0.6cm]sigmaI.south) -- ([xshift=3cm,yshift=-0.6cm]sigmaR.south);
+
+%DeltaHold
+		\node[xshift=6cm,yshift=2.0cm,draw,fill=black!10!white,ellipse,minimum width=12cm, minimum height=5cm]
+		{\hspace{-9cm}};
+
+%a^\mI
+		\node[xshift=2cm,yshift=2.8cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](aI)
+		{};
+
+		\node[xshift=2.5cm,yshift=2.87cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black!10!white]
+		{$a^\mI$};
+
+%\Delta^\mI
+		\node[xshift=1.5cm,yshift=1.0cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black!10!white](deltaI)
+		{$\Delta^\mI$};
+
+%A^\mI
+		\node[xshift=6cm,yshift=1.0cm,draw,fill=black!30!white,ellipse,minimum width=4cm, minimum height=2cm](AI)
+		{$A^\mI$};
+
+		\draw[gray,-stealth,line width=15pt] ([xshift=0.0cm,yshift=0.0cm]sigmaR.south) -- ([xshift=0.0cm,yshift=-6.0cm]sigmaR.south);
+
+		\node[xshift=8cm,yshift=-0.2cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](a)
+		{};
+
+		\node[xshift=9cm,yshift=0.0cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](b)
+		{};
+
+		\node[xshift=10cm,yshift=0.3cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](c)
+		{};
+
+		\node[xshift=10.8cm,yshift=0.7cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](d)
+		{};
+
+		\node[xshift=11.6cm,yshift=1.4cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](e)
+		{};
+
+		\draw[->,thick] ([yshift=0cm]a.south east) to [out=-40,in=-96] ([yshift=0cm]c.south);
+
+		\draw[<-,thick] ([yshift=0cm]b.south east) to [out=-40,in=-85] ([yshift=0cm]e.south);
+
+		\draw[->,thick] ([yshift=0cm]a.south east) to [out=-40,in=-96] ([yshift=0cm]d.south);
+
+%\r^\mI
+		\node[xshift=11.0cm,yshift=-0.3cm,minimum width=0.2cm,circle,inner sep=0pt,fill=white](deltaI)
+		{$r^\mI$};
+
+		\draw[gray,-stealth,line width=15pt] ([yshift=0.0cm]sigmaI.south) -- ([yshift=0.0cm]aI.north);
+
+		\draw[gray,-stealth,line width=15pt] ([yshift=0.0cm]sigmaC.south) -- ([yshift=0.0cm]AI.north);
+	\end{tikzpicture}
+	\end{center}
+	\vspace{-3.5ex}
+}
+\caption{Minh họa diễn dịch của logic mô tả\label{fig:Interpretation}}
+\end{figure}
+
+\begin{Example}
+Cho tập các cá thể, khái niệm và vai trò như trong Ví dụ~\ref{ex:PrimitiveConcept}. Xét diễn dịch $\mI$ như sau:\\[1.0ex]
+\begin{tabular}{c l l}
+	& $\iLAN^\mI$      & = $\iLAN,$\\[0.5ex]
+	& $\iHAI^\mI$      & = $\iHAI,$\\[0.5ex]
+	& $\iHUNG^\mI$     & = $\iHUNG,$\\[0.5ex]
+	& $\Delta^\mI$     & = $\{\iLAN, \iHAI, \iHUNG\},$\\[0.5ex]
+	& $\Human^\mI$     & = $\{\iLAN, \iHAI, \iHUNG\},$\\[0.5ex]
+	& $\Female^\mI$    & = $\{\iLAN\},$ \\[0.5ex]
+	& $\Rich^\mI$      & = $\{\iHUNG\},$\\
+	& $\hasChild^\mI$  & = $\{\tuple{\iLAN, \iHUNG}, \tuple{\iHAI, \iHUNG}\,\},$ \\[0.5ex]
+	& $\marriedTo^\mI\!\!\!$ & = $\{\tuple{\iLAN, \iHAI},\tuple{\iHAI, \iLAN}\,\},$
+\end{tabular}
+
+\noindent
+Lúc đó ta có:\\[1.0ex]
+\begin{tabular}{c l l}
+	& $(\Human \mand \Female)^\mI$ & = $\{\iLAN\},$\\[0.5ex]
+	& $(\neg \Female)^\mI$ & = $\{\iHAI, \iHUNG\},$\\[0.5ex]
+	& $(\Human \mand \neg \Female)^\mI$ & = $\{\iHAI, \iHUNG\},$\\[0.5ex]
+	& $(\Human \mand \E \hasChild.\Female)^\mI$ & = $\emptyset,$\\[0.5ex]
+	& $(\Human \mand \E \marriedTo.\Human)^\mI\!\!\!$ & = $\{\iLAN, \iHAI\}.$\hspace{5.40cm} \myend
+\end{tabular}
+\end{Example}
+
+Logic động mệnh đề ({\em Propositional Dynamic Logics}) là một biến thể của logic hình thái được Fischer và Ladner giới thiệu vào năm 1979~\cite{Fischer1979}. Nó được thiết kế chuyên biệt cho việc biểu diễn và suy luận trong các chương trình. Trong~\cite{Schild1991}, Schild đã chỉ ra rằng có sự tương ứng giữa các logic mô tả và một số logic động mệnh đề. 
+Sự tương ứng dựa trên tính tương tự giữa các cấu trúc diễn dịch của hai logic. Theo đó, mỗi đối tượng trong logic mô tả tương ứng với một trạng thái trong logic động mệnh đề và các kết nối giữa hai đối tượng tương ứng với các dịch chuyển trạng thái. Các khái niệm tương ứng với các mệnh đề và các vai trò tương ứng với các chương trình~\cite{Giacomo1994,Chang2007}.
+Định nghĩa sau đây trình bày logic mô tả \ALC tương ứng với logic động mệnh đề, được gọi là {\em logic mô tả động} và được ký hiệu là \ALCreg.
+
+\begin{Definition}[Cú pháp của \ALCreg]
+\label{def:ALCRegSyntax}
+Cho $\SigmaC$ là tập các {\em tên khái niệm} và $\SigmaR$ là tập các {\em tên vai trò} ($\SigmaC \cap \SigmaR = \emptyset$). Các phần tử của $\SigmaC$ được gọi là {\em khái niệm nguyên tố} và các phần tử của $\SigmaR$ được gọi là {\em vai trò nguyên tố}. {\em Logic mô tả động} \ALCreg cho phép các khái niệm và các vai trò được định nghĩa một cách đệ quy như~sau:
+\begin{itemize}
+	\item nếu $r \in \SigmaR$ thì $r$ là một vai trò của \ALCreg,
+	\item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của \ALCreg,
+	\item nếu $C$, $D$ là các khái niệm và $R, S$ là các vai trò thì 
+	\begin{itemize}
+		\item $\varepsilon$, $R \circ S$, $R \mor S$, $R^*$, $C?$ là các vai trò của \ALCreg,
+		\item $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E R.C$ và $\V R.C$ là các khái niệm của \ALCreg.\myend
+	\end{itemize}
+\end{itemize}
+\end{Definition}
+%
+\noindent
+Cú pháp \ALCreg có thể mô tả một cách vắn tắt bằng các luật sau:
+\[
+	\begin{array}{r c l}
+		R, S & \longrightarrow &
+		\varepsilon \mid
+		r \mid 
+		R \circ S \mid
+		R \mor S \mid
+		R^* \mid
+		C?\\[1ex]
+%
+		C, D & \longrightarrow &
+		A \mid 
+		\top \mid 
+		\bot \mid 
+		\neg C \mid 
+		C \mand D \mid 
+		C \mor D \mid 
+		\E R.C \mid
+		\V R.C
+	\end{array}
+\]
+%
+Các ký hiệu và các tạo tử vai trò có ý nghĩa như sau:
+\begin{itemize}
+	\item $\varepsilon$ biểu diễn {\em quan hệ đồng nhất},
+	\item $R \circ S$ biểu diễn {\em hợp thành tuần tự} của $R$ và $S$,
+	\item $R \mor S$ biểu diễn {\em hợp} của $R$ và $S$,
+	\item $R^*$ biểu diễn cho vai trò {\em phản xạ và bắc cầu đóng} của $R$,
+	\item $C?$ biểu diễn cho {\em toán tử kiểm tra}.
+\end{itemize}
+
+Tạo tử khái niệm $\V R.C$ và $\E R.C$ tương ứng với các toán tử hình thái $[R]C$ và $\tuple{R}C$ trong logic động mệnh đề~\cite{Nguyen2013}.
+
+Diễn dịch của các vai trò phức trong \ALCreg được xác định như sau:\\[1.0ex]
+\begin{tabular}{c l l}
+	& $\varepsilon^\mI$ & =\; $\{\tuple{x,x} \mid x \in \Delta^\mI\}$,\\[0.5ex]
+	& $(R \circ S)^\mI\!\!\!\!\!$ & =\; $R^\mI \circ S^\mI$, \\[0.5ex]
+	& $(R \mor S)^\mI\!\!\!\!\!$ & =\; $R^\mI \cup S^\mI$, \\[0.5ex]
+	& $(R^*)^\mI$       & =\; $(R^\mI)^*$, \\[0.5ex]
+	& $(C?)^\mI$        & =\; $\{\tuple{x,x} \mid C^\mI(x)\}$.
+\end{tabular}
+
+
+\subsection{Ngôn ngữ logic mô tả $\mLSP$}
+\label{sec:Chap1.LSPLanguage}
+
+Một {\em bộ ký tự logic mô tả} là một tập hữu hạn $\Sigma = \SigmaI \cup \SigmaDA \cup \SigmaNA \cup \SigmaOR \cup \SigmaDR$, trong đó $\SigmaI$ là tập các {\em cá thể}, $\SigmaDA$ là tập các {\em thuộc tính rời rạc}, $\SigmaNA$ là tập các {\em thuộc tính số}, $\SigmaOR$ là tập các {\em tên vai trò đối tượng} và $\SigmaDR$ là tập các {\em vai trò dữ liệu}.\footnote{Các tên vai trò đối tượng là các vai trò đối tượng nguyên tố.} Tất cả các tập $\SigmaI$, $\SigmaDA$, $\SigmaNA$, $\SigmaOR$ và $\SigmaDR$ rời nhau từng đôi một.
+
+Đặt $\SigmaA = \SigmaDA \cup \SigmaNA$. Khi đó mỗi thuộc tính $A \in \SigmaA$ có một miền giá trị là $\Range(A)$. Miền $\Range(A)$ là một tập đếm được khác rỗng nếu $A$ là thuộc tính rời rạc và có thứ tự ``$\leq$'' nếu $A$ là thuộc tính liên tục.\footnote{Có thể giả sử rằng nếu $A$ là một thuộc tính số thì $\Range(A)$ là tập các số thực và ``$\leq$'' là một quan hệ thứ tự giữa các số thực.} (Để đơn giản, chúng ta không ghi ký hiệu ``$\leq$'' kèm theo thuộc tính $A$).
+%
+Một thuộc tính rời rạc được gọi là {\em thuộc tính Bool} nếu $\Range(A) = \{\True,\False\}$. Chúng ta xem các thuộc tính Bool như là các tên khái niệm. Gọi $\SigmaC$ là tập các tên khái niệm của~$\Sigma$, lúc đó ta có $\SigmaC \subseteq \SigmaDA$.
+
+Một tên vai trò đối tượng đại diện cho một vị từ hai ngôi giữa các cá thể. Một vai trò dữ liệu $\sigma$ đại diện cho một vị từ hai ngôi giữa các cá thể với các phần tử của tập $\Range(\sigma)$.
+%
+Để đơn giản trong việc biểu diễn các công thức, chúng tôi ký hiệu các ký tự chữ cái thường như $a$,~$b$,\,\ldots\;cho các cá thể; các ký tự hoa như $A$,~$B$,\,\ldots\;cho các thuộc tính; các chữ cái như $r$,~$s$,\,\ldots\;cho các tên vai trò đối tượng; các ký tự như $\sigma$,~$\varrho$,\,\ldots\;cho các vai trò dữ liệu; và các ký tự $c$,~$d$,\,\ldots\;cho các phần tử của tập $\Range(A)$ hoặc $\Range(\sigma)$.
+
+Xét các {\em đặc trưng của logic mô tả} gồm $\mI$ ({\em nghịch đảo vai trò}), $\mO$ ({\em định danh}), $\mF$ ({\em tính chất hàm}), $\mN$ ({\em hạn chế số lượng không định tính}), $\mQ$ ({\em hạn chế số lượng có định tính}), $\mU$ ({\em vai trò phổ quát}), $\Self$ ({\em tính phản xạ cục bộ của vai trò}). {\em Tập các đặc trưng của logic mô tả} $\Phi$ là một tập rỗng hoặc tập chứa một số các đặc trưng nêu trên. Chẳng hạn như $\Phi = \{\mI, \mO, \mQ\}$ để chỉ tập các đặc trưng của logic mô tả gồm: nghịch đảo vai trò, định danh và hạn chế số lượng có định tính.
+
+Dovroodi và Nguyen~\cite{Divroodi2011B}, Nguyen và Sza{\l}as~\cite{Nguyen2013} đã đề cập đến logic mô tả \ALCreg với tập các đặc trưng gồm $\mI$, $\mO$, $\mQ$, $\mU$ và $\Self$. Tran cùng với cộng sự~\cite{Tran2012}, Ha cùng các cộng sự~\cite{Ha2012} đã mở rộng lớp các logic mô tả bằng cách xem xét thêm các đặc trưng $\mF$ và $\mN$. Ngoài ra, các tác giả cũng xem xét các thuộc tính như là các thành phần cơ bản của ngôn ngữ, bao gồm thuộc tính rời rạc và thuộc tính số. Cách tiếp cận này phù hợp đối với các hệ thống thông tin, cơ sở tri thức trong logic mô tả thường có trong thực tế và tổng quát hơn so với nghiên cứu trên đây~\cite{Nguyen2013}.
+Trong đề tài này, chúng tôi tiếp cận với logic mô tả \ALCreg với tập các đặc trưng gồm $\mI$, $\mO$, $\mF$, $\mN$, $\mQ$, $\mU$ và $\Self$. Các kết quả trình bày trong các định nghĩa, định lý tiếp theo là những mở rộng của các định nghĩa, định lý về mô phỏng hai chiều và kế thừa những kết quả về học máy trong các nghiên cứu đã đề cập ở trên~\cite{Divroodi2011B,Nguyen2013,Tran2012,Ha2012} với một lớp lớn các logic mô tả rộng hơn.
+
+\begin{Definition}[Ngôn ngữ $\mLSP$]
+\label{def:LSPLanguage}
+Cho $\Sigma$ là bộ ký tự logic mô tả, $\Phi$ là tập các đặc trưng của logic mô tả và $\mL$ đại diện cho \ALCreg. Ngôn ngữ logic mô tả $\mLSP$ cho phép các {\em vai trò đối tượng} và các {\em khái niệm} được định nghĩa một cách đệ quy như sau:
+\begin{itemize}
+	\item nếu $r \in \SigmaOR$ thì $r$ là một vai trò đối tượng của $\mLSP$,
+	\item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của $\mLSP$,
+	\item nếu $A \in \SigmaA\setminus\SigmaC$ và $d \in \Range(A)$ thì $A=d$ và $A \neq d$ là các khái niệm của $\mLSP$,
+	\item nếu $A \in \SigmaNA$ và $d \in \Range(A)$ thì $A \leq d$, $A < d$, $A \geq d$ và $A > d$ là các khái niệm của~$\mLSP$,
+	\item nếu $R$ và $S$ là các vai trò đối tượng của $\mLSP$, $C$ và $D$ là các khái niệm của $\mLSP$, $r \in \SigmaOR$, $\sigma \in \SigmaDR$, $a \in \SigmaI$ và $n$ là một số tự nhiên thì
+	\begin{itemize}
+		\item $\varepsilon$, $R \circ S$ , $R \sqcup S$, $R^*$ và $C?$ là các vai trò đối tượng của $\mLSP$,
+		\item $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E R.C$ và $\V R.C$ là các khái niệm của $\mLSP$,
+		\item nếu $d \in \Range(\sigma)$ thì $\E \sigma.\{d\}$ là một khái niệm của $\mLSP$,
+		\item nếu $\mI \in \Phi$ thì $R^-$ là một vai trò đối tượng của $\mLSP$,
+		\item nếu $\mO \in \Phi$ thì $\{a\}$ là một khái niệm của $\mLSP$,
+		\item nếu $\mF \in \Phi$ thì $\leq\!1\,r$ là một khái niệm của $\mLSP$,
+		\item nếu $\{\mF, \mI\} \subseteq \Phi$ thì $\leq\!1\,r^-$ là một khái niệm của $\mLSP$,
+		\item nếu $\mN \in \Phi$ thì $\geq\!n\,r$ và $\leq\!n\,r$ là các khái niệm của $\mLSP$,
+		\item nếu $\{\mN, \mI\} \subseteq \Phi$ thì $\geq\!n\,r^-$ và $\leq\!n\,r^-$ là các khái niệm của $\mLSP$,
+		\item nếu $\mQ \in \Phi$ thì $\geq\!n\,r.C$ và $\leq\!n\,r.C$ là các khái niệm của  $\mLSP$,
+		\item nếu $\{\mQ, \mI\} \subseteq \Phi$ thì $\geq\!n\,r^-.C$ và $\leq\!n\,r^-.C$ là các khái niệm của $\mLSP$,
+		\item nếu $\mU \in \Phi$ thì $U$ là một vai trò đối tượng của $\mLSP$,
+		\item nếu $\Self \in \Phi$ thì $\E r.\Self$ là một khái niệm của $\mLSP$.\myend
+	\end{itemize}
+\end{itemize}
+\end{Definition}
+
+Trong định nghĩa trên, các tạo tử khái niệm $\geq\!n\,R.C$ và $\leq\!n\,R.C$ được gọi là hạn chế số lượng có định tính. Các tạo tử này tương ứng với các toán tử hình thái $\Box_n$ và~$\Diamond_n$ trong logic hình thái~\cite{Montanari1997,Divroodi2011B}. Các tạo tử khái niệm $\geq\!n\,R$ và $\leq\!n\,R$ được gọi là hạn chế số lượng không định tính.
+
+\begin{Definition}[Ngữ nghĩa của $\mLSP$]
+\label{def:LSPInterpretation}
+Một {\em diễn dịch} trong $\mLSP$ là một bộ \mbox{$\mI\!=\! \tuple{\Delta^\mI, \cdot^\mI}$}, trong đó $\Delta^\mI$ là một tập khác rỗng được gọi là {\em miền} của $\mI$ và $\cdot^\mI$ là một ánh xạ được gọi là {\em hàm diễn dịch} của $\mI$ cho phép ánh xạ mỗi cá thể $a \in \SigmaI$ thành một phần tử $a^\mI \in \Delta^\mI$, mỗi tên khái niệm $A \in \SigmaC$ thành một tập $A^\mI \subseteq \Delta^\mI$, mỗi thuộc tính $A \in \SigmaA \setminus \SigmaC$ thành một hàm từng phần $A^\mI : \Delta^\mI \to \Range(A)$, mỗi tên vai trò đối tượng $r \in \SigmaOR$ thành một quan hệ nhị phân $r^\mI \subseteq \Delta^\mI \times \Delta^\mI$ và mỗi vai trò dữ liệu~$\sigma \in \SigmaDR$ thành một quan hệ nhị phân $\sigma^\mI \subseteq \Delta^\mI \times \Range(\sigma)$.
+Hàm diễn dịch $\cdot^\mI$ được mở rộng cho các vai trò đối tượng phức và các khái niệm phức như trong Hình~\ref{fig:LSPInterpretation}, trong đó $\#\Gamma$ ký hiệu cho lực lượng của tập $\Gamma$.\myend
+\end{Definition}
+
+\begin{figure}
+\ramka{
+	\vspace{-2.0ex}
+	\[
+	\begin{array}{l}
+		\begin{array}{rcl}
+			(R \circ S)^\mI \!\!\!& = &\!\!\! R^\mI \circ S^\mI\\[0.5ex]
+			(R \sqcup S)^\mI \!\!\!& = &\!\!\! R^\mI \cup S^\mI\\[0.5ex]
+			U^\mI \!\!\!& = &\!\!\! \Delta^\mI \times \Delta^\mI \\[0.5ex]
+			(C \mand D)^\mI \!\!\!& = &\!\!\! C^\mI \cap D^\mI \\[0.5ex]
+		\end{array} \qquad
+		\begin{array}{rcl}
+			(R^*)^\mI \!\!\!& = &\!\!\! (R^\mI)^*\\[0.5ex]
+			(R^-)^\mI \!\!\!& = &\!\!\! (R^\mI)^{-1} \\[0.5ex]
+			\multicolumn{3}{c}{\top^\mI = \Delta^\mI \qquad \bot^\mI = \emptyset}\\[0.5ex]
+			(C \mor D)^\mI \!\!\!& = &\!\!\! C^\mI \cup D^\mI \\[0.5ex]    
+		\end{array} \qquad
+		\begin{array}{rcl}
+			(C?)^\mI \!\!\!& = &\!\!\! \{ \tuple{x,x} \mid C^\mI(x)\}\\[0.5ex]
+			\varepsilon^\mI \!\!\!& = &\!\!\! \{\tuple{x,x} \mid x \in \Delta^\mI\}\\[0.5ex]
+			(\neg C)^\mI \!\!\!& = &\!\!\! \Delta^\mI \setminus C^\mI \\[0.5ex]
+			\{a\}^\mI \!\!\!& = &\!\!\! \{a^\mI\} \\[0.5ex]
+		\end{array} \\[0.5ex]
+%  
+		(A \leq d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) \textrm{ xác định và } A^\mI(x) \leq d\} \\[0.5ex]
+%  
+		(A \geq d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) \textrm{ xác định và } A^\mI(x) \geq d \} \\[0.5ex]
+%  
+		(A = d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) = d\}\qquad\qquad\qquad\quad\; (A \neq d)^\mI = (\neg (A = d))^\mI \\[0.5ex]
+%
+		(A < d)^\mI = ((A \leq d) \mand (A \neq d))^\mI\qquad\qquad\qquad\quad\;\;(A > d)^\mI = ((A \geq d) \mand (A \neq d))^\mI \\[0.5ex]
+%  
+		(\V R.C)^\mI = \{ x \in \Delta^\mI \mid \V y\,[R^\mI(x,y) \Rightarrow C^\mI(y)]\}\quad\quad\;\, (\E r.\Self)^\mI = \{x \in \Delta^\mI \mid r^\mI(x,x)\} \\[0.5ex]
+%
+		(\E R.C)^\mI = \{ x \in \Delta^\mI \mid \E y\,[R^\mI(x,y) \wedge C^\mI(y)]\}\qquad\quad (\E \sigma.\{d\})^\mI = \{ x \in \Delta^\mI \mid \sigma^\mI(x,d)\} \\[0.5ex]
+%
+		(\geq\!n\,R.C)^\mI = \{x \in \Delta^\mI \mid \#\{y \mid R^\mI(x,y) \wedge C^\mI(y)\} \geq n\} \qquad\; (\geq\!n\,R)^\mI = (\geq\!n\,R.\top)^\mI \\[0.5ex]
+%
+		(\leq\!n\,R.C)^\mI = \{x \in \Delta^\mI \mid \#\{y \mid R^\mI(x,y) \wedge C^\mI(y)\} \leq n \} \qquad\; (\leq\!n\,R)^\mI = (\leq\!n\,R.\top)^\mI
+	\end{array}
+	\vspace{-2.5ex}
+	\]}
+\caption{Diễn dịch của các vai trò phức và khái niệm phức.\label{fig:LSPInterpretation}}
+\end{figure}
+
+Như chúng ta thấy ở Định nghĩa~\ref{def:LSPInterpretation}, mỗi cá thể được diễn dịch như là một đối tượng, mỗi tên khái niệm được diễn dịch như là một tập các đối tượng, mỗi thuộc tính được diễn dịch như là một hàm thành phần từ miền quan tâm vào tập các giá trị của thuộc tính, mỗi tên vai trò đối tượng được diễn dịch như là một quan hệ nhị phân  giữa các đối tượng và mỗi vai trò dữ liệu được diễn dịch như là một quan hệ nhị phân giữa các đối tượng với các phần tử trong miền giá trị của vai trò dữ liệu đó.
+
+Chúng ta nói $C^\mI$ (tương ứng, $R^\mI$) là {\em diễn dịch} của khái niệm $C$ (tương ứng, vai trò $R$) trong diễn dịch $\mI$.
+Một khái niệm $C$ được gọi là {\em thỏa mãn được} nếu tồn tại một diễn dịch~$\mI$ sao cho $C^\mI \not= \emptyset$.
+Nếu $a^\mI \in C^\mI$, lúc đó chúng ta nói $a$ là một~{\em thể hiện} của $C$ trong diễn dịch~$\mI$. Để ngắn gọn, ta viết $C^\mI(x)$ (tương ứng, $R^\mI(x,y)$, $\sigma^\mI(x, d)$) thay cho $x \in C^\mI$ (tương ứng, $\tuple{x, y} \in R^\mI$, $\tuple{x, d} \in \sigma^\mI$).
+
+Cho diễn dịch $\mI = \tuple{\Delta^\mI, \cdot^\mI}$ trong ngôn ngữ $\mLSP$. Chúng ta nói rằng đối tượng $x \in \Delta^\mI$ có {\em độ sâu} là $k$ nếu $k$ là số tự nhiên lớn nhất sao cho tồn tại các đối tượng $x_0, x_1, \ldots, x_k \in \Delta^\mI$ khác nhau từng đôi một thỏa mãn:
+\begin{itemize}
+	\item $x_k = x$ và $x_0 = a^\mI$ với $a \in \SigmaI$,
+	\item $x_i \not= b^\mI$ với mọi $1 \leq i \leq k$ và với mọi $b \in \SigmaI$,
+	\item với mỗi $1 \leq i \leq k$ tồn tại một vai trò đối tượng $R_i$ của $\mLSP$ sao cho $R_i^\mI(x_{i-1}, x_i)$ thỏa~mãn.
+\end{itemize}
+
+Chúng ta ký hiệu $\mI_{\mid k}$ là diễn dịch thu được từ diễn dịch $\mI$ bằng cách hạn chế miền~$\Delta^\mI$ của diễn dịch $\mI$ là tập chỉ bao gồm các đối tượng có độ sâu không lớn hơn $k$ và hàm diễn dịch $\cdot^\mI$ được hạn chế một cách tương ứng.
+%-------------------------------------------------------------------
+\section{Các dạng chuẩn}
+\label{sec:Chap1.NormalForms}
+
+Để biểu diễn các khái niệm và vai trò theo một dạng thống nhất trong logic mô tả nhằm phù hợp với quá trình xử lý khái niệm và vai trò đó, người ta sử dụng các dạng chuẩn của khái niệm và vai trò. Dạng chuẩn của khái niệm $C$ (tương ứng, vai trò $R$) là một khái niệm $C'$ (tương ứng, vai trò $R'$) tương đương với khái niệm $C$ (tương ứng, vai trò $R$). Nghĩa là khái niệm $C'$ (tương ứng, vai trò $R'$) có cùng ý nghĩa với khái niệm $C$ (tương ứng, vai trò $R$), nhưng khác nhau về cú pháp biểu diễn.
+
+\subsection{Dạng chuẩn phủ định của khái niệm}
+\label{sec:Chap1.NegationNormalForm}
+Dạng chuẩn phủ định của khái niệm ({\em Negation Normal Form - NNF})~\cite{DLHandbook2007,Lehmann2006} được đề xuất nhằm phục vụ cho việc xử lý các bài toán suy luận của cơ sở tri thức trong logic mô tả. 
+Khái niệm $C$ được gọi là ở {\em dạng chuẩn phủ định} nếu toán tử phủ định chỉ xuất hiện trước các tên khái niệm xuất hiện trong $C$.
+
+Để chuyển một khái niệm về dạng chuẩn phủ định, chúng ta sử dụng luật De~Morgan và các phép biến đổi tương đương, cụ thể như sau:\\[1.0ex]
+%\[
+\begin{tabular}{c r c l c r c l}
+	& $\neg \neg C$ & $\longrightarrow$ & $C$\\[0.5ex]
+	& $\neg \top$ & $\longrightarrow$ & $\bot$ & & $\neg \bot$ & $\longrightarrow$ & $\top$\\[0.5ex]
+	& $\neg (C \mand D)$ & $\longrightarrow$ & $\neg C \mor \neg D$ & & $\neg (C \mor D)$ & $\longrightarrow$ & $\neg C \mand \neg D$\\[0.5ex]
+	& $\neg (\E R.C)$ & $\longrightarrow$ & $\V R.\neg C$ & & $\neg (\V R.C)$ & $\longrightarrow$ & $\E R.\neg C$\\[0.5ex]
+	& $\neg (\geq\!n\,R)$ & $\longrightarrow$ & $\leq\!(n-1)\,R$ & & $\neg (\leq\!n\,R)$ & $\longrightarrow$ & $\geq\!(n+1)\,R$\\[0.5ex]
+	& $\neg (\geq\!n\,R.C)$ & $\longrightarrow$ & $\leq\!(n-1)\,R.C$ &\qquad\qquad\qquad & $\neg (\leq\!n\,R.C)$ & $\longrightarrow$ & $\geq\!(n-1)\,R.C$\\[0.5ex]
+\end{tabular}
+%\]
+
+\begin{Example}
+	Cho $A$ và $B$ là các tên khái niệm, $r$ và $s$ là các tên vai trò đối tượng và khái niệm $C \equiv \neg (\E r.\neg A \mand (B \mor \V s.A)) \mand \neg (\geq\!3\,r.A \mor \neg B)$. Dạng chuẩn phủ định của khái niệm $C$ là $(\V r.A \mor (\neg B \mand \E s.\neg A)) \mand (\leq\!2\,r.A \mand B)$.\myend
+\end{Example}
+
+%\subsection{Dạng chuẩn lưu trữ của khái niệm}
+%\label{sec:Chap1.SrorageNormalForm}
+%Ngoài dạng chuẩn phủ định của khái niệm, chúng ta có thể sử dụng các dạng chuẩn khác để phù hợp với quá trình thao tác và xử lý khái niệm. Luận án này đề xuất một dạng chuẩn để lưu trữ khái niệm trong quá trình xây dựng các chương trình học máy. {\em Dạng chuẩn lưu trữ khái niệm} được xây dựng dựa trên dạng chuẩn phủ định và tập hợp. Nó là một mở rộng của dạng chuẩn đã đề xuất trong~\cite{Nguyen2009}. Để chuyển một khái niệm về dạng chuẩn này, chúng ta áp dụng các luật chuẩn hóa sau:
+%\begin{enumerate}
+%	\item các khái được biểu diễn theo dạng chuẩn phủ định,
+%	\item khái niệm $C_1 \mand C_2 \mand \cdots \mand C_n$ được biểu diễn bằng một tập hợp ``{\bf AND}'' và ký hiệu là $\mand \{C_1, C_2, \ldots, C_n\}$,
+%	\item $\mand \{C\}$ được thay thế bằng $C$,
+%	\item $\mand \{\mand \{C_1, C_2, \ldots, C_i\}, C_{i+1}, \ldots, C_n\}$ được thay thế bằng $\mand \{C_1, C_2, \ldots, C_n\}$,
+%	\item $\mand \{\top, C_1, C_2, \ldots, C_n\}$ được thay thế bằng $\mand \{C_1, C_2, \ldots, C_n\}$,
+%	\item $\mand \{\bot, C_1, C_2, \ldots, C_n\}$ được thay thế bằng $\bot$,
+%	\item nếu $C_i \sqsubseteq C_j$ và $1 \leq i \neq j \leq n$ thì loại bỏ $C_j$ ra khỏi $\mand \{C_1, C_2, \ldots, C_n\}$,
+%	\item nếu $C_i \equiv \overline{C}_j$ và $1 \leq i \neq j \leq n$ thì $\mand \{C_1, C_2, \ldots, C_n\}$ được thay thế bằng $\bot$, trong đó $\overline{C}$ là dạng chuẩn của $\neg C$,
+%	\item $\V R.\mand \{C_1, C_2, \ldots, C_n\}$ được thay thế bằng $\mand \{\V R.C_1, \V R.C_2, \ldots, \V R.C_n\}$,
+%	\item $\V R.\top$ được thay thế bằng $\top$,
+%	\item $\leq\!n\,R.\bot$ được thay thế bằng $\top$,
+%	\item $\geq\!0\,R.C$ được thay thế bằng $\top$,
+%	\item $\geq\!1\,R.C$ được thay thế bằng $\E R.C$,
+%	\item $\geq\!n\,R.\bot$ được thay thế bằng $\bot$ nếu $n > 0$,
+%	\item các luật kép được áp dụng cho các luật từ 2 đến 10 bằng cách đảo các tạo tử trong luật một cách tương ứng (chẳng hạn, luật kép của luật 5 là $\mor \{\bot, C_1, C_2, \ldots, C_n\}$ được thay thế bằng $\mor \{C_1, C_2, \ldots, C_n\}$, luật kép của luật 6 là $\mor \{\top, C_1, C_2, \ldots, C_n\}$ được thay thế bằng~$\top$).
+%\end{enumerate}
+%
+%Như đã đề cập, khái niệm $C_1 \mand C_2 \mand \cdots \mand C_n$ được biểu diễn là $\mand \{C_1, C_2, \ldots, C_n\}$ và khái niệm $C_1 \mor C_2 \mor \cdots \mor C_n$ được biểu diễn là $\mor \{C_1, C_2, \ldots, C_n\}$. Nghĩa là, các khái niệm này được biểu diễn dưới dạng tập hợp của các khái niệm con. Sử dụng tập hợp trong biểu diễn khái niệm mang lại một lợi thế quan trọng là thứ tự của các khái niệm con trong tập hợp không ảnh hưởng tới khái niệm đang xét. Chẳng hạn, $\mand \{C_1, C_2\}$ và $\mand \{C_2, C_1\}$ là hai khái niệm giống~nhau. Vì vậy, trong thực nghiệm, các chương trình cài đặt cần phải xây dựng được cấu trúc dữ liệu thích hợp cho việc lưu trữ khái niệm. Cấu trúc dữ liệu này phải đảm bảo hai khái niệm có cùng ``dạng chuẩn'' được biểu diễn như nhau để tránh việc lưu trữ lặp lại các khái niệm giống nhau trong bộ nhớ.
+%
+%\begin{Example}
+%	Cho khái niệm $C \equiv \neg (\E r.\neg A \mand (B \mor \V s.A)) \mand \neg (\geq\!3\,r.A \mor \neg B)$. Dạng chuẩn phủ định của khái niệm $C$ là: $(\V r.A \mor (\neg B \mand \E s.\neg A)) \mand (\leq\!2\,r.A \mand B)$. Dạng chuẩn lưu trữ của khái niệm $C$ là: $\mand\{\mor\{\V r.A, \mand\{\neg B, \E s.\neg A\}\}, \leq\!2\,r.A, B\}$.
+%	\myend
+%\end{Example}
+%
+\subsection{Dạng chuẩn nghịch đảo của vai trò}
+\label{sec:Chap1.InverseNormalForm}
+%\begin{Definition}[Dạng chuẩn nghịch đảo]
+%	Một vai trò được gọi là ở {\em dạng chuẩn nghịch đảo} nếu tạo tử nghịch đảo chỉ xuất hiện trước tên vai trò (không xét đến vai trò đối tượng phổ quát $U$).\myend
+%\end{Definition}
+Vai trò đối tượng $R$ được gọi là một vai trò ở {\em dạng chuẩn nghịch đảo} ({\em Converse Normal Form - CNF}) nếu tạo tử nghịch đảo chỉ áp dụng cho các tên vai trò đối tượng xuất hiện trong $R$ (không xét đến vai trò đối tượng phổ quát $U$)~\cite{Divroodi2011B}. Rõ ràng, tất cả các vai trò đối tượng đều có thể chuyển đổi tương đương thành vai trò đối tượng ở dạng chuẩn nghịch đảo. Trong đề tài này, chúng ta sử dụng các vai trò được biểu diễn ở dạng chuẩn nghịch đảo.
+
+Để chuyển một vai trò về dạng chuẩn nghịch đảo, chúng ta sử dụng các phép biến đổi tương đương sau:\\[1.0ex]
+%\[
+\begin{tabular}{c r c l  c r c l}
+	& $(R^-)^-\!\!\!$ & $\longrightarrow$ & $\!\!\!R$ &\qquad\qquad\qquad\qquad\qquad\quad & $(R \mor S)^-\!\!\!$ & $\longrightarrow$ $R^- \mor S^-$ \\[0.5ex]	
+	& $(R^*)^-\!\!\!$ & $\longrightarrow$ & $\!\!\!(R^-)^*$ &\qquad\qquad\quad & $(R \circ S)^-\!\!\!$ & $\longrightarrow$ $S^- \circ R^-$
+\end{tabular}
+%\]
+
+\begin{Example}
+	Cho $r$, $s$ là các tên vai trò đối tượng và vai trò $R \equiv ((r \circ s^-) \mor (r^* \circ s) \mor s^-)^-$. Dạng chuẩn nghịch đảo của vai trò~$R$ là $(s \circ r^-) \mor (s^- \circ (r^-)^*) \mor s$.\myend
+\end{Example}
+
+Đặt $\SigmaOR^\pm = \SigmaOR \cup \{r^- \mid r \in \SigmaOR\}$. Một {\em vai trò đối tượng cơ bản} là một phần tử thuộc $\SigmaOR^\pm$ nếu ngôn ngữ được xem xét cho phép vai trò nghịch đảo hoặc một phần tử thuộc $\SigmaOR$ nếu ngôn ngữ được xem xét không cho phép vai trò nghịch đảo~\cite{Divroodi2011B}.
+
+%-------------------------------------------------------------------
+\section{Cơ sở tri thức trong logic mô tả}
+\label{sec:Chap1.KnowledgeBaseInDL}
+Cơ sở tri thức trong logic mô tả thường bao gồm ba thành phần: bộ tiên đề vai trò chứa các tiên đề vai trò, bộ tiên đề thuật ngữ chứa các tiên đề thuật ngữ và bộ khẳng định chứa các khẳng định về cá thể~\cite{DLHandbook2007,Divroodi2011B}.
+
+\subsection{Bộ tiên đề vai trò}
+\label{sec:Chap1.RBox}
+\begin{Definition}[Tiên đề vai trò]
+\label{def:RoleAxiom}
+	Một {\em tiên đề bao hàm vai trò} trong ngôn ngữ $\mLSP$ là một biểu thức có dạng $\varepsilon \sqsubseteq r$ hoặc $R_1 \circ R_2 \circ \cdots \circ R_k \sqsubseteq r$, trong đó $k \geq 1$, $r \in \SigmaOR$ và $R_1, R_2, \ldots,R_k$ là các vai trò đối tượng cơ bản của $\mLSP$ khác với vai trò phổ quát $U$. 
+%
+	Một {\em khẳng định vai trò} trong ngôn ngữ $\mLSP$ là một biểu thức có dạng $\Ref(r)$, $\Irr(r)$, $\Sym(r)$, $\Tra(r)$ hoặc $\Dis(R, S)$, trong đó $r \in \SigmaOR$ và $R, S$ là các vai trò đối tượng của $\mLSP$ khác với vai trò phổ quát $U$.
+%
+	Một {\em tiên đề vai trò} trong ngôn ngữ $\mLSP$ là một tiên đề bao hàm vai trò hoặc một khẳng định vai trò trong $\mLSP$.\myend
+\end{Definition}
+
+Ý nghĩa của các khẳng định vai trò trong Định nghĩa~\ref{def:RoleAxiom} được hiểu như sau:
+\begin{itemize}
+	\item $\Ref(r)$ được gọi là một {\em khẳng định vai trò phản xạ},
+	\item $\Irr(r)$ được gọi là một {\em khẳng định vai trò không phản xạ},
+	\item $\Sym(r)$ được gọi là một {\em khẳng định vai trò đối xứng},
+	\item $\Tra(r)$ được gọi là một {\em khẳng định vai trò bắc cầu},
+	\item $\Dis(R,S)$ được gọi là một {\em khẳng định vai trò không giao nhau}.        
+\end{itemize}
+
+Ngữ nghĩa của các tiên đề vai trò được xác định thông qua diễn dịch $\mI$ như sau:\\[1.0ex]
+\begin{tabular}{c l c l}
+	& $\mI \models \varepsilon \sqsubseteq r$ & nếu & $\varepsilon^\mI \subseteq r^\mI$,\\[0.5ex]
+	& $\mI \models R_1 \circ R_2 \circ \cdots \circ R_k \sqsubseteq r$ & nếu & $R_1^\mI \circ R_2^\mI \circ \cdots \circ R_k^\mI \subseteq r^\mI$,\\[0.5ex]
+	& $\mI \models \Ref(r)$ & nếu & $r^\mI$ phản xạ,\\[0.5ex]
+	& $\mI \models \Irr(r)$ & nếu & $r^\mI$ không phản xạ,\\[0.5ex]
+	& $\mI \models \Sym(r)$ & nếu & $r^\mI$ đối xứng,\\[0.5ex]
+	& $\mI \models \Tra(r)$ & nếu & $r^\mI$ bắc cầu,\\[0.5ex]
+	& $\mI \models \Dis(R,S)$ & nếu & $R^\mI$ và $S^\mI$ không giao nhau.
+\end{tabular}
+
+Giả sử $\varphi$ là một tiên đề vai trò. Chúng ta nói rằng $\mI$ {\em thỏa mãn} $\varphi$ nếu $\mI \models \varphi$.
+
+\begin{Definition}[Bộ tiên đề vai trò]
+\label{def:RBox}
+	{\em Bộ tiên đề vai trò} ({\em RBox}) trong ngôn ngữ $\mLSP$ là một tập hữu hạn các tiên đề vai trò trong $\mLSP$.\myend
+\end{Definition}
+
+\subsection{Bộ tiên đề thuật ngữ}
+\label{sec:Chap1.TBox}
+\begin{Definition}[Tiên đề thuật ngữ]
+\label{def:TerminologyAxiom}
+	Một {\em tiên đề bao hàm khái niệm tổng quát} trong ngôn ngữ $\mLSP$ là một biểu thức có dạng $C \sqsubseteq D$, trong đó $C$ và $D$ là các khái niệm của $\mLSP$. 
+%
+	Một {\em tiên đề tương đương khái niệm} trong ngôn ngữ $\mLSP$ là một biểu thức có dạng $C \equiv D$, trong đó $C$ và $D$ là các khái niệm của $\mLSP$. 
+%
+	Một {\em tiên đề thuật ngữ} trong ngôn ngữ $\mLSP$ là một tiên đề bao hàm khái niệm tổng quát hoặc một tiên đề tương đương khái niệm trong $\mLSP$.\myend
+\end{Definition}
+
+Đối với tiên đề tương đương khái niệm $C \equiv D$, trong đó $C$ và $D$ là các khái niệm của $\mLSP$, nếu $C$ là một tên khái niệm thì chúng ta nói $C \equiv D$ là một {\em định nghĩa khái niệm} và khái niệm $C$ được gọi là {\em khái niệm định nghĩa}. 
+Một tiên đề tương đương khái niệm $C \equiv D$ có thể được chuyển đổi tương đương thành hai tiên đề bao hàm khái niệm tổng quát là $C \sqsubseteq D$ và $D \sqsubseteq C$.
+
+Ngữ nghĩa của các tiên đề thuật ngữ được xác định thông qua diễn dịch $\mI$ như~sau:\\[1.5ex]
+\begin{tabular}{c l c l}
+	& $\mI \models C \sqsubseteq D$ & nếu & $C^\mI \subseteq D^\mI$,\\[0.5ex]
+	& $\mI \models C \equiv D$ & nếu & $C^\mI = D^\mI$.
+\end{tabular}
+
+Giả sử $\varphi$ là một tiên đề thuật ngữ. Chúng ta nói rằng $\mI$ {\em thỏa mãn} $\varphi$ nếu $\mI \models \varphi$.
+
+\begin{Definition}[Bộ tiên đề thuật ngữ]
+\label{def:TBox}
+	{\em Bộ tiên đề thuật ngữ} ({\em TBox}) trong ngôn ngữ $\mLSP$ là một tập hữu hạn các tiên đề thuật ngữ trong $\mLSP$.\myend
+\end{Definition}
+
+\subsection{Bộ khẳng định cá thể}
+\label{sec:Chap1.ABox}
+
+\begin{Definition}[Khẳng định cá thể]
+\label{def:AssertionIndividual}
+Một {\em khẳng định cá thể} trong ngôn ngữ $\mLSP$ là một biểu thức có dạng $C(a)$, $R(a,b)$, $\neg R(a,b)$, $a=b$, $a \not=b$, trong đó $C$ là một khái niệm và $R$ là một vai trò đối tượng của $\mLSP$.\myend
+\end{Definition}
+
+Ý nghĩa của các khẳng định cá thể trong Định nghĩa~\ref{def:ABox} được hiểu như sau:
+\begin{itemize}
+  \item $C(a)$ được gọi là một {\em khẳng định khái niệm},
+  \item $R(a,b)$ được gọi là một {\em khẳng định vai trò đối tượng dương},
+  \item $\neg R(a,b)$ được gọi là một {\em khẳng định vai trò đối tượng âm},
+  \item $a=b$ được gọi là một {\em khẳng định bằng nhau},
+  \item $a \not=b$ được gọi là một {\em khẳng định khác nhau}.        
+\end{itemize}
+
+Ngữ nghĩa của các khẳng định cá thể được xác định thông qua diễn dịch $\mI$ như~sau:\\[1.5ex]
+\begin{tabular}{c l c l}
+	& $\mI \models C(a)$      & nếu & $a^\mI \in C^\mI$, \\[0.5ex] 
+	& $\mI \models R(a,b)$    & nếu & $\tuple{a^\mI,b^\mI} \in R^\mI$,\\[0.5ex]
+	& $\mI \models \neg R(a,b)$ & nếu & $\tuple{a^\mI,b^\mI} \notin R^\mI$.\\[0.5ex]
+	& $\mI \models a = b$     & nếu & $a^\mI = b^\mI$, \\[0.5ex]
+	& $\mI \models a \neq b$  & nếu & $a^\mI \neq b^\mI$.
+\end{tabular}
+
+Giả sử $\varphi$ là một khẳng định cá thể. Chúng ta nói rằng $\mI$ {\em thỏa mãn} $\varphi$ nếu $\mI \models \varphi$.
+
+\begin{Definition}[Bộ khẳng định cá thể]
+\label{def:ABox}
+{\em Bộ khẳng định cá thể} ({\em ABox}) trong ngôn ngữ $\mLSP$ là một tập hữu hạn các khẳng định cá thể trong $\mLSP$.\myend
+\end{Definition}
+
+\subsection{Cơ sở tri thức và mô hình của cơ sở tri thức}
+\label{sec:Chap1.KnowledgeBase}
+
+\begin{Definition}[Cơ sở tri thức]
+Một {\em cơ sở tri thức} trong ngôn ngữ $\mLSP$ là một bộ ba \mbox{$\KB = \tuple{\mR, \mT, \mA}$}, trong đó $\mR$ là một RBox, $\mT$ là một TBox và $\mA$ là một ABox trong $\mLSP$.\myend
+\end{Definition}
+
+\begin{Definition}[Mô hình]
+Một diễn dịch $\mI$ là một {\em mô hình} của RBox $\mR$ (tương ứng, TBox $\mT$, ABox $\mA$), ký hiệu là $\mI \models \mR$ (tương ứng, $\mI \models \mT$, $\mI \models \mA$), nếu $\mI$ thỏa mãn tất cả các tiên đề vai trò trong $\mR$ (tương ứng, tiên đề thuật ngữ trong~$\mT$, khẳng định cá thể trong~$\mA$).
+Một diễn dịch $\mI$ là một {\em mô hình} của cơ sở tri thức $\KB=\tuple{\mR,\mT, \mA}$, ký hiệu là $\mI \models \KB$, nếu nó là mô hình của cả $\mR$, $\mT$ và $\mA$.\myend
+\end{Definition}
+
+Cơ sở tri thức $\KB$ được gọi là {\em thỏa mãn} nếu $\KB$ có mô hình. 
+Một cá thể $a$ được gọi là {\em thể hiện} của một khái niệm $C$ dựa trên cơ sở tri thức $\KB$, ký hiệu là $\KB \models C(a)$, nếu với mọi diễn dịch $\mI$ là mô hình của $\KB$ thì $a^\mI \in C^\mI$. Cá thể $a$ không phải thể hiện của khái niệm $C$ dựa trên cơ sở tri thức $\KB$ được ký hiệu là $\KB \not \models C(a)$.
+%
+Khái niệm $D$ được gọi là {\em bao hàm} khái niệm $C$ dựa trên cơ sở tri thức $\KB$, ký hiệu là $\KB \models C \sqsubseteq D$, nếu với mọi diễn dịch $\mI$ là mô hình của $\KB$ thì $C^\mI \subseteq D^\mI$.
+
+Một logic $\mLSP$ được xác định thông qua một số hạn chế cụ thể đối với ngôn ngữ $\mLSP$. Ta nói rằng logic $L$ là quyết định được nếu bài toán kiểm tra tính thỏa của một cơ sở tri thức trong $L$ là quyết định được. 
+%
+Một logic $L$ được xem là có {\em tính chất mô hình hữu hạn} nếu với mọi cơ sở tri thức thỏa mãn được trong $L$ đều có mô hình hữu hạn.
+%
+Một logic $L$ được xem là có {\em tính chất mô hình nữa hữu hạn} nếu với mọi cơ sở tri thức thỏa mãn được trong $L$ đều có mô hình $\mI$ sao cho với mọi số tự nhiên $k$, $\mI_{\mid k}$ là hữu hạn và có thể xây dựng được.
+
+Trong~\cite{Baldoni1998}, Baldoni và các cộng sự đã chỉ ra rằng các logic dựa trên các văn phạm cảm ngữ cảnh và văn phạm phi ngữ cảnh nói chung là không quyết định được.
+Logic $\mLSP$ tổng quát nhất (không có hạn chế nào) là logic không quyết định được. Tuy nhiên, lớp các logic chúng ta đang xem xét trong đề tài này có nhiều logic quyết định được và là những logic rất hữu ích thường được áp dụng trong các ứng dụng thực tế. Một trong số đó là \SROIQ\;- logic làm cơ sở cho ngôn ngữ OWL~2~\cite{Horrocks2006}. Logic này có tính chất mô hình nữa hữu hạn.
+
+\begin{Example}
+	\label{ex:KnowledgeBase3}
+	Ví dụ sau đây là một cơ sở tri thức đề cập về các ấn phẩm khoa học.
+	\allowdisplaybreaks
+	\begin{eqnarray*}
+		\Phi    \!\!\!&=&\!\!\! \{\mI,\mO,\mN,\mQ\},\\
+		\SigmaI \!\!\!&=&\!\!\! \{\Pub_1, \Pub_2, \Pub_3, \Pub_4, \Pub_5, \Pub_6\},\qquad\\
+		\SigmaC \!\!\!&=&\!\!\! \{\Publication, \Awarded, \UsefulPub, A_d\}, \qquad \SigmaDA = \SigmaC, \quad \SigmaNA = \{\PubYear\}, \quad\\
+		\SigmaOR \!\!\!&=&\!\!\! \{\Cites, \Citedby\}, \quad \SigmaDR = \emptyset,\\
+		\mR    \!\!\!&=&\!\!\! \{\Cites^- \sqsubseteq \Citedby, \Citedby^- \sqsubseteq \Cites, \Irr(\Cites) \}, \\
+		\mT    \!\!\!&=&\!\!\! \{\top \sqsubseteq \Publication, \UsefulPub \equiv \E \Citedby.\top\},\\
+		\mA_0 \!\!\!&=&\!\!\! \{\Awarded(\Pub_1), \neg\Awarded(\Pub_2), \neg\Awarded(\Pub_3), \Awarded(\Pub_4), \\
+		\!\!\!& & \neg\Awarded(\Pub_5), \Awarded(\Pub_6), 
+		\PubYear(\Pub_1) = 2010, \PubYear(\Pub_2) = 2009, \\
+		\!\!\!& & \PubYear(\Pub_3) = 2008, \PubYear(\Pub_4) = 2007, 
+		\PubYear(\Pub_5) = 2006, \PubYear(\Pub_6) = 2006, \\
+		\!\!\!& & \Cites(\Pub_1, \Pub_2), \Cites(\Pub_1, \Pub_3), \Cites(\Pub_1, \Pub_4), 
+		\Cites(\Pub_1, \Pub_6), \Cites(\Pub_2, \Pub_3), \\
+		\!\!\!& & \Cites(\Pub_2, \Pub_4), \Cites(\Pub_2, \Pub_5), \Cites(\Pub_3, \Pub_4), \Cites(\Pub_3, \Pub_5), \Cites(\Pub_3, \Pub_6),\\
+		\!\!\!& & \Cites(\Pub_4, \Pub_5), \Cites(\Pub_4, \Pub_6)\}.
+	\end{eqnarray*}
+	
+	Lúc đó $\KB_0 = \tuple{\mR,\mT,\mA_0}$ là cơ sở tri thức trong $\mLSP$. Tiên đề $\top \sqsubseteq \Publication$ để chỉ ra rằng miền của bất kỳ mô hình nào của $\KB_0$ đều chỉ gồm các ấn phẩm khoa học.
+	%
+	Cơ sở tri thức $\KB_0$ được minh họa như trong Hình~\ref{fig:KnowledgeBase3}. Trong hình này, các nút ký hiệu cho các ấn phẩm và các cạnh ký hiệu cho các trích dẫn (khẳng định của vai trò $\Cites$). Hình này chỉ biểu diễn những thông tin về các khẳng định $\PubYear$, $\Awarded$ và $\Cites$.\myend
+\end{Example}
+
+\begin{figure}[h!]
+	\ramka{
+		\vspace{-2.0ex}
+		\begin{center}
+			\begin{tabular}{c}
+				\xymatrix@C=18ex@R=8ex{
+					*+[F]{\begin{array}{c}\Pub_1 : 2010\\ \Awarded\end{array}}
+					\ar@{->}[r] 
+					\ar@{->}[d] 
+					\ar@{->}[dr] 
+					\ar@/_{0.5pc}/@{->}[drr] 
+					& 
+					*+[F]{\begin{array}{c}\Pub_2 : 2009\\ \neg\Awarded\end{array}}
+					\ar@{->}[r] 
+					\ar@{->}[dl] 
+					\ar@{->}[d] 
+					& 
+					*+[F]{\begin{array}{c}\Pub_5 : 2006\\ \neg\Awarded\end{array}}\\
+					*+[F]{\begin{array}{c}\Pub_3 : 2008\\ \neg\Awarded\end{array}}
+					\ar@{->}[r] 
+					\ar@/^{0.5pc}/@{->}[urr] 
+					\ar@/_{2.6pc}/@{->}[rr]
+					&
+					*+[F]{\begin{array}{c}\Pub_4 : 2007\\ \Awarded\end{array}}
+					\ar@{->}[ru]
+					\ar@{->}[r] 
+					&
+					*+[F]{\begin{array}{c}\Pub_6 : 2006\\ \Awarded\end{array}}
+				} % \xymatrix
+				\\
+			\end{tabular}
+		\end{center}
+	}
+	\caption{Một minh họa cho cơ sở tri thức của Ví dụ~\ref{ex:KnowledgeBase3}\label{fig:KnowledgeBase3}}
+\end{figure}
+
+\begin{Example}
+\label{ex:LSPLanguage}
+	Cho $\SigmaI = \{a, b, c\}$, $\SigmaNA = \{\BirthYear\}$, $\SigmaC = \{\Human, \Male, \Female\}$, $\SigmaDA = \{\NickName\} \cup \SigmaC$, $\SigmaOR = \{\hasChild, \marriedTo\}$ và $\SigmaDR = \emptyset$. 
+	%
+	Chúng ta có thể xem cá thể $a$ là $\iALICE$, $b$ là $\iBOB$ và $c$ là $\iCALVIN$ và các diễn dịch $\mI_1$ và $\mI_2$ được xây dựng như sau:
+	
+	\noindent
+	\semiBullet{Diễn dịch $\mI_1$:} %\\[1.0ex]
+	\allowdisplaybreaks
+	\begin{eqnarray*}
+		& &\!\!\!\!\!\!\! \Delta^{\mI_1} = \{a^{\mI_1}, b^{\mI_1}, c^{\mI_1}, x_1, x_2, x_3, x_4\}, 
+		\Human^{\mI_1} = \{a^{\mI_1}, b^{\mI_1}, c^{\mI_1}, x_1, x_2, x_3, x_4\},\\[0.7ex]
+		& &\!\!\!\!\!\!\! \Male^{\mI_1} = \{b^{\mI_1}, x_1, x_2, x_3\},
+		\Female^{\mI_1} = \{a^{\mI_1}, c^{\mI_1}, x_4\},\\[0.7ex]
+		& &\!\!\!\!\!\!\! \BirthYear^{\mI_1}(a^{\mI_1}) = 1925,
+		\BirthYear^{\mI_1}(b^{\mI_1}) = 1920,
+		\BirthYear^{\mI_1}(c^{\mI_1}) = 1955,\\[0.7ex]
+		& &\!\!\!\!\!\!\! \BirthYear^{\mI_1}(x_1) = 1957,
+		\BirthYear^{\mI_1}(x_2) = 1956,
+		\BirthYear^{\mI_1}(x_3) = 1987,\\[0.7ex]
+		& &\!\!\!\!\!\!\! \BirthYear^{\mI_1}(x_4) = 1984,\\[0.7ex]
+		& &\!\!\!\!\!\!\! \NickName^{\mI_1}(a^{\mI_1})\! =\! \text{``Allie''},
+		\NickName^{\mI_1}(b^{\mI_1})\! =\! \text{``Bo''},
+		\NickName^{\mI_1}(c^{\mI_1})\! =\! \text{``Cal''}\\[0.7ex]
+		& &\!\!\!\!\!\!\! \NickName^{\mI_1}(x_1)\! =\! \text{``Dell''},
+		\NickName^{\mI_1}(x_2)\! =\! \text{``Eddy''},
+		\NickName^{\mI_1}(x_3)\! =\! \text{``Fae''},\\[0.7ex]
+		& &\!\!\!\!\!\!\! \NickName^{\mI_1}(x_4) = \text{``Garry''},\\[0.7ex]
+		& &\!\!\!\!\!\!\! \hasChild^{\mI_1} = \{\tuple{a^{\mI_1}, c^{\mI_1}}, \tuple{a^{\mI_1}, x_1}, \tuple{b^{\mI_1}, c^{\mI_1}}, \tuple{b^{\mI_1}, x_1}, \tuple{c^{\mI_1}, x_3}, \tuple{c^{\mI_1}, x_4},\\
+		& &\!\!\!\!\!\!\! \qquad\qquad\qquad\;\;\;\tuple{x_2, x_3}, \tuple{x_2, x_4}\,\},\\[0.7ex]
+		& &\!\!\!\!\!\!\! \marriedTo^{\mI_1} = \{\tuple{a^{\mI_1},b^{\mI_1}}, \tuple{b^{\mI_1}, a^{\mI_1}}, \tuple{c^{\mI_1},x_2}, \tuple{x_2,c^{\mI_1}}\,\}.
+	\end{eqnarray*}
+	
+	\noindent
+	\textbf{Diễn dịch $\mI_2$:}
+	\allowdisplaybreaks
+	\begin{eqnarray*}
+		& &\!\!\!\! \Delta^{\mI_2} = \{a^{\mI_2}, b^{\mI_2}, c^{\mI_2}, y_1, y_2, y_3, y_4, y_5\},
+		\Human^{\mI_2} = \{a^{\mI_2}, b^{\mI_2}, c^{\mI_2}, y_1, y_2, y_3, y_4, y_5\},\\[0.7ex]
+		& &\!\!\!\! \Male^{\mI_2} = \{b^{\mI_2}, y_1, y_2, y_3, y_5\},
+		\Female^{\mI_2} = \{a^{\mI_2}, c^{\mI_2}, y_4\},\\[0.7ex]
+		& &\!\!\!\! \BirthYear^{\mI_2}(a^{\mI_2}) = 1925,
+		\BirthYear^{\mI_2}(b^{\mI_2}) = 1920,
+		\BirthYear^{\mI_2}(c^{\mI_2}) = 1955,\\[0.7ex]
+		& &\!\!\!\! \BirthYear^{\mI_2}(y_1) = 1957,
+		\BirthYear^{\mI_2}(y_2) = 1956,
+		\BirthYear^{\mI_2}(y_3) = 1987,\\[0.7ex]
+		& &\!\!\!\! \BirthYear^{\mI_2}(y_4) = 1984,
+		\BirthYear^{\mI_2}(y_5) = 1987,\\[0.7ex]
+		& &\!\!\!\! \NickName^{\mI_2}(a^{\mI_2})\! =\! \text{``Allie''},
+		\NickName^{\mI_2}(b^{\mI_2})\! =\! \text{``Bo''},
+		\NickName^{\mI_2}(c^{\mI_2})\! =\! \text{``Cal''}\\[0.7ex]
+		& &\!\!\!\! \NickName^{\mI_2}(y_1)\! =\! \text{``Dell''},
+		\NickName^{\mI_2}(y_2)\! =\! \text{``Eddy''},
+		\NickName^{\mI_2}(y_3)\! =\! \text{``Fae''},\\[0.7ex]
+		& &\!\!\!\! \NickName^{\mI_2}(y_4)\! =\! \text{``Garry''},
+		\NickName^{\mI_2}(y_5)\! =\! \text{``Jay''},\\[0.7ex]
+		& &\!\!\!\! \hasChild^{\mI_2} = \{\tuple{a^{\mI_2}, c^{\mI_2}}, \tuple{a^{\mI_2}, y_1}, \tuple{b^{\mI_2}, c^{\mI_2}}, \tuple{b^{\mI_2}, y_1}, \tuple{c^{\mI_2}, y_3},\tuple{c^{\mI_2}, y_4},\tuple{c^{\mI_2}, y_5},\\
+		& &\!\!\!\! \qquad\qquad\qquad\;\;\;\tuple{y_2, y_3},\tuple{y_2, y_4},\tuple{y_2, y_5}\,\},\\[0.7ex]
+		& &\!\!\!\! \marriedTo^{\mI_2} = \{\tuple{a^{\mI_2},b^{\mI_2}}, \tuple{b^{\mI_2}, a^{\mI_2}}, \tuple{c^{\mI_2},y_2}, \tuple{y_2,c^{\mI_2}}\,\}.
+	\end{eqnarray*}
+
+	Hình~\ref{fig:TwoInterpretation} biểu diễn hai diễn dịch $\mI_1$ và $\mI_2$ của ví dụ này, trong đó các nút thể hiện các cá thể, các cạnh liền nét thể hiện cho vai trò $\hasChild$, các cạnh đứt nét thể hiện cho vai trò $\marriedTo$. Khái niệm $\Male$ được ký hiệu bằng chữ cái $M$, khái niệm $\Female$ ký hiệu bằng chữ cái $F$. Giá trị của thuộc tính $\BirthYear$ được viết bằng chỉ số trên của các nút thể hiện cá thể. Giá trị của thuộc tính $\NickName$ được viết phía dưới mỗi cá thể.
+		
+	Hai diễn dịch $\mI_1$ và $\mI_2$ nêu trên đều là mô hình của RBox $\mR$, TBox $\mT$ và ABox $\mA$ trong ngôn ngữ~$\mLSP$ với $\Phi = \{\mI, \mO, \mQ\}$. Cụ thể các $\mR, \mT, \mA$ như sau:
+	
+	$\mR = \{\Sym(\marriedTo), \Irr(\hasChild) \}$
+	
+	$\mT = \{\Human \equiv \top, \neg \Female \sqsubseteq \Male, \E \marriedTo.\Male \sqsubseteq \Female,\\
+	~\qquad\qquad\;\,\{c\} \sqsubseteq\;(\geq\!2\,\hasChild.\Human)\}$
+	
+	$\mA = \{\Female(a), \Male(b), \Female(c), (\geq\!2\,\hasChild.\Human)(a),
+	\marriedTo(a,b),\\
+	~\qquad\qquad\;\;\marriedTo(b,a), \hasChild(a,c), \hasChild(b,c)\}$
+	\myend
+\end{Example}
+
+\begin{figure}[t]
+	\ramka{
+	\vspace{0.8ex}
+	\begin{tabular}{l l}
+			$(\mI_1)$\quad
+			\xymatrixrowsep{1.2cm}
+			\xymatrixcolsep{3.3cm}
+			\xymatrix{
+				*+[F]{\begin{array}{c}a^{1925}:F \\[-1.5ex] \text{Allie}\vspace{-1.0ex} \end{array}}\ar@{->}[d] \ar@{->}[rd] \ar@/^{3ex}/@{-->}[r]
+				& *+[F]{\begin{array}{c}b^{1920}:M \\[-1.5ex] \text{Bo}\vspace{-1ex} \end{array}} \ar@{->}[ld] \ar@{->}[d] \ar@/^{3ex}/@{-->}[l]
+				&\\
+				% 
+				*+[F]{\begin{array}{c}x_1^{1957}:M \\[-1.5ex] \text{Dell}\vspace{-1ex} \end{array}}
+				& *+[F]{\begin{array}{c}c^{1955}:F \\[-1.5ex] \text{Cal}\vspace{-1ex} \end{array}} \ar@{->}[d] \ar@{->}[rd]\ar@/^{3ex}/@{-->}[r]
+				& *+[F]{\begin{array}{c}x_2^{1956}:M \\[-1.5ex] \text{Eddy}\vspace{-1ex} \end{array}} \ar@{->}[ld]\ar@{->}[d] \ar@/^{3ex}/@{-->}[l]\\
+				%
+				& *+[F]{\begin{array}{c}x_3^{1987}:M \\[-1.5ex] \text{Fae}\vspace{-1ex} \end{array}}
+				& *+[F]{\begin{array}{c}x_4^{1984}:F \\[-1.5ex] \text{Garry}\vspace{-1ex} \end{array}}\\
+			}\\			
+			\\[1ex]
+			$(\mI_2)$\quad
+			\xymatrixrowsep{1.2cm}
+			\xymatrixcolsep{3.3cm}			
+			\xymatrix{
+				*+[F]{\begin{array}{c}a^{1925}:F \\[-1.5ex] \text{Allie}\vspace{-1ex} \end{array}}\ar@{->}[d] \ar@{->}[rd] \ar@/^{3ex}/@{-->}[r]
+				& *+[F]{\begin{array}{c}b^{1920}:M \\[-1.5ex] \text{Bo} \end{array}}\ar@{->}[ld] \ar@{->}[d] \ar@/^{3ex}/@{-->}[l]
+				&\\
+				% 
+				*+[F]{\begin{array}{c}y_1^{1957}:M \\[-1.5ex] \text{Dell}\vspace{-1ex} \end{array}}
+				& *+[F]{\begin{array}{c}c^{1955}:F \\[-1.5ex] \text{Cal}\vspace{-1ex} \end{array}}\ar@{->}[ld]\ar@{->}[d] \ar@{->}[rd] \ar@/^{3ex}/@{-->}[r]
+				& *+[F]{\begin{array}{c}y_2^{1956}:M \\[-1.5ex] \text{Eddy}\vspace{-1ex} \end{array}}\ar@/^{1.8ex}/@{->}[lld]\ar@{->}[ld] \ar@{->}[d] \ar@/^{3ex}/@{-->}[l]\\
+				%
+				*+[F]{\begin{array}{c}y_5^{1987}:M \\[-1.5ex] \text{Jay}\vspace{-1ex} \end{array}}
+				& *+[F]{\begin{array}{c}y_3^{1987}:M \\[-1.5ex] \text{Fae}\vspace{-1ex} \end{array}}
+				& *+[F]{\begin{array}{c}y_4^{1984}:F \\[-1.5ex] \text{Garry}\vspace{-1ex} \end{array}}\\
+			}\\
+	\end{tabular}
+	\vspace{0.8ex}
+	} %\ramka
+	\caption{Các diễn dịch trong $\mLSP$ của Ví dụ~\ref{ex:LSPLanguage}}
+	\label{fig:TwoInterpretation}
+\end{figure}
+
+%-------------------------------------------------------------------
+\section{Suy luận trong logic mô tả}
+\label{sec:Chap1.Reasoning}
+\subsection{Giới thiệu}
+\label{sec:Chap1.ReasoningIntroduction}
+Mục đích của các hệ thống biểu diễn tri thức ngoài việc lưu trữ các định nghĩa khái niệm và các khẳng định còn có việc thực hiện các suy luận các tri thức tiềm ẩn. Chẳng hạn, từ bộ tiên đề thuật ngữ trong Ví dụ~\ref{ex:TBox} và bộ khẳng định trong Ví dụ~\ref{ex:ABox}, chúng ta có thể kết luận rằng cá thể $\iHAI$ là một người đàn ông mặc dù tri thức này không được khẳng định một cách rõ ràng.
+
+Có nhiều bài toán suy luận được đặt ra trong các hệ thống biểu diễn tri thức dựa trên logic mô tả. Bài toán suy luận quan trọng nhất trong logic mô tả là bài toán kiểm tra tính {\em thỏa mãn}/{\em không thỏa mãn} của một khái niệm trong một cơ sở tri thức. Lý do bài toán này được xem là quan trọng bởi vì các bài toán suy luận khác có thể được chuyển đổi một cách tương đương về bài toán kiểm tra tính thỏa mãn/không thỏa mãn của một khái~niệm~\cite{DLHandbook2007}.
+
+%Cho cơ sở tri thức $\KB$. Chúng ta định nghĩa các bài toán suy luận như sau~\cite{DLHandbook2007}:
+%
+%\semiBullet{Tính thỏa mãn của khái niệm:}
+%Một khái niệm $C$ là {\em thỏa mãn} dựa trên $\KB$ nếu tồn tại một mô hình $\mI$ của $\KB$ sao cho $C^\mI \neq \emptyset$.
+%
+%\semiBullet{Bao hàm khái niệm:} 
+%Khái niệm $C$ {\em được bao hàm} trong khái niệm $D$ dựa trên $\KB$, ký hiệu là $\KB \models C \sqsubseteq D$, nếu $C^\mI \subseteq D^\mI$ với mọi mô hình $\mI$ của $\KB$.
+%
+%\semiBullet{Tương đương khái niệm:}
+%Khái niệm $C$ {\em tương đương} với khái niệm $D$ dựa trên $\KB$, ký hiệu là $\KB \models C \equiv D$, nếu $C^\mI = D^\mI$ với mọi mô hình $\mI$ của $\KB$.
+%
+%\semiBullet{Khái niệm rời nhau:}
+%Khái niệm $C$ và khái niệm $D$ là {\em rời nhau} dựa trên $\KB$ nếu $C^\mI \cap D^\mI = \emptyset$ với mọi mô hình $\mI$ của $\KB$.
+%
+%Định lý sau đây cho phép chuyển các bài toán suy luận về bài toán kiểm tra tính thỏa mãn/không thỏa mãn của một khái niệm trong cơ sở tri thức~\cite{DLHandbook2007}.
+%
+%\begin{Theorem}
+%\label{th:Satisfiable}
+%	Cho cơ sở tri thức $\KB$ và hai khái niệm $C$ và $D$.
+%	\begin{enumerate}
+%		\item $C$ được bao hàm trong $D$ dựa trên $\KB$ $\Leftrightarrow$ $C \mand \neg D$ không thỏa mãn dựa trên $\KB$,
+%		\item $C$ và $D$ tương đương với nhau dựa trên $\KB$ $\Leftrightarrow$ $(C \mand \neg D)$ và $(\neg C \mand D)$ không thỏa mãn dựa trên $\KB$,
+%		\item $C$ và $D$ rời nhau dựa trên $\KB$ $\Leftrightarrow$ $C \mand D$ không thỏa mãn dựa trên $\KB$.
+%	\end{enumerate}
+%\end{Theorem}
+
+\subsection{Các thuật toán suy luận}
+\label{sec:Chap1.Algorithm}
+
+\subsubsection{Thuật toán bao hàm theo cấu trúc}
+\label{sec:Chap1.StructuralSubsumption}
+Thuật toán bao hàm theo cấu trúc thực hiện quá trình suy luận dựa trên việc so sánh cấu trúc cú pháp của các khái niệm (thường đã được chuyển về ở dạng chuẩn phủ định). Thuật toán này tỏ ra hiệu quả đối với các ngôn ngữ logic mô tả đơn giản có khả năng biểu diễn yếu như \FLzero, \FLbot, \ALN. Với các ngôn ngữ logic mô tả rộng hơn, giàu ngữ nghĩa hơn, chẳng hạn như \ALC, \ALCI, \ALCIQ, \SHIQ, \SHOIQ, thuật toán bao hàm theo cấu trúc không thể giải quyết được các bài toán suy luận như đã đề cập trong~Mục~\ref{sec:Chap1.ReasoningIntroduction}.
+
+Thuật toán bao hàm theo cấu trúc được thực hiện theo hai pha~\cite{DLHandbook2007}. Pha thứ nhất, chuyển các khái niệm về dạng chuẩn tương ứng với từng loại ngôn ngữ. Pha thứ hai, so sánh cấu trúc cú pháp của các khái niệm. Chẳng hạn, xét ngôn ngữ logic mô tả \FLzero, ngôn ngữ chỉ cho phép phép giao ($C \mand D$) và lượng từ phổ quát ($\V R.C$), một khái niệm trong ngôn ngữ \FLzero được gọi là ở dạng chuẩn nếu nó có dạng:
+$$A_1 \mand A_2 \mand \cdots \mand A_m \mand \V R_1.C_1 \mand \V R_2.C_2 \cdots \mand \V R_n.C_n,$$
+trong đó $A_1, A_2, \ldots, A_m$ là các tên khác niệm phân biệt nhau, $R_1, R_2, \ldots, R_n$ là các tên vai trò phân biệt nhau, $C_1, C_2, \ldots, C_n$ là các khái niệm ở dạng chuẩn.
+
+Việc so sánh cấu trúc cú pháp trong pha thứ hai của thuật toán bao hàm theo cấu trúc thực hiện dựa trên mệnh đề sau~\cite{DLHandbook2007}:
+
+\begin{Proposition}
+	Cho $C \equiv A_1 \mand A_2 \mand \cdots \mand A_m \mand \V R_1.C_1 \mand \V R_2.C_2 \cdots \mand \V R_n.C_n$ và $D \equiv B_1 \mand B_2 \mand \cdots \mand B_k \mand \V S_1.D_1 \mand \V S_2.D_2 \cdots \mand \V S_l.D_l$ là các khái niệm ở dạng chuẩn trong ngôn ngữ \FLzero. Lúc đó $C \sqsubseteq D$ khi và chỉ khi hai điều kiện sau đây thỏa mãn:
+	\begin{enumerate}
+		\item với mọi $1 \leq i \leq k$, tồn tại $j, 1 \leq j \leq m$ sao cho $A_j \equiv B_i$,
+		\item với mọi $1 \leq i \leq l$, tồn tại $j, 1 \leq j \leq n$ sao cho $R_j \equiv S_i$ và $C_j \sqsubseteq D_i$.\myend
+	\end{enumerate}	
+\end{Proposition}
+
+Thuật toán bao hàm theo cấu trúc trong các ngôn ngữ khác như \FLbot, \ALN thực hiện một cách tương tự.
+
+\subsubsection{Thuật toán tableaux}
+\label{sec:Chap1.Tableaux}
+Để khắc phục những nhược điểm của thuật toán bao hàm theo cấu trúc, năm 1991, Schmidt-Schau{\ss} và Smolka đề xuất thuật toán tableaux để kiểm tra tính thỏa mãn của một khái niệm trong logic mô tả \ALC~\cite{Schmidt1991}. Hướng tiếp cận này sau đó đã được áp dụng trên một lớp lớn các logic mô tả là logic mở rộng của \ALC~\cite{DLHandbook2007,Baader2001, Hollunder1990,Hollunder1991,Nguyen2011,Nguyen2011B,Nguyen2011C,Nguyen2013B} và được áp dụng để cài đặt các bộ suy luận FaCT, FaCT$^{++}$, RACER, CEL và KAON~2.
+
+Quá trình thực hiện thuật toán tableaux dùng để kiểm tra tính thỏa mãn của một khái niệm trong cơ sở tri thức, kiểm tra tính nhất quán của bộ khẳng định. Thuật toán này trải qua hai giai đoạn. Giai đoạn thứ nhất là chuyển các khái niệm về dạng chuẩn phủ định. Giai đoạn thứ hai là áp dụng các luật chuyển đổi tương ứng với từng logic mô tả cụ thể để tìm mâu thuẫn.
+
+Độ phức tạp của thuật toán suy luận tableaux phụ thuộc vào từng logic mô tả. Logic mô tả càng có nhiều tạo tử với khả năng biểu diễn tốt sẽ dẫn đến độ phức tạp càng cao trong quá trình suy luận. Độ phức tạp đối với bài toán suy luận trong logic mô tả \ALC, \ALCI, \ALCIQ và \LogicS là \PSPACE-đầy đủ (đối với trường hợp TBox rỗng hoặc TBox không vòng) và \EXPTIME-đầy đủ (đối với trường hợp TBox tổng quát); \SH, \SHI, \SHIN và \SHIQ là \EXPTIME-đầy đủ; \SHOIN và \SHOIQ là \NEXPTIME-đầy đủ; \SROIQ là \NEXPTIME-khó~\cite{Horrocks1999,Horrocks2000, Horrocks2006,Horrocks2007B,Nguyen2009,Nguyen2013,Nguyen2013B,Zolin2014}.
+
+%-------------------------------------------------------------------
+\section*{Tiểu kết Chương~\ref{Chapter1}}
+\label{sec:Chap1.Summary}
+\addcontentsline{toc}{section}{Tiểu kết Chương~\ref{Chapter1}}
+
+Chương này đã giới thiệu khái quát về logic mô tả, khả năng biểu diễn tri thức của các logic mô tả. Thông qua cú pháp và ngữ nghĩa của logic mô tả, các kiến thức chủ yếu về cơ sở tri thức, mô hình của cơ sở tri thức trong logic mô tả và những vấn đề cơ bản về suy luận trong logic mô tả cũng đã được trình bày một cách hệ thống. Ngoài việc trình bày ngôn ngữ logic mô tả một cách tổng quát dựa trên logic \ALCreg với các đặc trưng mở rộng $\mI$ ({\em nghịch đảo vai trò}), $\mO$ ({\em định danh}), $\mF$ ({\em tính chất hàm}), $\mN$ ({\em hạn chế số lượng không định tính}), $\mQ$ ({\em hạn chế số lượng có định tính}), $\mU$ ({\em vai trò phổ quát}), $\Self$ ({\em tính phản xạ cục bộ của vai trò}), chúng tôi còn xem xét các thuộc tính như là các thành phần cơ bản của ngôn ngữ, bao gồm thuộc tính rời rạc và thuộc tính. Cách tiếp cận này phù hợp đối với các hệ thống thông tin dựa trên logic mô tả thường có trong thực tế.
+\cleardoublepage

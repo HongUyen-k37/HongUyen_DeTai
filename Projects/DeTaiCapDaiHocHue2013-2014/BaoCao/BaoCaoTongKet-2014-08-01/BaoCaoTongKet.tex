@@ -1,0 +1,1735 @@
+\documentclass[12pt,a4paper,twoside]{report}
+
+%----------------------------------------------------------
+%Sử dụng font Unicode cho tiếng Việt
+\usepackage[utf8]{vietnam}
+
+%----------------------------------------------------------
+%Thiết lập lề trang giấy
+%\usepackage{changepage}
+%\usepackage{anysize}
+%\marginsize{3.3cm}{2.2cm}{1.3cm}{2.4cm}{geometry}
+%\usepackage{blindtext}
+\usepackage[a4paper,bindingoffset=1cm,left=2.4cm,right=2.4cm,top=2.5cm,bottom=3.0cm,footskip=1.3cm]{geometry}
+
+%----------------------------------------------------------
+%%Sử dụng gói thêm từ Hình vào trước danh sách hình vẽ
+%\usepackage{tocloft}
+%%\newlength{\mylen}
+%\renewcommand{\cftfigpresnum}{\figurename\enspace}
+%\renewcommand{\cftfigaftersnum}{:}
+%%\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+%\addtolength{\cftfignumwidth}{0.8cm}
+%----------------------------------------------------------
+%Lùi đầu dòng cho đoạn đầu tiên của một mục
+\usepackage{indentfirst}
+%----------------------------------------------------------
+%Thiết lập khoảng cách giữa các dòng và các đoạn
+\raggedbottom
+\setlength{\parindent}{20pt}
+\setlength{\parskip}{5pt}
+\renewcommand{\baselinestretch}{1.25}
+
+%----------------------------------------------------------
+%Header và footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[RE,LO]{}
+\fancyhead[LE,RO]{\textsc{báo cáo tổng kết}}
+\fancyfoot[C]{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%----------------------------------------------------------
+%Sử dụng các goi
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{array}
+\usepackage{etex}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage{xspace}
+\usepackage{stmaryrd}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{graphicx}
+%----------------------------------------------------------
+\usepackage{algorithmic}
+%\usepackage{mdwmath}
+\usepackage{mdwtab}
+\usepackage{eqparbox}
+\usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage{fixltx2e}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{enumerate}
+\usepackage{scrextend}
+%----------------------------------------------------------
+%Dùng cho bảng biểu
+\usepackage{tabularx}
+\usepackage{longtable}
+
+%Dùng cho các ký hiệu
+%-------------------------------------------------------------
+\newcommand{\mL}		{\mathcal{L}}
+\newcommand{\mG}		{\mathcal{G}}
+\newcommand{\mA}		{\mathcal{A}}
+\newcommand{\mT}		{\mathcal{T}}
+\newcommand{\mR}		{\mathcal{R}}
+\newcommand{\mI}		{\mathcal{I}}
+\newcommand{\mC}		{\mathcal{C}}
+\newcommand{\mE}		{\mathcal{E}}
+\newcommand{\mP}		{\mathcal{P}}
+\newcommand{\mS}		{\mathcal{S}}
+\newcommand{\mH}		{\mathcal{H}}
+\newcommand{\mO}		{\mathcal{O}}
+\newcommand{\mN}		{\mathcal{N}}
+\newcommand{\mQ}		{\mathcal{Q}}
+\newcommand{\mF}		{\mathcal{F}}
+\newcommand{\mD}		{\mathcal{D}}
+\newcommand{\mU}		{\mathcal{U}}
+
+\newcommand{\mbD}		{\mathbb{D}}
+\newcommand{\mbY}		{\mathbb{Y}}
+
+\newcommand{\SigmaI}	{\Sigma_I}
+\newcommand{\SigmaA}	{\Sigma_A}
+\newcommand{\SigmaC}	{\Sigma_C}
+\newcommand{\SigmaR}	{\Sigma_R}
+\newcommand{\SigmaDA}	{\Sigma_{dA}}
+\newcommand{\SigmaNA}	{\Sigma_{nA}}
+\newcommand{\SigmaOR}	{\Sigma_{oR}}
+\newcommand{\SigmaDR}	{\Sigma_{dR}}
+
+\newcommand{\SigmaDag}	{\Sigma^\dag}
+\newcommand{\SigmaDagI}	{\Sigma^\dag_I}
+\newcommand{\SigmaDagA}	{\Sigma^\dag_A}
+\newcommand{\SigmaDagC}	{\Sigma^\dag_C}
+\newcommand{\SigmaDagR}	{\Sigma^\dag_R}
+\newcommand{\SigmaDagDA}{\Sigma^\dag_{dA}}
+\newcommand{\SigmaDagNA}{\Sigma^\dag_{nA}}
+\newcommand{\SigmaDagOR}{\Sigma^\dag_{oR}}
+\newcommand{\SigmaDagDR}{\Sigma^\dag_{dR}}
+\newcommand{\PhiDag}	{\Phi^\dag}
+
+\newcommand{\Attrs}		{\mathit{Attrs}}
+\newcommand{\True}		{\mathsf{true}}
+\newcommand{\False}		{\mathsf{false}}
+\newcommand{\Self}		{\mathsf{Self}}
+\newcommand{\KB}		{\mathcal{KB}}
+%\newcommand{\mLS}		{\mL_\Sigma}
+%\newcommand{\mLSD}		{\mL_{\Sigma^\dag}}
+\newcommand{\mLSP}		{\mL_{\Sigma,\Phi}}
+\newcommand{\mLSPD}		{\mL_{\Sigma^\dag,\Phi^\dag}}
+\newcommand{\SdI}		{{\SigmaDag,\mI}}
+\newcommand{\SdPdI}		{{\SigmaDag,\Phi^\dag,\mI}}
+\newcommand{\simSdI}	{\sim_{\SigmaDag,\mI}}
+\newcommand{\simSdPdI}	{\sim_{\SigmaDag,\Phi^\dag,\mI}}
+\newcommand{\LargestContainer}{\mathit{LargestContainer}}
+
+%--------------------------------------------------------------------
+\newcommand{\AL}		{$\mathcal{AL}$\xspace}
+\newcommand{\ALC}		{$\mathcal{ALC}$\xspace}
+\newcommand{\ALCreg}	{$\mathcal{ALC}_{reg}$\xspace}
+\newcommand{\ALN}		{$\mathcal{ALN}$\xspace}
+\newcommand{\ALCI}		{$\mathcal{ALCI}$\xspace}
+\newcommand{\ALCN}		{$\mathcal{ALCN}$\xspace}
+\newcommand{\ALCQ}		{$\mathcal{ALCQ}$\xspace}
+\newcommand{\ALCIQ}		{$\mathcal{ALCIQ}$\xspace}
+\newcommand{\ALER}		{$\mathcal{ALER}$\xspace}
+\newcommand{\LogicS}	{$\mathcal{S}$\xspace}
+\newcommand{\SH}		{$\mathcal{SH}$\xspace}
+\newcommand{\SI}		{$\mathcal{SI}$\xspace}
+\newcommand{\SHI}		{$\mathcal{SHI}$\xspace}
+\newcommand{\SHIQ}		{$\mathcal{SHIQ}$\xspace}
+\newcommand{\SHIN}		{$\mathcal{SHIN}$\xspace}
+\newcommand{\SHIO}		{$\mathcal{SHIO}$\xspace}
+\newcommand{\SHOQ}		{$\mathcal{SHOQ}$\xspace}
+\newcommand{\SHOIN}		{$\mathcal{SHOIN}$\xspace}
+\newcommand{\SHOIQ}		{$\mathcal{SHOIQ}$\xspace}
+\newcommand{\SROIQ}		{$\mathcal{SROIQ}$\xspace}
+
+\newcommand{\Ref}			{\mathtt{Ref}}
+\newcommand{\Irr}			{\mathtt{Irr}}
+\newcommand{\Sym}			{\mathtt{Sym}}
+\newcommand{\Tra}			{\mathtt{Tra}}
+\newcommand{\Dis}			{\mathtt{Dis}}
+\newcommand{\BBCLearn}		{BBCL\xspace}
+\newcommand{\BBCLearnS}		{BBCL2\xspace}
+
+\newcommand{\semiItem}	{\mbox{- }}
+\newcommand{\myend}		{\mbox{}\hfill\mbox{{\scriptsize$\!\blacksquare$}}}
+\newcommand{\mdepth}	{\textsf{mdepth}}
+\newcommand{\length}	{\textsf{length}}
+
+\newcommand{\tuple}[1]	{\left\langle#1\right\rangle\!}
+\newcommand{\ramka}[1]	{\fbox{\parbox{\textwidth}{#1}}}
+\newcommand{\mand}		{\sqcap}
+\newcommand{\mor}		{\sqcup}
+\newcommand{\V}			{\forall}
+\newcommand{\E}			{\exists}
+\newcommand{\Dom}		{\mathit{dom}}
+\newcommand{\Range}		{\mathit{range}}
+
+\newcommand{\PTIME}		{{\sc PTime}\xspace}
+\newcommand{\PSPACE}	{{\sc PSpace}\xspace}
+\newcommand{\NP}		{{\sc NP}\xspace}
+\newcommand{\EXPTIME}	{{\sc ExpTime}\xspace}
+\newcommand{\NEXPTIME}	{{\sc NExpTime}\xspace}
+\newcommand{\NdEXPTIME}	{{\sc N2ExpTime}\xspace}
+\newcommand{\NtEXPTIME}	{{\sc N3ExpTime}\xspace}
+
+%------------------------------------------------------------
+%Các ký hiệu cho ví dụ (khái niệm + vai trò)
+\newcommand{\Human}			{Human}
+\newcommand{\Female}		{Female}
+\newcommand{\Male}			{Male}
+\newcommand{\Rich}			{Rich}
+\newcommand{\Parent}		{Parent}
+\newcommand{\Mother}		{Mother}
+\newcommand{\Father}		{Father}
+\newcommand{\Husband}		{Husband}
+\newcommand{\hasChild}		{hasChild}
+\newcommand{\hasParent}		{hasParent}
+\newcommand{\marriedTo}		{marriedTo}
+\newcommand{\hasDescendant}	{hasDescendant}
+\newcommand{\hasAscendant}	{hasAscendant}
+\newcommand{\BirthYear}		{BirthYear}
+\newcommand{\NickName}		{NickName}
+%\newcommand{\Human}			{\mathsf{Human}}
+%\newcommand{\Female}		{\mathsf{Female}}
+%\newcommand{\Male}			{\mathsf{Male}}
+%\newcommand{\Rich}			{\mathsf{Rich}}
+%\newcommand{\Parent}		{\mathsf{Parent}}
+%\newcommand{\Mother}		{\mathsf{Mother}}
+%\newcommand{\Father}		{\mathsf{Father}}
+%\newcommand{\Husband}		{\mathsf{Husband}}
+%\newcommand{\hasChild}		{\mathsf{hasChild}}
+%\newcommand{\hasParent}		{\mathsf{hasParent}}
+%\newcommand{\marriedTo}		{\mathsf{marriedTo}}
+%\newcommand{\hasDescendant}	{\mathsf{hasDescendant}}
+%\newcommand{\hasAscendant}	{\mathsf{hasAscendant}}
+%\newcommand{\BirthYear}		{\mathsf{BirthYear}}
+%\newcommand{\NickName}		{\mathsf{NickName}}
+
+%-------------------------------------------------------------
+%Các ký hiệu cho ví dụ (cá thể)
+\newcommand{\iLAN}		{\mathsf{LAN}}
+\newcommand{\iHUNG}		{\mathsf{HUNG}}
+\newcommand{\iHAI}		{\mathsf{HAI}}
+
+\newcommand{\iALICE}	{\mathsf{ALICE}}
+\newcommand{\iBOB}		{\mathsf{BOB}}
+\newcommand{\iCLAUDIA}	{\mathsf{CLAUDIA}}
+\newcommand{\iCALVIN}	{\mathsf{CALVIN}}
+
+\newcommand{\iANH}		{\mathsf{ANH}}
+\newcommand{\iPHAP}		{\mathsf{PHAP}}
+\newcommand{\iMY}		{\mathsf{MY}}
+\newcommand{\iNGA}		{\mathsf{NGA}}
+\newcommand{\iTRUNGQUOC}{\mathsf{TRUNGQUOC}}
+
+%-------------------------------------------------------------
+\newcommand{\Publication}	{\mathit{Pub}}
+\newcommand{\Pub}			{\mathit{P}}
+\newcommand{\Book}			{\mathit{Book}}
+\newcommand{\Article}		{\mathit{Article}}
+\newcommand{\Kind}			{\mathit{Kind}}
+\newcommand{\Awarded}		{\mathit{Awarded}}
+\newcommand{\PubName}		{\mathit{Title}}
+\newcommand{\PubYear}		{\mathit{Year}}
+\newcommand{\Cites}			{\mathit{cites}}
+\newcommand{\Citedby}		{\mathit{cited\!\,\_by}}
+\newcommand{\UsefulPub}		{\mathit{UsefulPub}}
+\newcommand{\GoodPub}		{\mathit{GoodPub}}
+\newcommand{\ExcellentPub}	{\mathit{ExcellentPub}}
+\newcommand{\RecentPub}		{\mathit{RecentPub}}
+\newcommand{\CitingP}		{\mathit{CitingP}}
+\newcommand{\textItL}		{\textrm{``Introduction to Logic''}}
+\newcommand{\textTEoL}		{\textrm{``The Essence of Logic''}}
+\newcommand{\textB}			{\textrm{``book''}}
+\newcommand{\textA}			{\textrm{``article''}}
+\newcommand{\textC}			{\textrm{``conf.~paper''}}
+
+
+\renewcommand{\sharp}		{\#}
+\renewcommand{\qedsymbol}{\myend}
+%----------------------------------------------------------
+%Định dạng chương, định lý, mệnh đề, ...
+%\newtheorem{Chapter}{Chương}
+%\newtheorem{Definition}{Định nghĩa}[chapter]
+%\newtheorem{Theorem}{Định lý}[chapter]
+%\newtheorem{Proposition}{Mệnh đề}[chapter]
+%\newtheorem{Lemma}{Bổ đề}[chapter]
+%\newtheorem{Corollary}{Hệ quả}[chapter]
+%\newtheorem{Remark}{Ghi chú}[chapter]
+%\newtheorem{Example}{Ví dụ}[chapter]
+
+\newtheorem{Theorem}{Định lý}[chapter]
+\newtheorem{Proposition}{Mệnh đề}[chapter]
+\newtheorem{Lemma}{Bổ đề}[chapter]
+\newtheorem{Corollary}{Hệ quả}[chapter]
+\newtheorem{Remark}{Ghi chú}[chapter]
+
+\theoremstyle{definition}
+\newtheorem{Definition}{Định nghĩa}[chapter]
+\newtheorem{Example}{Ví dụ}[chapter]
+%\newenvironment{definition}
+%{\
+%  \smallskip
+%  \begin{Definition} 
+%    \begin{em}}
+%    {\end{em}
+%  \end{Definition}
+%  \smallskip
+%}
+%
+%\newenvironment{theorem}
+%{
+%  \smallskip
+%  \begin{Theorem}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Theorem}
+%  \smallskip
+%}
+%
+%\newenvironment{proposition}
+%{
+%  \smallskip
+%  \begin{Proposition}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Proposition}
+%  \smallskip
+%}
+%
+%\newenvironment{lemma}
+%{
+%  \smallskip
+%  \begin{Lemma}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Lemma}
+%  \smallskip
+%}
+%
+%\newenvironment{corollary}
+%{
+%  \smallskip
+%  \begin{Corollary}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Corollary}
+%  \smallskip
+%}
+%
+%\newenvironment{remark}
+%{
+%  \smallskip
+%  \begin{Remark}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Remark}
+%  \smallskip
+%}
+%
+%\newenvironment{example}
+%{
+%  \smallskip
+%  \begin{Example}
+%    \begin{em}}
+%    {\end{em}
+%  \end{Example}
+%  \smallskip
+%}
+
+\newenvironment{sketch}{\noindent{\em Proof sketch.}}{\myend\smallskip}
+\newcommand{\HRule}{\rule{\linewidth}{0.6mm}}
+%-----------------------------------------------------------------
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{CHƯƠNG \ \thechapter} % label
+{0.5ex} % sep
+{
+	\rule{\textwidth}{1.0pt}
+	\vspace{1ex}
+	\centering
+} % before-code
+[
+\vspace{-2.0ex}%
+\rule{\textwidth}{1.0pt}
+] % after-code
+
+\titleformat*{\chapter}{\Large\bfseries}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalfont\bfseries}
+\titleformat*{\subsubsection}{\normalfont\bfseries}
+%-----------------------------------------------------------------
+
+\begin{document}
+
+%-----------------------------------------------------------------------------
+\begin{titlepage}
+	\begin{adjustwidth}{-10pt}{-10pt}
+	\begin{center}
+		\textsc{\textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}}\\[0.0cm]
+		\textsc{\textbf{ĐẠI HỌC HUẾ}}\\[0.0cm]
+		{\textbf{TRƯỜNG ĐẠI HỌC KHOA HỌC}}\\[6.6cm]
+		
+				
+		\textsc{\Large \textbf{BÁO CÁO TỔNG KẾT}}\\[0.3cm]
+		\textsc{\large \textbf{ĐỀ TÀI NGHIÊN CỨU KHOA HỌC CẤP CƠ SỞ}}\\[0.3cm]
+		% Title
+		\HRule \\[0.5cm]
+		{\large \bfseries HỌC KHÁI NIỆM ĐỐI VỚI CÁC CƠ SỞ TRI THỨC\\
+			TRONG LOGIC MÔ TẢ DỰA VÀO MÔ PHỎNG HAI CHIỀU}\\[0.4cm]
+		\HRule \\[0.3cm]
+		\textbf{Mã số: DHH2013-01-41}
+		\\[1.5cm]
+
+		\textbf{Chủ nhiệm đề tài: ThS. TRẦN THANH LƯƠNG}\\[3.2cm]
+		
+		\vfill
+		% Bottom of the page
+		Thừa Thiên Huế, 10/2014
+		\vspace{-5ex}
+	\end{center}
+	\end{adjustwidth}
+\end{titlepage}
+%-----------------------------------------------------------------------------
+%BlankPage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\addtocounter{page}{-1}
+\newpage
+
+\begin{titlepage}
+	\begin{adjustwidth}{-10pt}{-10pt}
+	\begin{center}
+		\textsc{\textbf{BỘ GIÁO DỤC VÀ ĐÀO TẠO}}\\[0.0cm]
+		\textsc{\textbf{ĐẠI HỌC HUẾ}}\\[0.0cm]
+		{\textbf{TRƯỜNG ĐẠI HỌC KHOA HỌC}}\\[5.6cm]
+				
+		\textsc{\Large \textbf{BÁO CÁO TỔNG KẾT}}\\[0.3cm]
+		\textsc{\large \textbf{ĐỀ TÀI NGHIÊN CỨU KHOA HỌC CẤP CƠ SỞ}}\\[0.3cm]
+		% Title
+		\HRule \\[0.5cm]
+		{\large {\bf HỌC KHÁI NIỆM ĐỐI VỚI CÁC CƠ SỞ TRI THỨC\\
+			TRONG LOGIC MÔ TẢ DỰA VÀO MÔ PHỎNG HAI CHIỀU}}\\[0.4cm]
+		\HRule \\[0.3cm]
+		\textbf{Mã số: DHH2013-01-41}
+		\\[1.5cm]
+
+		\begin{minipage}{0.5\textwidth}
+		\begin{center}
+		{\bf Xác nhận của cơ quan chủ trì đề tài}\\[2.5cm]
+		{\ }
+		\end{center}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+		\begin{center}
+		{\bf Chủ nhiệm đề tài} \\[2.5cm]
+		{ThS. TRẦN THANH LƯƠNG}\\
+		\end{center}
+		\end{minipage}		
+		\vfill
+		% Bottom of the page
+		Thừa Thiên Huế, 10/2014
+		\vspace{-5ex}
+	\end{center}
+	\end{adjustwidth}
+\end{titlepage}
+%-----------------------------------------------------------------------------
+%BlankPage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\addtocounter{page}{-1}
+\newpage
+%-----------------------------------------------------------------------------
+%Mục lục
+\pagenumbering{roman}
+\setcounter{tocdepth}{2}
+\addcontentsline{toc}{chapter}{Mục lục}
+\renewcommand\contentsname{MỤC LỤC}
+\tableofcontents
+
+%-----------------------------------------------------------------------------
+%BlankPage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\addtocounter{page}{-1}
+\newpage
+%-----------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------
+%\newpage
+%\addcontentsline{toc}{section}{Danh mục các từ viết tắt}
+%\section*{Danh mục từ viết tắt}
+%\begin{center}
+%\begin{tabular}[h!]{|c | l | l | l |}
+%\hline
+%\textbf{STT} & \textbf{Từ viết tắt} & \textbf{Cụm từ Tiếng Việt} & \textbf{Cụm từ Tiếng Anh}\\
+%\hline
+% & DL & Logic mô tả & Description Logic\\
+%\hline
+% & OWL & Ngôn ngữ Web Ontology & Web Ontology Language\\
+%\hline
+% & W3C & Tổ chức World Wide Web & World Wide Web Consortium\\
+%\hline
+% & PDL & Logic động mệnh đề & Propositional Dynamic Logic\\
+%\hline
+% & CNF & Dạng chuẩn nghịch đảo & Converse Normal Form\\
+%\hline
+% & GCI & Bao hàm khái niệm tổng quát & General Concept Inclusion\\
+%\hline
+%\end{tabular}
+%\end{center}
+
+%--------------------------------------------------------------------------
+%Danh mục hình vẽ
+\addcontentsline{toc}{chapter}{Danh mục hình vẽ}
+\renewcommand\listfigurename{DANH MỤC HÌNH VẼ}
+\listoffigures
+%--------------------------------------------------------------------------
+%BlankPage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\addtocounter{page}{-1}
+\newpage
+%-----------------------------------------------------------------------------
+
+\pagebreak[4]
+\pagenumbering{arabic}
+
+%--------------------------------------------------------------------------
+
+\chapter{HỆ THỐNG THÔNG TIN TRONG NGỮ CẢNH LOGIC MÔ TẢ}
+\label{chap:InfoSys}
+%-----------------------------------------------------------
+\section{Logic mô tả}
+\label{sec:DescriptionLogic}
+Trong phần này, chúng tôi trình bày về cú pháp và ngữ nghĩa của họ các logic mô tả là mở rộng của logic mô tả \ALC với các tạo tử vai trò $\mI$ ({\em vai trò nghịch đảo}), $\mU$ ({\em vai trò phổ quát}) và các tạo tử khái niệm $\mO$ ({\em định danh}), $\mF$ ({\em tính chất hàm}), $\mN$ ({\em hạn chế số lượng không định tính}), $\mQ$ ({\em hạn chế số lượng có định tính}), $\Self$ ({\em tính phản xạ cục bộ của vai trò}). Ngữ nghĩa của các logic mô tả nêu trên cũng được trình bày một cách chi tiết trong phần này.
+
+\subsection{Giới thiệu về logic mô tả}
+
+Logic mô tả được xây dựng dựa vào ba thành phần cơ bản gồm tập các {\em cá thể} (có thể hiểu như là các đối tượng), tập các {\em khái niệm nguyên tố} (có thể hiểu như là các lớp, các vị từ một đối) và tập các {\em vai trò nguyên tố} (có thể hiểu như là các quan hệ hai ngôi, các vị từ hai đối).
+%
+Các logic mô tả khác nhau được đặc trưng bởi tập các {\em tạo tử khái niệm} và {\em tạo tử vai trò} mà nó được phép sử dụng để xây dựng các {\em khái niệm phức}, {\em vai trò phức} từ các khái niệm nguyên tố (còn được gọi là {\em tên khái niệm}) và vai trò nguyên tố (còn được gọi là {\em tên vai trò}).
+
+\begin{Example}\label{ex:PrimitiveConcept}
+Giả sử ta có các khái niệm nguyên tố và vai trò nguyên tố sau:
+\begin{tabbing}
+  \hspace*{0.5cm}\=\hspace*{2.5cm}\=\kill
+  \> $\Human$ \> là khái niệm chỉ các đối tượng là người, \\[0.5ex]
+  \> $\Female$ \> là khái niệm chỉ các đối tượng là giống cái,\\[0.5ex]
+% \> $\Male$ \> là khái niệm chỉ các đối tượng là giống đực\\
+  \> $\Rich$ \> là khái niệm chỉ những đối tượng giàu có,\\[0.5ex]
+  \> $\hasChild$ \> là vai trò chỉ đối tượng này có con là đối tượng kia,\\[0.5ex]
+  \> $\marriedTo$ \> là vai trò chỉ đối tượng này kết hôn với đối tượng kia.
+\end{tabbing}
+
+Với những khái niệm nguyên tố, vai trò nguyên tố đã cho ở trên và các tạo tử {\em phủ định của khái niệm} ($\neg$), {\em giao của các khái niệm} ($\mand$), {\em hợp của các khái niệm} ($\mor$), {\em lượng từ hạn chế tồn tại} ($\E$), {\em lượng từ hạn chế với mọi} ($\V$), ta có thể xây dựng các khái niệm phức sau:
+
+\begin{tabbing}
+  \hspace*{0.5cm}\=\hspace*{5.85cm}\=\kill
+  \>$\Human \mand \Female$ \> là khái niệm chỉ các đối tượng là người phụ nữ,\\[0.5ex]
+  \> $\neg \Female$       \> là khái niệm chỉ các đối tượng là giống đực,\\[0.5ex]
+  \> $\Human \mand \neg \Female$ \> là khái niệm chỉ các đối tượng là người đàn ông,\\[0.5ex]
+  \> $\Human \mand \E \hasChild.\Female$ \> là khái niệm chỉ các đối tượng là người có con gái,\\[0.5ex]
+  \> $\Human \mand \E \marriedTo.\Human$ \> là khái niệm chỉ những người đã kết hôn,\\[0.5ex]
+  \> $\Human \mand \Female \mand \Rich$ \> là khái niệm chỉ những người phụ nữ giàu có,\\[0.5ex]
+  \> $\Human \mand \V \hasChild.\Female$ \> là khái niệm chỉ những người chỉ có toàn con gái\\
+  \> \> hoặc người không có con.  
+\end{tabbing}
+Ngoài ra ta có thể dùng {\em khái niệm đỉnh} (ký hiệu $\top$) là khái niệm đại diện cho tất cả các đối tượng, và {\em khái niệm đáy} (ký hiệu $\bot$), là khái niệm không đại diện cho bất kỳ đối tượng nào, để xây dựng các khái niệm phức sau:
+\end{Example}
+\begin{tabbing}
+  \hspace*{0.5cm}\=\hspace*{5.2cm}\=\hspace*{\textwidth}\=\kill
+  \> $\Human \mand \E \hasChild.\top$ \> là khái niệm chỉ các đối tượng là người có con,\\[0.5ex]
+  \> $\Human \mand \V \hasChild.\bot$ \> là khái niệm chỉ những người không có con.\`\myend
+\end{tabbing}
+
+Từ các cá thể, các khái niệm và các vai trò, người ta có thể xây dựng một hệ thống logic mô tả và được gọi là một hệ cơ sở tri thức để thực hiện việc biểu diễn thông tin và suy luận. Thông thường, một cơ sở tri thức gồm có các thành phần sau~\cite{DLHandbook2007}:
+
+\begin{figure}[h]
+  \setlength{\unitlength}{1cm}
+  \begin{picture}(15, 6.0)(0,0)
+    \put(1.9,2.8){\circle{3}}
+    \put(1.6,2.65){\text{\textbf{DL}}}
+    \put(0.8,1.8){\text{\textbf{Logic mô tả}}}
+    \put(2.0,2.1){\vector(1,-2){1.0}}
+    \put(2.0,3.5){\vector(1,2){1.0}}
+    
+    \put(3,0){\framebox(7,6.0)}
+    \put(3.9,5.1){\text{\textbf{KB - CƠ SỞ TRI THỨC}}}
+    
+    \put(3.5,0.5){\framebox(6,1.1)}
+    \put(4.2,0.9){\text{\textbf{ABox - Bộ khẳng định}}}
+    
+    \put(3.5,2.0){\framebox(6,1.1)}
+    \put(4.2,2.4){\text{\textbf{TBox - Bộ thuật ngữ}}}
+
+    \put(3.5,3.5){\framebox(6,1.1)}
+    \put(4.2,3.9){\text{\textbf{TBox - Bộ vai trò}}}
+    
+    \put(10.0,4.0){\vector(1,0){1.0}}
+    \put(11.0,3.0){\vector(-1,0){1.0}}
+    \put(10.0,2.0){\vector(1,0){1.0}}
+    \put(11.0,1.0){\vector(-1,0){1.0}}
+    
+    \put(11,0){\framebox(1,6.0)}
+    \put(11.35,5.60){\text{H}}
+    \put(11.35,5.15){\text{Ệ}}
+    
+    \put(11.35,4.75){\text{T}}
+    \put(11.35,4.35){\text{H}}
+    \put(11.35,3.90){\text{Ố}}
+    \put(11.35,3.55){\text{N}}
+    \put(11.35,3.15){\text{G}}
+    
+    \put(11.40,2.75){\text{S}}
+    \put(11.35,2.35){\text{U}}
+    \put(11.35,1.95){\text{Y}}
+    
+    \put(11.38,1.50){\text{L}}
+    \put(11.35,1.05){\text{U}}
+    \put(11.35,0.60){\text{Ậ}}
+    \put(11.35,0.15){\text{N}}
+    
+    \put(12.0,4.5){\vector(1,0){1.0}}
+    \put(13.0,3.5){\vector(-1,0){1.0}}
+    \put(12.0,2.5){\vector(1,0){1.0}}
+    \put(13.0,1.5){\vector(-1,0){1.0}}
+    
+    \put(13,0){\framebox(1,6.0)}
+    \put(13.35,4.75){\text{\textbf{G}}}
+    \put(13.42,4.25){\text{\textbf{I}}}
+    \put(13.35,3.70){\text{\textbf{A}}}
+    \put(13.35,3.25){\text{\textbf{O}}}
+
+    \put(13.35,2.40){\text{\textbf{D}}}
+    \put(13.42,1.95){\text{\textbf{I}}}
+    \put(13.35,1.45){\text{\textbf{Ệ}}}
+    \put(13.35,0.95){\text{\textbf{N}}}
+    
+    \put(15.0,3.0){\vector(-1,0){1.0}}
+    \put(14.0,2.0){\vector(1,0){1.0}}
+    
+  \end{picture}
+\caption{Kiến trúc của một hệ cơ sở tri thức trong logic mô tả\label{fig:DLSystem}}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Bộ vai trò ({\em Role Box - RBox})}: Bộ vai trò chứa các tiên đề về vai trò bao gồm các tiên đề bao hàm vai trò và các khẳng định vai trò. Thông qua bộ thuật ngữ, chúng ta có thể xây dựng các vai trò phức thông qua các vai trò nguyên tố và các tạo tử vai trò mà logic mô tả được phép sử dụng.
+\end{itemize}
+
+\begin{Example}
+\label{ex:RBox}
+Với các vai trò nguyên đã cho ở trong Ví dụ~\ref{ex:PrimitiveConcept}, ta có thể xây dựng bộ vai trò như sau:  
+\begin{tabbing}
+  \hspace*{.85cm}\=\hspace*{\textwidth}\=\kill
+  \> $\hasParent \equiv \hasChild^-$,\\[0.5ex]
+  \> $\hasChild \sqsubseteq \hasDescendant$,\\[0.5ex]
+  \> $\hasDescendant \circ \hasDescendant \sqsubseteq \hasDescendant$,\\[0.5ex]
+  \> $\Irr(\hasChild)$,\\[0.5ex]
+  \> $\Ref(\marriedTo)$. \`\myend
+%  \hline
+  \end{tabbing}
+\end{Example}
+
+Phát biểu đầu tiên của bộ vai trò trong Ví dụ~\ref{ex:RBox} dùng để định nghĩa vai trò mới $\hasParent$ là một vai trò nghịch đảo của vai trò $\hasChild$. Tiên đề thứ hai là một tiên đề bao hàm vai trò dùng để chỉ nếu một đối tượng này là con của đối tượng kia thì nó cũng là con cháu của đối tượng kia. Phát biểu thứ ba là một tiên đề thể hiện rằng $\hasDescendant$ là một vai trò bắc cầu (chúng ta cũng có thể thể hiện tiên đề này qua phát biểu khẳng định vai trò $\Tra(\hasDescendant)$). Phát biểu thứ tư là một khẳng định vai trò $\hasChild$ không phải là vai trò đối xứng và phát biểu cuối cùng để khẳng định rằng $\marriedTo$ là một vai trò đối xứng.
+
+\begin{itemize}
+  \item \textbf{Bộ thuật ngữ ({\em Terminology Box - TBox})}: Bộ thuật ngữ chứa các tiên đề về thuật ngữ, nó cho phép xây dựng các khái niệm phức từ những khái niệm nguyên tố và vai trò nguyên tố, đồng thời bộ thuật ngữ cho biết mối quan hệ giữa các khái niệm thông qua các tiên đề bao hàm tổng quát. 
+  TBox chứa các tri thức tiềm ẩn ở dưới dạng thuật ngữ và xác định ý nghĩa của các thuật ngữ của miền xem xét.
+  Chúng ta xét ví dụ sau về mối quan hệ giữa các con người với nhau thông qua bộ thuật ngữ.
+\end{itemize}
+  
+\begin{Example}\label{ex:TBox}
+  Với các khái niệm nguyên tố, vai trò nguyên đã cho ở trong Ví dụ~\ref{ex:PrimitiveConcept}, ta có thể xây dựng bộ thuật ngữ như sau:  
+\begin{tabbing}
+  \hspace*{.85cm}\=\hspace*{\textwidth}\=\kill
+  \> $\Human \equiv \top$,\\[0.5ex]
+  \> $\Parent \equiv \Human \mand \E \hasChild.\Human \mand \V \hasChild.\Human$,\\[0.5ex]
+  \> $\Male \equiv \neg \Female$,\\[0.5ex]
+  \> $\Husband \equiv \Male \mand \E \marriedTo.\Human$,\\[0.5ex]
+  \> $\Husband \sqsubseteq \V \marriedTo.\Female$,\\[0.5ex]
+  \> $\Male \mand \Female \equiv \bot$.\`\myend
+%  \hline
+  \end{tabbing}
+\end{Example}
+
+Ba phát biểu đầu tiên của bộ thuật ngữ trong Ví dụ~\ref{ex:TBox} dùng để định nghĩa các khái niệm mới đó là $\Parent$, $\Male$ và $\Husband$ tương ứng dùng để chỉ những đối tượng là bố mẹ, giống đực và chồng. Các phát biểu này được gọi là {\em định nghĩa khái niệm} (vế trái của dấu ``$\equiv$'' là một tên khái niệm).
+%
+Phát biểu thứ tư yêu cầu mọi thể hiện của $\Husband$ phải thỏa mãn khái niệm $\V \marriedTo.\Female$, nghĩa là, mọi người đàn ông đã kết hôn (được gọi là chồng) thì phải kết hôn với một người phụ nữ. Phát biểu này được gọi là một {\em bao hàm khái niệm}.
+%
+Phát biểu cuối cùng để biểu diễn hai khái niệm $\Male$ và $\Female$ không giao nhau.
+%Nói cách khác, hai khái niệm $\Male$ và $\Female$ là rời nhau.
+Phát biểu này được gọi là một {\em tương đương khái niệm} (vế trái của dấu ``$\equiv$'' là một biểu thức, không phải là tên một khái niệm).
+%
+
+
+\begin{itemize}
+  \item \textbf{Bộ khẳng định ({\em Assertion Box - ABox})}: Bộ khẳng định dùng để chứa những tri thức đã biết thông qua các khẳng định về các cá thể bao gồm khẳng định khái niệm, khẳng định vai trò (vai trò dương tính và vai trò âm tính), khẳng định đẳng thức, khẳng định bất đẳng thức,\,\ldots\ Chúng ta xét ví dụ sau đây với các khẳng định về thông tin của con người.
+\end{itemize}
+
+\begin{Example}\label{ex:ABox}
+  Với các khái niệm nguyên tố, vai trò nguyên tố đã cho trong Ví dụ~\ref{ex:PrimitiveConcept} và các khái niệm được định nghĩa thêm trong Ví dụ~\ref{ex:TBox}, ta có thể cung cấp những khẳng định sau đây:
+\begin{tabbing}
+  \hspace*{.85cm}\=\hspace*{\textwidth}\=\kill
+  \>$\Human(\iLAN)$,\\[0.5ex]
+  \>$\Male(\iHUNG)$,\\[0.5ex]
+  \>$\Husband(\iHAI)$,\\[0.5ex]
+  \>$\hasChild(\iLAN, \iHUNG)$,\\[0.5ex]
+  \>$(\neg \Female \mand \Rich)(\iHUNG)$. \`\myend
+\end{tabbing}
+\end{Example}
+
+Khẳng định thứ nhất cho biết cá thể $\iLAN$ là một con người, khẳng định thứ hai cho biết cá thể $\iHUNG$ là một người đàn ông, khẳng định thứ ba cho biết cá thể $\iHAI$ là một người chồng, khẳng định thứ tư cho biết cá thể $\iLAN$ có con là cá thể $\iHUNG$ và khẳng định cuối cùng cho biết cá thể $\iHUNG$ là một người đàn ông giàu có.
+
+Ngoài ra, một hệ thống tri thức còn có thêm các thành phần bổ trợ để thực hiện chức năng mà hệ thống đó hướng tới. Thông thường, hệ thống tri thức còn có thêm những thành phần sau~\cite{DLHandbook2007}:
+
+\begin{itemize}
+  \item \textbf{Hệ thống suy luận ({\em Inference System - IS})}: Hệ thống suy luận cho phép trích rút ra những tri thức tiềm ẩn từ những tri thức đã có được thể hiện trong ABox và TBox.
+  Một trong những bài toán suy luận phổ biến trong logic mô tả là kiểm tra thể hiện của một khái niệm. Nghĩa là xác định xem một cá thể có phải là một thể hiện của một khái niệm hay không. Thông qua Ví dụ~\ref{ex:TBox} và~\ref{ex:ABox}, ta có thể suy luận ra rằng cá thể $\mathsf{LAN}$ là một thể hiện của khái niệm $\Parent$. Ta cũng có thể suy luận cá thể $\mathsf{HAI}$ không là thể hiện của khái niệm $\Female$. Lý do đưa ra khẳng định này là: $\mathsf{HAI}$ là thể hiện của $\Husband$, mà $\Husband$ là khái niệm được định nghĩa thông qua phát biểu $\Husband \equiv \Male \mand \E \marriedTo.\Human$. Trong lúc đó, $\Male \mand \Female \equiv \bot$ chứa trong TBox.
+  Một bài toán suy luận khác cũng phổ biến của logic mô tả là kiểm tra tính bao hàm của các khái niệm. Thông qua Ví dụ~\ref{ex:TBox}, ta thấy rằng cả $\Male$ và $\Female$ đều được bao hàm trong $\Human$. 
+  
+  Một điểm lưu ý là, ta không xem một cơ sở tri thức theo {\em giả thiết thế giới đóng} ({\em closed world assumption - CWA}) mà xem nó như là một {\em giả thiết thế giới mở} ({\em open world assumption - OWA}). Nghĩa là, những khẳng định xuất hiện trong ABox thì được cho là đúng. Ngược lại, những khẳng định không xuất hiện trong ABox hoặc không thể suy luận được thông qua bộ suy luận thì không được cho là sai mà phải được xem như là chưa biết, ngoại trừ ta suy luận ra được khẳng định đó là sai.
+
+  \item \textbf{Giao diện người dùng ({\em User Interface - UI})}: Giao diện người dùng được sử dụng để giao tiếp với người sử dụng, người sử dụng thông qua giao diện người dùng có thể trích rút ra những thông tin từ cơ sở tri thức. Giao diện người dùng được thiết kế tùy thuộc vào từng ứng dụng cụ thể.  
+\end{itemize}
+
+%------------------------------------------------------------
+\subsection{Khả năng biểu diễn của logic mô tả}
+Logic mô tả được sử dụng trong viêc biểu diễn và suy luận tri thức. Do vậy, nhiều công trình tập trung nghiên cứu khả năng biểu diễn của logic mô tả. Khả năng biểu diễn của logic mô tả có quan hệ mật thiết với độ phức tạp của các bài toán suy luận. Theo đó, logic mô tả càng diễn cảm (có khả năng biểu diễn cao) thì có độ phức tạp trong suy luận càng cao. Khả năng biểu diễn của logic mô tả được thể hiện thông qua các tạo tử khái niệm và tạo tử vai trò mà nó được phép sử dụng trong việc xây dựng các khái niệm phức và vai trò phức. 
+Hiện nay, logic mô tả \ALC được xem là logic mô tả cơ bản nhất. Nó cho phép các khái niệm phức được xây dựng thông qua các tạo tử phủ định của khái niệm ($\neg$), giao của các khái niệm ($\mand$), hợp của các khái niệm ($\mor$), lượng từ hạn chế tồn tại ($\E$), lượng từ hạn chế với mọi ($\V$).
+Trong mục này chúng tôi điểm qua thêm một số nét cơ bản của các tạo tử khái niệm và tạo tử vai trò dùng để xây dựng các logic mô tả mở rộng thông qua logic mô tả cơ bản \ALC.
+
+%-----------------------------------------------------------
+\subsubsection{Hạn chế số lượng}
+\label{subsec:NumberRestrictions}
+Hạn chế số lượng thực sự đóng một vai trò quan trọng đối với khả năng biểu diễn của logic mô tả. Nó cho phép xây dựng những khái niệm có các ràng buộc về bản số của các đối tượng trong khái niệm đó.
+Trong logic mô tả, người ta sử dụng hai loại hạn chế số lượng:
+\begin{itemize}
+  \item {\em Hạn chế số lượng có định tính} ({\em qualified number restrictions}), ký hiệu là $\mathcal{Q}$, là hạn chế số lượng trên các vai trò có chỉ ra tính chất của các đối tượng cần hạn chế.
+  Chẳng hạn, để xây dựng khái niệm đại diện cho ``\textit{đối tượng là người có ít nhất là hai con gái}'', ta có thể viết $\Human \mand (\geq 2\ \hasChild.\Female)$. Ở đây, khái niệm $\Female$ đặt sau vai trò $\hasChild$ dùng để chỉ tính chất mà nó cần định tính thông qua vai trò. Tương tự như thế, ta có thể xây dựng khái niệm $\Human \mand (\leq 3\,\hasChild.(\neg \Female))$ để đại diện cho ``\textit{đối tượng có nhiều nhất là ba con trai}''
+    
+  \item {\em Hạn chế số lượng không định tính} ({\em unqualified number restrictions}), ký hiệu là $\mathcal{N}$, là hạn chế số lượng trên các vai trò nhưng không chỉ ra tính chất của các đối tượng cần hạn chế. Đây là một dạng đặc biệt của hạn chế số lượng có định tính bằng cách thay khái niệm thể hiện tính chất cần định tính bằng khái niệm đỉnh.
+  Chẳng hạn như, để xây dựng khái niệm đại diện cho ``\textit{những đối tượng là người có nhiều nhất là ba con}'', ta có thể viết $\Human \mand (\leq 3\ \hasChild)$ (là cách viết ngắn gọn của $\Human \mand (\leq 3\ \hasChild.\top)$). Chúng ta thấy rằng, sau vai trò $\hasChild$ không yêu cầu chỉ ra tính chất cần thỏa mãn (khái niệm $\top$ nói lên rằng tất cả các đối tượng đều phù hợp). Để xây dựng khái niệm đại diện ``\textit{những đối tượng là người có đúng hai con}'', ta có thể viết $\Human \mand (\leq 2\ \hasChild) \mand (\geq 2\ \hasChild)$.
+\end{itemize}
+
+Chúng ta có thể nhận thấy rằng, khả năng biểu diễn của logic mô tả có sử dụng các tạo tử hạn chế số lượng không định tính và hạn chế số lượng có định tính phong phú hơn so với chỉ sử dụng lượng từ hạn chế phổ quát hoặc hạn chế tồn tại. Bằng cách dùng các tính chất về hạn chế số lượng, ta có thể xây dựng khái niệm phức để biểu diễn ``{\em những người có nhiều nhất là ba con, trong đó có ít nhất là hai con gái và có ít nhất là hai người con giàu có.}'' như sau:
+$$\Human \mand (\leq 3\ \hasChild) \mand (\geq 2\ \hasChild.\Female) \mand (\geq 2\ \hasChild.\Rich)$$
+
+Khi một đối tượng là thể hiện của khái niệm trên, ta có thể suy ra được rằng đối tượng này có ít nhất một người con gái giàu có.
+
+%-----------------------------------------------------------
+\subsubsection{Tính chất hàm}
+Ràng buộc {\em tính chất hàm} ({\em functionality}), ký hiệu là $\mF$, là một dạng đơn giản của ràng buộc hạn chế số lượng không định tính trong logic mô tả. Nó cho phép chỉ ra tính chất hàm cục bộ của các vai trò, nghĩa là các thể hiện của các khái niệm có quan hệ tối đa với một cá thể khác thông qua vai trò được chỉ định.
+Ví dụ, để quy định ``\textit{một đối tượng chỉ có thể được kết hôn với một đối tượng khác tại một thời điểm}'', ta có thể sử dụng ràng buộc $\top \sqsubseteq\ \leq 1\ \marriedTo$.
+
+%-----------------------------------------------------------
+\subsubsection{Định danh}
+Tạo tử {\em định danh} ({\em nominal}), ký hiệu là $\mO$, cho phép xây dựng khái niệm $\{a\}$ từ một cá thể đơn lẻ $a$. Khái niệm này biểu diễn cho tập có thể hiện chỉ là một cá thể. Bằng cách sử dụng tạo tử định danh, ta có thể xây dựng cấu trúc $\{a_1, a_2, \ldots, a_n\}$ để biểu diễn cho khái niệm gồm chính xác các thể hiện là những cá thể $a_1, a_2, \ldots, a_n$.
+Ví dụ, để biểu diễn ``\textit{các nước thành viên thường trực của Hội đồng Bảo an Liên hiệp quốc''}, ta có thể sử dụng khái niệm $\{\iANH, \iMY, \iNGA, \iPHAP, \iTRUNGQUOC\}$.
+Logic mô tả với sự cho phép của tạo tử định danh sẽ làm cho các bài toán suy luận trở nên phức tạp hơn nhiều.
+
+%-----------------------------------------------------------
+\subsubsection{Nghịch đảo vai trò}
+Một logic mô tả với {\em vai trò nghịch đảo} ({\em role inverse}), ký hiệu là $\mI$, cho phép người sử dụng định nghĩa các vai trò là nghịch đảo của nhau nhằm tăng sự ràng buộc đối với các đối tượng trong miền biểu diễn. Nghịch đảo của vai trò $r$ được viết là $r^-$. Nghĩa là, nếu $s$ là một vai trò nghịch đảo của $r$, được viết là $s \equiv r^-$, thì $r(a, b)$ thỏa mãn khi và chỉ khi $s(b,a)$ thỏa mãn. Chẳng hạn, ta có thể định nghĩa vai trò $\hasParent$ ({\em vai trò để chỉ đối tượng này có cha mẹ là đối tượng kia}) là vai trò nghịch đảo của vai trò $\hasChild$ và ký hiệu là $\hasParent \equiv \hasChild^-$. Rõ ràng, nếu đối tượng $a$ có con là đối tượng $b$, tức là $\hasChild(a,b)$ thỏa mãn, thì lúc đó đối tượng $b$ có cha mẹ là đối tượng~$a$, tức là $\hasParent(b,a)$ thỏa mãn và ngược lại.
+
+%-----------------------------------------------------------
+\subsubsection{Vai trò bắc cầu}
+Tạo tử {\em vai trò bắc cầu} ({\em transitive role}), ký hiệu là $\mS$, được đưa vào logic mô tả nhằm tăng khả năng biểu diễn của logic mô tả đó. Một vai trò $r$ được gọi là bắc cầu nếu $r \circ r \sqsubseteq r$. Nghĩa là, nếu $r$ là một vai trò bắc cầu, lúc đó nếu $r(a,b)$ và $r(b,c)$ thỏa mãn thì $r(a,c)$ thỏa mãn. Để thể hiện một vai trò $r$ là bắc cầu trong một logic mô tả cụ thể, người ta ký hiệu là $\Tra(r)$.
+%
+Thông qua vai trò bắc cầu, một số vai trò được thể hiện một cách tự nhiên theo bản chất của nó. Chẳng hạn với vai trò $\hasDescendant$ ({\em vai trò để chỉ đối tượng này có con cháu là đối tượng kia}), nếu đối tượng $a$ có con cháu là đối tượng $b$ và đối tượng $b$ có con cháu là đối tượng $c$. Một cách tự nhiên ta thấy, đối tượng $a$ có con cháu là đối tượng $c$. Rõ ràng ta có $\hasDescendant \circ \hasDescendant \sqsubseteq \hasDescendant$. Như vậy, vai trò $\hasDescendant$ có tính chất bắc cầu.
+
+%-----------------------------------------------------------
+\subsubsection{Phân cấp vai trò}
+Tạo tử {\em phân cấp vai trò} ({\em role hierarchive}), ký hiệu $\mH$, cho phép người sử dụng biểu diễn mối quan hệ giữa các vai trò theo phương cách cụ thể hóa hoặc theo phương cách tổng quát hóa. Vai trò $r$ là cụ thể hóa của vai trò $s$ (hay nói cách khác $s$ là tổng quát hóa của $r$) được viết là $r \sqsubseteq s$. Khi đó nếu $r(a,b)$ thỏa mãn thì $s(a,b)$ cũng thỏa mãn.
+Giả sử ta có hai vai trò $\hasChild$ và $\hasDescendant$. Chúng ta thấy rằng nếu đối tượng $a$ có con là đối tượng $b$ thì đối tượng $a$ cũng có con cháu là đối tượng $b$. Vì vậy, vai trò $\hasChild$ được bao hàm trong vai trò $\hasDescendant$ và được ký hiệu là $\hasChild \sqsubseteq \hasDescendant$.
+
+%-----------------------------------------------------------
+\subsubsection{Bao hàm vai trò phức}
+Tạo tử {\em bao hàm vai trò phức} ({\em complex role inclusion}), ký hiệu là $\mR$, cho phép người sử dụng biểu diễn các tiên đề bao hàm dạng $r \circ s \sqsubseteq r$ (hoặc $r \circ s \sqsubseteq s$). Nghĩa là, nếu $r(a,b)$ và $s(b,c)$ thỏa mãn thì $r(a,c)$ (hoặc $s(a,c)$) cũng thỏa mãn. Ví dụ, với vai trò $\hasChild$ và $\hasDescendant$, nếu $a$ có con là $b$ và $b$ có con cháu là $c$, lúc đó $a$ cũng có con cháu là $c$. Rõ ràng ta có $\hasChild \circ \hasDescendant \sqsubseteq \hasDescendant$.
+
+\subsection{Logic mô tả và các tên gọi}
+Hiện nay, có rất nhiều logic mô tả được phát triển để đáp ứng các nhu cầu trong thực tế về biểu diễn và suy luận tri thức. Các logic mô tả sử dụng các tạo tử khái niệm và tạo tử vai trò khác nhau sẽ khác nhau cơ bản về khả năng biểu diễn và cấu trúc cú pháp. Để thống nhất các tên gọi của logic mô tả, người ta lấy logic mô tả \ALC làm logic mô tả nền tảng~\cite{Schmidt1991}. Từ logic mô tả này, bằng cách thêm các tính chất thông qua các tạo tử khái niệm và tạo tử vai trò ta sẽ nhận được các logic mô tả khác nhau. Người ta sử dụng các ký tự để biểu diễn cho các mở rộng logic mô tả, cụ thể như sau:
+\begin{itemize}
+  \item \fbox{\ALC} - logic mô tả cơ bản nhất: \ALC là ngôn ngữ khái niệm thuộc tính có phủ định.
+  \item \fbox{$\mS$} - \ALC + tính chất bắc cầu: Tính chất bắc cầu cho phép các vai trò là bắc cầu được sử dụng.
+  \item \fbox{$\mH$} - bao hàm vai trò: Bao hàm vai trò cho phép một vai trò là vai trò con của một vai trò khác với dạng $r \sqsubseteq s$.
+  %Khi đó, nếu $r(a,b)$ thỏa mãn thì $s(a,b)$ cũng sẽ thỏa mãn.
+  \item \fbox{$\mI$} - vai trò nghịch đảo: Vai trò nghịch đảo cho phép sử dụng nghịch đảo của một vai trò $r$ theo dạng $r^-$.
+  \item \fbox{$\mO$} - định danh: Tạo tử định danh cho phép tạo ra các khái niệm đơn từ các cá thể $a$ với dạng $\{a\}$.
+  
+  \item \fbox{$\mN$} - hạn chế số lượng không định tính: Tạo tử hạn chế số lượng không định tính cho phép xây dựng các khái niệm dạng $\geq n\,r$ và $\leq n\,r$.
+  \item \fbox{$\mQ$} - hạn chế số lượng có định tính: Tạo tử hạn chế số lượng có định tính cho phép xây dựng các khái niệm dạng $\geq n\,r.C$ và $\leq n\,r.C$. Nếu $C$ là khái niệm đỉnh thì tạo tử hạn chế số lượng có định tính trở thành tạo tử hạn chế số lượng không định tính.
+  \item \fbox{$\mF$} - tính chất hàm: Tính chất hàm cho phép biểu diễn một vai trò là một hàm và nó tương đương với tiên đề $\top \sqsubseteq\ \leq 1\,r$.
+  \item \fbox{$\mR$} - bao hàm vai trò phức: Bao hàm vai trò phức cho phép các tiên đề dạng $r \circ s \sqsubseteq r$ (hoặc $r \circ s \sqsubseteq s$).
+  %Nghĩa là, nếu $r(a,b)$ và $s(b,c)$ thỏa mãn thì $r(a,c)$ (hoặc $s(a,c)$) thỏa mãn.
+\end{itemize}
+
+Với các ký hiệu như vậy, khi ta viết logic mô tả \ALCI, nghĩa là logic mô tả \ALC cộng thêm tính chất nghịch đảo vai trò; \ALCIQ là logic mô tả \ALC cộng thêm tính chất nghịch đảo vai trò và tính chất hạn chế số lượng có định tính; \SHOIQ là logic mô tả \ALC có thêm tính chất bắc cầu của vai trò, phân cấp vai trò, định danh, nghịch đảo vai trò và hạn chế số lượng có định tính.
+%-----------------------------------------------------------
+\section{Cú pháp và ngữ nghĩa của logic mô tả}
+
+\subsection{Ngôn ngữ logic mô tả \ALC}
+
+Logic mô tả cơ bản \ALC được Schmidt-Schaub\ss\ và Smolka giới thiệu lần đầu tiên vào năm 1991 trong công trình~\cite{Schmidt1991}. Tên \ALC đại diện cho ``\textbf{A}ttribute concept \textbf{L}anguage with \textbf{C}omplements''. Logic mô tả \ALC là một mở rộng của logic mô tả \AL bằng cách cho phép sử dụng thêm tạo tử phủ định ($\neg$). 
+%
+Các khái niệm phức của \ALC được xây dựng từ các khái niệm đơn giản hơn và các tên vai trò bằng cách kết hợp với các tạo tử khác nhau. Trên cơ sở logic mô tả cơ bản \ALC, người ta mở rộng nó để có các logic mô tả khác có khả năng biểu diễn tốt hơn bằng cách thêm vào các tạo tử khái niệm và tạo tử vai trò.
+Các định nghĩa sau đây trình bày cú pháp và ngữ nghĩa của logic mô tả cơ bản \ALC~\cite{Lehmann2006,Lehmann2010}.
+
+\begin{Definition}[Cú pháp của \ALC]
+\label{ALC-Syntax}
+Cho $\SigmaC$ là tập các {\em tên khái niệm} và $\SigmaR$ là tập các {\em tên vai trò} ($\SigmaC \cap \SigmaR = \emptyset$). Các phần tử của $\SigmaC$ được gọi là {\em khái niệm nguyên tố}. {\em Logic mô tả} \ALC cho phép các khái niệm được định nghĩa một cách đệ quy như sau:
+
+\begin{itemize}
+  \item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của \ALC,
+  \item nếu $C$, $D$ là các khái niệm và $r \in \SigmaR$ là một vai trò thì $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E r.C$ và $\V r.C$ cũng là các khái niệm của \ALC.\myend
+\end{itemize}
+\end{Definition}
+%
+\noindent
+Các ký hiệu và các tạo tử khái niệm có ý nghĩa như sau:
+\begin{itemize}
+  \item $\top$ biểu diễn {\em khái niệm đỉnh},
+  \item $\bot$ biểu diễn {\em khái niệm đáy},
+  \item $\neg C$ biểu diễn {\em phủ định} của khái niệm $C$,
+  \item $C \mand D$ biểu diễn {\em giao} của khái niệm $C$ và $D$,
+  \item $C \mor D$ biểu diễn {\em hợp} của khái niệm $C$ và $D$,
+  \item $\E r.C$ biểu diễn {\em hạn chế tồn tại} của khái niệm $C$ bởi vai trò $r$.
+  \item $\V r.C$ biểu diễn {\em hạn chế phổ quát} của khái niệm $C$ bởi vai trò $r$.
+\end{itemize}
+%
+Cú pháp của \ALC có thể mô tả một cách vắn tắt bằng các luật sau:
+\[
+  \begin{array}{r c l}
+    C, D & \longrightarrow&
+    A \mid 
+    \top \mid 
+    \bot \mid 
+    \neg C \mid 
+    C\mand D \mid 
+    C \mor D \mid 
+    \E r.C \mid
+    \V r.C
+  \end{array}
+\]
+
+\begin{Definition}[Ngữ nghĩa của \ALC]
+Một {\em diễn dịch} trong logic \ALC là một bộ \mbox{$\mI = \tuple{\Delta^\mI, \cdot^\mI}$}, trong đó $\Delta^\mI$ là một tập không rỗng được gọi là {\em miền} của $\mI$ và $\cdot^\mI$ là một ánh xạ được gọi là {\em hàm diễn dịch} của $\mI$ cho phép ánh xạ mỗi cá thể $a \in \SigmaI$ thành một phần tử $a^\mI \in \Delta^\mI$, mỗi tên khái niệm $A \in \SigmaC$ thành một tập $A^\mI \subseteq \Delta^\mI$ và mỗi tên vai trò $r \in \SigmaR$ thành một quan hệ nhị phân $r^\mI \subseteq \Delta^\mI \times \Delta^\mI$.
+Diễn dịch của các khái niệm phức được xác định như sau:
+\begin{tabbing}
+  \hspace*{.85cm}\=\hspace*{1.9cm}\=\hspace*{0.5cm}\=\hspace*{\textwidth}\=\kill
+    \> $(C \mand D)^\mI$ \> = \> $C^\mI \cap D^\mI$, \\[0.5ex]
+    \> $(C \mor D)^\mI$ \> = \> $C^\mI \cup D^\mI$, \\[0.5ex]
+    \> $(\neg C)^\mI$ \> = \> $\Delta^\mI \setminus C^\mI$, \\[0.5ex]
+    \> $(\E r.C)^\mI$ \> = \> $\{x \in \Delta^\mI \mid \E y\in \Delta^\mI\ [r^\mI(x,y) \wedge C^\mI(y)]\}$, \\[0.5ex]
+    \> $(\V r.C)^\mI$ \> = \> $\{ x \in \Delta^\mI \mid \V y \in \Delta^\mI\ [r^\mI(x,y) \Rightarrow C^\mI(y)]\}$.\`\myend
+\end{tabbing}
+\end{Definition}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tikzpicture}
+\node[xshift=2cm,yshift=6.5cm,draw,fill=white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaI)
+{
+  \begin{array}{c}
+    \text{Tên cá thể}\\
+    \ldots a \in \SigmaI \ldots
+  \end{array}
+};
+
+\node[xshift=6cm,yshift=6.5cm,draw,fill=white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaC)
+{
+  \begin{array}{c}
+    \text{Tên khái niệm}\\
+    \ldots A \in \SigmaC \ldots
+  \end{array}
+};
+
+\node[xshift=10cm,yshift=6.5cm,draw,fill=white,rectangle,minimum width=4cm, minimum height=1.5cm](sigmaR)
+{
+  \begin{array}{c}
+    \text{Tên vai trò}\\
+    \ldots r \in \SigmaR \ldots
+  \end{array}
+};
+
+\node[rotate=-90,xshift=-6.5cm,yshift=12.7cm,minimum width=1.0cm,rectangle,inner sep=0pt,fill=white](deltaI){\textsc{bộ ký tự}};
+
+\node[rotate=-90,xshift=-2.0cm,yshift=12.7cm,minimum width=1.0cm,rectangle,inner sep=0pt,fill=white](deltaI){\textsc{diễn dịch} $\mI$};
+
+\draw[black,-,line width=1.1pt] ([xshift=-3cm,yshift=-0.6cm]sigmaI.south) -- ([xshift=3cm,yshift=-0.6cm]sigmaR.south);
+
+%DeltaHold
+\node[xshift=6cm,yshift=2cm,draw,fill=white,ellipse,minimum width=12cm, minimum height=5cm]{\hspace{-9cm}};
+
+%a^\mI
+\node[xshift=2cm,yshift=2.8cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](aI){};
+\node[xshift=2.5cm,yshift=2.87cm,minimum width=0.2cm,circle,inner sep=0pt,fill=white]{$a^\mI$};
+
+%\Delta^\mI
+\node[xshift=1.5cm,yshift=1.0cm,minimum width=0.2cm,circle,inner sep=0pt,fill=white](deltaI){$\Delta^\mI$};
+
+%A^\mI
+\node[xshift=6cm,yshift=1.0cm,draw,fill=black!5!white,ellipse,minimum width=4cm, minimum height=2cm](AI){$A^\mI$};
+
+\draw[lightgray,-stealth,line width=15pt] ([xshift=0.0cm,yshift=0.0cm]sigmaR.south) -- ([xshift=0.0cm,yshift=-6.0cm]sigmaR.south);
+
+\node[xshift=8cm,yshift=-0.2cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](a){};
+
+\node[xshift=9cm,yshift=0.0cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](b){};
+
+\node[xshift=10cm,yshift=0.3cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](c){};
+
+\node[xshift=10.8cm,yshift=0.7cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](d){};
+
+\node[xshift=11.6cm,yshift=1.4cm,minimum width=0.2cm,circle,inner sep=0pt,fill=black](e){};
+
+\draw[->,thick] ([yshift=0cm]a.south east) to [out=-40,in=-96] ([yshift=0cm]c.south);
+
+\draw[<-,thick] ([yshift=0cm]b.south east) to [out=-40,in=-85] ([yshift=0cm]e.south);
+
+\draw[->,thick] ([yshift=0cm]a.south east) to [out=-40,in=-96] ([yshift=0cm]d.south);
+
+%\r^\mI
+\node[xshift=11.0cm,yshift=-0.3cm,minimum width=0.2cm,circle,inner sep=0pt,fill=white](deltaI){$r^\mI$};
+
+\draw[lightgray,-stealth,line width=15pt] ([yshift=0.0cm]sigmaI.south) -- ([yshift=0.0cm]aI.north);
+
+\draw[lightgray,-stealth,line width=15pt] ([yshift=0.0cm]sigmaC.south) -- ([yshift=0.0cm]AI.north);
+
+\end{tikzpicture}
+\caption{Minh họa diễn dịch của logic mô tả\label{fig:Interpretation}}
+\end{center}
+\end{figure}
+
+Hình~\ref{fig:Interpretation} minh họa diễn dịch của logic mô tả. Mỗi cá thể được diễn dịch thành một đối tượng, mỗi khái niệm được diễn dịch thành một tập các đối tượng và mỗi vai trò được diễn dịch thành một quan hệ nhị phân giữa các đối tượng.
+
+\begin{Example}
+Cho tập các khái niệm và vai trò như trong Ví dụ~\ref{ex:PrimitiveConcept}. Xét diễn dịch $\mI$ như sau:
+\begin{tabbing}
+  \hspace*{0.85cm}\=\hspace*{2.4cm}\=\hspace*{\textwidth}\=\kill
+  \> $\Delta^\mI$ \> = $\{\iLAN, \iHAI, \iHUNG\},$\\[0.5ex]
+  \> $\Human^\mI$ \> = $\{\iLAN, \iHAI, \iHUNG\},$\\[0.5ex]
+  \> $\Female^\mI$ \> = $\{\iLAN\},$ \\[0.5ex]
+  \> $\Rich^\mI$ \>= $\{\iHUNG\},$\\
+  \> $\hasChild^\mI$ \> = $\{\tuple{\iLAN, \iHUNG}, \tuple{\iHAI, \iHUNG}\,\},$ \\[0.5ex]
+  \> $\marriedTo^\mI$ \> = $\{\tuple{\iLAN, \iHAI},\tuple{\iHAI, \iLAN}\,\},$
+\end{tabbing}
+Lúc đó ta có:
+\begin{tabbing}
+  \hspace*{0.85cm}\=\hspace*{6.4cm}\=\hspace*{0.5cm}\=\hspace*{\textwidth}\=\kill
+  \> $(\Human \mand \Female)^\mI$ \> = \> $\{\iLAN\},$\\[0.5ex]
+  \> $(\neg \Female)^\mI$ \> = $\{\iHAI, \iHUNG\},$\\[0.5ex]
+  \> $(\Human \mand \neg \Female)^\mI$ \> = $\{\iHAI, \iHUNG\},$\\[0.5ex]
+  \> $(\Human \mand \E \hasChild.\Female)^\mI$ \> = $\emptyset,$\\[0.5ex]
+  \> $(\Human \mand \E \marriedTo.\Human)^\mI$ \> = $\{\iLAN, \iHAI\}.$ \`\myend
+\end{tabbing}\end{Example}
+
+Logic động mệnh đề ({\em Propositional Dynamic Logics - PDLs}) là một biến thể của logic hình thái được Fisher và Ladner giới thiệu vào năm 1979~\cite{Fischer1979}. Nó được thiết kế chuyên biệt cho việc biểu diễn và suy luận trong các chương trình. Trong~\cite{Schild1991}, Schild đã chỉ ra rằng có sự tương ứng giữa các logic mô tả và một số logic động mệnh đề. 
+Sự tương ứng dựa trên tính tương tự giữa các cấu trúc diễn dịch của hai logic. Theo đó, mỗi đối tượng trong logic mô tả tương ứng với một trạng thái trong logic động mệnh đề và các kết nối giữa hai đối tượng tương ứng với các dịch chuyển trạng thái. Các khái niệm tương ứng với các mệnh đề và các vai trò tương ứng với các chương trình~\cite{Giacomo1994,Chang2007}.
+Trong mục sau, chúng tôi trình bày định nghĩa của logic mô tả \ALC tương ứng với logic động mệnh đề, được gọi là {\em logic mô tả động} và được ký hiệu là \ALCreg.
+
+\begin{Definition}[Cú pháp của \ALCreg]
+\label{def:ALCRegSyntax}
+Cho $\SigmaC$ là tập các {\em tên khái niệm} và $\SigmaR$ là tập các {\em tên vai trò} ($\SigmaC \cap \SigmaR = \emptyset$). Các phần tử của $\SigmaC$ được gọi là {\em khái niệm nguyên tố} và các phần tử của $\SigmaR$ được gọi là {\em vai trò nguyên tố}. {\em Logic mô tả động} \ALCreg cho phép các khái niệm và các vai trò được định nghĩa một cách đệ quy như sau:
+
+\begin{itemize}
+  \item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của \ALCreg,
+  \item nếu $C$, $D$ là các khái niệm và $R, S$ là các vai trò thì 
+  \begin{itemize}
+     \item $R \circ S$, $R \mor S$, $R^*$, $?C$ là các vai trò của \ALCreg,
+     \item $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E R.C$ và $\V R.C$ là các khái niệm của \ALCreg.\myend
+  \end{itemize}
+\end{itemize}
+\end{Definition}
+%
+\noindent
+Cú pháp \ALCreg có thể mô tả một cách vắn tắt bằng các luật sau:
+\[
+\begin{array}{r c l}
+R, S & \longrightarrow &
+  r \mid 
+  R \circ S \mid
+  R \mor S \mid
+  R^* \mid
+  C?\\[1ex]
+C, D & \longrightarrow&
+  A \mid 
+  \top \mid 
+  \bot \mid 
+  \neg C \mid 
+  C\mand D \mid 
+  C \mor D \mid 
+  \E R.C \mid
+  \V R.C
+\end{array}
+\]
+%
+Các ký hiệu và các tạo tử vai trò có ý nghĩa như sau:
+\begin{itemize}
+  \item $R \circ S$ biểu diễn {\em hợp thành tuần tự} của $R$ và $S$,
+  \item $R \mor S$ biểu diễn {\em hợp} của $R$ và $S$,
+  \item $R^*$ biểu diễn cho {\em tính phản xạ và bắc cầu đóng} của $R$,
+  \item $C?$ biểu diễn cho {\em toán tử kiểm tra}.
+\end{itemize}
+
+Tạo tử khái niệm $\V R.C$ và $\E R.C$ tương ứng với các toán tử hình thái $[R]C$ và $\tuple{R}C$ trong logic động mệnh đề~\cite{Nguyen2013}.
+
+Diễn dịch của các vai trò phức trong \ALCreg được xác định như sau:
+\begin{tabbing}
+  \hspace*{.85cm}\=\hspace*{1.8cm}\=\hspace*{0.5cm}\=\hspace*{\textwidth}\=\kill
+    \> $(R \circ S)^\mI$ \> = \> $R^\mI \circ S^\mI$, \\[0.5ex]
+    \> $(R \mand S)^\mI$ \> = \> $R^\mI \cup S^\mI$, \\[0.5ex]
+    \> $(R^*)^\mI$ \> = \> $(R^\mI)^*$, \\[0.5ex]
+    \> $(C?)^\mI$ \> = \> $\{\tuple{x,x} \mid C^\mI(x)\}$.
+\end{tabbing}
+
+\subsection{Ngôn ngữ logic mô tả $\mLSP$}
+
+Một {\em bộ ký tự logic mô tả} là một tập hữu hạn $\Sigma = \SigmaI \cup \SigmaDA \cup \SigmaNA \cup \SigmaOR \cup \SigmaDR$, trong đó $\SigmaI$ là tập các {\em cá thể}, $\SigmaDA$ là tập các {\em thuộc tính rời rạc}, $\SigmaNA$ là tập các {\em thuộc tính số}, $\SigmaOR$ là tập các {\em tên vai trò đối tượng} và $\SigmaDR$ là tập các {\em vai trò dữ liệu}.\footnote{Các tên vai trò đối tượng là các vai trò đối tượng nguyên tố.} Tất cả các tập $\SigmaI$, $\SigmaDA$, $\SigmaNA$, $\SigmaOR$ và $\SigmaDR$ rời nhau từng đôi một.
+
+Đặt $\SigmaA = \SigmaDA \cup \SigmaNA$. Khi đó mỗi thuộc tính $A \in \SigmaA$ có một miền là $\Dom(A)$. Miền $\Dom(A)$ là một tập không rỗng đếm được nếu $A$ là thuộc tính rời rạc và có thứ tự ``$\leq$'' nếu $A$ là thuộc tính liên tục.\footnote{Có thể giả sử rằng nếu $A$ là một thuộc tính số thì $\Dom(A)$ là tập các số thực và ``$\leq$'' là một quan hệ thứ tự tuyến giữa các số thực.} (Để đơn giản về mặt ký hiệu, ta không ghi ký hiệu ``$\leq$'' kèm theo thuộc tính $A$.) 
+%
+Một thuộc tính rời rạc được gọi là {\em thuộc tính Bool} nếu $\Dom(A) = \{\True,\False\}$. Chúng ta xem các thuộc tính Bool như là các tên khái niệm. Gọi $\SigmaC$ là tập các tên khái niệm của~$\Sigma$, lúc đó ta có $\SigmaC \subseteq \SigmaDA$.
+
+Một tên vai trò đối tượng đại diện cho một vị từ hai ngôi giữa các cá thể. Một vai trò dữ liệu $\sigma$ đại diện cho một vị từ hai ngôi giữa các cá thể với các phần tử của tập $\Range(\sigma)$.
+%
+Để đơn giản trong việc biểu diễn các công thức, chúng tôi ký hiệu các ký tự chữ cái thường như $a$,~$b$,\,\ldots\ cho các cá thể; các ký tự hoa như $A$,~$B$,\,\ldots\ cho các thuộc tính; các chữ cái như $r$,~$s$,\,\ldots\ cho các tên vai trò đối tượng; các ký tự như $\sigma$,~$\varrho$,\,\ldots\ cho các vai trò dữ liệu; và các ký tự $c$,~$d$,\,\ldots\ cho các phần tử của tập $\Dom(A)$ hoặc $\Range(\sigma)$.
+
+Xét các {\em đặc trưng của logic mô tả} gồm $\mI$ ({\em nghịch đảo vai trò}), $\mO$ ({\em định danh}), $\mF$ ({\em tính chất hàm}), $\mN$ ({\em hạn chế số lượng không định tính}), $\mQ$ ({\em hạn chế số lượng định tính}), $\mU$ ({\em vai trò phổ quát}), $\Self$ ({\em tính phản xạ cục bộ của vai trò}). {\em Tập các đặc trưng của logic mô tả} $\Phi$ là một tập chứa không hoặc một số các đặc trưng trên~\cite{Divroodi2011B,Nguyen2013,Tran2012,Tran2013}. Chẳng hạn như $\Phi = \{\mI, \mO, \mQ\}$ để chỉ tập đặc trưng của logic mô tả gồm: nghịch đảo vai trò, định danh và hạn chế số lượng có định tính.
+
+\begin{Definition}[Ngôn ngữ $\mLSP$]
+\label{def:Language}
+Cho $\Sigma$ là bộ ký tự logic mô tả, $\Phi$ là tập các đặc trưng của logic mô tả và $\mL$ đại diện cho \ALCreg. Ngôn ngữ logic mô tả $\mLSP$ cho phép các {\em vai trò đối tượng} và các {\em khái niệm} được định nghĩa một cách đệ quy như sau:
+\begin{itemize}
+\item nếu $r \in \SigmaOR$ thì $r$ là một vai trò đối tượng của $\mLSP$,
+\item nếu $A \in \SigmaC$ thì $A$ là một khái niệm của $\mLSP$,
+\item nếu $A \in \SigmaA\setminus\SigmaC$ và $d \in \Dom(A)$ thì $A=d$ và $A \neq d$ là các khái niệm của $\mLSP$,
+\item nếu $A \in \SigmaNA$ và $d \in \Dom(A)$ thì $A \leq d$, $A < d$, $A \geq d$ và $A > d$ là các khái niệm của $\mLSP$,
+\item nếu $R$ và $S$ là các vai trò đối tượng của $\mLSP$, $C$ và $D$ là các khái niệm của $\mLSP$, $r \in \SigmaOR$, $\sigma \in \SigmaDR$, $a \in \SigmaI$, và $n$ là một số tự nhiên thì
+  \begin{itemize}
+    \item $\varepsilon$, $R \circ S$ , $R \sqcup S$, $R^*$ và $C?$ là các vai trò đối tượng của $\mLSP$,
+    \item $\top$, $\bot$, $\neg C$, $C \mand D$, $C \mor D$, $\E R.C$ và $\V R.C$ là các khái niệm của $\mLSP$,
+    \item nếu $d \in \Range(\sigma)$ thì $\E \sigma.\{d\}$ là một khái niệm của $\mLSP$,
+    \item nếu $\mI \in \Phi$ thì $R^-$ là một vai trò đối tượng của $\mLSP$,
+    \item nếu $\mO \in \Phi$ thì $\{a\}$ là một khái niệm của $\mLSP$,
+    \item nếu $\mF \in \Phi$ thì $\leq\!1\,r$ là một khái niệm của $\mLSP$,
+    \item nếu $\{\mF, \mI\} \subseteq \Phi$ thì $\leq\!1\,r^-$ là một khái niệm của $\mLSP$,
+    \item nếu $\mN \in \Phi$ thì $\geq n\,r$ và $\leq n\,r$ là các khái niệm của $\mLSP$,
+    \item nếu $\{\mN, \mI\} \subseteq \Phi$ thì $\geq n\,r^-$ và $\leq n\,r^-$ là các khái niệm của $\mLSP$,
+    \item nếu $\mQ \in \Phi$ thì $\geq n\,r.C$ và $\leq n\,r.C$ là các khái niệm của  $\mLSP$,
+    \item nếu $\{\mQ, \mI\} \subseteq \Phi$ thì $\geq n\,r^-.C$ và $\leq n\,r^-.C$ là các khái niệm của $\mLSP$,
+    \item nếu $\mU \in \Phi$ thì $U$ là một vai trò đối tượng của $\mLSP$,
+    \item nếu $\Self \in \Phi$ thì $\E r.\Self$ là một khái niệm của $\mLSP$.\myend
+  \end{itemize}
+\end{itemize}
+\end{Definition}
+
+Trong định nghĩa trên, các tạo tử khái niệm $\geq n\,R.C$ và $\leq n\,R.C$ được gọi là hạn chế số lượng có định tính. Các tạo tử này tương ứng với các toán tử hình thái trong logic hình thái~\cite{Nguyen2013}.
+
+Ngôn ngữ $\mLSP$ được giới thiệu trong Định nghĩa~\ref{def:Language} là một sự mở rộng và tổng quát hóa của ngôn ngữ $\mLSP$ đã được trình bày trong~\cite{Divroodi2011B,Nguyen2013}. Nó cho phép sử dụng tất cả các tạo tử của \ALCreg cộng thêm $\mI$ (nghịch đảo vai trò), $\mO$ (định danh), $\mF$ (tính chất hàm - {\em bổ sung mới}), $\mN$ (hạn chế số lượng không định tính - {\em bổ sung mới}), $\mQ$ (hạn chế số lượng định tính), $\mU$ (vai trò phổ quát), $\Self$ (tính phản xạ cục bộ của vai trò). Ngôn ngữ này cũng cho phép sử dụng các thuộc tính như là các phần tử cơ bản của ngôn ngữ. Do đó, các kết quả trình bày trong các định nghĩa, định lý tiếp theo là những mở rộng của các định nghĩa, định lý trong~\cite{Divroodi2011B,Nguyen2013} bằng cách phát triển nó trên một lớp các logic mô tả rộng hơn.
+
+%\subsection{Cơ sở tri thức trong logic mô tả}
+%----------------------------------------------------------------------------------
+%\subsection{Ngữ nghĩa của logic mô tả}
+%Trong mục này, chúng tôi trình bày ngữ nghĩa của các logic mô tả. Cũng giống như các logic đã được biết khác, ngữ nghĩa của các logic mô tả được định nghĩa theo một lý luyết nhất quán thông qua các diễn dịch.
+
+\begin{Definition}[Ngữ nghĩa của $\mLSP$]
+\label{def:Interpretation}
+Một {\em diễn dịch} trong $\mLSP$ là một bộ $\mI = \tuple{\Delta^\mI, \cdot^\mI}$, trong đó $\Delta^\mI$ là một tập không rỗng được gọi là {\em miền} của $\mI$ và $\cdot^\mI$ là một ánh xạ được gọi là {\em hàm diễn dịch} của $\mI$ cho phép ánh xạ mỗi cá thể $a \in \SigmaI$ thành một phần tử $a^\mI \in \Delta^\mI$, mỗi tên khái niệm $A \in \SigmaC$ thành một tập $A^\mI \subseteq \Delta^\mI$, mỗi thuộc tính $A \in \SigmaA \setminus \SigmaC$ thành một hàm từng phần $A^\mI : \Delta^\mI \to \Dom(A)$, mỗi tên vai trò đối tượng $r \in \SigmaOR$ thành một quan hệ nhị phân $r^\mI \subseteq \Delta^\mI \times \Delta^\mI$ và mỗi vai trò dữ liệu $\sigma \in \SigmaDR$ thành một quan hệ nhị phân $\sigma^\mI \subseteq \Delta^\mI \times \Range(\sigma)$.
+Hàm diễn dịch $\cdot^\mI$ được mở rộng cho các vai trò đối tượng phức và các khái niệm phức như trong Hình~\ref{fig:int-comp}, trong đó $\#\Gamma$ ký hiệu cho lực lượng của tập $\Gamma$.\myend
+\end{Definition}
+
+Như ta thấy ở Định nghĩa~\ref{def:Interpretation}, mỗi cá thể được diễn dịch như là một đối tượng, mỗi tên khái niệm được diễn dịch như là một tập các đối tượng, mỗi thuộc tính được diễn dịch như là một hàm thành phần từ miền quan tâm vào tập các giá trị của thuộc tính, mỗi tên vai trò đối tượng được diễn dịch như là một quan hệ nhị phân  giữa các đối tượng và mỗi vai trò dữ liệu được diễn dịch như là một quan hệ nhị phân giữa các đối tượng với các phần tử trong miền của vai trò dữ liệu.
+
+Ta nói $C^\mI$ (tương ứng, $R^\mI$) là {\em diễn dịch} của khái niệm $C$ (tương ứng, vai trò $R$) trong diễn dịch $\mI$.
+%
+Một khái niệm $C$ được gọi là {\em thỏa mãn được} nếu tồn tại một diễn dịch $\mI$ sao cho $C^\mI \not= \emptyset$.
+%
+Nếu $a^\mI \in C^\mI$, lúc đó ta nói $a$ là một~{\em thể hiện} của $C$ trong diễn dịch $\mI$. Để ngắn gọn, ta viết $C^\mI(x)$ (tương ứng, $R^\mI(x,y)$, $\sigma^\mI(x, d)$) thay cho $x \in C^\mI$ (tương ứng, $\tuple{x, y} \in R^\mI$, $\tuple{x, d} \in \sigma^\mI$).
+
+\begin{figure}[h!]
+\ramka{
+\vspace{-2.0ex}
+\[
+\begin{array}{c c c}
+  \begin{array}{rcl}
+    (R \circ S)^\mI \!\!\!& = &\!\!\! R^\mI \circ S^\mI\\[0.5ex]
+    (R \sqcup S)^\mI \!\!\!& = &\!\!\! R^\mI \cup S^\mI\\[0.5ex]
+    U^\mI \!\!\!& = &\!\!\! \Delta^\mI \times \Delta^\mI \\[0.5ex]
+    (C \mand D)^\mI \!\!\!& = &\!\!\! C^\mI \cap D^\mI \\[0.5ex]
+  \end{array} & 
+  \begin{array}{rcl}
+    (R^*)^\mI \!\!\!& = &\!\!\! (R^\mI)^*\\[0.5ex]
+    (R^-)^\mI \!\!\!& = &\!\!\! (R^\mI)^{-1} \\[0.5ex]
+    \multicolumn{3}{c}{\top^\mI = \Delta^\mI \qquad \bot^\mI = \emptyset}\\[0.5ex]
+    (C \mor D)^\mI \!\!\!& = &\!\!\! C^\mI \cup D^\mI \\[0.5ex]    
+  \end{array} & 
+  \begin{array}{rcl}
+    (C?)^\mI \!\!\!& = &\!\!\! \{ \tuple{x,x} \mid C^\mI(x)\}\\[0.5ex]
+    \varepsilon^\mI \!\!\!& = &\!\!\! \{\tuple{x,x} \mid x \in \Delta^\mI\}\\[0.5ex]
+    \{a\}^\mI \!\!\!& = &\!\!\! \{a^\mI\} \\[0.5ex]
+    (\neg C)^\mI \!\!\!& = &\!\!\! \Delta^\mI \setminus C^\mI \\[0.5ex]
+  \end{array} \\[0.5ex]
+%  
+  \multicolumn{3}{l}{(A \leq d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) \textrm{ xác định và } A^\mI(x) \leq d\}} \\[0.5ex]
+%  
+  \multicolumn{3}{l}{(A \geq d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) \textrm{ xác định và } A^\mI(x) \geq d \}} \\[0.5ex]
+%  
+  \multicolumn{3}{l}{(A = d)^\mI = \{x \in \Delta^\mI \mid A^\mI(x) = d\}\qquad\qquad\qquad\quad(A \neq d)^\mI = (\neg (A = d))^\mI} \\[0.5ex]
+%
+  \multicolumn{3}{l}{(A < d)^\mI = ((A \leq d) \mand (A \neq d))^\mI\ \qquad\qquad\qquad\quad (A > d)^\mI = ((A \geq d) \mand (A \neq d))^\mI} \\[0.5ex]
+%  
+  \multicolumn{3}{l}{(\V R.C)^\mI = \{ x \in \Delta^\mI \mid \V y\,[R^\mI(x,y) \Rightarrow C^\mI(y)]\} \qquad (\E r.\Self)^\mI = \{x \in \Delta^\mI \mid r^\mI(x,x)\}} \\[0.5ex]
+%
+  \multicolumn{3}{l}{(\E R.C)^\mI = \{ x \in \Delta^\mI \mid \E y\,[R^\mI(x,y) \wedge C^\mI(y)]\} \ \, \qquad (\E \sigma.\{d\})^\mI = \{ x \in \Delta^\mI \mid \sigma^\mI(x,d)\}} \\[0.5ex]
+%
+  \multicolumn{3}{l}{(\geq n\,R.C)^\mI = \{x \in \Delta^\mI \mid \#\{y \mid R^\mI(x,y) \wedge C^\mI(y)\} \geq n\} 
+  \ \qquad (\geq n\,R)^\mI = (\geq n\,R.\top)^\mI} \\[0.5ex]
+%
+  \multicolumn{3}{l}{(\leq n\,R.C)^\mI = \{x \in \Delta^\mI \mid \#\{y \mid R^\mI(x,y) \wedge C^\mI(y)\} \leq n \}
+  \ \qquad(\leq n\,R)^\mI = (\leq n\,R.\top)^\mI}
+\end{array}
+\vspace{-2.5ex}
+\]}
+\caption{Diễn dịch của các vai trò phức và khái niệm phức.\label{fig:int-comp}}
+\end{figure}
+
+\subsection{Hệ thống thông tin dựa trên logic mô tả}
+Đối với các hệ thống logic mô tả, thông tin được lưu trữ trong các cơ sở tri thức. Một cơ sở tri thức trong logic mô tả thường có hai phần. Phần thứ nhất chứa các khẳng định cá thể, được gọi là {\em ABox}, phần thứ hai chứa các tiên đề thuật ngữ, được gọi là {\em TBox}.
+
+Một {\em khẳng định cá thể} trong $\mLSP$ là một biểu thức có dạng $A(a)$, $(B=c)(a)$, $r(a,b)$ hoặc $\sigma(a,d)$, trong đó $a, b \in \SigmaI$, $A \in \SigmaC$, $B \in \SigmaA \setminus \SigmaC$, $c \in dom(B)$, $r \in \SigmaOR$ và $d \in \Range(\sigma)$.
+Để đơn giản cho việc ký hiệu, chúng ta viết $B(a) = c$ thay cho $(B=c)(a)$.
+
+Trong trường hợp tổng quát, một {\em tiên đề thuật ngữ} trong $\mLSP$ là một biểu thức có dạng $C \sqsubseteq D$ (tương ứng, $R \sqsubseteq S$), $C \equiv D$ (tương ứng, $R \equiv S$), trong đó $C$ và $D$ là các khái niệm của $\mLSP$, $R$ và $S$ là các vai trò đối tượng của $\mLSP$. 
+Biểu thức thứ nhất được gọi là một {\em tiên đề bao hàm tổng quát} và biểu thức thứ hai được gọi là một {\em tiên đề tương đương}. 
+Đối với một tiên đề tương đương $C \equiv D$ (tương ứng, $R \equiv S$), nếu $C$ (tương ứng, $R$) là một tên khái niệm (tương ứng, vai trò) có dạng $A \in \SigmaC$ (tương ứng, $r \in \SigmaOR$) thì $A \equiv D$ (tương ứng, $r \equiv S$) được gọi là một định nghĩa khái niệm (tương ứng, vai trò).
+
+\begin{Definition}[Cơ sở tri thức]
+Một {\em cơ sở tri thức không vòng} trong $\mLSP$ là một bộ $\KB = \tuple{\mT,\mA}$, trong đó:
+\begin{itemize}
+\item $\mA$ là một tập hữu hạn, được gọi là {\em ABox} (hộp khẳng định) của $\KB$, chứa các khẳng định cá thể.
+
+\item $\mT$ là một danh sách hữu hạn $(\varphi_1, \varphi_2, \ldots, \varphi_n)$, được gọi là {\em TBox} (hộp thuật ngữ) của $\KB$, trong đó mỗi $\varphi_i$ là một tiên đề thuật ngữ thuộc một trong các dạng sau:
+\begin{itemize}
+  \item $A \equiv C$, trong đó $C$ là một khái niệm của $\mLSP$ và $A \in \SigmaC$ là một tên khái niệm không có mặt trong $C$, $\mA$ và $\varphi_1, \varphi_2, \ldots, \varphi_{i-1}$, 
+  \item $r \equiv R$, trong đó $R$ là một vai trò đối tượng của $\mLSP$ và $r \in \SigmaOR$ là một tên vai trò đối tượng không có mặt trong $R$, $\mA$ và $\varphi_1, \varphi_2, \ldots, \varphi_{i-1}$.\myend
+\end{itemize} 
+\end{itemize}
+\end{Definition}
+
+Một cơ sở tri thức định nghĩa như trên tương tự như một chương trình logic phân tầng~\cite{Serge1995}. Các tên khái niệm (tương ứng, vai trò đối tượng) có mặt trong $\mA$ được gọi là các khái niệm (tương ứng, vai trò đối tượng) {\em nguyên thủy}, các tên khái niệm (tương ứng, vai trò đối tượng) ở vế trái của ``$\equiv$'' trong các định nghĩa của $\mT$ được gọi là khái niệm (tương ứng, vai trò đối tượng) {\em định nghĩa}.
+
+\begin{Example} \label{exam:KB}
+Ví dụ sau đây đề cập về các ấn phẩm khoa học:
+\begin{eqnarray*}
+\Phi & = & \{\mI,\mO,\mN,\mQ\}, \SigmaI = \{\Pub_1, \Pub_2, \Pub_3, \Pub_4, \Pub_5, \Pub_6\}, \\
+\SigmaC & = & \{\Publication, \Book, \Article, \Awarded, \UsefulPub, \GoodPub, \ExcellentPub,\\
+& & \;\; \RecentPub, \CitingP5 \}, \\
+\SigmaDA & = & \SigmaC \cup \{\PubName, \Kind\}, \SigmaNA = \{\PubYear\}, \SigmaOR = \{\Cites, \Citedby\}, \SigmaDR = \emptyset, \\
+\mA & = & \{\PubName(\Pub_1) = \textItL, \Awarded(\Pub_1),\\
+& & \;\, \PubName(\Pub_2) = \textTEoL,  \Awarded(\Pub_4), \Awarded(\Pub_6), \\
+& & \;\, \Kind(\Pub_1) = \textB, \Kind(\Pub_2) = \textB, \Kind(\Pub_3) = \textB,  \\
+& & \;\,\Kind(\Pub_4)\!=\!\textA, \Kind(\Pub_5)\!=\!\textA, \Kind(\Pub_6)\!=\! \textC, \\
+& & \;\, \PubYear(\Pub_1)\!=\!2010, \PubYear(\Pub_2)\!=\!2009,  \PubYear(\Pub_3)\!=\!2008, \PubYear(\Pub_4)\! =\! 2007, \\
+& & \;\, \PubYear(\Pub_5) = 2006, \PubYear(\Pub_6) = 2006,  \Cites(\Pub_1, \Pub_2), \Cites(\Pub_1, \Pub_3), \\
+& & \;\,\Cites(\Pub_1, \Pub_4), \Cites(\Pub_1, \Pub_6), \Cites(\Pub_2, \Pub_3), \Cites(\Pub_2, \Pub_4), \Cites(\Pub_2, \Pub_5), \\
+& & \;\,\Cites(\Pub_3, \Pub_4), \Cites(\Pub_3, \Pub_5), \Cites(\Pub_3, \Pub_6), \Cites(\Pub_4, \Pub_5), \Cites(\Pub_4, \Pub_6)\}, \\
+\mT & = & \{Pub \equiv \top, \Book \equiv (\Kind = \textB), \Article \equiv (\Kind = \textA), \\
+& & \;\, \Citedby \equiv \Cites^-, \UsefulPub \equiv \E\Citedby.\top, \\
+& & \;\, \GoodPub \equiv (\geq 2\,\Citedby), \ExcellentPub \equiv \GoodPub \mand \Awarded, \\
+& & \;\, \RecentPub \equiv (\PubYear \geq 2008), \CitingP5 \equiv \E\Cites.\{\Pub_5\} \}.
+\end{eqnarray*}
+Lúc đó $\KB = \tuple{\mT,\mA}$ là một cơ sở tri thức trong $\mLSP$. Định nghĩa \mbox{$\Publication \equiv \top$} nói lên rằng miền của mô hình $\KB$ chỉ chứa các ấn phẩm khoa học. Cơ sở tri thức này được minh họa như trong Hình~\ref{fig:KB}, trong đó, các nút ký hiệu cho các ấn phẩm và các cạnh ký hiệu cho các trích dẫn (nghĩa là, các khẳng định của vai trò $\Cites$) và chúng tôi chỉ thể hiện các thông tin cần quan tâm như $\PubYear$, $\Awarded$ và $\Cites$.
+\myend
+\end{Example}
+
+\begin{figure}[h!]
+\ramka{
+\vspace{-1.5ex}
+\begin{center}
+\begin{tabular}{c}
+\xymatrix@C=18ex@R=10ex{
+*+[F]{\begin{array}{c}\Pub_1 : 2010\\ \Awarded\end{array}}
+\ar@{->}[r]
+\ar@{->}[d]
+\ar@{->}[dr]
+\ar@/_{1.5ex}/@{->}[drr]
+&
+*+[F]{\begin{array}{c}\Pub_2 : 2009\end{array}}
+\ar@{->}[r]
+\ar@{->}[dl]
+\ar@{->}[d]
+&
+*+[F]{\begin{array}{c}\Pub_5 : 2006\end{array}}
+\\
+*+[F]{\begin{array}{c}\Pub_3 : 2008\end{array}}
+\ar@{->}[r]
+\ar@/^{1.5ex}/@{->}[urr]
+\ar@/_{6.0ex}/@{->}[rr]
+&
+*+[F]{\begin{array}{c}\Pub_4 : 2007\\ \Awarded\end{array}}
+\ar@{->}[ru]
+\ar@{->}[r]
+&
+*+[F]{\begin{array}{c}\Pub_6 : 2006\\ \Awarded\end{array}}
+} % \xymatrix
+\end{tabular}
+\end{center}
+}
+\caption{Một minh họa cho cơ sở tri thức đã cho trong Ví dụ~\ref{exam:KB}\label{fig:KB}}
+\end{figure}
+
+
+Ta nói rằng diễn dịch $\mI$ {\em thỏa mãn} một khẳng định cá thể hoặc tiên đề thuật ngữ:
+\begin{itemize}
+  \item $A(a)$, ký hiệu là $\mI \models A(a)$, nếu $A^\mI(a^\mI) = \True$,
+  \item $(B(a) = c)$, ký hiệu là $\mI \models (B(a)=c)$, nếu $B^\mI(a^\mI) = c$,
+  \item $r(a,b)$, ký hiệu là $\mI \models r(a,b)$, nếu $r^\mI(a^\mI, b^\mI)$,
+  \item $\sigma(a,d)$, ký hiệu là $\mI \models \sigma(a, d)$, nếu $\sigma^\mI(a^\mI, d)$,
+  \item $C \equiv D$, ký hiệu là $\mI \models C \equiv D$, nếu $C^\mI = D^\mI$,
+  \item $C \sqsubseteq D$, ký hiệu là $\mI \models C \sqsubseteq D$, nếu $C^\mI \subseteq D^\mI$,
+  \item $R \equiv S$, ký hiệu là $\mI \models R \equiv S$, nếu $R^\mI = S^\mI$,
+  \item $R \sqsubseteq S$, ký hiệu là $\mI \models R \sqsubseteq S$, nếu $R^\mI \subseteq S^\mI$.
+\end{itemize}
+  
+\begin{Definition}[Mô hình]
+Một {\em mô hình} của TBox $\mT$ là một diễn dịch $\mI$ thỏa mãn tất cả các tiên đề thuật ngữ của $\mT$, ký hiệu là $\mI \models \mT$. Một {\em mô hình} của ABox $\mA$ là một diễn dịch $\mI$ thỏa mãn tất cả các khẳng định cá thể của $\mA$, ký hiệu là $\mI \models \mA$. Một {\em mô hình} của cơ sở tri thức $\KB=\tuple{\mT, \mA}$ là một diễn dịch $\mI$ sao cho $\mI$ là mô hình của cả $\mT$ và $\mA$, ký hiệu là $\mI \models \KB$.\myend
+\end{Definition}
+
+Cho cơ sở tri thức $\KB = \tuple{\mT,\mA}$. Một {\em mô hình chuẩn} của $\KB$ trong $\mLSP$ là một diễn dịch $\mI$ sao cho:
+\begin{itemize}
+  \item $\Delta^\mI = \SigmaI$ (nghĩa là, miền của $\mI$ chứa tất cả các tên cá thể của $\Sigma$),
+
+  \item nếu $A \in \SigmaC$ là một khái niệm nguyên thủy trong $\KB$ thì $A^\mI = \{a \mid A(a) \in \mA\}$,
+
+  \item nếu $B \in \SigmaA \setminus \SigmaC$ thì $B^\mI: \Delta^\mI \to \Dom(B)$ là một hàm từng phần sao cho $B^\mI(a^\mI) = c$ nếu $(B(a) = c) \in \mA$,
+
+  \item nếu $r \in \SigmaOR$ là một vai trò đối tượng nguyên thủy trong $\KB$ thì $r^\mI = \{\tuple{a,b} \mid r(a,b) \in \mA\}$,
+
+  \item nếu $\sigma \in \SigmaDR$ thì $\sigma^\mI = \{\tuple{a,d} \mid \sigma(a,d) \in \mA\}$,
+  
+  \item nếu $A \equiv C$ là một định nghĩa khái niệm trong $\mT$ thì $A^\mI = C^\mI$,
+
+  \item nếu $r \equiv R$ là một định nghĩa vai trò đối tượng trong  $\mT$ thì $r^\mI = R^\mI$,
+
+  \item nếu $A \in \SigmaC$ mà $A$ không có mặt trong $\KB$ thì $A^\mI = \emptyset$,
+  
+  \item nếu $r \in \SigmaOR$ mà $r$ không xuất hiện trong $\KB$ thì $r^\mI = \emptyset$.
+\end{itemize}
+
+Như vậy, một mô hình chuẩn của $\KB$ là một diễn dịch hữu hạn. Các định nghĩa khái niệm và định nghĩa vai trò đối tượng áp dụng cho {\em giả thiết tên duy nhất} và {\em giả thiết thế giới đóng}.
+
+\begin{Remark}
+Giả thiết tên duy nhất được sử dụng để đơn giản hóa vấn đề. Giả thiết này cho phép các ABox có thể chứa các khẳng định cá thể dạng $a=b$, trong đó $a, b \in \SigmaI$ với ngữ nghĩa là một diễn dịch $\mI$ thỏa mãn khẳng định cá thể $a=b$ nếu $a^\mI = b^\mI$. 
+Lúc đó, một cơ sở tri thức không vòng trong $\mLSP$ có thể được chuyển đổi thành một cơ sở tri thức không vòng tương đương bằng cách gộp các cá thể bằng nhau lại để chúng trở thành một cá thể duy nhất. Giả thiết tên duy nhất và giả thiết thế giới đóng phù hợp cho các hệ thống thông tin được lấy từ diễn dịch của cơ sở tri thức.
+\end{Remark}
+
+Một {\em hệ thống thông tin được xác định bởi một cơ sở tri thức không vòng} trong $\mLSP$ là một mô hình chuẩn của cơ sở tri thức đó trong $\mLSP$.
+
+\begin{Example} \label{exam:InfoSystem}
+Xét cơ sở tri thức $\KB$ như đã cho trong Ví dụ~\ref{exam:KB}. Hệ thống thông tin được xác định bởi $\KB$ là một diễn dịch $\mI$ như sau:
+\[
+\begin{array}{l}
+\Delta^\mI = \{\Pub_1, \Pub_2, \Pub_3, \Pub_4, \Pub_5, \Pub_6\}, \Pub_1^\mI = \Pub_1, \Pub_2^\mI = \Pub_2, \ldots, \Pub_6^\mI = \Pub_6, \Publication^\mI = \Delta^\mI,\\
+\Book^\mI = \{\Pub_1, \Pub_2, \Pub_3 \}, \quad \Article^\mI = \{\Pub_4, \Pub_5\}, \quad \Awarded^\mI = \{\Pub_1, \Pub_4, \Pub_6\}, \\
+\Cites^\mI = \{\tuple{\Pub_1, \Pub_2}, \tuple{\Pub_1, \Pub_3}, \tuple{\Pub_1, \Pub_4}, \tuple{\Pub_1, \Pub_6}, \tuple{\Pub_2, \Pub_3}, \tuple{\Pub_2, \Pub_4}, \tuple{\Pub_2, \Pub_5},\\ \qquad\qquad\;\, \tuple{\Pub_3, \Pub_4}, \tuple{\Pub_3, \Pub_5}, \tuple{\Pub_3, \Pub_6}, \tuple{\Pub_4, \Pub_5}, \tuple{\Pub_4, \Pub_6}\,\},\\
+%\Citedby^\mI & = & \{\tuple{\Pub_2, \Pub_1}, \tuple{\Pub_3, \Pub_1}, \tuple{\Pub_4, \Pub_1}, \\
+%& & \;\; \tuple{\Pub_6, \Pub_1}, \tuple{\Pub_3, \Pub_2}, \tuple{\Pub_4, \Pub_2}, \\
+%& & \;\; \tuple{\Pub_5, \Pub_2}, \tuple{\Pub_4, \Pub_3}, \tuple{\Pub_5, \Pub_3}, \\
+%& & \;\; \tuple{\Pub_6, \Pub_3}, \tuple{\Pub_5, \Pub_4}, \tuple{\Pub_6, \Pub_4}\} \\
+\Citedby^\mI = (\Cites^\mI)^{-1}, \qquad\qquad\! \UsefulPub^\mI = \{\Pub_2, \Pub_3, \Pub_4, \Pub_5, \Pub_6\},\\
+\GoodPub^\mI = \{\Pub_3, \Pub_4, \Pub_5, \Pub_6\},\quad\ \, \ExcellentPub^\mI = \{\Pub_4, \Pub_6\},\\
+\RecentPub^\mI = \{\Pub_1, \Pub_2, \Pub_3\},\qquad\  \CitingP5^\mI = \{\Pub_2, \Pub_3, \Pub_4\},
+\end{array}
+\vspace{-1ex}
+\]
+các hàm thành phần $\PubName^\mI$, $\PubYear^\mI$ và $\Kind^\mI$ được xác định bằng cách liệt kê theo từng cá thể.
+\myend
+\end{Example}
+
+\section*{Tiểu kết chương~\ref{chap:InfoSys}}
+
+%----------------------------------------------------------------------------------
+\chapter{MÔ PHỎNG HAI CHIỀU VÀ TÍNH BẤT BIẾN ĐỐI VỚI MÔ PHỎNG HAI CHIỀU}
+\label{chap:Bisimulation}
+\section{Mô phỏng hai chiều}
+\label{sec:Bisimulation}
+Mô phỏng hai chiều ({\em bisimulation}) được phát triển trong logic hình thái và các mô hình chuyển trạng thái~\cite{Benthem1983,Benthem2001,Benthem2010,Blackburn2001,Blackburn2006}. Nó là một quan hệ nhị phân cho phép đặc tả tính tương tự giữa hai trạng thái cũng như tính tương tự giữa các mô hình Kripke. Trong~\cite{Divroodi2011B}, Divroodi và Nguyen đã nghiên cứu mô phỏng hai chiều cho một số logic mô tả cụ thể. Trong~\cite{Nguyen2013}, Nguyen và Sza{\l}as đã nghiên cứu về mô phỏng hai chiều và tính không phân biệt được của các đối tượng để áp dụng vào việc học khái niệm trong logic mô tả. Trong chuyên đề này, chúng tôi tổng quát hóa và mở rộng các kết quả về mô phỏng hai chiều trong~\cite{Divroodi2011B,Nguyen2013} cho một lớp lớn các logic mô (xem xét thêm các thuộc tính như là các phần tử cơ bản, ``vai trò dữ liệu,'' ``tính chất hàm'' và ``hạn chế số lượng không định tính'') tả~\cite{Tran2012,Ha2012,Tran2013}.
+
+\begin{Definition}[Mô phỏng hai chiều]
+\label{def:Bisimulation}
+\allowdisplaybreaks
+Cho $\Sigma$ và $\SigmaDag$ là các bộ ký tự logic mô tả sao cho $\SigmaDag \subseteq \Sigma$, $\Phi$ và $\PhiDag$ là tập các đặc trưng của logic mô tả sao cho $\PhiDag \subseteq \Phi$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$.
+%
+Một {\em $\mLSPD$-mô phỏng hai chiều} giữa $\mI$ và $\mI'$ là một quan hệ nhị phân $Z \subseteq \Delta^\mI \times \Delta^{\mI'}$ thỏa các điều kiện sau với mọi $a \in \SigmaDagI$, $A \in \SigmaDagC$, $B \in \SigmaDagA\setminus\SigmaDagC$, $r \in \SigmaDagOR$, $\sigma \in \SigmaDagDR$, $d \in \Range(\sigma)$, $x,y \in \Delta^\mI$, $x',y' \in \Delta^{\mI'}$:
+\begin{eqnarray}
+&&\!\!\!\!\!\!\!\!
+Z(a^\mI,a^{\mI'}) \label{bs:eqA} \\
+&&\!\!\!\!\!\!\!\!
+Z(x,x') \Rightarrow [A^\mI(x) \Leftrightarrow A^{\mI'}(x')] \label{bs:eqB1} \\
+&&\!\!\!\!\!\!\!\!
+Z(x,x') \Rightarrow [B^\mI(x) = B^{\mI'}(x') \textrm{ hoặc đều không xác định}] \label{bs:eqB2} \\
+&&\!\!\!\!\!\!\!\!
+[Z(x,x') \wedge r^\mI(x,y)] \Rightarrow \E y' \in \Delta^{\mI'} \mid [Z(y,y') \wedge r^{\mI'}(x',y')] \label{bs:eqC1} \\
+&&\!\!\!\!\!\!\!\!
+[Z(x,x') \wedge r^{\mI'}(x',y')] \Rightarrow \E y \in \Delta^\mI \mid [Z(y,y') \wedge r^\mI(x,y)] \label{bs:eqC2} \\
+&&\!\!\!\!\!\!\!\!
+Z(x,x') \Rightarrow [\sigma^\mI(x,d) \Leftrightarrow \sigma^{\mI'}(x',d)], \label{bs:eqD}
+\end{eqnarray}
+%
+nếu $\mI \in \Phi^\dag$ thì
+\begin{eqnarray}
+&&\!\!\!\!\!\!\!\!
+[Z(x,x') \wedge r^\mI(y,x)] \Rightarrow \E y' \in \Delta^{\mI'} \mid [Z(y,y') \wedge r^{\mI'}(y',x')] \label{bs:eqI1} \\
+&&\!\!\!\!\!\!\!\!
+[Z(x,x') \wedge r^{\mI'}(y',x')] \Rightarrow \E y \in \Delta^\mI \mid [Z(y,y') \wedge r^\mI(y,x)], \label{bs:eqI2}
+\end{eqnarray}
+%
+nếu $\mO \in \Phi^\dag$ thì
+\begin{eqnarray}
+&& Z(x,x') \Rightarrow [x = a^\mI \Leftrightarrow x' = a^{\mI'}], \label{bs:eqO0}
+\end{eqnarray}
+%
+nếu $\mN \in \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+Z(x,x') \Rightarrow \#\{y \in \Delta^\mI \mid r^\mI(x,y)\} = \#\{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\}, \label{bs:eqN}
+\end{eqnarray}
+%
+nếu $\{\mN,\mI\} \subseteq \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+Z(x,x') \Rightarrow \#\{y \in \Delta^\mI \mid r^\mI(y,x)\} = \#\{y' \in \Delta^{\mI'} \mid r^{\mI'}(y',x')\}, \label{bs:eqNI}
+\end{eqnarray}
+%
+nếu $\mF \in \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+\begin{array}{c}
+Z(x,x') \Rightarrow [\#\{y \in \Delta^\mI \mid r^\mI(x,y)\} \leq 1 \Leftrightarrow \#\{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\} \leq 1],
+\end{array}
+\label{bs:eqF}
+\end{eqnarray}
+%
+nếu $\{\mF,\mI\} \subseteq \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+\begin{array}{c}
+Z(x,x') \Rightarrow [\#\{y \in \Delta^\mI \mid r^\mI(y,x)\} \leq 1 \Leftrightarrow \#\{y' \in \Delta^{\mI'} \mid r^{\mI'}(y',x')\} \leq 1],
+\end{array}
+\label{bs:eqFI}
+\end{eqnarray}
+%
+nếu $\mQ \in \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+\parbox{11.5cm}{nếu $Z(x,x')$ thỏa mãn thì với mọi $r \in \SigmaDagOR$, tồn tại một song ánh \mbox{$h: \{y \in \Delta^\mI \mid r^\mI(x,y)\} \to \{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\}$} sao cho $h \subseteq Z$,} \label{bs:eqQ}
+\end{eqnarray}
+%
+nếu $\{\mQ,\mI\} \subseteq \Phi^\dag$ thì
+\begin{eqnarray}
+&&
+\parbox{11.5cm}{nếu $Z(x,x')$ thỏa mãn thì với mọi $r \in \SigmaDagOR$, tồn tại một song ánh \mbox{$h: \{y \in \Delta^\mI \mid r^\mI(y,x)\} \to \{y' \in \Delta^{\mI'} \mid r^{\mI'}(y',x')\}$} sao cho $h \subseteq Z$,} \label{bs:eqQI}
+\end{eqnarray}
+%
+nếu $\mU \in \Phi^\dag$ thì
+\begin{eqnarray}
+&& \V x \in \Delta^\mI,\ \E x' \in \Delta^{\mI'}, Z(x,x') \label{bs:eqU1} \\
+&& \V x' \in \Delta^{\mI'},\ \E x \in \Delta^\mI, Z(x,x'), \label{bs:eqU2}
+\end{eqnarray}
+%
+nếu $\Self \in \Phi^\dag$ thì
+\begin{eqnarray}
+&& Z(x,x') \Rightarrow [r^\mI(x,x) \Leftrightarrow r^{\mI'}(x',x')], \label{bs:eqSelf}
+\end{eqnarray}
+trong đó $\sharp\Gamma$ ký hiệu cho lực lượng của tập hợp $\Gamma$.\myend
+\end{Definition}
+
+Các Bổ đề~\ref{lm:Bisimulation} và~\ref{lm:Condition} sau đây được phát triển dựa trên các Bổ đề~3.1 và~3.3 trong~\cite{Divroodi2011B}. Điểm khác ở đây là nó được áp dụng cho một lớp lớn hơn các logic mô tả khác nhau.
+\begin{Lemma}
+\label{lm:Bisimulation}
+~
+\begin{enumerate}
+  \item Quan hệ $\{\tuple{x,x} \mid x \in \Delta^\mI\}$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI$.\label{lm:item1}
+%  
+  \item Nếu $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$ thì $Z^{-1}$ cũng là một $\mLSPD$-mô phỏng hai chiều giữa $\mI'$ và $\mI$.\label{lm:item2}
+%  
+  \item Nếu $Z_1$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI_0$ và $\mI_1$, $Z_2$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI_1$ và $\mI_2$ thì $Z_1 \circ Z_2$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI_0$ và~$\mI_2$.\label{lm:item3}
+%
+  \item Nếu $\mathcal{Z}$ là một tập các $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$ thì $\bigcup \mathcal{Z}$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$.\label{lm:item4}\myend
+\end{enumerate}
+\end{Lemma}
+
+\begin{proof}
+Để chứng minh bổ đề này, ta chứng minh lần lượt các khẳng định~\ref{lm:item1}-\ref{lm:item4} của bổ đề. Với mỗi khẳng định, ta cần phải chỉ ra rằng quan hệ đó thỏa mãn 18 điều kiện theo Định nghĩa~\ref{def:Bisimulation}.
+
+Xét khẳng định~\ref{lm:item1} và giả sử có $\SigmaDag \subseteq \Sigma$, $\PhiDag \subseteq \Phi$. Xét $a \in \SigmaDagI$, $A \in \SigmaDagC$, $B \in \SigmaDagA\setminus\SigmaDagC$, $r \in \SigmaDagOR$, $\sigma \in \SigmaDagDR$, $d \in \Range(\sigma)$, $x,y \in \Delta^\mI$, $x',y' \in \Delta^{\mI}$.
+Gọi $Z$ là quan hệ $\{\tuple{x,x} \mid x \in \Delta^\mI\}$. Lúc đó, nếu $Z(x, x')$ thì $x = x'$. Lúc đó nếu cần ta chọn $y' = y$ thì quan hệ $Z$ thỏa tất cả các điều kiện~\eqref{bs:eqA}-\eqref{bs:eqSelf}.
+
+Xét khẳng định~\ref{lm:item2} và giả sử $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Lúc đó $Z(x, x')$ thỏa mãn khi và chỉ khi $Z^{-1}(x', x)$ thỏa mãn. Bằng cách hoán vị $x$ và $x'$ cho nhau ta dễ dàng thấy rằng quan hệ $Z^{-1}$ thỏa tất cả các điều kiện~\eqref{bs:eqA}-\eqref{bs:eqSelf}.
+
+Xét khẳng định~\ref{lm:item3} và giả sử $Z_1$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI_0$ và $\mI_1$, $Z_2$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI_1$ và $\mI_2$.
+Giả sử có $\SigmaDag \subseteq \Sigma$, $\PhiDag \subseteq \Phi$. Xét $a \in \SigmaDagI$, $A \in \SigmaDagC$, $B \in \SigmaDagA\setminus\SigmaDagC$, $r \in \SigmaDagOR$, $\sigma \in \SigmaDagDR$, $d \in \Range(\sigma)$, $x_0,y_0 \in \Delta^{\mI_0}$, $x_1,y_1 \in \Delta^{\mI_1}$, $x_2,y_2 \in \Delta^{\mI_2}$. Đặt $Z = Z_1 \circ Z_2$. Ta chứng minh $Z$ là một $\mLSPD$-mô phỏng hai chiều.
+
+\semiItem Xét điều kiện~\eqref{bs:eqA} và giả sử $Z_1(a^{\mI_0}, a^{\mI_1})$, $Z_2(a^{\mI_1}, a^{\mI_2})$ thỏa mãn. Vì $Z_1(a^{\mI_0}, a^{\mI_1})$, $Z_2(a^{\mI_1}, a^{\mI_2})$ thỏa thỏa mãn nên ta có $(Z_1 \circ Z_2)(a^{\mI_0}, a^{\mI_2})$ thỏa mãn. Vậy $Z(a^{\mI_0}, a^{\mI_2})$ thỏa mãn.
+
+\semiItem Xét điều kiện~\eqref{bs:eqB1} và giả sử $Z(x_0, x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z_1(x_0, x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Do đó ta có $A^{\mI_0}(x_0) \Leftrightarrow A^{\mI_1}(x_1)$ và $A^{\mI_1}(x_1) \Leftrightarrow A^{\mI_2}(x_2)$. Từ đó suy ra $A^{\mI_0}(x_0) \Leftrightarrow A^{\mI_2}(x_2)$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqB2} và giả sử $Z(x_0, x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z_1(x_0, x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Vì $Z_1(x_0,x_1)$ thỏa mãn nên ta có $B^{\mI_0}(x_0) = B^{\mI_1}(x_1)$ hoặc cả hai không xác định. Tương tự $Z_1(x_0,x_1)$ thỏa mãn nên ta có $B^{\mI_1}(x_1) = B^{\mI_2}(x_2)$ hoặc cả hai không xác định. 
+Nếu $B^{\mI_0}(x_0) = B^{\mI_1}(x_1)$ thì $B^{\mI_1}(x_1)$ xác định và $B^{\mI_1}(x_1) = B^{\mI_2}(x_2)$. Từ đó suy ra $B^{\mI_0}(x_0) = B^{\mI_1}(x_1) = B^{\mI_2}(x_2)$.
+%
+Nếu $B^{\mI_0}(x_0)$ không xác định ta suy ra  $B^{\mI_1}(x_1)$ không xác định và ngược lại. Tương tự khi $B^{\mI_1}(x_1)$ không xác định ta suy ra  $B^{\mI_2}(x_2)$ không xác định và ngược lại. Từ đó ta có $B^{\mI_0}(x_0)$ không xác định khi và chỉ khi $B^{\mI_2}(x_2)$ không xác định.
+
+\semiItem Xét điều kiện~\eqref{bs:eqC1} và giả sử $Z(x_0, x_2)$ và $r^{\mI_0}(x_0, y_0)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z_1(x_0,x_1)$ và $Z_2(x_1,x_2)$ thỏa mãn. Từ $Z_1(x_0,x_1)$ và $r^{\mI_0}(x_0, y_0)$ thỏa mãn ta suy ra tồn tại $y_1 \in \Delta^{\mI_1}$ sao cho $Z_1(y_0, y_1)$ và $r^{\mI_1}(x_1, y_1)$ thỏa mãn. Từ $Z_2(x_1,x_2)$ và $r^{\mI_1}(x_1, y_1)$ thỏa mãn ta suy ra tồn tại $y_2 \in \Delta^{\mI_2}$ sao cho $Z_2(y_1, y_2)$ và $r^{\mI_2}(x_2, y_2)$ thỏa mãn. Từ $Z_1(y_0,y_1)$ và $Z_2(y_1,y_2)$ thỏa mãn ta có $Z(y_0,y_2)$ thỏa mãn.
+
+\semiItem Điều kiện~\eqref{bs:eqC2} được chứng minh tương tự như điều kiện~\eqref{bs:eqC1}.
+
+\semiItem Xét điều kiện~\eqref{bs:eqD} và giả sử $Z(x_0,x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. $Z_1(x_0,x_1)$ và $Z_2(x_1,x_2)$ thỏa mãn nên ta có $\sigma^{\mI_0}(x_0, d) \Leftrightarrow \sigma^{\mI_1}(x_1,d)$ và $\sigma^{\mI_1}(x_1, d) \Leftrightarrow \sigma^{\mI_2}(x_2,d)$. Từ đó ta suy ra $\sigma^{\mI_0}(x_0, d) \Leftrightarrow \sigma^{\mI_2}(x_2,d)$.
+
+\semiItem Điều kiện~\eqref{bs:eqI1} trong trường hợp $\mI \in \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqC1} bằng cách thay vai trò $r$ bằng vai trò $r^-$.
+
+\semiItem Tương tự, điều kiện~\eqref{bs:eqI2} trong trường hợp $\mI \in \PhiDag$ cũng được chứng minh như điều kiện~\eqref{bs:eqI1}.
+
+\semiItem Điều kiện~\eqref{bs:eqO0} trong trường hợp $\mO \in \PhiDag$ được chứng minh bằng cách vận dụng kết quả của điều kiện~\eqref{bs:eqB1} với khái niệm $A$ được thay thế bởi khái niệm $\{a\}$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqN} trong trường hợp $\mN \in \PhiDag$ và giả sử $Z(x_0, x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho  $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Vì $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn nên ta có $\sharp\{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} = \sharp\{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\}$ và $\sharp\{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\} = \sharp\{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\}$. Từ đó ta suy ra $\sharp\{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} = \sharp\{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\}$.
+
+\semiItem Điều kiện~\eqref{bs:eqNI} trong trường hợp $\{\mN, \mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqN} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqF} trong trường hợp $\mF \in \PhiDag$ và giả sử $Z(x_0, x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho  $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Do $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn nên ta có $[\sharp\{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} \leq 1] \Leftrightarrow [\sharp\{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\} \leq 1]$ và $[\sharp\{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\} \leq 1] \Leftrightarrow [\sharp\{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\} \leq 1]$. Từ đó ta suy ra [$\sharp\{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} \leq 1] \Leftrightarrow [\sharp\{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\} \leq 1]$.
+
+\semiItem Điều kiện~\eqref{bs:eqFI} trong trường hợp $\{\mF, \mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqF} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqQ} trong trường hợp $\mQ \in \PhiDag$ và giả sử $Z(x_0, x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho  $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Do $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn nên với mọi tên vai trò đối tượng $r \in \SigmaDagOR$ tồn tại một song ánh $h_1 : \{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} \rightarrow \{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\}$ sao cho $h_1 \subseteq Z_1$  và một song ánh $h_2 : \{y_1 \in \Delta^{\mI_1} \mid r^{\mI_1}(x_1,y_1)\} \rightarrow \{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\}$ sao cho $h_2 \subseteq Z_2$. 
+Đặt $h = h_2 \circ h_1$ là hàm hợp thành của $h_1$ và $h_2$. Rõ ràng $h : \{y_0 \in \Delta^{\mI_0} \mid r^{\mI_0}(x_0,y_0)\} \rightarrow \{y_2 \in \Delta^{\mI_2} \mid r^{\mI_2}(x_2,y_2)\}$ là một song ánh và $h \subseteq Z$.
+
+\semiItem Điều kiện~\eqref{bs:eqQI} trong trường hợp $\{\mQ, \mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqQ} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqU1} trong trường hợp $\mU \in \PhiDag$. Với mọi $x_0 \in \Delta^{\mI_0}$ tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z(x_0,x_1)$ và với mọi $x_1 \in \Delta^{\mI_1}$ tồn tại $x_2 \in \Delta^{\mI_2}$ sao cho $Z(x_1,x_2)$. Vì $Z=Z_1 \circ Z_2$, do đó với mọi $x_0 \in \Delta^{\mI_0}$ tồn tại $x_2 \in \Delta^{\mI_2}$ sao cho $Z(x_0,x_2)$.
+
+\semiItem Điều kiện~\eqref{bs:eqU2} trong trường hợp $\mU \in \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqU1}.
+
+\semiItem Xét điều kiện~\eqref{bs:eqSelf} trong trường hợp $\Self \in \PhiDag$ và giả sử $Z(x_0,x_2)$ thỏa mãn. Vì $Z = Z_1 \circ Z_2$ nên tồn tại $x_1 \in \Delta^{\mI_1}$ sao cho $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn. Vì $Z_1(x_0,x_1)$ và $Z_2(x_1, x_2)$ thỏa mãn nên ta có $[r^{\mI_0}(x_0,x_0) \Leftrightarrow r^{\mI_1}(x_1,x_1)]$ và $[r^{\mI_1}(x_1,x_1) \Leftrightarrow r^{\mI_2}(x_2,x_2)]$. Từ đó ta suy ra $[r^{\mI_0}(x_0,x_0) \Leftrightarrow r^{\mI_2}(x_2,x_2)]$.
+\end{proof}
+
+Cho hai diễn dịch $\mI$ và $\mI'$ trong $\mLSP$. Ta nói $\mI$ {\em $\mLSPD$-tương tự hai chiều} với $\mI'$ nếu tồn tại một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. 
+
+Cho hai diễn dịch $\mI$ và $\mI'$ trong $\mLSP$, $x \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$. Ta nói $x$ {\em $\mLSPD$-tương tự hai chiều} với $x'$ nếu tồn tại một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$ sao cho $Z(x,x')$ thỏa mãn.\footnote{\label{fn:Concept}Các khái niệm này đã được trình bày trong~\cite{Divroodi2011B,Nguyen2013,Tran2012,Ha2012,Tran2013}.}
+
+%\begin{Example}
+%Xét các diễn dịch $\mI_1$ và $\mI_2$ trong $\mLSP$ như đã cho trong Ví dụ~\ref{ex:Primary} và được mô tả như trong Hình~\ref{fig:exInter}.
+%
+%\begin{itemize}
+%  \item $\mI_1$ $\mLSPD$-tương tự hai chiều với $\mI_2$ với $\SigmaDag = \Sigma \setminus \{\NickName\}$ và $\PhiDag \subseteq \{\mI, \mO\}$,
+%  \item $\mI_1$ không $\mLSPD$-tương tự hai chiều với $\mI_2$ với $\SigmaDag = \Sigma$ và $\PhiDag = \{\mN\}$,
+%  \item $\mI_1$ không $\mLSPD$-tương tự hai chiều với $\mI_2$ với $\SigmaDag = \Sigma$ và $\PhiDag = \{\mQ\}$,
+%  \item $x_3$ (của $\mI_1$) $\mLSPD$-tương tự với $y_3, y_5$ (của $\mI_2$) với $\SigmaDag = \Sigma \setminus \{\NickName\}$ và $\PhiDag \subseteq \{\mI, \mO\}$.\myend
+%\end{itemize}
+%\end{Example}
+
+\begin{Lemma}
+\label{lm:Condition}
+Cho $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ và $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Lúc đó, với mọi khái niệm $C$ của $\mLSPD$, mọi vai trò $R$ của $\mLSPD$, mọi đối tượng $x, y \in \Delta^\mI$, $x', y' \in \Delta^{\mI'}$ và mọi cá thể $a \in \SigmaDagI$, các điều kiện sau sẽ được thỏa mãn:
+\begin{eqnarray}
+&& Z(x, x') \Rightarrow [C^\mI(x) \Leftrightarrow C^{\mI'}(x')] \label{bs:eqC3}\\
+&& [Z(x, x') \wedge R^\mI(x, y)] \Rightarrow \E y' \in \Delta^{\mI'} \mid [Z(y,y') \wedge R^{\mI'}(x',y')] \label{bs:eqR1}\\
+&& [Z(x, x') \wedge R^{\mI'}(x', y')] \Rightarrow \E y \in \Delta^\mI \mid [Z(y,y') \wedge R^\mI(x,y)], \label{bs:eqR2}
+\end{eqnarray}
+nếu $\mO \in \PhiDag$ thì:
+\begin{eqnarray}
+&& Z(x, x') \Rightarrow [R^\mI(x, a^\mI) \Leftrightarrow R^{\mI'}(x', a^{\mI'})].\label{bs:eqOR}\ \myend
+\end{eqnarray}
+\end{Lemma}
+
+\begin{proof}
+Chúng ta sẽ chứng minh bổ đề này bằng phương pháp đệ quy theo cấu trúc của khái niệm $C$ và vai trò $R$.
+Giả sử $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ và $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$.
+
+\semiItem Xét khẳng định~\eqref{bs:eqC3}. Giả sử $Z(x,x')$ thỏa mãn, ta cần chứng minh nếu $C^\mI(x)$ thỏa mãn thì $C^{\mI'}(x')$ thỏa mãn và ngược lại, với $x \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$.
+%
+Bằng phương pháp đệ quy trên cấu trúc của $C$ ta chứng minh rằng nếu $C^\mI(x)$ thỏa mãn thì $C^{\mI'}(x')$ thỏa mãn, việc chứng minh chiều ngược lại được thực hiện bằng cách áp dụng khẳng định~\ref{lm:item2} của Bổ đề~\ref{lm:Bisimulation}.
+
+\begin{itemize}
+  \item Trường hợp $C$ có dạng $\top, \bot$ hoặc $A$ là những trường hợp tầm thường được suy ra trực tiếp từ điều kiện~\eqref{bs:eqB1}.
+    
+  \item Trường hợp $C$ có dạng $A = d, A\not=d, A \leq d, A < d, A \geq$ hoặc $A > d$ những trường hợp tầm thường được suy ra trực tiếp từ điều kiện~\eqref{bs:eqB2}.
+  
+  \item Trường hợp $C \equiv \neg D$, vì $C^\mI(x)$ thỏa mãn nên $D^\mI(x)$ không thỏa mãn. Vì $Z(x,x')$ thỏa mãn và $D^\mI(x)$ không thỏa mãn nên ta có $D^{\mI'}(x')$ không thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Do đó $\neg D^{\mI'}(x')$ thỏa mãn. Nói cách khác $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $C \equiv D \mand D'$, vì $C(x)$ thỏa mãn nên $D^\mI(x)$ và $D'^\mI(x)$ thỏa mãn. Vì $Z(x, x')$,  $D^\mI(x)$ và $D'^\mI(x)$ thỏa mãn nên ta có $D^{\mI'}(x')$ và ${D'}^{\mI'}(x')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Do đó $C^{\mI'}(x')$ thỏa mãn.
+
+  \item Trường hợp $C \equiv D \mor D'$, vì $C(x)$ thỏa mãn nên $D^\mI(x)$ hoặc $D'^\mI(x)$ thỏa mãn. Không mất tính tổng quát ta giả sử $D^\mI(x)$ thỏa mãn. Vì $Z(x, x')$ và $D^\mI(x)$ thỏa mãn nên ta có $D^{\mI'}(x')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Do đó $C^{\mI'}(x')$ thỏa mãn.
+
+  \item Trường hợp $C \equiv \E R.D$, vì $C^\mI(x)$ thỏa mãn nên tồn tại $y \in \Delta^\mI$ sao cho $R^\mI(x, y)$ và $D^\mI(y)$ thỏa mãn. Do $Z(x,x')$ và $R^\mI(x, y)$ thỏa mãn nên tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(y,y')$ và $R^{\mI'}(x',y')$ (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Vì $Z(y,y')$ và $D^{\mI}(y)$ thoản mãn nên $D^{\mI'}(y')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Vì $R^{\mI'}(x',y')$ và $D^{\mI'}(y')$ thỏa mãn nên ta có $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $C \equiv \V R.D$, khái niệm $C$ được biến đổi thành $\neg \E R.\neg D$ và được chứng minh tương tự như ở trên.
+  
+  \item Trường hợp $C \equiv \E \sigma.\{d\}$, vì $C^\mI(x)$ thỏa mãn nên ta có $\sigma^\mI(x, d)$ thỏa mãn. Theo điều kiện~\eqref{bs:eqD} ta có $\sigma^{\mI'}(x',d)$ thỏa mãn. Do đó $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $\mO \in \PhiDag$ và $C \equiv \{a\}$, vì $C^\mI(x)$ thỏa mãn nên ta có $x=a^\mI$. Do $Z(x,x')$ thỏa mãn nên theo điều kiện~\eqref{bs:eqO0} ta có $x' = a^{\mI'}$. Vậy $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $\mF \in \PhiDag$ và $C \equiv (\leq 1\,R)$, trong đó $R$ là một vai trò đối tượng cơ bản. Vì $Z(x,x')$ thỏa mãn nên ta có $[\sharp\{y \in \Delta^\mI \mid R^\mI(x,y)\} \leq 1] \Leftrightarrow [\sharp\{y' \in \Delta^{\mI'} \mid R^{\mI'}(x',y')\} \leq 1]$. Vì $C^\mI(x)$ thỏa mãn nên $\sharp\{y \in \Delta^\mI \mid R^\mI(x,y)\} \leq 1$ và do đó $\sharp\{y' \in \Delta^{\mI'} \mid R^{\mI'}(x',y')\} \leq 1$. Từ đó suy ra $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $\mN \in \PhiDag$ và $C \equiv (\geq n\,R)$, trong đó $R$ là một vai trò đối tượng cơ bản. Vì $Z(x,x')$ thỏa mãn nên ta có $\sharp\{y \in \Delta^\mI \mid R^\mI(x,y)\} = \sharp\{y' \in \Delta^{\mI'} \mid R^{\mI'}(x',y')\}$. Vì $C^\mI(x)$ thỏa mãn nên $\sharp\{y \in \Delta^\mI \mid R^\mI(x,y)\} \geq n$ và do đó $\sharp\{y' \in \Delta^{\mI'} \mid R^{\mI'}(x',y')\} \geq n$. Từ đó suy ra $C^{\mI'}(x')$ thỏa mãn.
+    
+  \item Trường hợp $\mN \in \PhiDag$ và $C \equiv (\leq n\,R)$, trong đó $R$ là một vai trò đối tượng cơ bản được chứng minh tương tự như trên.
+  
+  \item Trường hợp $\mQ \in \PhiDag$ và $C \equiv (\geq n\,R.D)$, trong đó $R$ là một vai trò đối tượng cơ bản. Vì $Z(x,x')$ thỏa mãn nên tồn tại một song ánh $h : \{y \in \Delta^\mI \mid R^\mI(x,y)\} \rightarrow \{y' \in \Delta^{\mI'} \mid R^\mI(x',y')\}$ sao cho $h \subseteq Z$. Vì $C^\mI(x)$ thỏa mãn nên tồn tại các đối tượng $y_1, y_2, \ldots, y_n \in \Delta^\mI$ khác nhau từng đôi một sao cho $R^\mI(x, y_i)$ và $D^\mI(y_i)$ thỏa mãn với mọi $1 \leq i \leq n$. Đặt $y'_i = h(y_i)$. Vì $h \subseteq Z$ nên ta có $Z(y_i, y'_i)$ thỏa mãn. Từ $Z(y_i, y'_i)$ và $D^\mI(y_i)$ thỏa mãn nên ta có $D^{\mI'}(y'_i)$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Do $R^{\mI'}(x', y'_i)$ và $D^{\mI'}(y'_i)$ thỏa mãn với mọi $1 \leq i \leq n$ nên $C^{\mI'}(x')$ thỏa mãn.
+  
+  \item Trường hợp $\mQ \in \PhiDag$ và $C \equiv (\leq n\,R.D)$, trong đó $R$ là một vai trò đối tượng cơ bản. Khái niệm $C$ được biến đổi thành $\neg (\geq (n+1)\,R.D)$ và được chứng minh tương tự như ở trên.
+  
+  \item Trường hợp $\Self \in \PhiDag$ và $C \equiv \E r.\Self$, vì $C^\mI(x)$ thỏa mãn nên ta có $r^\mI(x,x)$ thỏa mãn. Vì $r^\mI(x,x)$ thỏa mãn nên theo điều kiện~\eqref{bs:eqSelf} ta có $r^{\mI'}(x',x')$ thỏa mãn. Do đó $C^{\mI'}(x')$ thỏa mãn.
+\end{itemize}
+
+\semiItem Xét khẳng định~\eqref{bs:eqR1}. Giả sử $Z(x,x')$ và $R^\mI(x,y)$ với $x, y \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$. Bằng phương pháp đệ quy trên cấu trúc $R$ ta chứng minh rằng tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+\begin{itemize}
+  \item Trường hợp $R$ là một vai trò nguyên tố (tên vai trò đối tượng), theo điều kiện~\eqref{bs:eqC1} ta suy ra khẳng định là đúng.
+
+  \item Trường hợp $R \equiv S_1 \circ S_2$, ta có $(S_1 \circ S_2)^\mI(x,x')$ thỏa mãn. Do đó tồn tại một $z \in \Delta^\mI$ sao cho $S_1^\mI(x,z)$ và $S_2^\mI(z,y)$ thỏa mãn. Vì $Z(x,x')$ và $S_1^\mI(x,z)$ thỏa mãn nên tồn tại $z' \in \Delta^{\mI'}$ sao cho $Z(z,z')$ và $S_1^{\mI'}(x',z')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Vì $Z(z,z')$ và $S_2^\mI(z,y)$ thỏa mãn nên tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(y,y')$ và $S_2^{\mI'}(z',y')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Vì $S_1^{\mI'}(x',z')$ và $S_2^{\mI'}(z',y')$ thỏa mãn nên ta suy ra $(S_1 \circ S_2)^{\mI'}(x',y')$ thỏa mãn. Vậy ta có $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+
+  \item Trường hợp $R \equiv S_1 \mor S_2$, ta có $(S_1 \mor S_2)^\mI(x,y)$ thỏa mãn. Điều này suy ra rằng $S_1^\mI(x,y)$ hoặc $S_2^\mI(x,y)$ thỏa mãn. Không làm mất tính tổng quát, ta giả sử $S_1^\mI(x,y)$ thỏa mãn. Vì $Z(x,x')$ và $S_1^\mI(x,y)$ thỏa mãn nên tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(y,y')$ và $S_1^{\mI'}(x',y')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Vậy ta có $Z(y,y')$ và $(S_1 \mor S_2)^{\mI'}(x',y')$ thỏa mãn. Hay nói cách khác $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+
+  \item Trường hợp $R \equiv S^*$, vì $R^\mI(x,y)$ thỏa mãn nên tồn tại $x_0, x_1, \ldots, x_k \in \Delta^\mI$ với $k \geq 0$ sao cho $x_0 = x$, $x_k = y$ và $S^\mI(x_{i-1}, x_i)$ thỏa mãn với $1 \leq i \leq k$. Đặt $x_0' = x'$. Với $1 \leq i \leq k$ ta có $Z(x_{i-1}, x'_{i-1})$ và $S^\mI(x_{i-1}, x_i)$ thỏa mãn nên tồn tại $x'_i \in \Delta^{\mI'}$ sao cho $Z(x_i, x'_i)$ và $S^{\mI'}(x'_{i-1}, x'_i)$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Đặt $y'=x'_k$. Vì $Z(x_k,x'_k)$ và $(S^*)^{\mI'}(x'_0, x'_k)$ thỏa mãn nên $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+
+  \item Trường hợp $R \equiv (D?)$, vì $R^\mI(x,y)$ thỏa mãn nên ta có $D^\mI(x)$ thỏa mãn và $x=y$. Vì $Z(x,x')$ và $D^\mI(x)$ thỏa mãn nên $D^{\mI'}(x')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}) và do đó $R^{\mI'}(x',x')$ thỏa mãn. Chọn $y' = x'$ ta có $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+  
+  \item Trường hợp $R \equiv \varepsilon$, vì $R^\mI(x,y)$ thỏa mãn nên ta có $x=y$. Chọn $y' = x'$. Vì $Z(x,x')$ thỏa mãn nên ta có $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+  
+  \item Trường hợp $\mI \in \PhiDag$ và $R \equiv r^-$, khẳng định được chứng minh bằng cách suy luận từ điều kiện~\eqref{bs:eqI1}.
+  
+  \item Trường hợp $\mU \in \PhiDag$ và $R \equiv U$, vì $Z(x, x')$ và $R^{\mI}(x,y)$ thỏa mãn. Theo điều kiện~\eqref{bs:eqU1}, tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(y,y')$ thỏa mãn. Như vậy $Z(y,y')$ và $R^{\mI'}(x',y')$ thỏa mãn.
+\end{itemize}
+
+\semiItem Khẳng định~\eqref{bs:eqR2} được chứng minh tương tự như~\eqref{bs:eqR1}.
+
+\semiItem Xét khẳng định~\eqref{bs:eqOR} với trường hợp $\mO \in \PhiDag$. Giả sử $Z(x,x')$ thỏa mãn ta cần chứng minh nếu $R^\mI(x,a^\mI)$ thỏa mãn thì $R^{\mI'}(x',a^{\mI'})$ thỏa mãn và ngược lại, với $a \in \SigmaDagI$, $x \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$. 
+%
+Bằng phương pháp đệ quy trên cấu trúc của $R$ ta chứng minh rằng nếu $R^\mI(x,a^\mI)$ thỏa mãn thì $R^{\mI'}(x',a^{\mI'})$ thỏa mãn, việc chứng minh chiều ngược lại được thực hiện bằng cách áp dụng khẳng định~\ref{lm:item2} của Bổ đề~\ref{lm:Bisimulation}.
+
+\begin{itemize}
+  \item Trường hợp $R$ là một vai trò nguyên tố (tên vai trò đối tượng), theo điều kiện~\eqref{bs:eqC1} và~\eqref{bs:eqO0} ta suy ra khẳng định là đúng.
+
+  \item Trường hợp $R \equiv S_1 \circ S_2$, vì $R^\mI(x, a^\mI)$ thỏa mãn nên ta có $(S_1 \circ S_2)^\mI(x,a^\mI)$ thỏa mãn. Do đó tồn tại một $z \in \Delta^\mI$ sao cho $S_1^\mI(x,z)$ và $S_2^\mI(z,a^\mI)$ thỏa mãn. Vì $Z(x,x')$ và $S_1^\mI(x,z)$ thỏa mãn nên tồn tại $z' \in \Delta^{\mI'}$ sao cho $Z(z,z')$ và $S_1^{\mI'}(x',z')$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Vì $Z(z,z')$ và $S_2^\mI(z,a^\mI)$ thỏa mãn nên $S_2^{\mI'}(z',a^{\mI'})$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqOR}). Vì $S_1^{\mI'}(x',z')$ và $S_2^{\mI'}(z',a^{\mI'})$ thỏa mãn nên ta suy ra $(S_1 \circ S_2)^{\mI'}(x',a^{\mI'})$ thỏa mãn, nghĩa là $R^{\mI'}(x',a^{\mI'})$ thỏa mãn.
+
+  \item Trường hợp $R \equiv S_1 \mor S_2$, vì $R^\mI(x, a^\mI)$ thỏa mãn nên ta có $(S_1 \mor S_2)^\mI(x,a^\mI)$ thỏa mãn. Điều này suy ra rằng $S_1^\mI(x,a^\mI)$ hoặc $S_2^\mI(x,a^\mI)$ thỏa mãn. Không làm mất tính tổng quát, ta giả sử $S_1^\mI(x,a^\mI)$ thỏa mãn. Vì $Z(x,x')$ và $S_1^\mI(x,a^\mI)$ thỏa mãn nên $S_1^{\mI'}(x',a^{\mI'})$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqOR}). Vì $S_1^{\mI'}(x',a^{\mI'})$ thỏa mãn nên $(S_1 \mor S_2)^{\mI'}(x',a^{\mI'})$ thỏa mãn. Hay nói cách khác $R^{\mI'}(x',a^{\mI'})$ thỏa mãn.
+
+  \item Trường hợp $R \equiv S^*$, vì $R^\mI(x,a^\mI)$ thỏa mãn nên tồn tại $x_0, x_1, \ldots, x_k \in \Delta^\mI$ với $k \geq 0$ sao cho $x_0 = x$, $x_k = a^\mI$ và $S^\mI(x_{i-1}, x_i)$ thỏa mãn với $1 \leq i \leq k$. 
+  
+  + Nếu $k=0$, ta có $x=a^\mI$. Do $Z(x,x')$ thỏa mãn nên theo điều kiện~\eqref{bs:eqO0} ta có $x' = a^{\mI'}$. Vì vậy $R^{\mI'}(x',a^{\mI'})$.
+  
+  + Nếu $k > 0$, đặt $x_0' = x'$. Với $1 \leq i < k$ ta có $Z(x_{i-1}, x'_{i-1})$ và $S^\mI(x_{i-1}, x_i)$ thỏa mãn nên tồn tại $x'_i \in \Delta^\mI$ sao cho $Z(x_i, x'_i)$ và $S^{\mI'}(x'_{i-1}, x'_i)$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqR1}). Do đó $Z(x_{k-1},x'_{k-1})$ và $(S^*)^\mI(x'_0, x'_{k-1})$ thỏa mãn. Vì $Z(x_{k-1},x'_{k-1})$ và $S^\mI(x_{k-1},a^\mI)$ thỏa mãn nên ta có $S^{\mI'}(x'_{k-1},a^{\mI'})$ thỏa mãn (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqOR}). Vì $(S^*)^\mI(x'_0, x'_{k-1})$ và $S^{\mI'}(x'_{k-1},a^{\mI'})$ thỏa mãn nên $(S^*)^\mI(x'_0, a^{\mI'})$. Nghĩa là $R^{\mI'}(x', a^{\mI'})$.
+
+  \item Trường hợp $R \equiv (D?)$, vì $R^\mI(x,a^\mI)$ thỏa mãn nên ta có $x=a^\mI$ và $D^\mI(a^\mI)$ thỏa mãn. Vì $Z(x,x')$ thỏa mãn nên theo điều kiện~\eqref{bs:eqO0} thì $x' = a^{\mI'}$. Từ $Z(a^\mI, a^{\mI'})$ và $D^\mI(a^\mI)$ thỏa mãn ta có $D^{\mI'}(a^{\mI'})$
+  (thông qua giả thiết đệ quy của khẳng định~\eqref{bs:eqC3}). Từ $x'=a^{\mI'}$ và $D^{\mI'}(a^{\mI'})$ thỏa mãn ta suy ra $R^{\mI'}(x',a^{\mI'})$ thỏa mãn.
+  
+  \item Trường hợp $R \equiv \varepsilon$, vì $R^\mI(x,a^\mI)$ thỏa mãn nên ta có $x=a^\mI$. Vì $Z(x,x')$ nên theo điều kiện~\eqref{bs:eqO0} ta có $x'=a^{\mI'}$. Do đó $R^{\mI'}(x',a^{\mI'})$ thỏa mãn.
+  
+  \item Trường hợp $\mI \in \PhiDag$ và $R \equiv r^-$, khẳng định được chứng minh bằng cách suy luận từ điều kiện~\eqref{bs:eqI1} và~\eqref{bs:eqOR}.
+  
+  \item Trường hợp $\mU \in \PhiDag$ và $R \equiv U$, theo định nghĩa diễn dịch của vai trò $U$, ta  có $R^\mI(x,a^\mI)$ và $R^{\mI'}(x',a^{\mI'})$ luôn thỏa mãn.\myend
+\end{itemize}
+\renewcommand{\qedsymbol}{}  
+\end{proof}
+
+\vspace{-5em}
+\section{Tính bất biến đối với mô phỏng hai chiều}
+Một khái niệm $C$ được gọi là {\em bất biến} đối với $\mLSPD$-mô phỏng hai chiều nếu $Z(x, x')$ thỏa mãn thì $x \in C^\mI$ khi và chỉ khi $x' \in C^{\mI'}$ với mọi diễn dịch $\mI$, $\mI'$ trong $\mLSP$ thỏa $\SigmaDag \subseteq \Sigma$, $\PhiDag \subseteq \Sigma$ và với mọi $\mLSPD$-mô phỏng hai chiều $Z$ giữa $\mI$ và~$\mI'$.\footref{fn:Concept}
+
+Các Định lý~\ref{th:Invariant},~\ref{th:Invariant2} và Hệ quả~\ref{co:Invariant} sau đây được phát triển dựa trên Định lý~3.4,~3.6 và Hệ quả~3.5 trong~\cite{Divroodi2011B}. Điểm khác ở đây là nó được áp dụng cho một lớp lớn hơn các logic mô tả khác nhau.
+
+\begin{Theorem}
+\label{th:Invariant}
+Tất cả các khái niệm của $\mLSPD$ đều bất biến đối với $\mLSPD$-mô phỏng hai chiều.\myend
+\end{Theorem}
+
+\begin{proof}
+Giả sử $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$, $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$, $x \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$ sao cho $Z(x, x')$ thỏa mãn và $C$ là một khái niệm bất kỳ của $\mLSPD$. Áp dụng khẳng định~\eqref{bs:eqC3} ta có $C^\mI(x) \Leftrightarrow C^{\mI'}(x')$, nghĩa là $x \in C^\mI$ khi và chỉ khi $x' \in C^{\mI'}$.
+\end{proof}
+
+Định lý này cho phép mô hình hóa tính không phân biệt được của các đối tượng thông qua ngôn ngữ con $\mLSPD$. Tính không phân biệt của các đối tượng là một trong những đặc trưng cơ bản trong quá trình phân lớp dữ liệu. Điều này có nghĩa là chúng ta có thể sử dụng ngôn ngữ con $\mLSPD$ cho các bài toán học máy trong logic mô tả.
+
+\begin{Definition}
+Một TBox $\mT$ (tương ứng, ABox $\mA$) trong $\mLSPD$ được gọi là {\em bất biến đối với $\mLSPD$-mô phỏng hai chiều} nếu với mọi diễn dịch $\mI$ và $\mI'$ trong $\mLSP$ tồn tại một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$ sao cho $\mI$ là mô hình của $\mT$ (tương ứng, $\mA$) khi và chỉ khi $\mI'$ là mô hình của $\mT$ (tương ứng, $\mA$).\myend
+\end{Definition}
+
+\begin{Corollary}
+\label{co:Invariant}
+Nếu $\mU \in \PhiDag$ thì tất cả các TBox trong $\mLSPD$ đều bất biến đối với $\mLSPD$-mô phỏng hai chiều.\myend
+\end{Corollary}
+
+\begin{proof}
+Giả sử $\mU \in \PhiDag$, $\mT$ là một TBox trong $\mLSPD$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$, $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Ta cần chứng minh nếu $\mI$ là mô hình của $\mT$ thì $\mI'$ cũng là mô hình của $\mT$ và ngược lại. Giả sử $\mI$ là mô hình của $\mT$, ta cần chỉ ra $\mI'$ cũng là mô hình của $\mT$. Chiều ngược lại được chứng minh tương tự.
+
+Gọi $C \sqsubseteq D$ là một tiên đề bất kỳ của $\mT$ và $x' \in \Delta^{\mI'}$. Theo điều kiện~\eqref{bs:eqU2}, tồn tại $x \in \Delta^\mI$ sao cho $Z(x, x')$ thỏa mãn. Vì $\mI$ là mô hình của $\mT$ nên ta có $x \in (\neg C \mor D)^\mI$. Theo khẳng định~\ref{bs:eqC3} ta suy ra $x' \in (\neg C \mor D)^{\mI'}$. Do vậy $\mI'$ cũng là mô hình của $\mT$.
+\end{proof}
+
+Một diễn dịch $\mI$ trong $\mLSP$ được gọi là {\em kết nối đối tượng được} đối với $\mLSPD$ nếu với mọi đối tượng $x \in \Delta^\mI$ tồn tại cá thể $a \in \SigmaDagI$, các đối tượng $x_0, x_1, \ldots, x_k \in \Delta^\mI$ và các vai trò đối tượng cơ bản $R_1, R_2, \ldots, R_k$ của $\mLSPD$ với $k \geq 0$ sao cho $x_0 = a^\mI$, $x_k = x$ và $R_i^{\mI}(x_{i-1}, x_i)$ thỏa mãn với mọi $1 \leq i \leq k$.
+
+\begin{Theorem}
+\label{th:Invariant2}
+Cho $\mT$ là một TBox trong $\mLSPD$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ thỏa điều kiện kết nối đối tượng được đối với $\mLSPD$ sao cho tồn tại một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Lúc đó $\mI$ là mô hình của $\mT$ khi và chỉ khi $\mI'$ là mô hình của $\mT$.\myend
+\end{Theorem}
+
+\begin{proof}
+Gọi $\mT$ là một TBox trong $\mLSPD$. Giả sử $\mI$ và $\mI'$ là các diễn dịch kết nối đối tượng được trong $\mLSPD$, $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Ta cần chứng minh nếu $\mI$ là mô hình của $\mT$ thì $\mI'$ cũng là mô hình của $\mT$ và ngược lại. Giả sử $\mI$ là mô hình của $\mT$, ta cần chỉ ra $\mI'$ là mô hình của $\mT$. Chiều ngược lại được chứng minh tương tự.
+
+Gọi $C \sqsubseteq D$ là một tiên đề bất kỳ của $\mT$. Để chứng minh $\mI'$ cũng là mô hình của $\mT$, ta cần chỉ ra rằng $C^{\mI'} \subseteq D^{\mI'}$. Vì $\mI'$ là một diễn dịch kết nối đối tượng được trong $\mLSPD$ nên tồn tại cá thể $a \in \SigmaDagI$, các đối tượng $x'_0, x'_1, \ldots, x'_k \in \Delta^{\mI'}$ và các vai trò đối tượng cơ bản $R_1, R_2, \ldots, R_k$ của $\mLSPD$ với $k \geq 0$ sao cho $x'_0 = a^{\mI'}$, $x'_k = x'$ và $R_i^{\mI'}(x'_{i-1}, x'_i)$ thỏa mãn với mọi $1 \leq i \leq k$.
+
+Theo điều kiện~\eqref{bs:eqA}, $Z(a^\mI, a^{\mI'})$ thỏa mãn. Đặt $x_0 = a^\mI$. Vì $Z(x_{i-1},x'_{i-1})$ và $R_i^{\mI'}(x'_{i-1},x'_i)$ thỏa mãn nên tồn tại $x_i \in \Delta^\mI$ sao cho $Z(x_i, x'_i)$ và $R_i^\mI(x_{i-1}, x_i)$ thỏa mãn (theo khẳng định~\eqref{bs:eqR2}). Đặt $x=x_k$, ta có $Z(x,x')$ thỏa mãn. Theo khẳng định~\eqref{bs:eqC3}, vì $x' \in C^{\mI'}$ nên ta có $x \in C^\mI$. Vì $\mI$ là mô hình của $\mT$ nên suy ra $x \in D^\mI$. Theo khẳng định~\eqref{bs:eqC3}, ta có $x' \in D^{\mI'}$. Do vậy $\mI'$ là mô hình của $\mT$.
+\end{proof}
+
+Định lý sau đây đề cập đến tính bất biến của ABox và được phát triển dựa trên Định lý~3.7 trong~\cite{Divroodi2011B}. Điểm khác là nó được áp dụng cho một lớp lớn hơn các logic mô tả khác nhau.
+
+\begin{Theorem}
+Cho $\mA$ là một ABox trong $\mLSPD$. Nếu $\mO \in \PhiDag$ hoặc $\mA$ chỉ chứa các khẳng định dạng $C(a)$ thì $\mA$ bất biến đối với $\mLSPD$-mô phỏng hai chiều.\myend
+\end{Theorem}
+
+\begin{proof}
+Giả thiết $\mO \in \PhiDag$ hoặc $\mA$ chỉ chứa các khẳng định dạng $C(a)$. Gọi $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$, $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Ta cần chứng minh nếu $\mI$ là mô hình của $\mA$ thì $\mI'$ cũng là mô hình của $\mA$ và ngược lại. Giả sử $\mI$ là mô hình của $\mA$, ta cần chỉ ra $\mI'$ là mô hình của $\mA$. Chiều ngược lại được chứng minh tương tự.
+
+Gọi $\varphi$ là một khẳng định bất kỳ của $\mA$, ta cần chỉ ra $\mI' \models \varphi$.
+
+\semiItem Trường hợp $\varphi = (a=b)$, vì $\mI \models \varphi$ nên ta có $a^\mI = b^\mI$. Theo điều kiện~\eqref{bs:eqA} thì $Z(a^\mI, a^{\mI'})$ và $Z(b^\mI, b^{\mI'})$ thỏa mãn. Vì $a^\mI = b^\mI$ nên theo~\eqref{bs:eqO0} ta có $a^{\mI'} = b^{\mI'}$. Do vậy $\mI' \models \varphi$.
+
+\semiItem Trường hợp $\varphi = (a\not=b)$ được chứng minh tương tự như trường hợp trên.
+
+\semiItem Trường hợp $\varphi = C(a)$, vì $\mI \models \varphi$ nên ta có $C^\mI(a^\mI)$ thỏa mãn. Theo điều kiện~\eqref{bs:eqA} thì $Z(a^\mI, a^{\mI'})$ thỏa mãn. Vì $Z(a^\mI, a^{\mI'})$ và $C^\mI(a^\mI)$ thỏa mãn nên theo khẳng định~\eqref{bs:eqC3} thì $C^{\mI'}(a^{\mI'})$ thỏa mãn. Do vậy $\mI' \models \varphi$.
+
+\semiItem Trường hợp $\varphi = R(a,b)$, vì $\mI \models \varphi$ nên ta có $R^\mI(a^\mI, b^\mI)$ thỏa mãn. Theo điều kiện~\eqref{bs:eqA} thì $Z(a^\mI, a^{\mI'})$ thỏa mãn. Vì $Z(a^\mI, a^{\mI'})$ và $R^{\mI}(a^\mI, b^\mI)$ thỏa mãn nên theo khẳng định~\eqref{bs:eqR1}, tồn tại $y' \in \Delta^{\mI'}$ sao cho $Z(b^\mI, y')$ và $R^{\mI'}(a^{\mI'}, y')$ thỏa mãn. Theo giả thiết $\mO \in \PhiDag$, ta chọn $C \equiv \{b\}$. Vì $Z(b^\mI, y')$ và $C^\mI(b^\mI)$ thỏa mãn nên theo~\eqref{bs:eqC3} ta có $C^{\mI'}(b^{\mI'})$. Điều này có nghĩa là $y' = b^{\mI'}$ và $R^{\mI'}(a^{\mI'},b^{\mI'})$ thỏa mãn. Do vậy $\mI' \models \varphi$.
+
+\semiItem Trường hợp $\varphi = \neg R(a,b)$ được chứng minh tương tự như trường hợp trên.
+\end{proof}
+
+Định lý sau đây đề cập đến tính bất biến của các cơ sở tri thức đối với $\mLSPD$-mô phỏng hai chiều và được phát triển dựa trên Định lý~3.8 của~\cite{Divroodi2011B}. Điểm khác là nó được áp dụng cho một lớp lớn các logic mô tả khác nhau. Định lý này được suy ra trực tiếp từ Định lý~\ref{th:Invariant} và~\ref{th:Invariant2}.
+
+\begin{Theorem}
+Cho cơ sở tri thức $\KB = \tuple{\mR, \mT, \mA}$ trong $\mLSPD$ sao cho $\mR = \emptyset$ và giả thiết $\mO \in \PhiDag$ hoặc $\mA$ chỉ chứa các khẳng định có dạng $C(a)$, $\mI$ và $\mI'$ là các diễn dịch kết nối đối tượng được trong $\mLSPD$ sao cho tồn tại một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$. Lúc đó $\mI$ là mô hình của $\KB$ khi và chỉ khi $\mI'$ là mô hình của $\KB$.\myend
+\end{Theorem}
+
+\begin{Definition}
+Một diễn dịch $\mI$ trong $\mLSP$ được gọi là {\em phân nhánh hữu hạn} (hay {\em hữu hạn ảnh}) đối với $\mLSPD$ nếu với mọi $x \in \Delta^\mI$ và với mọi vai trò $r \in \SigmaDagOR$ thì:
+\begin{itemize}
+  \item tập $\{y \in \Delta^\mI \mid r^\mI(x,y)\}$ là hữu hạn,
+  
+  \item nếu $\mI \in \PhiDag$ thì tập $\{y \in \Delta^\mI \mid r^\mI(y, x)\}$ là hữu hạn.\myend
+\end{itemize}
+\end{Definition}
+
+Cho $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$, $x \in \Delta^\mI$ và $x' \in \Delta^{\mI'}$. Ta nói rằng $x$ {\em $\mLSPD$-tương đương} với $x'$ nếu $x \in C^\mI$ khi và chỉ khi $x' \in C^{\mI'}$ với mọi khái niệm $C$ của $\mLSPD$.
+
+\begin{Theorem}[Tính chất Hennessy-Milner]
+\label{th:HMP}
+Cho $\Sigma$ và $\SigmaDag$ là các bộ ký tự logic mô tả sao cho $\SigmaDag \subseteq \Sigma$, $\Phi$ và $\PhiDag$ là tập các đặc trưng của logic mô tả sao cho $\PhiDag \subseteq \Phi$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ thỏa mãn điều kiện phân nhánh hữu hạn đối với $\mLSPD$, sao cho với mọi $a \in \SigmaDagI$, $a^\mI$ $\mLSPD$-tương đương với $a^{\mI'}$. Giả thiết rằng $\mU \not \in \PhiDag$ hoặc $\SigmaDagI \not= \emptyset$. Lúc đó, $x \in \Delta^\mI$ $\mLSPD$-tương đương với $x' \in \Delta^{\mI'}$ khi và chỉ khi tồn tại một $\mLSPD$-mô phỏng hai chiều $Z$ giữa $\mI$ và $\mI'$ sao cho $Z(x, x')$ thỏa mãn.\myend
+\end{Theorem}
+
+\begin{proof}
+Giả sử $\Sigma$ và $\SigmaDag$ là các bộ ký tự logic mô tả sao cho $\SigmaDag \subseteq \Sigma$, $\Phi$ và $\PhiDag$ là tập các đặc trưng của logic mô tả sao cho $\PhiDag \subseteq \Phi$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ thỏa mãn điều kiện phân nhánh hữu hạn đối với $\mLSPD$, sao cho với mọi $a \in \SigmaDagI$, $a^\mI$ $\mLSPD$-tương đương với $a^{\mI'}$. Giả thiết rằng $\mU \not \in \PhiDag$ hoặc $\SigmaDagI \not= \emptyset$. Ta cần phải chứng minh: (*) Nếu $x \in \Delta^\mI$ $\mLSPD$-tương đương với $x' \in \Delta^{\mI'}$ thì tồn tại một $\mLSPD$-mô phỏng hai chiều $Z$ giữa $\mI$ và $\mI'$ sao cho $Z(x, x')$ thỏa mãn. 
+(**) Nếu tồn tại một $\mLSPD$-mô phỏng hai chiều $Z$ giữa $\mI$ và $\mI'$ sao cho $Z(x, x')$ thỏa mãn thì $x \in \Delta^\mI$ $\mLSPD$-tương đương với $x' \in \Delta^{\mI'}$.
+
+Đầu tiên, ta chứng minh khẳng định (*). Giả sử có $x \in \Delta^\mI$ $\mLSPD$-tương đương với $x' \in \Delta^{\mI'}$.
+Ta định nghĩa quan hệ $Z$ như sau:
+$$Z = \{\tuple{x,x'} \in \Delta^\mI \times \Delta^{\mI'} \mid x\ \mLSPD \textnormal{ tương đương với } x'\},$$
+và chỉ ra rằng $Z$ là một mô phỏng hai chiều giữa $\mI$ và $\mI'$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqA}, vì theo giả thiết $a^\mI$ $\mLSPD$-tương đương với $a^{\mI'}$ nên $Z(a^\mI, a^{\mI'})$ thỏa mãn.
+
+\semiItem Xét điều kiện~\eqref{bs:eqB1} và giả sử $Z(x,x')$ thỏa mãn. Theo định nghĩa của quan hệ $Z$ và quan hệ $\mLSPD$-tương đương, ta có $A^\mI(x)$ thỏa mãn khi và chỉ khi $A^{\mI'}(x')$ với mọi tên khái niệm $A \in \SigmaDagC$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqB2} và giả sử $Z(x,x')$ thỏa mãn. Nếu $B^\mI(x)$ xác định và $B^\mI(x) = d$. Lúc đó ta có $x \in (B=d)^\mI$. Vì $x \in (B=d)^\mI$ và theo định nghĩa của quan hệ $Z$ và quan hệ $\mLSPD$-tương đương nên $x' \in (B=d)^{\mI'}$. Nói cách khác $B^{\mI'}(x') = d$ và do đó $B^\mI(x) = B^{\mI'}(x')$. Tương tự, nếu $B^{\mI'}(x')$ xác định thì $B^\mI(x)$ xác định. Từ đó suy ra $B^\mI(x)$ không xác định khi và chỉ khi $B^{\mI'}(x')$ không xác định. Vậy ta có $B^\mI(x) = B^{\mI'}(x')$ hoặc cả hai không xác định.
+
+\semiItem Xét điều kiện~\eqref{bs:eqC1} và giả sử $Z(x,x')$, $r^\mI(x,y)$ thỏa mãn. Đặt $S = \{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\}$, ta cần chỉ ra rằng tồn tại $y' \in S$ sao cho $Z(y,y')$ thỏa mãn. Vì $r^\mI(x,y)$ thỏa mãn nên $x \in (\E r.\top)^\mI$. Vì $x$ $\mLSPD$-tương đương với $x'$ nên $x' \in (\E r.\top)^{\mI'}$. Từ $x' \in (\E r.\top)^{\mI'}$ ta suy ra $S \not= \emptyset$. Mặt khác, $\mI'$ là một diễn dịch phân nhánh hữu hạn đối với $\mLSPD$ nên $S$ là một tập hữu hạn. Gọi $y'_1, y'_2, \ldots, y'_n$ là các phần tử của $S$, ta có $n \geq 1$.
+Giả sử $Z(y,y'_i)$ không thỏa mãn với mọi $1 \leq i \leq n$. Điều này suy ra $y$ không $\mLSPD$-tương đương với $y'_i$ với mọi $1 \leq i \leq n$. Nghĩa là, với mỗi $1 \leq i \leq n$, tồn tại khái niệm $C_i$ sao cho $y \in C_i^\mI$ và $y'_i \not\in C_i^{\mI'}$. Đặt $C \equiv \E r.(C_1 \mand C_2 \mand \cdots \mand C_n)$, ta có $x \in C^\mI$ và $x' \not\in C^{\mI'}$. Điều này mâu thuẩn với giả thiết $x$ $\mLSPD$-tương đương với $x'$. Do vậy tồn tại $y'_i \in S$ sao cho $Z(y, y'_i)$ thỏa mãn.
+
+\semiItem Điều kiện~\eqref{bs:eqC2} được chứng minh tương tự như điều kiện~\eqref{bs:eqC1}.
+
+\semiItem Xét điều kiện~\eqref{bs:eqD} và giả sử $Z(x,x')$ thỏa mãn. Giả sử rằng $\sigma^\mI(x,d)$ thỏa mãn (tương ứng, không thỏa mãn) ta chứng minh $\sigma^{\mI'}(x',d)$ cũng thỏa mãn (tương ứng, không thỏa mãn). Chiều ngược lại được chứng minh một cách tương tự.
+\begin{itemize}
+  \item Giả sử rằng $\sigma^\mI(x,d)$ thỏa mãn. Vì $\sigma^\mI(x,d)$ thỏa mãn nên $x \in (\E \sigma.\{d\})^\mI$. Từ $Z(x,x')$ thỏa mãn nên $x$ $\mLSPD$-tương đương với $x'$ và do đó $x' \in (\E \sigma.\{d\})^{\mI'}$. Vì $x' \in (\E \sigma.\{d\})^{\mI'}$ nên ta có $\sigma^{\mI'}(x',d)$ thỏa mãn.
+
+  \item Giả sử rằng $\sigma^\mI(x,d)$ không thỏa mãn. Vì $\sigma^\mI(x,d)$ không thỏa mãn nên $x \not\in (\E \sigma.\{d\})^\mI$. Từ $Z(x,x')$ thỏa mãn nên $x$ $\mLSPD$-tương đương với $x'$ và do đó $x' \not\in (\E \sigma.\{d\})^{\mI'}$. Vì $x' \not\in (\E \sigma.\{d\})^{\mI'}$ nên ta có $\sigma^{\mI'}(x',d)$ không thỏa mãn.
+\end{itemize}
+
+\semiItem Điều kiện~\eqref{bs:eqI1} và~\eqref{bs:eqI2} trong trường hợp $\mI \in \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqC1} và~\eqref{bs:eqC2} bằng cách thay vai trò $r$ bởi $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqO0} trong trường hợp $\mO \in \PhiDag$ và giả sử $Z(x,x')$ thỏa mãn. Đặt $C \equiv \{a\}$. Vì $x$ $\mLSPD$-tương đương với $x'$ nên $x \in C^\mI$ khi và chỉ khi $x' \in C^{\mI'}$. Do vậy $x = a^\mI$ khi và chỉ khi $x' = a^{\mI'}$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqN} trong trường hợp $\mN \in \PhiDag$ và giả sử $Z(x,x')$ thỏa mãn. Đặt $S = \{y \in \Delta^\mI \mid r^\mI(x,y)\}$ và $S' = \{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\}$. Vì $\mI$ và $\mI'$ là các diễn dịch phân nhánh hữu hạn đối với $\mLSPD$ nên $S$ và $S'$ là hữu hạn. Nếu $S=\emptyset$, ta có $x \notin (\E r.\top)^\mI$ và do $x$ $\mLSPD$-tương đương với $x'$ nên ta có $x' \notin (\E r.\top)^\mI$. Vì $x' \notin (\E r.\top)^\mI$ nên ta có $S' = \emptyset$. Từ đó suy ra $\sharp S = 0 = \sharp S'$. Nếu $S \not= \emptyset$, gọi $y_1, y_2, \ldots, y_n$ là các phần tử của $S$ với $n \geq 1$. Rõ ràng $x \in (\geq n\,r.\top)^\mI$ và $x \in (\leq n\,r.\top)^\mI$. Do $x$ $\mLSPD$-tương đương với $x'$ nên ta có $x' \in (\geq n\,r.\top)^{\mI'}$ và $x' \in (\leq n\,r.\top)^{\mI'}$. Vì $x' \in (\geq n\,r.\top)^{\mI'}$ nên $\sharp S' \geq n$ và vì $x' \in (\leq n\,r.\top)^{\mI'}$ nên $\sharp S' \leq n$. Từ đó suy ra $\sharp S = n = \sharp S'$.
+
+\semiItem Điều kiện~\eqref{bs:eqNI} trong trường hợp $\{\mN,\mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqN} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqF} trong trường hợp $\mF \in \PhiDag$ và giả sử $Z(x,x')$ thỏa mãn. Đặt $C \equiv (\leq 1\,r)$. Nếu $x \in C^\mI$ thì $\sharp\{y \in \Delta^\mI \mid r^\mI(x,y)\} \leq 1$. Vì $x \in C^\mI$ và $x$ $\mLSP$-tương đương với $x'$ nên $x' \in C^{\mI'}$ và do đó $\sharp\{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\} \leq 1$. Tương tự, nếu $x \notin C^\mI$ thì $x' \notin C^{\mI'}$, do đó $\sharp\{y \in \Delta^\mI \mid r^\mI(x,y)\} > 1$ và $\sharp\{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\} > 1$. Vậy ta có $[\sharp\{y \in \Delta^\mI \mid r^\mI(x,y)\} \leq 1] \Leftrightarrow [\sharp\{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\} \leq 1]$.
+
+\semiItem Điều kiện~\eqref{bs:eqFI} trong trường hợp $\{\mF,\mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqF} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+ 
+\semiItem Xét điều kiện~\eqref{bs:eqQ} trong trường hợp $\mQ \in \PhiDag$ và giả sử $Z(x,x')$ thỏa mãn. Đặt $S = \{y \in \Delta^\mI \mid r^\mI(x,y)\}$ và $S' = \{y' \in \Delta^{\mI'} \mid r^{\mI'}(x',y')\}$. Vì $\mI$ và $\mI'$ là các diễn dịch phân nhánh hữu hạn đối với $\mLSPD$ nên $S$ và $S'$ là hữu hạn. 
+Giả sử không tồn tại một song ánh $h : S \rightarrow S'$ nào sao cho $h \subseteq Z$. Từ giả thiết này ta suy ra tồn tại một $y'' \in S \cup S'$ sao cho với $y_1, y_2, \ldots, y_k \in S$ và $y'_1, y'_2, \ldots, y'_{k'} \in S'$ khác nhau từng đôi một $\mLSPD$-tương đương với $y''$, ta có $k \not= k'$. Đặt $\mI'' = \mI$ nếu $y'' \in S$ và $\mI'' = \mI'$ nếu $y'' \in S'$. Đặt $\{z_1, z_2, \ldots, z_h\} = S \setminus \{y_1, y_2, \ldots, y_k\}$ và $\{z'_1, z'_2, \ldots, z'_{h'}\} = S \setminus \{y'_1, y'_2, \ldots, y'_{k'}\}$. Với mỗi $1 \leq i \leq h$ tồn tại $C_i$ sao cho $y'' \in C_i^{\mI''}$ và $z_i \notin C_i^{\mI}$. Tương tự, với mỗi $1 \leq i \leq h'$ tồn tại $D_i$ sao cho $y'' \in D_i^{\mI''}$ và $z'_i \notin D_i^{\mI'}$. Đặt $C \equiv (C_1 \mand C_2 \mand \cdots \mand C_h \mand D_1 \mand D_2 \mand \cdots \mand D_{h'})$. Chúng ta có $\{y_1, y_2, \ldots, y_k\} \subseteq C^\mI$ và $\{z_1, z_2, \ldots, z_h\} \cap C^\mI = \emptyset$. Tương tự như thế, $\{y'_1, y'_2, \ldots, y'_{k'}\} \subseteq C^{\mI'}$ và $\{z'_1, z'_2, \ldots, z'_{h'}\} \cap C^{\mI'} = \emptyset$. Nếu $k > k'$ thì $x \in (\geq k\,r.C)^\mI$ và $x' \notin (\geq k\,r.C)^{\mI'}$. Nếu $k < k'$ thì $x \notin (\geq k\,r.C)^\mI$ và $x' \in (\geq k\,r.C)^{\mI'}$. Điều này trái với giả thiết $x$ $\mLSPD$-tương đương với $x'$. Do vậy điều kiện~\eqref{bs:eqQ} thỏa mãn.
+
+\semiItem Điều kiện~\eqref{bs:eqQI} trong trường hợp $\{\mQ,\mI\} \subseteq \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqQ} bằng cách thay vai trò $r$ bởi vai trò $r^-$.
+
+\semiItem Xét điều kiện~\eqref{bs:eqU1} trong trường hợp $\mU \in \PhiDag$. Vì $\mI$ và $\mI'$ là các diễn dịch phân nhánh hữu hạn đối với $\mLSPD$ và $U \in \SigmaDagOR$ nên $\mI$ và $\mI'$ là hữu hạn. Giả sử $\Delta^{\mI'} = \{x'_1, x'_2, \ldots, x'_n\}$ với $n \geq 1$. Lấy một đối tượng bất kỳ $x \in \Delta^\mI$, giả sử rằng $x$ không $\mLSPD$-tương đương với $x'_i$ với mọi $1 \leq i \leq n$. Lúc đó, với mỗi $1 \leq i \leq n$ tồn tại một khái niệm $C_i$ sao cho $x'_i \in C_i^{\mI'}$ và $x \notin C_i^{\mI}$. Đặt $C \equiv (C_1 \mor C_2 \mor \cdots \mor C_n)$ và $a \in \SigmaDagI$ là một tên cá thể, ta có $a^{\mI'} \in (\V U.C)^{\mI'}$ và $a^{\mI} \notin (\V U.C)^{\mI}$. Điều này trái với giả thiết $a^\mI$ $\mLSPD$-tương đương với $a^{\mI'}$. Do đó, tồn tại $x'_i \in \Delta^{\mI'}$ sao cho $Z(x, x'_i)$ thỏa mãn.
+
+\semiItem Điều kiện~\eqref{bs:eqU2} trong trường hợp $\mU \in \PhiDag$ được chứng minh tương tự như điều kiện~\eqref{bs:eqU1}.
+
+\semiItem Xét điều kiện~\eqref{bs:eqSelf} trong trường hợp $\Self \in \PhiDag$ và giả sử $Z(x,x')$ thỏa mãn. Vì $x$ $\mLSPD$-tương đương với $x'$ nên $x \in (\E r.\Self)^\mI$ khi và chỉ khi $x' \in (\E r.\Self)^{\mI'}$. Do vậy $r^\mI(x,x)$ thỏa mãn khi và chỉ khi $r^{\mI'}(x',x')$ thỏa mãn.
+
+Chứng minh khẳng định (**). Giả sử $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ thỏa điều kiện phân nhánh hữu hạn đối với $\mLSPD$, $Z$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$ sao cho $Z(x,x')$ thỏa mãn. Theo khẳng định~\eqref{bs:eqC3}, với mọi khái niệm $C$ của $\mLSPD$, $C^\mI(x)$ thỏa mãn khi và chỉ khi $C^{\mI'}(x')$ thỏa mãn. Do đó $x$ $\mLSPD$-tương đương với $x'$.
+\end{proof}
+
+\begin{Corollary}
+Cho $\Sigma$ và $\SigmaDag$ là các bộ ký tự logic mô tả sao cho $\SigmaDag \subseteq \Sigma$, $\Phi$ và $\PhiDag$ là tập các đặc trưng của logic mô tả sao cho $\PhiDag \subseteq \Phi$, $\mI$ và $\mI'$ là các diễn dịch trong $\mLSP$ thỏa điều kiện phân nhánh hữu hạn đối với $\mLSPD$. Giả thiết rằng $\SigmaDagI \not= \emptyset$ và với mọi $a \in \SigmaDagI$, $a^\mI$ $\mLSPD$-tương đương với $a^{\mI'}$.
+Lúc đó, quan hệ $\{\tuple{x, x'} \in \Delta^\mI \times \Delta^{\mI'} \mid x $ $\mLSPD$-tương đương với $x'\}$ là một $\mLSPD$-mô phỏng hai chiều giữa $\mI$ và $\mI'$.\myend
+\end{Corollary}
+
+\section{Tiểu kết chương~\ref{chap:Bisimulation}}
+
+\chapter{HỌC KHÁI NIỆM TRONG LOGIC MÔ TẢ\\ DỰA TRÊN MÔ PHỎNG HAI CHIỀU}
+\label{chap:ConceptLearning}
+\section{Phân hoạch miền của diễn dịch}
+
+\section{Học khái niệm cho các hệ thống thông tin}
+
+\section*{Tiểu kết chương~\ref{chap:ConceptLearning}}
+
+\chapter*{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+\label{sec:Conclusion}
+
+\section*{Kết luận}
+Chúng tôi đã trình bày các kiến thức cơ bản về logic mô tả gồm: hệ thống logic mô tả và khả năng biểu diễn của các logic mô tả khác nhau. Bắt đầu từ cú pháp và ngữ nghĩa logic mô tả cơ bản \ALC, chúng tôi cũng đã xây dựng một cách hình thức ngôn ngữ logic mô tả tổng quát $\mLSP$ là mở rộng của logic mô tả \ALC với các đặc trưng gồm: $\mI$ ({nghịch đảo vai trò}), $\mO$ ({định danh}), $\mF$ ({tính chất hàm}), $\mN$ ({hạn chế số lượng không định tính}), $\mQ$ ({hạn chế số lượng định tính}), $\mU$ ({vai trò phổ quát}), $\Self$ ({tính phản xạ cục bộ của vai trò}). Thông qua ngôn ngữ $\mLSP$, chúng tôi đã trình bày mô phỏng hai chiều trên một lớp lớn các logic mô tả. Các kết quả này được phát triển dựa trên một số kết quả của công trình~\cite{Divroodi2011B} và công trình~\cite{Nguyen2013}. Chúng tôi cũng trình bày các chứng minh cho những định lý nêu ra trong chuyên đề này với một số kết quả về tính bất biến trên một lớp lớn các logic mô tả khác nhau. Tính bất biến, đặc biệt là tính bất biến của khái niệm là một trong những nền tảng cho phép mô hình hóa tính không phân biệt được của các đối tượng thông qua ngôn ngữ con. Tính không phân biệt của các đối tượng là một trong những đặc trưng cơ bản trong quá trình xây dựng các kỹ thuật phân lớp dữ liệu. Điều này có nghĩa là chúng ta có thể sử dụng ngôn ngữ con cho các bài toán học máy trong logic mô tả bằng cách sử dụng mô phỏng hai chiều. Một số kết quả mở rộng trình bày trong chuyên đề này đã được công bố trên các công trình~\cite{Tran2012,Ha2012} của chúng tôi.
+
+\section*{Hướng phát triển}
+%--------------------------------------------------------------
+\newpage
+%\bibliographystyle{plain}
+\renewcommand\refname{Tài liệu tham khảo}
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+\bibliographystyle{abbrv}
+\begin{small} 
+\bibliography{D:/Dropbox/PhDStudent/BibReferences/bibliography}
+\end{small} 
+\end{document}

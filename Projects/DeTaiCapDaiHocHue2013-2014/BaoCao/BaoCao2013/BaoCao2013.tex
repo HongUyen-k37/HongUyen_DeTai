@@ -1,0 +1,224 @@
+\documentclass[fleqn]{beamer}
+\usepackage{beamerthemeshadow}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor,colortbl,color}
+\setbeamercovered{dynamic}
+
+%-------------------------------------------------------------------------------
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{url}
+\usepackage[all]{xy}
+\usepackage{oldgerm} 
+\usepackage[english]{babel}
+\usepackage{xspace}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{graphicx}
+
+\usepackage{algorithmic}
+\usepackage{array}
+
+%--------------------------------------------------------------------------
+%DEFINE NUMBER FORMAT
+%--------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------
+%DEFINE ENVIRONMENT
+%--------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------
+%DEFINE NEW COMMAND
+%--------------------------------------------------------------------------
+
+\newcommand{\Attrs}{\mathit{Attrs}}
+\newcommand{\True}{\mathsf{true}}
+\newcommand{\False}{\mathsf{false}}
+\newcommand{\Self}{\mathsf{Self}}
+\newcommand{\KB}{\mathit{KB}}
+\newcommand{\mLSP}{\mL_{\Sigma,\Phi}}
+\newcommand{\mLSPD}{\mL_{\Sigma^\dag,\Phi^\dag}}
+\newcommand{\LargestContainer}{\mathit{LargestContainer}}
+\newcommand{\up}[1]{\MakeUppercase{#1}}
+
+\def\lappr#1#2{#1_{#2^+}}
+\def\uappr#1#2{#1_{#2^{\oplus}}}
+\def\defeq{\stackrel{\mathrm{def}}{=}}
+\def\defequiv{\stackrel{\mathrm{def}}{\equiv}}
+\def\tuple#1{\left\langle#1\right\rangle}
+\def\implies{\rightarrow}
+\def\lneg{\neg}
+\def\eqref#1{(\ref{#1})}
+\def\norm#1{\lvert#1\rvert}
+\def\bound#1{\left(\!#1\!\right)}
+
+%-----------------------------------------------------------------------------
+
+\newcommand{\mand}{\sqcap}
+\newcommand{\mor}{\sqcup}
+\newcommand{\V}{\forall}
+\newcommand{\E}{\exists}
+
+%--------------------------------------------------------------
+
+\newcommand{\ALCreg}{$\mathcal{ALC}_{reg}$\xspace}
+
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mT}{\mathcal{T}}
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mI}{\mathcal{I}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mE}{\mathcal{E}}
+
+\newcommand{\EXPTIME}{{\sc ExpTime}\xspace}
+\newcommand{\NEXPTIME}{{\sc NExpTime}\xspace}
+\newcommand{\ptime}{{\sc PTime}\xspace}
+
+\newcommand{\SigmaI}{\Sigma_I}
+\newcommand{\SigmaA}{\Sigma_A}
+\newcommand{\SigmaC}{\Sigma_C}
+\newcommand{\SigmaR}{\Sigma_R}
+\newcommand{\SigmaDA}{\Sigma_{dA}}
+\newcommand{\SigmaNA}{\Sigma_{nA}}
+\newcommand{\SigmaOR}{\Sigma_{oR}}
+\newcommand{\SigmaDR}{\Sigma_{dR}}
+
+\newcommand{\SigmaDag}{\Sigma^\dag}
+\newcommand{\SigmaDagI}{\Sigma^\dag_I}
+\newcommand{\SigmaDagA}{\Sigma^\dag_A}
+\newcommand{\SigmaDagC}{\Sigma^\dag_C}
+\newcommand{\SigmaDagR}{\Sigma^\dag_R}
+\newcommand{\SigmaDagDA}{\Sigma^\dag_{dA}}
+\newcommand{\SigmaDagNA}{\Sigma^\dag_{nA}}
+\newcommand{\SigmaDagOR}{\Sigma^\dag_{oR}}
+\newcommand{\SigmaDagDR}{\Sigma^\dag_{dR}}
+
+\newcommand{\SdPdI}{{\SigmaDag,\Phi^\dag,\mI}}
+
+\newcommand{\Dom}{\mathit{dom}}
+\newcommand{\Range}{\mathit{range}}
+
+%-------------------------------------------------------------
+
+\newcommand{\comment}[1]{}
+\newcommand{\VSpace}[1]{\vspace*{#1}}
+
+\def\ramka#1{\fbox{\parbox{8.6cm}{#1}}}
+
+\def\dom{\ensuremath{\Delta}\xspace}
+
+\newcommand{\semiItem}{\mbox{- }}
+
+%-----------------------------------------------------------------------------
+\newcommand{\Publication}{\mathit{Pub}}
+\newcommand{\Pub}{\mathit{P}}
+\newcommand{\Book}{\mathit{Book}}
+\newcommand{\Article}{\mathit{Article}}
+\newcommand{\Kind}{\mathit{Kind}}
+\newcommand{\Awarded}{\mathit{Awarded}}
+\newcommand{\PubName}{\mathit{Title}}
+\newcommand{\PubYear}{\mathit{Year}}
+\newcommand{\Cites}{\mathit{cites}}
+\newcommand{\Citedby}{\mathit{cited\!\,\_by}}
+\newcommand{\UsefulPub}{\mathit{UsefulPub}}
+\newcommand{\GoodPub}{\mathit{GoodPub}}
+\newcommand{\ExcellentPub}{\mathit{ExcellentPub}}
+\newcommand{\RecentPub}{\mathit{RecentPub}}
+\newcommand{\CitingP}{\mathit{CitingP}}
+
+\newcommand{\textItL}{\textrm{``Introduction to Logic''}}
+\newcommand{\textTEoL}{\textrm{``The Essence of Logic''}}
+\newcommand{\textB}{\textrm{``book''}}
+\newcommand{\textA}{\textrm{``article''}}
+\newcommand{\textC}{\textrm{``conf.~paper''}}
+
+%-------------------------------------------------------------------------------
+%Footer
+%-------------------------------------------------------------------------------
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{\fontsize{7}{8}\selectfont%
+  \begin{beamercolorbox}[wd=.32\paperwidth,ht=2.25ex,dp=1ex,right, rightskip=0.6ex]{author in head/foot}%
+    \usebeamerfont{author in head/foot}Trần Thanh Lương
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,left, leftskip=0.6ex]{title in head/foot}%
+    \usebeamerfont{title in head/foot} %\inserttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.08\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertframenumber{}/\inserttotalframenumber\hspace*{1ex}% original: 2ex
+  \end{beamercolorbox}}%
+}
+
+%--------------------------------------------------------------------------
+%DECLARE GENERAL INFORMATION
+%--------------------------------------------------------------------------
+\title{\textbf{BÁO KẾT QUẢ NGHIÊN CỨU ĐỀ TÀI NGHIÊN CỨU KHOA HỌC}}
+\author[]{
+\textbf{Trần Thanh Lương}\\[3ex]
+Khoa Công nghệ Thông tin\\
+Trường Đại học Khoa học, Đại học Huế\\
+\textcolor{red}{Năm thực hiện: 2013}
+}
+
+\date{Thừa Thiên Huế, 12/2012\\[2ex]}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%--------------------------------------------------------------------------
+\begin{frame}{\textbf{Nội dung trình bày}}
+\begin{enumerate}
+  \item Giới thiệu về logic mô tả
+  \vspace{2.0ex}
+
+  \item Giới thiệu về học máy trong logic mô tả
+  \vspace{2.0ex}
+
+%  \item Hệ thống thông tin dựa trên logic mô tả
+%  \vspace{2.0ex}
+
+  \item Mô phỏng hai chiều và tính không phân biệt được
+  \vspace{2.0ex}
+
+  \item Học khái niệm dựa trên mô phỏng hai chiều và\\ tính không phân biệt được
+  \vspace{2.0ex}
+
+  \item Độ đo entropy trong việc chọn khối cần phân hoạch cũng như bộ chọn cơ bản
+  \vspace{2.0ex}
+
+  \item Kết luận
+\end{enumerate}
+\end{frame}
+%--------------------------------------------------------------------------
+
+
+%--------------------------------------------------------------------------
+\begin{frame}{\textbf{Mục tiêu nghiên cứu}}
+  \begin{block}{\textbf{Mục tiêu nghiên cứu}}
+    \begin{itemize}
+      \item Mở rộng cơ sở lý thuyết và phương pháp học khái niệm cho hệ thống thông tin trong ngữ cảnh logic mô tả dựa trên mô phỏng hai chiều.
+      \item Đề xuất mô hình học khái niệm dựa trên quan hệ mô phỏng hai chiều để giải quyết bài toán phân lớp dữ liệu trong logic mô tả.
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}{\textbf{Nội dung nghiên cứu}}
+
+\end{frame}
+
+%--------------------------------------------------------------------------
+
+\begin{frame}{}
+\begin{center}
+  \LARGE{\textbf{XIN CHÂN THÀNH CẢM ƠN}}
+\end{center}
+\end{frame}
+\end{document}

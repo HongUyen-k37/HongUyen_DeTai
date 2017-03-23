@@ -1,0 +1,83 @@
+\chapter*{MỞ ĐẦU}
+\label{ChapterMoDau}
+\addcontentsline{toc}{chapter}{Mở đầu}
+\thispagestyle{fancy}
+
+Web ngữ nghĩa (Semantic Web) là một lĩnh vực đang phát triển rất nhanh và nhận được sự quan tâm của cộng đồng nghiên cứu trong thập kỷ vừa qua. Công nghệ Web ngữ nghĩa đang được áp dụng vào nhiều lĩnh vực khác nhau trong thực tế như: tin
+sinh học, tin học trong y tế, trình duyệt web ngữ nghĩa, quản trị tri thức, kỹ nghệ phần mềm, \ldots\;Một trong các tầng cơ bản và đóng vai trò quan trọng trong Web ngữ nghĩa là ontology - thành phần được sử dụng để biểu diễn tri thức và suy luận cho Web ngữ nghĩa.
+
+Theo khuyến nghị của tổ chức tiêu chuẩn quốc tế W3C ({\em World Wide Web Consortium}), OWL ({\em Web Ontology Language}) là một ngôn ngữ rất thích hợp cho việc mô hình hóa các ontology. Về cơ bản, OWL là ngôn ngữ được đặc tả dựa trên các logic mô tả~\cite{Horrocks2005,Horrocks2006,Horrocks2007}.
+Phiên bản đầu tiên của OWL dựa trên logic mô tả~\SHOIQ~\cite{Horrocks2005, Horrocks2007} được giới thiệu vào năm 2004, phiên bản thứ hai của OWL là OWL~2 dựa trên logic mô tả \SROIQ~\cite{Horrocks2006} được giới thiệu năm 2009. Hiện nay, các bộ suy luận ontology thế hệ thứ ba là FaCT, FaCT++~\cite{Horrocks2003}, RACER~\cite{Haarslev2000}, Pellet~\cite{Sirin2004}, KAON2~\cite{Motik2006} và HermiT~\cite{Horrocks2012} đều hỗ trợ \SHOIQ hoặc \SROIQ. Logic mô tả \SHOIQ và \SROIQ có khả năng biểu diễn rất tốt nhưng lại có độ phức tạp tính toán đối với các thuật toán suy luận rất cao (tương ứng là \NEXPTIME-đầy đủ và \NEXPTIME-khó) và độ phức tạp dữ liệu cũng cao (\NP-khó) đối với những bài toán suy luận cơ bản. Do đó, W3C cũng khuyến khích sử dụng OWL~2~EL, OWL~2~QL và OWL~2~RL là những ngôn ngữ con của OWL~2~Full với độ phức tạp dữ liệu đa thức tương ứng với miền quan tâm để mô hình hóa các hệ thống ngữ nghĩa.
+
+Logic mô tả ({\em Description Logics}) là một họ các ngôn ngữ hình thức rất thích hợp cho việc biểu diễn và suy luận tri thức trong một miền quan tâm cụ thể. Nó có tầm quan trọng đặc biệt trong việc cung cấp mô hình lý thuyết cho các hệ thống ngữ nghĩa và ontology. Trong logic mô tả, miền quan tâm được mô tả thông qua các thuật ngữ về cá thể, khái niệm và vai trò. Một cá thể đại diện cho một đối tượng, một khái niệm đại diện cho một tập các đối tượng và một vai trò đại diện cho một quan hệ hai ngôi giữa các đối tượng. Các khái niệm phức được xây dựng từ các tên khái niệm, tên vai trò và tên cá thể bằng cách kết hợp với các tạo tử.
+
+Đặc tả các khái niệm phù hợp cho các hệ thống ngữ nghĩa là một trong những vấn đề rất được quan tâm. Do vậy, vấn đề đặt ra là cần tìm được các khái niệm quan trọng và xây dựng được định nghĩa của các khái niệm đó. Học khái niệm trong logic mô tả nhằm mục đích kiểm tra, suy luận và tìm ra được các khái niệm này phục vụ cho các ứng dụng cụ thể.
+
+Học khái niệm trong logic mô tả tương tự như việc phân lớp nhị phân trong học máy truyền thống. Tuy nhiên, việc học khái niệm trong ngữ cảnh logic mô tả khác với học máy truyền thống ở chỗ, các đối tượng không chỉ được đặc tả bằng các thuộc tính mà còn được đặc tả bằng các mối quan hệ giữa các đối tượng. Các mối quan hệ này là một trong những yếu tố làm giàu thêm ngữ nghĩa của hệ thống huấn luyện. Do đó, các phương pháp học khái niệm trong logic mô tả cần phải tận dụng được chúng như là một lợi thế.
+
+Vấn đề học khái niệm trong logic mô tả được đặt ra theo ba ngữ cảnh chính như~sau:\\[1.0ex]
+\ramka{
+	\vspace{-2.5ex}
+	\begin{description}
+		\item\label{setting1}{\bf Ngữ cảnh~1:} Cho cơ sở tri thức $\KB$ trong logic mô tả $L$ và các tập các cá thể $E^+$, $E^-$. Học khái niệm $C$ trong $L$ sao cho:
+		\begin{enumerate}
+			\item $\KB \models C(a)$ với mọi $a \in E^+$, và
+			\item $\KB \models \lnot C(a)$ với mọi $a \in E^-$,
+		\end{enumerate}
+		\vspace{-1.0ex}
+		trong đó, tập $E^+$ chứa các mẫu dương và $E^-$ chứa các mẫu âm của $C$.
+		
+		\item\label{setting2}{\bf Ngữ cảnh~2:} Ngữ cảnh này khác với ngữ cảnh đã đề cập ở trên là điều kiện thứ hai được thay bằng một điều kiện yếu hơn $\KB \not\models C(a)$ với mọi $a \in E^-$.
+		
+		\item\label{setting3}{\bf Ngữ cảnh~3:} Cho một diễn dịch $\mI$ và các tập các cá thể $E^+$, $E^-$. Học khái niệm $C$ trong logic mô tả $L$ sao cho:
+		\begin{enumerate}
+			\item $\mI \models C(a)$ với mọi $a \in E^+$, và
+			\item $\mI \models \lnot C(a)$ với mọi $a \in E^-$.
+		\end{enumerate}
+		\vspace{-1.0ex}
+		Chú ý rằng $\mI \not\models C(a)$ tương đồng với $\mI \models \lnot C(a)$.
+	\end{description}
+	\vspace{-2.5ex}
+}
+
+Học khái niệm trong logic mô tả đã được nhiều nhà khoa học quan tâm nghiên cứu~\cite{Quinlan1990,Cohen1994,Lambrix1998,Badea2000,Iannone2007,Fanizzi2004,Fanizzi2008,Lehmann2007,Fanizzi2010,Lehmann2010,Nguyen2013,Tran2012,Ha2012}. Cùng với học khái niệm trong logic mô tả, các vấn đề liên quan đến học máy trong logic mô tả cũng được nhiều công trình đề cập đến~\cite{Alvarez2000,Kietz2003,Revoredo2010,Konstantopoulos2010,Distel2011}.
+
+Quinlan~\cite{Quinlan1990} nghiên cứu việc học các định nghĩa của mệnh đề Horn từ các dữ liệu được biểu diễn thông qua các quan hệ và đề xuất thuật toán học \textsc{Foil}.
+Cohen và Hirsh~\cite{Cohen1994} nghiên cứu lý thuyết về khả năng học ({\em Probably Approximately Correct - PAC}) trong logic mô tả và đề xuất thuật toán học khái niệm LCSLearn dựa trên các ``bao hàm chung nhỏ nhất'' ({\em least common subsumers}).
+Trong~\cite{Lambrix1998} Lambrix và Larocchia đã đề xuất một thuật toán học khái niệm đơn giản dựa trên việc chuẩn hóa khái niệm và lựa chọn khái niệm thông qua các thể hiện của dạng chuẩn hóa. 
+
+Badea và Nienhuys-Cheng~\cite{Badea2000}, Fanizzi cùng cộng sự~\cite{Fanizzi2004,Fanizzi2008}, Iannone cùng cộng sự~\cite{Iannone2007}, Lehmann và Hitzler~\cite{Lehmann2007,Lehmann2010} đã nghiên cứu học khái niệm trong logic mô tả bằng cách sử dụng các toán tử làm mịn ({\em refinement operators}) như trong lập trình logic đệ quy ({\em Inductive Logic Programming - ILP}).
+Ngoài việc sử dụng các toán tử làm mịn, các hàm tính điểm và chiến lược tìm kiếm cũng đóng vai trò quan trọng đối với các thuật toán đã được đề xuất trong các công trình này. 
+
+Iannone cùng cộng sự~\cite{Iannone2007} đã nghiên cứu việc mô tả các khái niệm đệ quy theo phương pháp bán tự động và xây dựng các thuật toán suy luận trong logic mô tả \ALC.
+%
+Fanizzi và các cộng sự~\cite{Fanizzi2010} đã đề xuất cây quyết định thuật ngữ như một cấu trúc thay thế cho việc học khái niệm trong logic mô tả và một phương pháp dựa trên thuật toán đệ quy của cây trên-xuống chuẩn.
+
+Nguyen và Sza{\l}as~\cite{Nguyen2013} đã áp dụng mô phỏng hai chiều ({\em bisimulation}) trong logic mô tả để mô hình hóa tính không phân biệt được của các đối tượng. Đây là công trình tiên phong trong việc sử dụng mô phỏng hai chiều cho việc học khái niệm trong logic mô tả. Tran cùng các đồng nghiệp~\cite{Tran2012}, Ha cùng các đồng nghiệp~\cite{Ha2012} đã mở rộng các kết quả trên và xem xét bài toán học khái niệm trên một lớp logic mô tả lớn hơn.
+
+Mô phỏng hai chiều được J. van Benthem giới thiệu lần đầu dưới tên gọi {\em p-quan hệ} ({\em p-relation}) và {\em quan hệ zig-zag} ({\em zig-zag relation})~\cite{Benthem2001,Blackburn2001,Blackburn2006}. Nó được phát triển trong logic hình thái ({\em modal logic})~\cite{Benthem2001,Blackburn2001,Benthem2010} và trong các hệ thống chuyển trạng thái ({\em state transition systems})~\cite{Park1981,Hennessy1985}. Mô phỏng hai chiều phản ánh tính không phân biệt được giữa hai trạng thái.
+Logic mô tả là một biến thể gần gũi của logic hình thái. Do đó, mô phỏng hai chiều trong logic mô tả cũng đặc trưng cho tính không phân biệt giữa hai đối tượng~\cite{Divroodi2011}. Đây là một tính chất quan trọng trong phân lớp phục vụ cho bài toán học khái niệm trong logic mô tả.
+
+Ngoại trừ các công trình~\cite{Nguyen2013,Tran2012,Ha2012} sử dụng mô phỏng hai chiều trong logic mô tả để hướng dẫn việc tìm kiếm khái niệm kết quả, tất cả các công trình nghiên cứu còn lại~\cite{Quinlan1990,Cohen1994,Lambrix1998,Badea2000,Iannone2007,Fanizzi2004,Fanizzi2008,Lehmann2007,Fanizzi2010,Lehmann2010,Nguyen2013} đều sử dụng toán tử làm mịn như trong lập trình logic đệ quy và/hoặc các chiến lược tìm kiếm dựa vào các hàm tính điểm mà không sử dụng mô phỏng hai chiều.
+Các công trình này chủ yếu tập trung vào vấn đề học khái niệm trên các logic mô tả đơn giản như \ALER, \ALN, \ALC. 
+%
+Việc nghiên cứu học khái niệm trong các logic mô tả phức tạp hơn như \ALCN, \ALCQ, \ALCIQ, \SHIQ, \SHOIQ, \SROIQ chưa được các công trình trên đề cập đến vì độ phức tạp về dữ liệu và tính toán của các logic mô tả này là rất lớn. Trong khi đó logic mô tả \SHOIQ và \SROIQ là các logic mô tả có vai trò đặc biệt quan trọng vì chúng là cơ sở tương ứng của ngôn ngữ OWL và OWL~2 - những ngôn ngữ được W3C khuyến nghị sử dụng để biểu diễn và suy luận tri thức cho Web ngữ nghĩa.
+
+Chúng tôi tiến hành nghiên cứu bài toán học khái niệm cho các cơ sở tri thức trong logic mô tả theo ngữ cảnh~(2), gọi tắt là {\em học khái niệm cho các cơ sở tri thức trong logic mô tả}. Từ các khảo sát như đã trình bày ở trên trên, mục tiêu chính của đề tài đặt ra là:
+\begin{itemize}
+	\item Nghiên cứu cú pháp và ngữ nghĩa đối với một lớp lớn các logic mô tả, trong đó có những logic mô tả hữu ích như \SHOIQ, \SROIQ,\ldots và xây dựng mô phỏng hai chiều cho lớp các logic mô tả đó.
+
+	\item Xây dựng phương pháp làm mịn phân hoạch miền của các diễn dịch trong logic mô tả sử dụng mô phỏng hai chiều và các độ đo dựa trên~entropy.
+	
+	\item Đề xuất các thuật toán học khái niệm dựa trên mô phỏng hai chiều cho các cơ sở tri thức trong logic mô tả với ngữ cảnh~(2) sử dụng mô phỏng hai chiều.
+\end{itemize}
+Với mục tiêu đó, nội dung của đề tài được trình bày trong ba chương:
+
+Chương~\ref{Chapter1} trình bày cú pháp và ngữ nghĩa logic mô tả, khả năng biểu diễn của logic mô tả. Xây dựng ngôn ngữ logic mô tả lấy các thuộc tính làm thành phần cơ bản của ngôn ngữ cũng như mở rộng tập các đặc trưng của logic mô tả so với các công trình đã có. Trên cơ sở đó, chương này đề cập đến cơ sở tri thức và những vấn đề cơ bản về suy luận trong logic mô tả.
+	
+Chương~\ref{Chapter2} trình bày mô phỏng hai chiều trên lớp các logic mô tả đã đề cập ở Chương~\ref{Chapter1}. Dựa trên các kết quả về mô phỏng hai chiều của Divroodi và Nguyen~\cite{Divroodi2011B}, chúng tôi phát biểu các định lý về sự tồn tại của mô phỏng hai chiều và chứng minh tính bất biến đối với mô phỏng hai chiều cho các khái niệm, bộ tiên đề thuật ngữ, bộ khẳng định và cơ sở tri thức đối với lớp các logic này. Đặc biệt tính bất biến của khái niệm là nền tảng cho phép mô hình hóa tính không phân biệt được của các đối tượng thông qua ngôn ngữ con. Đây là cơ sở cho việc sử dụng ngôn ngữ con trong quá trình xây dựng kỹ thuật phân lớp dữ liệu.
+	
+Chương~\ref{Chapter3} trình bày thuật toán phân hoạch miền của diễn dịch trong logic mô tả sử dụng mô phỏng hai chiều. Chúng tôi đã sử dụng các bộ chọn cơ bản kết hợp với độ đo gia lượng thông tin để phân chia các khối trong quá trình làm mịn các phân hoạch. Dựa trên thuật toán phân hoạch miền của diễn dịch, đề tài đã giới thiệu thuật toán học khái niệm \BBCLearnS. Thuật toán này sử dụng các mô hình của cơ sở tri thức kết hợp với mô phỏng hai chiều trong mô hình đó (để mô hình hóa tính không phân biệt được) và cây quyết định (để phân lớp dữ liệu) cho việc tìm kiếm khái niệm cần học. Chúng tôi cũng chứng minh tính đúng đắn của thuật toán thông qua các mệnh đề liên quan.
+
+Cuối cùng phần kết luận trình bày tóm tắt những đóng góp chính của đề tài, hướng phát triển và những vấn đề cần phải giải quyết trong tương lai.
+\cleardoublepage

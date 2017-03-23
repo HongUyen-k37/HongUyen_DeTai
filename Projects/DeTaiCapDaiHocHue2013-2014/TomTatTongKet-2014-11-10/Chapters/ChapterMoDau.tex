@@ -1,0 +1,51 @@
+\chapter*{MỞ ĐẦU}
+\label{ChapterMoDau}
+\addcontentsline{toc}{chapter}{Mở đầu}
+\thispagestyle{fancy}
+
+\fontsize{13.5}{15}\selectfont
+Logic mô tả ({\em Description Logics}) là một họ các ngôn ngữ hình thức rất thích hợp cho việc biểu diễn và suy luận tri thức trong một miền quan tâm cụ thể. Nó có tầm quan trọng đặc biệt trong việc cung cấp mô hình lý thuyết cho các hệ thống ngữ nghĩa. Trong logic mô tả, miền quan tâm được mô tả thông qua các thuật ngữ về cá thể, khái niệm và vai trò. Một cá thể đại diện cho một đối tượng, một khái niệm đại diện cho một tập các đối tượng và một vai trò đại diện cho một quan hệ hai ngôi giữa các đối tượng. Các khái niệm phức được xây dựng từ các tên khái niệm, tên vai trò và tên cá thể bằng cách kết hợp với các tạo tử.
+
+Đặc tả các khái niệm phù hợp cho các hệ thống ngữ nghĩa là một trong những~vấn đề rất được quan tâm. Do vậy, vấn đề đặt ra là cần tìm được các khái niệm quan~trọng và xây dựng được định nghĩa của các khái niệm đó. Học khái niệm trong logic mô tả nhằm mục đích tìm ra được các khái niệm này phục vụ cho các ứng dụng cụ thể.
+
+Học khái niệm trong logic mô tả tương tự như việc phân lớp nhị phân trong học máy truyền thống. Tuy nhiên, việc học khái niệm trong ngữ cảnh logic mô tả khác với học máy truyền thống ở chỗ, các đối tượng không chỉ được đặc tả bằng các thuộc tính mà còn được đặc tả bằng các mối quan hệ giữa các đối tượng. Các mối quan hệ này là một trong những yếu tố làm giàu thêm ngữ nghĩa của hệ thống huấn luyện. Do đó các phương pháp học khái niệm trong logic mô tả cần phải tận dụng được chúng như là một lợi thế.
+
+Học khái niệm trong logic mô tả được đặt ra theo ba ngữ cảnh chính như~sau:\\[0.5ex]
+%
+\ramka{
+\vspace{-2.5ex}
+\begin{description}
+	\item\label{setting1}{\bf Ngữ cảnh~1:} Cho cơ sở tri thức $\KB$ trong logic mô tả $L$ và các tập các cá thể $E^+$,~$E^-$. Học khái niệm $C$ trong $L$ sao cho:
+	\vspace{-1.0ex}
+	\begin{enumerate}
+		\item $\KB \models C(a)$ với mọi $a \in E^+$, và
+		\item $\KB \models \lnot C(a)$ với mọi $a \in E^-$,
+	\end{enumerate}
+	\vspace{-1.0ex}
+	trong đó, tập $E^+$ chứa các mẫu dương và $E^-$ chứa các mẫu âm của $C$.
+
+	\vspace{-1.0ex}	
+	\item\label{setting2}{\bf Ngữ cảnh~2:} Ngữ cảnh này khác với ngữ cảnh đã đề cập ở trên là điều kiện\break thứ hai được thay bằng một điều kiện yếu hơn $\KB \not\models C(a)$ với mọi $a \in E^-$.
+	
+	\vspace{-1.0ex}
+	\item\label{setting3}{\bf Ngữ cảnh~3:} Cho một diễn dịch $\mI$ và các tập các cá thể $E^+$, $E^-$. Học khái niệm $C$ trong logic mô tả $L$ sao cho:
+	\vspace{-1.0ex}
+	\begin{enumerate}
+		\item $\mI \models C(a)$ với mọi $a \in E^+$, và
+		\item $\mI \models \lnot C(a)$ với mọi $a \in E^-$.
+	\end{enumerate}
+	\vspace{-1.0ex}
+	Chú ý rằng $\mI \not\models C(a)$ tương đồng với $\mI \models \lnot C(a)$.
+\end{description}
+\vspace{-2.5ex}
+}
+
+Chúng tôi tiến hành nghiên cứu bài toán học khái niệm cho các cơ sở tri thức trong logic mô tả theo ngữ cảnh~(2), gọi tắt là {\em học khái niệm cho các cơ sở tri thức trong logic mô tả}. Từ các khảo sát như đã trình bày ở trên trên, mục tiêu chính của đề tài đặt ra là:
+\begin{itemize}
+	\item Nghiên cứu cú pháp và ngữ nghĩa đối với một lớp lớn các logic mô tả, trong đó có những logic mô tả hữu ích như \SHOIQ, \SROIQ,\ldots và xây dựng mô phỏng hai chiều cho lớp các logic mô tả đó.
+
+	\item Xây dựng phương pháp làm mịn phân hoạch miền của các diễn dịch trong logic mô tả sử dụng mô phỏng hai chiều và các độ đo dựa trên~entropy.
+	
+	\item Đề xuất các thuật toán học khái niệm dựa trên mô phỏng hai chiều cho các cơ sở tri thức trong logic mô tả với ngữ cảnh~(2) sử dụng mô phỏng hai chiều.
+\end{itemize}
+\cleardoublepage
