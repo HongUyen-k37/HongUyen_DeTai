@@ -46,3 +46,10 @@ Mar 24, 2017 13:11:54.89 [10968:11592:0324/131154.899:ERROR:CONSOLE(3889)] "Fail
 Mar 24, 2017 13:11:55.33 [10968:11592:0324/131155.336:ERROR:CONSOLE(3889)] "Failed to get text for stylesheet 9236.399: No style sheet with given id found", source: chrome-devtools://devtools/bundled/inspector.js (3889)
 Mar 24, 2017 13:11:59.88 [10968:11592:0324/131159.886:ERROR:CONSOLE(3889)] "Failed to get text for stylesheet 9236.411: No style sheet with given id found", source: chrome-devtools://devtools/bundled/inspector.js (3889)
 Mar 24, 2017 13:12:00.86 [10968:11592:0324/131200.861:ERROR:CONSOLE(3889)] "Failed to get text for stylesheet 9236.415: No style sheet with given id found", source: chrome-devtools://devtools/bundled/inspector.js (3889)
+
+Mar 25, 2017 24:33:58.00 NEW SESSION
+Mar 25, 2017 24:33:58.00 [14476:14472:0325/003358.003:ERROR:mf_helpers.cc(12)] Error in dxva_video_decode_accelerator_win.cc on line 345
+Mar 25, 2017 24:33:58.28 [8504:13284:0325/003358.285:ERROR:mf_helpers.cc(12)] Error in dxva_video_decode_accelerator_win.cc on line 297
+Mar 25, 2017 24:35:21.50 [8904:3768:0325/003521.505:ERROR:mf_helpers.cc(12)] Error in dxva_video_decode_accelerator_win.cc on line 345
+Mar 25, 2017 24:35:21.60 [13172:14436:0325/003521.608:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channel.
+Mar 25, 2017 24:35:21.76 [11044:11408:0325/003521.769:ERROR:mf_helpers.cc(12)] Error in dxva_video_decode_accelerator_win.cc on line 297

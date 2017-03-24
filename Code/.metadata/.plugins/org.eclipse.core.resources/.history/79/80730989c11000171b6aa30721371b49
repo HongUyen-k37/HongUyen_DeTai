@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="dangNhapActionForm" type="form.NguoiDungActionForm" />
+		<form-bean name="dangXuatActionForm" type="form.NguoiDungActionForm" />
+		<form-bean name="danhSachKyThiActionForm" type="form.KyThiActionForm" />
+	</form-beans>
+	<action-mappings>
+		<action path="/DangNhap" name="dangNhapActionForm"
+				type="action.DangNhapAction" scope="request">
+			<forward name="success" path="/KyThi.jsp" />
+			<forward name="error" path="/DangNhap.jsp" />
+		</action>
+		<action path="/DangXuat" name="dangXuatActionForm"
+				type="action.DangXuatAction" scope="request">
+			<forward name="success" path="/DangNhap.jsp" />
+		</action>
+		<action path="/DangNhap" name="dangNhapActionForm"
+				type="action.DangNhapAction" scope="request">
+			<forward name="success" path="/KyThi.jsp" />
+			<forward name="error" path="/DangNhap.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources parameter="action.ApplicationResources" />
+</struts-config>

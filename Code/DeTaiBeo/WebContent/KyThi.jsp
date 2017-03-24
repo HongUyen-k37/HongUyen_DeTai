@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +22,7 @@
 			<p class="title">THÔNG TIN KỲ THI</p>
 			<form class="form-horizontal">
 				<div class="form-group">
-			   		<label class="control-label col-sm-2 pad-5">Tên kì thi:</label>
+			   		<label class="control-label col-sm-2 pad-5">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
 			      		<input type="text" class="form-control" id="tenkithi">
 			    	</div>
@@ -30,7 +34,7 @@
 			    	</div>
 			    	<label class="control-label col-sm-2 pad-5">Ngày thi:</label>
 			    	<div class="col-sm-4">
-			      		<input type="text" class="form-control" id="ngaythi">
+			      		<input type="text" class="form-control" id="ngaythi" placeholder="Ví dụ: 02-11">
 			    	</div>
 			  	</div>
 				<div class="form-group row">
@@ -74,32 +78,24 @@
 	</div>
 	<div class="group-content">
 	<div class="main-nav">
-		<p class="title">THÔNG TIN KỲ THI</p>
+		<p class="title">DANH SÁCH KỲ THI</p>
 		<div class="main-table">
 			<table class="table table-bordered table-hover table-striped">
-			<thead>
-				<tr>
-					<th>Tên kì thi</th>
-					<th>Ngành</th>
-					<th>Thời gian thi</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>TUYỂN SINH ĐẠI HỌC</td>
-					<td>Công nghệ thông tin</td>
-					<td>22/7/2016</td>
-				</tr>
-				<tr>
-					<td>TUYỂN SINH ĐẠI HỌC</td>
-					<td>Toàn học</td>
-					<td>22/7/2016</td>
-				</tr>
-				<tr>
-					<td>TUYỂN SINH ĐẠI HỌC</td>
-					<td>Điện tử viễn thông</td>
-					<td>22/7/2016</td>
-				</tr>
+				<thead>
+					<tr>
+						<th>Tên kỳ thi</th>
+						<th>Ngành</th>
+						<th>Thời gian thi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="kt">
+					<tr>
+						<td><bean:write name="kt" property="tenKyThi" /></td>
+						<td><bean:write name="kt" property="nganh" /></td>
+						<td><bean:write name="kt" property="ngayThi" />-<bean:write name="kt" property="namTuyenSinh" /></td>
+					</tr>
+					</logic:iterate>
 				</tbody>
 			</table>
 		</div>

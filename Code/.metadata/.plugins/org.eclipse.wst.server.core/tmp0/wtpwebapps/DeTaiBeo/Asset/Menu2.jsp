@@ -10,7 +10,7 @@
 			<li><a href="DangNhap.jsp">Trang chủ</a></li>
 			<li> <a href="#">Tổ chức thi </a>
 			<ul>
-				<li><a href="KyThi.jsp">Thông tin kì thi</a></li>
+				<li><a href="KyThi.jsp">Thông tin kỳ thi</a></li>
 				<li><a href="ThiSinh.jsp">Thí sinh dự thi</a></li>
 				<li><a href="SoBaoDanh.jsp">Đánh số báo danh</a></li>
 				<li><a href="PhanPhongThi.jsp">Phân phòng thi</a></li>

@@ -1,0 +1,40 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.bean.KyThiBean;
+
+public class KyThiDAO extends DataAccessObject{
+	public List<KyThiBean> getListKyThi(){
+		List<KyThiBean> lst = new ArrayList<KyThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT bt.IDBaiThi,bt.TenBaiThi,bt.ThoiGian,bt.SoCauHoi,bt.MoTa,lbt.TenLoai,bt.Password,bt.IDUser,bt.Active "
+					+ "FROM BaiThi AS bt inner join LoaiBaiThi as lbt on bt.IDLoai = lbt.IDLoai"
+					+ " where bt.IDUser=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, idUser);
+			rs = pstm.executeQuery();
+			BaiThiBean bt = null;
+			while (rs.next()) {
+				bt = new BaiThiBean(rs.getString("IDBaiThi"), rs.getString("TenBaiThi"), rs.getInt("ThoiGian"),
+						rs.getInt("SoCauHoi"),rs.getString("MoTa"),rs.getString("TenLoai"),
+						rs.getString("Password"),rs.getString("IDUser"), rs.getBoolean("Active"));
+				lst.add(bt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
+	}
+}

@@ -1,0 +1,14 @@
+package model.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.bean.KyThiBean;
+
+public class KyThiDAO extends DataAccessObject{
+	public List<KyThiBean> getListKyThi(){
+		List<KyThiBean> lst = new ArrayList<KyThiBean>();
+		
+		return lst;
+	}
+}

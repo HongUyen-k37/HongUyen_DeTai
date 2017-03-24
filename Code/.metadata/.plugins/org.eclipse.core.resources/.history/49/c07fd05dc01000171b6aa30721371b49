@@ -1,0 +1,11 @@
+package form;
+
+import java.util.List;
+
+import org.apache.struts.action.ActionForm;
+
+import model.bean.KyThiBean;
+
+public class KyThiActionForm extends ActionForm{
+	private List<KyThiBean> listKyThi;
+}
