@@ -89,11 +89,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="kt">
+					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="dskt">
 					<tr>
-						<td><bean:write name="kt" property="tenKyThi" /></td>
-						<td><bean:write name="kt" property="nganh" /></td>
-						<td><bean:write name="kt" property="ngayThi" />-<bean:write name="kt" property="namTuyenSinh" /></td>
+						<td><bean:write name="dskt" property="tenKyThi" /></td>
+						<td><bean:write name="dskt" property="nganh" /></td>
+						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 					</tr>
 					</logic:iterate>
 				</tbody>

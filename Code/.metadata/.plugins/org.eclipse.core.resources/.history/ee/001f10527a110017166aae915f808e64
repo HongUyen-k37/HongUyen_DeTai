@@ -1,0 +1,11 @@
+package form;
+
+import java.util.List;
+
+import org.apache.struts.action.ActionForm;
+
+import model.bean.ThiSinhBean;
+
+public class ThiSinhActionForm extends ActionForm{
+	private List<ThiSinhBean> listThiSinh;
+}

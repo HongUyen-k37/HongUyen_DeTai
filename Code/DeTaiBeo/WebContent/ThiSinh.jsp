@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -103,52 +107,28 @@
 						<th>Họ đệm</th>
 						<th>Tên</th>
 						<th>Ngày sinh</th>
-						<!-- <th>Email</th> -->
 						<th>Khu vực</th>
 						<th>Đối tượng</th>
-						<!-- <th>Số điện thoại</th>
-						<th>Địa chỉ liên hệ</th> -->
 					</tr>
 				</thead>
+				<bean:define id="stt" value="0"/>
 				<tbody>
+					<logic:iterate name="danhSachThiSinhActionForm" property="listThiSinh" id="dsts">
+					<bean:define id="stt" value="${stt+1}"/>
 					<tr>
-						<td>1</td>
-						<td>Trần Nữ Như</td>
-						<td>Quỳnh</td>
-						<td>26/05/1995</td>
-						<!-- <td>trannunhuquynh260595@gmail.com</td> -->
-						<td>Khu vực 2</td>
-						<td></td>
-						<!-- <td>01648875899</td>
-						<td>Quảng Bình</td> -->
+						<td>${stt}</td>
+						<td><bean:write name="dsts" property="hoDem"/></td>
+						<td><bean:write name="dsts" property="ten"/></td>
+						<td><bean:write name="dsts" property="ngaySinh"/></td>
+						<td><bean:write name="dsts" property="khuVuc"/></td>
+						<td><bean:write name="dsts" property="doiTuong"/></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>Trần Nữ Như</td>
-						<td>Quỳnh</td>
-						<td>26/05/1995</td>
-						<!-- <td>trannunhuquynh260595@gmail.com</td> -->
-						<td>Khu vực 2</td>
-						<td>Anh hùng lao động</td>
-						<!-- <td>01648875899</td>
-						<td>Quảng Bình</td> -->
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>Trần Nữ Như</td>
-						<td>Quỳnh</td>
-						<td>26/05/1995</td>
-						<!-- <td>trannunhuquynh260595@gmail.com</td> -->
-						<td>Khu vực 2</td>
-						<td></td>
-						<!-- <td>01648875899</td>
-						<td>Quảng Bình</td> -->
-					</tr>
-					</tbody>
-				</table>
-				<div class="totalCandidates">
-					<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
-				</div>
+					</logic:iterate>
+				</tbody>
+			</table>
+			<div class="totalCandidates">
+				<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>
+			</div>
 		</div><!-- end details_info -->
 		</div>
 		</div>
