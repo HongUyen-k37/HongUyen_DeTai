@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,29 +63,21 @@
 					<th>Tên</th>
 				</tr>
 			</thead>
+			<bean:define id="stt" value="0"/>
 			<tbody>
+				<logic:iterate name="danhSoBaoDanhActionForm" property="listThiSinh" id="dsts">
+				<bean:define id="stt" value="${stt+1}"/>
 				<tr>
-					<td>1</td>
-					<td>01</td>
-					<td>Trần Nữ Như</td>
-					<td>Quỳnh</td>
+					<td>${stt}</td>
+					<td><bean:write name="dsts" property="soBaoDanh"/></td>
+					<td><bean:write name="dsts" property="hoDem"/></td>
+					<td><bean:write name="dsts" property="ten"/></td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>02</td>
-					<td>Trần Thị Hồng</td>
-					<td>Uyên</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>03</td>
-					<td>Phạm Như Ngọc</td>
-					<td>Tuấn</td>
-				</tr>
+				</logic:iterate>
 			</tbody>
 			</table>
 			<div class="totalCandidates">
-					<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
+					<p>Danh sách gồm có: <span> ${stt} </span> sinh viên</p>
 			</div>
 		</div> <!-- end details -->
 		</div>

@@ -78,9 +78,9 @@
 	</div>
 	<div class="group-content">
 	<div class="main-nav">
-		<p class="title">DANH SÁCH KỲ THI</p>
+		<p class="title">DANH SÁCH CÁC KỲ THI</p>
 		<div class="main-table">
-			<table class="table table-bordered table-hover table-striped">
+			<table id="table" class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
 						<th>Tên kỳ thi</th>
@@ -90,7 +90,8 @@
 				</thead>
 				<tbody>
 					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="dskt">
-					<tr>
+					<tr onclick="linkTo('makt',${dskt.maKyThi})">					
+						<td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>

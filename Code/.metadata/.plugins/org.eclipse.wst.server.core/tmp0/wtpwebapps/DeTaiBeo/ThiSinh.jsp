@@ -45,10 +45,7 @@
 						<div class="form-group">
 							<label class="col-md-2 no-pad" for="Subjects">Đối tượng:</label>
 							<div class="col-md-10">
-								<select class=" form-control" name="Subjects">
-									<option value="">Anh hùng lao động</option>
-									<option value="">Thương binh liệt sĩ</option>
-								</select>
+								<input type="text" class="form-control" name="">
 							</div>
 						</div>
 						<div class="form-group">
@@ -100,7 +97,7 @@
 		</div>
 		<div class="details_info">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
-			<table class="table table-bordered table-hover table-striped">
+			<table id="table" class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
 						<th>STT</th>
@@ -115,7 +112,7 @@
 				<tbody>
 					<logic:iterate name="danhSachThiSinhActionForm" property="listThiSinh" id="dsts">
 					<bean:define id="stt" value="${stt+1}"/>
-					<tr>
+					<tr onclick="linkTo('mats',${dsts.maThiSinh})">
 						<td>${stt}</td>
 						<td><bean:write name="dsts" property="hoDem"/></td>
 						<td><bean:write name="dsts" property="ten"/></td>

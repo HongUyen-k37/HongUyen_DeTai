@@ -10,4 +10,7 @@ public class ThiSinhBO {
 	public List<ThiSinhBean> getListThiSinh(long maKyThi){
 		return ts.getListThiSinh(maKyThi);
 	}
+	public ThiSinhBean getThiSinh(String maThiSinh) {
+		return ts.getThiSinh(maThiSinh);
+	}
 }

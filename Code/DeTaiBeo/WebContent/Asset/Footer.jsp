@@ -7,3 +7,4 @@
 <div id="footer">
 	<p> &copy; Bản quyền Trường Đại Học Khoa Học Huế </p>
 </div>
+<script src="js/test.js"></script>

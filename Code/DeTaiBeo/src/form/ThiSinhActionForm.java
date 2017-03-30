@@ -8,6 +8,7 @@ import model.bean.ThiSinhBean;
 
 public class ThiSinhActionForm extends ActionForm{
 	private long maKyThi;
+	private long mats;
 	private List<ThiSinhBean> listThiSinh;
 
 	public long getMaKyThi() {
@@ -16,6 +17,14 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setMaKyThi(long maKyThi) {
 		this.maKyThi = maKyThi;
+	}
+
+	public long getMats() {
+		return mats;
+	}
+
+	public void setMats(long mats) {
+		this.mats = mats;
 	}
 
 	public List<ThiSinhBean> getListThiSinh() {

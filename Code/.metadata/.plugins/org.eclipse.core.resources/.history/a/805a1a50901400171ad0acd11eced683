@@ -1,0 +1,12 @@
+$("#table tr").click(function(){
+   $(this).addClass('selected').siblings().removeClass('selected');    
+   var value=$(this).find('td:first').html();
+   alert(value);
+});
+$("#table tr").click(function(){
+	console.log("A");
+});
+
+$('#table tr').on('click', function(e){
+    alert($("#table tr.selected td:first").html());
+});
