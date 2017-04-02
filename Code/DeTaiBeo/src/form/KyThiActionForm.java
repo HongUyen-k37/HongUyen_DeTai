@@ -7,6 +7,10 @@ import org.apache.struts.action.ActionForm;
 import model.bean.KyThiBean;
 
 public class KyThiActionForm extends ActionForm{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<KyThiBean> listKyThi;
 
 	public List<KyThiBean> getListKyThi() {

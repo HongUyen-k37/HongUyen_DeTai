@@ -7,8 +7,7 @@
 <div id="menu">
 	<div  class="container">
 		<ul>
-			<li><a href="DangNhap.jsp">Trang chủ</a></li>
-			<li> <a href="#">Tổ chức thi </a>
+			<li> <a href="#">Tổ chức thi</a>
 			<ul>
 				<li><a href="KyThi.do">Thông tin kỳ thi</a></li>
 				<li><a href="ThiSinh.do">Thí sinh dự thi</a></li>
@@ -25,7 +24,9 @@
 				<li><a href="DiemChuan.jsp">Xác định điểm chuẩn</a></li>
 			</ul>
 			</li>
-			<li> <a href="#">Hướng dẫn - Hỗ trợ </a></li>
+			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
+			<li> <a href="#">Báo cáo - Thống kê</a></li>
+			<li> <a href="#">Tìm kiếm</a></li>
 			<div class="log-out">
 				<logic:notEmpty name="user" scope="session">
 				<span style="color: #fff;">Xin chào, <b><bean:write name="user" property="tenDangNhap" scope="session"/></b>!</span>

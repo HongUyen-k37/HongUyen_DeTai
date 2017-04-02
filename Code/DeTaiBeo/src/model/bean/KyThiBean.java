@@ -10,11 +10,8 @@ public class KyThiBean {
 	private String coSoLKDT;
 	private int soMonThi;
 	private int trangThai;
-	private int coSoPhongThi;
-	private int soLuot;
 	private String tiepDauNgu;
 	private int soBatDau;
-	private int coSoTui;
 	private int soLuongChuSo;
 	private double diemChuan;
 	private double diemLiet;
@@ -72,18 +69,6 @@ public class KyThiBean {
 	public void setTrangThai(int trangThai) {
 		this.trangThai = trangThai;
 	}
-	public int getCoSoPhongThi() {
-		return coSoPhongThi;
-	}
-	public void setCoSoPhongThi(int coSoPhongThi) {
-		this.coSoPhongThi = coSoPhongThi;
-	}
-	public int getSoLuot() {
-		return soLuot;
-	}
-	public void setSoLuot(int soLuot) {
-		this.soLuot = soLuot;
-	}
 	public String getTiepDauNgu() {
 		return tiepDauNgu;
 	}
@@ -95,12 +80,6 @@ public class KyThiBean {
 	}
 	public void setSoBatDau(int soBatDau) {
 		this.soBatDau = soBatDau;
-	}
-	public int getCoSoTui() {
-		return coSoTui;
-	}
-	public void setCoSoTui(int coSoTui) {
-		this.coSoTui = coSoTui;
 	}
 	public int getSoLuongChuSo() {
 		return soLuongChuSo;
@@ -121,8 +100,8 @@ public class KyThiBean {
 		this.diemLiet = diemLiet;
 	}
 	public KyThiBean(long maKyThi, String tenKyThi, String ngayThi, int namTuyenSinh, String nganh, String hinhThucDT,
-			String coSoLKDT, int soMonThi, int trangThai, int coSoPhongThi, int soLuot, String tiepDauNgu, int soBatDau,
-			int coSoTui, int soLuongChuSo, double diemChuan, double diemLiet) {
+			String coSoLKDT, int soMonThi, int trangThai, String tiepDauNgu, int soBatDau, int soLuongChuSo,
+			double diemChuan, double diemLiet) {
 		super();
 		this.maKyThi = maKyThi;
 		this.tenKyThi = tenKyThi;
@@ -133,11 +112,8 @@ public class KyThiBean {
 		this.coSoLKDT = coSoLKDT;
 		this.soMonThi = soMonThi;
 		this.trangThai = trangThai;
-		this.coSoPhongThi = coSoPhongThi;
-		this.soLuot = soLuot;
 		this.tiepDauNgu = tiepDauNgu;
 		this.soBatDau = soBatDau;
-		this.coSoTui = coSoTui;
 		this.soLuongChuSo = soLuongChuSo;
 		this.diemChuan = diemChuan;
 		this.diemLiet = diemLiet;

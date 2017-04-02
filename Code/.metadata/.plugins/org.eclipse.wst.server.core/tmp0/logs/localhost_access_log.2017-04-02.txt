@@ -1,0 +1,16 @@
+127.0.0.1 - - [02/Apr/2017:23:50:49 +0700] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/BaiThi.jsp HTTP/1.1" 200 5924
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/css/reset.css HTTP/1.1" 200 7698
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/css/style.css HTTP/1.1" 200 5199
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/css/style_index.css HTTP/1.1" 200 1248
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/js/jquery-3.1.1.min.js HTTP/1.1" 200 267194
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/css/bootstrap.min.css HTTP/1.1" 200 99967
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/js/bootstrap.min.js HTTP/1.1" 200 29115
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /DeTaiBeo/js/test.js HTTP/1.1" 200 217
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:50:50 +0700] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [02/Apr/2017:23:55:38 +0700] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:55:40 +0700] "GET /DeTaiBeo/SoBaoDanh.jsp HTTP/1.1" 500 3984
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:55:48 +0700] "GET /DeTaiBeo/SoBaoDanh.do HTTP/1.1" 200 1827
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:55:52 +0700] "POST /DeTaiBeo/DangNhap.do HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:55:52 +0700] "GET /DeTaiBeo/KyThi.do HTTP/1.1" 200 5398
+0:0:0:0:0:0:0:1 - - [02/Apr/2017:23:55:59 +0700] "GET /DeTaiBeo/SoBaoDanh.do HTTP/1.1" 200 6133

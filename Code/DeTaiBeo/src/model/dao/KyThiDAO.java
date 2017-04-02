@@ -22,8 +22,8 @@ public class KyThiDAO extends DataAccessObject{
 			while (rs.next()) {
 				kt = new KyThiBean(rs.getLong("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"),
-						rs.getInt("trangThai"), rs.getInt("coSoPhongThi"), rs.getInt("soLuot"), rs.getString("tiepDauNgu"),
-						rs.getInt("soBatDau"), rs.getInt("coSoTui"), rs.getInt("soLuongChuSo"), rs.getDouble("diemChuan"),
+						rs.getInt("trangThai"), rs.getString("tiepDauNgu"),
+						rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), rs.getDouble("diemChuan"),
 						rs.getDouble("diemLiet"));
 				lst.add(kt);
 			}

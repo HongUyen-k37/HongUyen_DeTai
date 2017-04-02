@@ -20,7 +20,7 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
-				<jsp:include page="Asset/ThongTinKyThi.jsp" />
+				<jsp:include page="Asset/ThongTinKyThi2.jsp" />
 			</div>
 		</div>
 	</div>
@@ -28,29 +28,29 @@
 		<div class="group-content">
 			<div class="row main-nav">
 			<p class="title">ĐÁNH SỐ BÁO DANH</p>
-			<form>
+			<html:form action="SoBaoDanh.do" method="POST">
 				<div class="form-group row">
 				<label class="col-md-2" for="tdn">Tiếp đầu ngữ:</label>
 				<div class="col-md-10">
-					<input type="text" class="form-control" name="tdn">
+					<input type="text" class="form-control" name="tiepDauNgu">
 				</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-md-2" for="sbd">Số bắt đầu:</label>
 				<div class="col-md-10">
-					<input type="number" class="form-control" name="sbd" min="1">
+					<input type="number" class="form-control" name="soBatDau" min="1">
 				</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-md-2" for="sl">Số lượng:</label>
 				<div class="col-md-10">
-					<input type="number" class="form-control" name="sl" min="1">
+					<input type="number" class="form-control" name="soLuong" min="1">
 				</div>
 				</div>
 				<div class="btn-gr">
-					<button type="submit" class="btn btn-success btn-all" name='execute'>Thực hiện</button>
+					<button type="submit" class="btn btn-success" name="submit">Thực hiện</button>
 				</div>
-			</form>
+			</html:form>
 			</div>
 		<div class="details_info">
 		<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
@@ -61,6 +61,7 @@
 					<th>Số báo danh</th>
 					<th>Họ đệm</th>
 					<th>Tên</th>
+					<th>Ngày sinh</th>
 				</tr>
 			</thead>
 			<bean:define id="stt" value="0"/>
@@ -72,6 +73,7 @@
 					<td><bean:write name="dsts" property="soBaoDanh"/></td>
 					<td><bean:write name="dsts" property="hoDem"/></td>
 					<td><bean:write name="dsts" property="ten"/></td>
+					<td><bean:write name="dsts" property="ngaySinh"/></td>
 				</tr>
 				</logic:iterate>
 			</tbody>

@@ -25,6 +25,10 @@ public class DanhSoBaoDanhAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		
 		ThiSinhBO tsBO = new ThiSinhBO();
+		//danh sbd
+		//tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), frm.getMaKyThi());
+		tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), 1);
+		//show list
 		//frm.setListThiSinh(tsBO.getListThiSinh(frm.getMaKyThi()));
 		frm.setListThiSinh(tsBO.getListThiSinh(1));
 		return mapping.findForward("success");

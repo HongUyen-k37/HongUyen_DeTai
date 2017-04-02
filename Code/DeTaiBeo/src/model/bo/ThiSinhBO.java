@@ -13,4 +13,7 @@ public class ThiSinhBO {
 	public ThiSinhBean getThiSinh(String maThiSinh) {
 		return ts.getThiSinh(maThiSinh);
 	}
+	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, long maKyThi){
+		return ts.danhSoBaoDanh(tiepDauNgu, soBatDau, soLuong, maKyThi);
+	}
 }

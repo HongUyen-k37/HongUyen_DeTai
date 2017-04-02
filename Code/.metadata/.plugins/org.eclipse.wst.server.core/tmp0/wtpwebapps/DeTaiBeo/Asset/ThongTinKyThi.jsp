@@ -18,7 +18,7 @@
 			  	<div class="form-group">
 			    	<label class="col-sm-3">Ngành:</label>
 			    	<div class="col-sm-9">
-			      		<select class="form-control" disabled>
+			      		<select class="form-control">
 							<option value="FPT">FPT</option>
 							<option value="gosu">Gosu</option>
 						</select>
