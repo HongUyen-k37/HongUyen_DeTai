@@ -24,8 +24,15 @@
 		<div class="group-content">
 			<div class="row main-nav">
 			<p class="title">XỬ LÝ BÀI THI</p>
-		<h6><b>Phòng thi</b></h6>
-		<table class="table table-bordered table-hover table-striped">
+		<!-- <h6><b>Phòng thi</b></h6> -->
+		<label class="control-label col-sm-2 pad-5">Phòng thi:</label>
+		    	<div class="col-sm-4">
+		      		<select class="form-control">
+						<option value="">01(<%=25 %>)</option>
+						
+					</select>
+		    	</div>
+	<!-- 	<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
 					<th>Số hiệu phòng thi</th>
@@ -38,7 +45,7 @@
 					<td>25</td>
 				</tr>
 			</tbody>
-		</table>
+		</table> -->
 	</div>
 	<div class="details_info">
 		<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
@@ -73,12 +80,11 @@
 				</tr>
 			</tbody>
 			</table>
-			<div class="col-sm-10">
+			<div class="col-sm-9">
 					<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
 			</div>
-			<div class="btn-group">
-				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
-			</div>
+			<button type="submit" class="btn btn-success btn-all" name='save'>Lưu</button>
+			<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
 		</div>
 	</div>
 	</div>

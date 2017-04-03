@@ -24,9 +24,10 @@
 				<li><a href="DiemChuan.jsp">Xác định điểm chuẩn</a></li>
 			</ul>
 			</li>
-			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
+			
 			<li> <a href="#">Báo cáo - Thống kê</a></li>
 			<li> <a href="#">Tìm kiếm</a></li>
+			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
 			<div class="log-out">
 				<logic:notEmpty name="user" scope="session">
 				<span style="color: #fff;">Xin chào, <b><bean:write name="user" property="tenDangNhap" scope="session"/></b>!</span>

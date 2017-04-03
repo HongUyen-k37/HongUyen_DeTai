@@ -24,46 +24,46 @@
 		<div class="group-content">
 			<div class="row main-nav">
 		<p class="title">DỒN TÚI</p>
-<form>
-			<div class="row">
-				<div class="col-md-5 form-group">
-					<label class="col-md-5">Cơ số phòng:</label>
-					<div class="col-md-7">
-						<input type="number" class="form-control" name="cosophong" min="1">
-					</div>
-				</div>
-				<div class="col-md-5 form-group">
-					<label class="col-md-5">Cơ số túi:</label>
-					<div class="col-md-7 no-pad">
-						<input type="number" class="form-control" name="cosotui" min="1">
-					</div>
-				</div>
-				<div class="btn-gr col-md-2">
-					<button type="submit" class="btn btn-success btn-all" name="execute">Tính số lượt</button>
+	<form>
+		<div class="row">
+			<div class="col-md-5 form-group">
+				<label class="col-md-5">Cơ số phòng:</label>
+				<div class="col-md-7">
+					<input type="number" class="form-control" name="cosophong" min="1">
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-5">
-					<div class="col-md-3 form-group">
-						<label>Lượt:</label>
-					</div>
-					<div class="col-md-9">
-						<input class="form-control" type="number" name="luot">
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="col-md-6 no-pad form-group">
-						<label>/Số lượt thực hiện:</label>
-					</div>
-					<div class="col-md-6 no-pad">
-						<input class="form-control" type="text" name="soluot">
-					</div>	
-				</div>
-				<div class="col-md-2">
-					<button type="submit" class="btn btn-success btn-all" name="execute">Thực hiện</button>
+			<div class="col-md-5 form-group">
+				<label class="col-md-5">Cơ số túi:</label>
+				<div class="col-md-7 no-pad">
+					<input type="number" class="form-control" name="cosotui" min="1">
 				</div>
 			</div>
-		</form>
+			<div class="btn-gr col-md-2">
+				<button type="submit" class="btn btn-success btn-all" name="execute">Tính số lượt</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="col-md-3 form-group">
+					<label>Lượt:</label>
+				</div>
+				<div class="col-md-9">
+					<input class="form-control" type="number" name="luot">
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="col-md-6 no-pad form-group">
+					<label>/Số lượt thực hiện:</label>
+				</div>
+				<div class="col-md-6 no-pad">
+					<input class="form-control" type="text" name="soluot">
+				</div>	
+			</div>
+			<div class="col-md-2">
+				<button type="submit" class="btn btn-success btn-all" name="execute">Thực hiện</button>
+			</div>
+		</div>
+	</form>
 	</div>
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">
