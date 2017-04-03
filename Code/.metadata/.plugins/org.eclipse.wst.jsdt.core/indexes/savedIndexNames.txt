@@ -1,7 +1,6 @@
-INDEX VERSION 1.3+E:\TryTogether\Code\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2934490433.index
-3330368651.index
-3698966056.index
+INDEX VERSION 1.3+E:\KLTN\Git_TuyenSinh\Code\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1663248397.index
 3318488969.index
-3530511960.index
-2895412742.index
+2519959714.index
+1550854460.index
+74289953.index

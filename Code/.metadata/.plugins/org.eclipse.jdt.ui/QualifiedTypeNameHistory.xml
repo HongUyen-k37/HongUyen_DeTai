@@ -1,22 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="model.dao.KyThiDAO"/>
-<fullyQualifiedTypeName name="model.bean.KyThiBean"/>
-<fullyQualifiedTypeName name="form.KyThiActionForm"/>
-<fullyQualifiedTypeName name="model.bo.KyThiBO"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-<fullyQualifiedTypeName name="model.bean.NguoiDungBean"/>
-<fullyQualifiedTypeName name="model.dao.DataAccessObject"/>
-<fullyQualifiedTypeName name="model.dao.ThiSinhDAO"/>
-<fullyQualifiedTypeName name="org.apache.struts.action.ActionForm"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="form.ThiSinhActionForm"/>
-<fullyQualifiedTypeName name="model.bo.ThiSinhBO"/>
-<fullyQualifiedTypeName name="model.bean.ThiSinhBean"/>
-<fullyQualifiedTypeName name="org.apache.struts.action.Action"/>
-<fullyQualifiedTypeName name="java.sql.CallableStatement"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

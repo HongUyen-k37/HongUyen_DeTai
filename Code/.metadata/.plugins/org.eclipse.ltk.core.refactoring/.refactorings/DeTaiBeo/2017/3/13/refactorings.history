@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;DeTaiBeo/WebContent/SoBaoDanh.jsp&apos; to &apos;DanhSoBaoDanh.jsp&apos;" description="Rename resource &apos;SoBaoDanh.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/SoBaoDanh.jsp" name="DanhSoBaoDanh.jsp" stamp="1490806248360" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;DeTaiBeo/WebContent/DanhSoBaoDanh.jsp&apos; to &apos;SoBaoDanh.jsp&apos;" description="Rename resource &apos;DanhSoBaoDanh.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/DanhSoBaoDanh.jsp" name="SoBaoDanh.jsp" stamp="1490807528125" updateReferences="true"/>
-</session>
