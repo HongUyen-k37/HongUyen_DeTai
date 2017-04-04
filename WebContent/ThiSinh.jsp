@@ -24,9 +24,12 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	<div class="col-md-8">
 		<div class="group-content">
-			<div class="row main-nav" >
+			<a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Thêm thí sinh</a>
+			
+		<!-- 	<div class="row main-nav" >
 				<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>
 				<form action="" class="form-horizontal" method="POST">
 					<div class="col-md-7">
@@ -85,7 +88,7 @@
 						</div>
 					</div>
 				</form>
-			</div><!-- end form-->
+			</div> 
 		<div class="main-nav">
 			<label for="address">Địa chỉ liên hệ:</label>
 			<textarea class="form-control" rows="4" cols="100" name="address"></textarea>
@@ -95,6 +98,7 @@
 			<button type="submit" class="btn btn-success btn-all" name='update'>Lưu</button>
 			<button type="submit" class="btn btn-success btn-all" name='delete'>Xoá</button>
 		</div>
+		--><!-- end form-->
 		<div class="details_info">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<table id="table" class="table table-bordered table-hover table-striped">
@@ -106,6 +110,7 @@
 						<th>Ngày sinh</th>
 						<th>Khu vực</th>
 						<th>Đối tượng</th>
+						<th style="width: 92px;"></th>
 					</tr>
 				</thead>
 				<bean:define id="stt" value="0"/>
@@ -119,6 +124,10 @@
 						<td><bean:write name="dsts" property="ngaySinh"/></td>
 						<td><bean:write name="dsts" property="khuVuc"/></td>
 						<td><bean:write name="dsts" property="doiTuong"/></td>
+						<td>	                    
+						<a href="#modal-id" onclick="suaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="fa fa-edit"></i></a> 
+	                    <a href="#xoaThiSinh"  data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="fa fa-trash"></i></a>
+	                    </td>
 					</tr>
 					</logic:iterate>
 				</tbody>
@@ -128,6 +137,87 @@
 			</div>
 		</div><!-- end details_info -->
 		</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modal-id">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Thêm thí sinh</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row main-nav" >
+				<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>
+				<form action="" class="form-horizontal" method="POST">
+					<div class="col-md-7">
+						<div class="form-group">
+							<label class="col-md-2 no-pad" for="first-name">Họ đệm:</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="first-name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 no-pad" for="birthday-place">Nơi sinh:</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="birthday-place">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 no-pad" for="Subjects">Đối tượng:</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 no-pad" for="email">Email:</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" name="email">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5 pad-5">
+						<div class="form-group">
+							<label class="col-md-4 no-pad" for="last-name">Tên:</label>
+							<div class="col-md-8 ">
+								<input type="text" class="form-control" name="last-name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 no-pad" for="birthday">Ngày sinh:</label>
+							<div class="col-md-8 ">
+								<input type="text" class="form-control" name="birthday">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 no-pad" for="area">Khu vực:</label>
+							<div class="col-md-8 ">
+								<select class="form-control" name="area">
+									<option value="">Khu vực 1</option>
+									<option value="">Khu vực 2</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 no-pad" for="phone">Số điện thoại:</label>
+							<div class="col-md-8">
+								<input type="text" class="form-control" name="phone">
+							</div>
+						</div>	
+					</div>
+					<div class="main-nav">
+						<label for="address">Địa chỉ liên hệ:</label>
+						<textarea class="form-control" rows="4" cols="100" name="address"></textarea>
+					</div>
+				</form>
+			</div>
+			</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+				<button type="button" class="btn btn-primary">Xóa</button>
+				<button type="button" class="btn btn-success">Đồng ý</button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -36,4 +36,116 @@ public class KyThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
+	
+	public boolean insert(KyThiBean kyThi) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, kyThi.getTenKyThi());
+			pstm.setString(2, kyThi.getNgayThi());
+			pstm.setInt(3, kyThi.getNamTuyenSinh());
+			pstm.setString(4, kyThi.getNganh());
+			pstm.setString(5, kyThi.getHinhThucDT());
+			pstm.setString(6, kyThi.getCoSoLKDT());
+			pstm.setInt(7, kyThi.getSoMonThi());
+			pstm.setString(8, kyThi.getTiepDauNgu());
+			pstm.setInt(9, kyThi.getSoBatDau());
+			pstm.setInt(10, kyThi.getSoLuongChuSo());
+			pstm.setDouble(11, (float) kyThi.getDiemChuan());
+			pstm.setDouble(12, kyThi.getDiemLiet());
+			pstm.setInt(13, kyThi.getTrangThai());
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	
+	public boolean update(KyThiBean kyThi) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update KYTHI Set tenKyThi=?; ngayThi=?; namTuyenSinh=?; nganh=?; hinhThucDT=?; coSoLKDT=?; soMonThi=?;"
+					+ "trangThai=?; tiepDauNgu=?; soBatDau=?; soLuongChuSo=?; diemChuan=?; diemLiet=? where maKyThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setLong(14, kyThi.getMaKyThi());
+			pstm.setString(1, kyThi.getTenKyThi());
+			pstm.setString(2, kyThi.getNgayThi());
+			pstm.setInt(3, kyThi.getNamTuyenSinh());
+			pstm.setString(4, kyThi.getNganh());
+			pstm.setString(5, kyThi.getHinhThucDT());
+			pstm.setString(6, kyThi.getCoSoLKDT());
+			pstm.setInt(7, kyThi.getSoMonThi());
+			pstm.setString(8, kyThi.getTiepDauNgu());
+			pstm.setInt(9, kyThi.getSoBatDau());
+			pstm.setInt(10, kyThi.getSoLuongChuSo());
+			pstm.setDouble(11, (float) kyThi.getDiemChuan());
+			pstm.setDouble(12, kyThi.getDiemLiet());
+			pstm.setInt(13, kyThi.getTrangThai());
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	
+	public boolean delete(String idBaiThi) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Delete from KYTHI where maKyThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, idBaiThi);
+			result = pstm.execute();
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	
+	public KyThiBean getKyThi(Long MaKyThi) {
+		KyThiBean kt=null;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT * FROM KYTHI where maKyThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setLong(1, MaKyThi);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				kt = new KyThiBean(rs.getLong("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
+						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"), 
+						rs.getInt("trangThai"), rs.getString("tiepDauNgu"), rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), 
+						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"));
+			}
+	
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return kt;
+	}
 }
