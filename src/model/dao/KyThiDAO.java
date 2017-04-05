@@ -20,7 +20,7 @@ public class KyThiDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			KyThiBean kt = null;
 			while (rs.next()) {
-				kt = new KyThiBean(rs.getLong("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
+				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"),
 						rs.getInt("trangThai"), rs.getString("tiepDauNgu"),
 						rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), rs.getDouble("diemChuan"),
@@ -77,7 +77,7 @@ public class KyThiDAO extends DataAccessObject{
 			String sql = "Update KYTHI Set tenKyThi=?; ngayThi=?; namTuyenSinh=?; nganh=?; hinhThucDT=?; coSoLKDT=?; soMonThi=?;"
 					+ "trangThai=?; tiepDauNgu=?; soBatDau=?; soLuongChuSo=?; diemChuan=?; diemLiet=? where maKyThi=? ";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setLong(14, kyThi.getMaKyThi());
+			pstm.setString(14, kyThi.getMaKyThi());
 			pstm.setString(1, kyThi.getTenKyThi());
 			pstm.setString(2, kyThi.getNgayThi());
 			pstm.setInt(3, kyThi.getNamTuyenSinh());
@@ -133,7 +133,7 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setLong(1, MaKyThi);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				kt = new KyThiBean(rs.getLong("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
+				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"), 
 						rs.getInt("trangThai"), rs.getString("tiepDauNgu"), rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), 
 						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"));

@@ -21,7 +21,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
 			while (rs.next()) {
-				ts = new ThiSinhBean(rs.getLong("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
@@ -47,7 +47,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			pstm.setString(1, maThiSinh);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				ts = new ThiSinhBean(rs.getLong("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
@@ -81,5 +81,108 @@ public class ThiSinhDAO extends DataAccessObject{
 			tryToClose(pstm);
 		}
 		return result;
+	}
+	
+	public boolean insert(ThiSinhBean thiSinh) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "INSERT INTO THISINH VALUES(?,?,?,?,?,?,?,?,?)";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, thiSinh.getHoDem());
+			pstm.setString(2, thiSinh.getTen());
+			pstm.setString(3, thiSinh.getNgaySinh());
+			pstm.setString(4, thiSinh.getNoiSinh());	
+			pstm.setString(5, thiSinh.getKhuVuc());
+			pstm.setString(6, thiSinh.getDoiTuong());
+			pstm.setString(7, thiSinh.getDienThoai());
+			pstm.setString(8, thiSinh.getEmail());
+			pstm.setString(9, thiSinh.getDiaChi());			
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	
+	public boolean update(ThiSinhBean thiSinh) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update THISINH Set hoDem=?; ten=?; ngaySinh=?; noiSinh=?; khuVuc=?; doiTuong=?; dienThoai=?;"
+					+ "email=?; diaChi=? where maThiSinh=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(10, thiSinh.getMaThiSinh());
+			pstm.setString(1, thiSinh.getHoDem());
+			pstm.setString(2, thiSinh.getTen());
+			pstm.setString(3, thiSinh.getNgaySinh());
+			pstm.setString(4, thiSinh.getNoiSinh());	
+			pstm.setString(5, thiSinh.getKhuVuc());
+			pstm.setString(6, thiSinh.getDoiTuong());
+			pstm.setString(7, thiSinh.getDienThoai());
+			pstm.setString(8, thiSinh.getEmail());
+			pstm.setString(9, thiSinh.getDiaChi());	
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	
+	public boolean delete(String maThiSinh) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Delete from THISINH where maThiSinh=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maThiSinh);
+			result = pstm.execute();
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	public List<ThiSinhBean> searchThiSinh(String tenThiSinh, String maThiSinh){
+		List<ThiSinhBean> lst = new ArrayList<ThiSinhBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM THISINH where ten Like N'%"+tenThiSinh +"%' or maThiSinh Like N'%"+maThiSinh+"%'";
+			pstm = cnn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			ThiSinhBean ts = null;
+			while (rs.next()) {
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
+						rs.getString("soBaoDanh")) ;
+				lst.add(ts);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;		
 	}
 }

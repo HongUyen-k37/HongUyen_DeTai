@@ -1,7 +1,7 @@
 package model.bean;
 
 public class KyThiBean {
-	private long maKyThi;
+	private String maKyThi;
 	private String tenKyThi;
 	private String ngayThi;
 	private int namTuyenSinh;
@@ -15,12 +15,7 @@ public class KyThiBean {
 	private int soLuongChuSo;
 	private double diemChuan;
 	private double diemLiet;
-	public long getMaKyThi() {
-		return maKyThi;
-	}
-	public void setMaKyThi(long maKyThi) {
-		this.maKyThi = maKyThi;
-	}
+
 	public String getTenKyThi() {
 		return tenKyThi;
 	}
@@ -99,11 +94,11 @@ public class KyThiBean {
 	public void setDiemLiet(double diemLiet) {
 		this.diemLiet = diemLiet;
 	}
-	public KyThiBean(long maKyThi, String tenKyThi, String ngayThi, int namTuyenSinh, String nganh, String hinhThucDT,
+	public KyThiBean(String maKyThi, String tenKyThi, String ngayThi, int namTuyenSinh, String nganh, String hinhThucDT,
 			String coSoLKDT, int soMonThi, int trangThai, String tiepDauNgu, int soBatDau, int soLuongChuSo,
 			double diemChuan, double diemLiet) {
 		super();
-		this.maKyThi = maKyThi;
+		this.setMaKyThi(maKyThi);
 		this.tenKyThi = tenKyThi;
 		this.ngayThi = ngayThi;
 		this.namTuyenSinh = namTuyenSinh;
@@ -120,5 +115,11 @@ public class KyThiBean {
 	}
 	public KyThiBean() {
 		super();
+	}
+	public String getMaKyThi() {
+		return maKyThi;
+	}
+	public void setMaKyThi(String maKyThi) {
+		this.maKyThi = maKyThi;
 	}
 }

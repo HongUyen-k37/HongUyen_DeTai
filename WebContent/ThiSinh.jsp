@@ -27,7 +27,7 @@
 	<br>
 	<div class="col-md-8">
 		<div class="group-content">
-			<a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Thêm thí sinh</a>
+			<a class="btn btn-success" data-toggle="modal" href='#modal-id'>Thêm thí sinh</a>
 			
 		<!-- 	<div class="row main-nav" >
 				<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>

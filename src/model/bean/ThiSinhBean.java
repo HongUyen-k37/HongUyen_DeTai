@@ -1,7 +1,7 @@
 package model.bean;
 
 public class ThiSinhBean {
-	private long maThiSinh;
+	private String maThiSinh;
 	private long maKyThi;
 	private long maPhongThi;
 	private String hoDem;
@@ -14,12 +14,7 @@ public class ThiSinhBean {
 	private String email;
 	private String diaChi;
 	private String soBaoDanh;
-	public long getMaThiSinh() {
-		return maThiSinh;
-	}
-	public void setMaThiSinh(long maThiSinh) {
-		this.maThiSinh = maThiSinh;
-	}
+
 	public long getMaKyThi() {
 		return maKyThi;
 	}
@@ -92,11 +87,11 @@ public class ThiSinhBean {
 	public void setSoBaoDanh(String soBaoDanh) {
 		this.soBaoDanh = soBaoDanh;
 	}
-	public ThiSinhBean(long maThiSinh, long maKyThi, long maPhongThi, String hoDem, String ten, String ngaySinh,
+	public ThiSinhBean(String maThiSinh, long maKyThi, long maPhongThi, String hoDem, String ten, String ngaySinh,
 			String noiSinh, String khuVuc, String doiTuong, String dienThoai, String email, String diaChi,
 			String soBaoDanh) {
 		super();
-		this.maThiSinh = maThiSinh;
+		this.setMaThiSinh(maThiSinh);
 		this.maKyThi = maKyThi;
 		this.maPhongThi = maPhongThi;
 		this.hoDem = hoDem;
@@ -112,5 +107,11 @@ public class ThiSinhBean {
 	}
 	public ThiSinhBean() {
 		super();
+	}
+	public String getMaThiSinh() {
+		return maThiSinh;
+	}
+	public void setMaThiSinh(String maThiSinh) {
+		this.maThiSinh = maThiSinh;
 	}
 }

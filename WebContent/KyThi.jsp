@@ -116,9 +116,6 @@
 						    	<div class="col-sm-10">
 						      		<input type="text" class="form-control" id="dsmt">
 						    	</div>
-						    	<!-- <div class="col-sm-4">
-						      		<textarea class="form-control" rows="3"></textarea>
-						   		 </div> -->
 						  	</div>
 						</form>
 					</div>
