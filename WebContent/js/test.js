@@ -17,6 +17,7 @@ function suaKyThi(makt){
 			$("#f_nganh").val(result["nganh"]);
 			$("#f_hinhThucDT").val(result["hinhThucDT"]);
 			$("#f_coSoLKDT").val(result["coSoLKDT"]);
+			$("#f_maMonThi").val(result["maMonThi"]).trigger("change");
 			
 	    }
 	});

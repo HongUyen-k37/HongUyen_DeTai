@@ -103,14 +103,14 @@ public class KyThiDAO extends DataAccessObject{
 		return result;
 	}
 	
-	public boolean delete(String idBaiThi) {
+	public boolean delete(String maKyThi) {
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
 			String sql = "Delete from KYTHI where maKyThi=?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setString(1, idBaiThi);
+			pstm.setString(1, maKyThi);
 			result = pstm.execute();
 		} catch (Exception ex) {
 			result = false;

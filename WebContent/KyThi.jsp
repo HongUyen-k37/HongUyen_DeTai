@@ -18,7 +18,7 @@
 <div class="row">
 <!-- //viết hàm js taoKyThi() -->
 <br>
-<a type="" class="btn btn-success" data-toggle="modal" href="#modal-id" onclick="taoKyThi()">Tạo kỳ thi</a>
+<a type="" class="btn btn-success" data-toggle="modal" href="#modal-id" >Tạo kỳ thi</a>
 <%--  <div id="search" class="col-md-5" style="float:right">
 	<html:form action="" method="GET">   
     <div class="form-search search-only">
@@ -42,14 +42,14 @@
 				</thead>
 				<tbody>
 					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="dskt">
-					<tr onclick="linkTo('makt',${dskt.maKyThi})">					
+					<tr <%-- onclick="linkTo('makt',${dskt.maKyThi})" --%>>					
 						<td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
-						<a href="#modal-id" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="fa fa-edit"></i></a> 
-	                    <a href="#xoaKyThi"  data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="fa fa-trash"></i></a>
+						<a href="#modal-id" onclick="suaKyThi('${makt}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
+	                    <a href="#xoaKyThi"  data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a>
 	                    </td>
 					</tr>
 					</logic:iterate>
@@ -80,14 +80,15 @@
 						    	</div>
 						  	</div>
 							<div class="form-group row">
-						    	<label class="control-label col-sm-2 pad-5" for="pwd">Năm tuyển sinh:</label>
-						    	<div class="col-sm-4"> 
-						      		<input type="number" class="form-control" id="namts" min="2015">
-						    	</div>
-						    	<label class="control-label col-sm-2 pad-5">Ngày thi:</label>
+							<label class="control-label col-sm-2 pad-5">Ngày thi:</label>
 						    	<div class="col-sm-4">
 						      		<input type="text" class="form-control" id="ngaythi" placeholder="Ví dụ: 02-11">
 						    	</div>
+						    	<label class="control-label col-sm-3 pad-5" for="pwd">Năm tuyển sinh:</label>
+						    	<div class="col-sm-3"> 
+						      		<input type="number" class="form-control" id="namts" min="2015">
+						    	</div>
+						    	
 						  	</div>
 							<div class="form-group row">
 						    	<label class="control-label col-sm-2 pad-5">Ngành:</label>
@@ -97,23 +98,23 @@
 										<option value="gosu">Gosu</option>
 									</select>
 						    	</div>
-						    	<label class="control-label col-sm-2 pad-5">Hình thức đào tạo:</label>
-						    	<div class="col-sm-4">
+						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo:</label>
+						    	<div class="col-sm-3">
 						    		<select class="form-control">
 										<option value="dh">Đại học</option>
 										<option value="ch">Cao học</option>
 									</select>
 					    		</div>
 						  	</div>
-						  	<div class="form-group">
-						    	<label class="control-label col-sm-2 pad-5">Cơ sở liên kết đào tạo:</label>
-						    	<div class="col-sm-10">
+						  	<div class="form-group row">
+						    	<label class="control-label col-sm-4">Cơ sở liên kết đào tạo:</label>
+						    	<div class="col-sm-8">
 						      		<input type="text" class="form-control" id="cslkdt">
 						    	</div>
 						  	</div>
-						  	<div class="form-group">
-						    	<label class="control-label col-sm-2 pad-5">Danh sách môn thi:</label>
-						    	<div class="col-sm-10">
+						  	<div class="form-group row">
+						    	<label class="control-label col-sm-4">Danh sách môn thi:</label>
+						    	<div class="col-sm-8">
 						      		<input type="text" class="form-control" id="dsmt">
 						    	</div>
 						  	</div>

@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
 <link rel="stylesheet" type="text/css" href="css/style_index.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
