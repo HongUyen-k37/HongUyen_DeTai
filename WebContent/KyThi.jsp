@@ -41,16 +41,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<logic:iterate name="danhSachKyThiActionForm" property="listKyThi" id="dskt">
+					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
 					<tr <%-- onclick="linkTo('makt',${dskt.maKyThi})" --%>>					
-						<td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td>
+						<%-- <td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td> --%>
+						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
-						<a href="#modal-id" onclick="suaKyThi('${makt}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
-	                    <a href="#xoaKyThi"  data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a>
-	                    </td>
+						<a href="#modal-id" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
+	                    <a href="XoaKyThi.do?maKyThi=${maKyThi}" onclick="return confirm('Bạn chắc chắn muốn xóa kỳ thi này?')" class="icon icon-danger" title="Xóa câu hỏi"><i class="glyphicon glyphicon-trash"></i></a></td>
 					</tr>
 					</logic:iterate>
 				</tbody>
@@ -65,67 +65,62 @@
 <div class="modal fade" id="modal-id">
 	<div class="modal-dialog">
 		<div class="modal-content">
+		<html:form action="/ThemKyThi" styleId="formCreateEdit" styleClass="form-horizontal">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title">Thêm Kỳ thi</h4>
 			</div>
 			<div class="modal-body">
-				<div class="thongtinkithi">
 						<p class="title">THÔNG TIN KỲ THI</p>
-						<form class="form-horizontal">
+						
 							<div class="form-group">
 						   		<label class="col-sm-2 pad-5">Tên kỳ thi:</label>
 						    	<div class="col-sm-10">
-						      		<input type="text" class="form-control" id="tenkithi">
+						      		<input type="text" class="form-control" id="f_tenKyThi" name="tenKyThi" onchange="this.value=this.value.trim()">
 						    	</div>
 						  	</div>
 							<div class="form-group row">
 							<label class="control-label col-sm-2 pad-5">Ngày thi:</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="ngaythi" placeholder="Ví dụ: 02-11">
+						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" placeholder="Ví dụ: 02-11">
 						    	</div>
-						    	<label class="control-label col-sm-3 pad-5" for="pwd">Năm tuyển sinh:</label>
+						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh:</label>
 						    	<div class="col-sm-3"> 
-						      		<input type="number" class="form-control" id="namts" min="2015">
+						      		<input type="number" class="form-control" id="f_namTuyenSinh" name="namTuyenSinh" min="2015">
 						    	</div>
 						    	
 						  	</div>
 							<div class="form-group row">
 						    	<label class="control-label col-sm-2 pad-5">Ngành:</label>
 						    	<div class="col-sm-4">
-						      		<select class="form-control">
-										<option value="FPT">FPT</option>
-										<option value="gosu">Gosu</option>
-									</select>
+						      		<input type="text" class="form-control" id="f_nganh" name="nganh">
 						    	</div>
 						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo:</label>
 						    	<div class="col-sm-3">
-						    		<select class="form-control">
-										<option value="dh">Đại học</option>
-										<option value="ch">Cao học</option>
-									</select>
+						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT">
 					    		</div>
 						  	</div>
 						  	<div class="form-group row">
 						    	<label class="control-label col-sm-4">Cơ sở liên kết đào tạo:</label>
 						    	<div class="col-sm-8">
-						      		<input type="text" class="form-control" id="cslkdt">
+						      		<input type="text" class="form-control" id="f_coSoLKDT" name="coSoLKDT">
 						    	</div>
 						  	</div>
 						  	<div class="form-group row">
 						    	<label class="control-label col-sm-4">Danh sách môn thi:</label>
 						    	<div class="col-sm-8">
-						      		<input type="text" class="form-control" id="dsmt">
+						      		<textarea rows="4" cols="50">
+						      			
+									</textarea>
 						    	</div>
 						  	</div>
-						</form>
-					</div>
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
 				<button type="button" class="btn btn-primary">Xóa</button>
-				<button type="button" class="btn btn-success">Đồng ý</button>
+				<button type="submit" name="submit" value="submit" onclick="" class="btn btn-success">Đồng ý</button>
 			</div>
+			</html:form>
 		</div>
 	</div>
 </div>

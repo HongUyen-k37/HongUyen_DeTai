@@ -10,7 +10,7 @@ public class KyThiBO {
 	public List<KyThiBean> getListKyThi(){
 		return kt.getListKyThi();
 	}
-	public KyThiBean getKyThi(Long MaKyThi) {
+	public KyThiBean getKyThi(String MaKyThi) {
 		return kt.getKyThi(MaKyThi);
 	}
 	public boolean delete(String maKyThi) {

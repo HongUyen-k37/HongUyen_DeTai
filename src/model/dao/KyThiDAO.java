@@ -42,7 +42,7 @@ public class KyThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, kyThi.getTenKyThi());
 			pstm.setString(2, kyThi.getNgayThi());
@@ -74,8 +74,8 @@ public class KyThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Update KYTHI Set tenKyThi=?; ngayThi=?; namTuyenSinh=?; nganh=?; hinhThucDT=?; coSoLKDT=?; soMonThi=?;"
-					+ "trangThai=?; tiepDauNgu=?; soBatDau=?; soLuongChuSo=?; diemChuan=?; diemLiet=? where maKyThi=? ";
+			String sql = "Update KYTHI Set tenKyThi=?, ngayThi=?, namTuyenSinh=?, nganh=?, hinhThucDT=?, coSoLKDT=?, soMonThi=?,"
+					+ "trangThai=?, tiepDauNgu=?, soBatDau=?, soLuongChuSo=?, diemChuan=?, diemLiet=? where maKyThi=? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(14, kyThi.getMaKyThi());
 			pstm.setString(1, kyThi.getTenKyThi());
@@ -122,7 +122,7 @@ public class KyThiDAO extends DataAccessObject{
 		return result;
 	}
 	
-	public KyThiBean getKyThi(Long MaKyThi) {
+	public KyThiBean getKyThi(String maKyThi) {
 		KyThiBean kt=null;
 		Connection cnn = getConnection();
 		ResultSet rs = null;
@@ -130,7 +130,7 @@ public class KyThiDAO extends DataAccessObject{
 		try {
 			String sql = "SELECT * FROM KYTHI where maKyThi=?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setLong(1, MaKyThi);
+			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),

@@ -1,12 +1,11 @@
-function suaKyThi(makt){
-	clearCheckbox();
+function suaKyThi(maKyThi){
 	$("button[name='resetForm']").click();
-	document.forms.formCreateEdit.action="SuaKyThi.do?makt="+maKyThi;
+	document.forms.formCreateEdit.action="SuaKyThi.do?maKyThi="+maKyThi;
 	$(".modal-title").html("Sửa kỳ thi");
 	$.ajax({
 		type: "POST",
 		data:{
-			maKyThi : makt,
+			maKyThi : maKyThi,
 		},
 		url:"GetKyThi.do",
 		success: function (result) {
@@ -17,8 +16,7 @@ function suaKyThi(makt){
 			$("#f_nganh").val(result["nganh"]);
 			$("#f_hinhThucDT").val(result["hinhThucDT"]);
 			$("#f_coSoLKDT").val(result["coSoLKDT"]);
-			$("#f_maMonThi").val(result["maMonThi"]).trigger("change");
-			
+			//$("#f_maMonThi").val(result["maMonThi"]).trigger("change");
 	    }
 	});
 }

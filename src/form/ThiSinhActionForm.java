@@ -11,26 +11,26 @@ public class ThiSinhActionForm extends ActionForm{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private long maKyThi;
-	private long mats;
+	private String maKyThi;
+	private String mats;
 	private String tiepDauNgu;
 	private int soBatDau;
 	private int soLuong;
 	private List<ThiSinhBean> listThiSinh;
 
-	public long getMaKyThi() {
+	public String getMaKyThi() {
 		return maKyThi;
 	}
 
-	public void setMaKyThi(long maKyThi) {
+	public void setMaKyThi(String maKyThi) {
 		this.maKyThi = maKyThi;
 	}
 
-	public long getMats() {
+	public String getMats() {
 		return mats;
 	}
 
-	public void setMats(long mats) {
+	public void setMats(String mats) {
 		this.mats = mats;
 	}
 
