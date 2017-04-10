@@ -16,4 +16,18 @@ public class ThiSinhBO {
 	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
 		return ts.danhSoBaoDanh(tiepDauNgu, soBatDau, soLuong, maKyThi);
 	}
+	public boolean insert(ThiSinhBean thiSinh) {
+		return ts.insert(thiSinh);
+	}
+	public boolean update(ThiSinhBean thiSinh) {
+		return ts.update(thiSinh);
+	}
+	public boolean delete(String maThiSinh) {
+		return ts.delete(maThiSinh);
+		
+	}
+	public List<ThiSinhBean> searchThiSinh(String tenThiSinh, String maThiSinh){
+		return ts.searchThiSinh(tenThiSinh, maThiSinh);
+		
+	}
 }

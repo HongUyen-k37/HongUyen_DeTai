@@ -16,7 +16,6 @@
 <jsp:include page="Asset/Menu2.jsp" />
 <div class="container">
 <div class="row">
-<!-- //viết hàm js taoKyThi() -->
 <br>
 <a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
 <%--  <div id="search" class="col-md-5" style="float:right">
@@ -50,7 +49,7 @@
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
 						<a href="javascript:void(0)" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
-	                    <a href="XoaKyThi.do?maKyThi=${maKyThi}" onclick="return confirm('Bạn chắc chắn muốn xóa kỳ thi này?')" class="icon icon-danger" title="Xóa câu hỏi"><i class="glyphicon glyphicon-trash"></i></a></td>
+	                    <a href="XoaKyThi.do?maKyThi=${maKyThi}" onclick="return confirm('Bạn chắc chắn muốn xóa kỳ thi này?')" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 					</tr>
 					</logic:iterate>
 				</tbody>
