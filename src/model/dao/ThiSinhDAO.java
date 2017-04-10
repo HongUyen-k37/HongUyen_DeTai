@@ -9,7 +9,7 @@ import java.util.List;
 import model.bean.ThiSinhBean;
 
 public class ThiSinhDAO extends DataAccessObject{
-	public List<ThiSinhBean> getListThiSinh(long maKyThi){
+	public List<ThiSinhBean> getListThiSinh(String maKyThi){
 		List<ThiSinhBean> lst = new ArrayList<ThiSinhBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
@@ -17,11 +17,11 @@ public class ThiSinhDAO extends DataAccessObject{
 		try {
 			String sql = "SELECT * FROM THISINH WHERE maKyThi = ?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setLong(1, maKyThi);
+			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
 			while (rs.next()) {
-				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
@@ -47,7 +47,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			pstm.setString(1, maThiSinh);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
@@ -61,7 +61,8 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return ts;
 	}
-	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, long maKyThi){
+	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
+		if(tiepDauNgu==null || tiepDauNgu.equals("")) System.out.println("Đéo có giề");
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
@@ -71,7 +72,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			pstm.setString(1, tiepDauNgu);
 			pstm.setInt(2, soBatDau);
 			pstm.setInt(3, soLuong);
-			pstm.setLong(4, maKyThi);
+			pstm.setString(4, maKyThi);
 			result = pstm.execute();
 		} catch (Exception ex) {
 			result = false;
@@ -170,7 +171,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
 			while (rs.next()) {
-				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getLong("maKyThi"), rs.getLong("maPhongThi"), rs.getString("hoDem"),
+				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh")) ;

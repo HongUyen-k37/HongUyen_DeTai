@@ -26,7 +26,7 @@ public class DanhSachThiSinhAction extends Action{
 		
 		ThiSinhBO tsBO = new ThiSinhBO();
 		//frm.setListThiSinh(tsBO.getListThiSinh(frm.getMaKyThi()));
-		frm.setListThiSinh(tsBO.getListThiSinh(1));
+		frm.setListThiSinh(tsBO.getListThiSinh("KT0001"));
 		return mapping.findForward("success");
 	}
 	

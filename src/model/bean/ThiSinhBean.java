@@ -2,8 +2,8 @@ package model.bean;
 
 public class ThiSinhBean {
 	private String maThiSinh;
-	private long maKyThi;
-	private long maPhongThi;
+	private String maKyThi;
+	private String maPhongThi;
 	private String hoDem;
 	private String ten;
 	private String ngaySinh;
@@ -15,16 +15,16 @@ public class ThiSinhBean {
 	private String diaChi;
 	private String soBaoDanh;
 
-	public long getMaKyThi() {
+	public String getMaKyThi() {
 		return maKyThi;
 	}
-	public void setMaKyThi(long maKyThi) {
+	public void setMaKyThi(String maKyThi) {
 		this.maKyThi = maKyThi;
 	}
-	public long getMaPhongThi() {
+	public String getMaPhongThi() {
 		return maPhongThi;
 	}
-	public void setMaPhongThi(long maPhongThi) {
+	public void setMaPhongThi(String maPhongThi) {
 		this.maPhongThi = maPhongThi;
 	}
 	public String getHoDem() {
@@ -87,11 +87,11 @@ public class ThiSinhBean {
 	public void setSoBaoDanh(String soBaoDanh) {
 		this.soBaoDanh = soBaoDanh;
 	}
-	public ThiSinhBean(String maThiSinh, long maKyThi, long maPhongThi, String hoDem, String ten, String ngaySinh,
+	public ThiSinhBean(String maThiSinh, String maKyThi, String maPhongThi, String hoDem, String ten, String ngaySinh,
 			String noiSinh, String khuVuc, String doiTuong, String dienThoai, String email, String diaChi,
 			String soBaoDanh) {
 		super();
-		this.setMaThiSinh(maThiSinh);
+		this.maThiSinh = maThiSinh;
 		this.maKyThi = maKyThi;
 		this.maPhongThi = maPhongThi;
 		this.hoDem = hoDem;

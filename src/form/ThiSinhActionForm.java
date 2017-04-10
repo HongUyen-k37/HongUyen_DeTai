@@ -16,6 +16,15 @@ public class ThiSinhActionForm extends ActionForm{
 	private String tiepDauNgu;
 	private int soBatDau;
 	private int soLuong;
+	private String submit;
+	public String getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
+
 	private List<ThiSinhBean> listThiSinh;
 
 	public String getMaKyThi() {

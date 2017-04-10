@@ -26,11 +26,11 @@ public class DanhSoBaoDanhAction extends Action{
 		
 		ThiSinhBO tsBO = new ThiSinhBO();
 		//danh sbd
-		//tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), frm.getMaKyThi());
-		tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), 1);
+		if ("submit".equals(frm.getSubmit())){
+			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), "KT0001");
+		}
 		//show list
-		//frm.setListThiSinh(tsBO.getListThiSinh(frm.getMaKyThi()));
-		frm.setListThiSinh(tsBO.getListThiSinh(1));
+		frm.setListThiSinh(tsBO.getListThiSinh("KT0001"));
 		return mapping.findForward("success");
 	}
 	

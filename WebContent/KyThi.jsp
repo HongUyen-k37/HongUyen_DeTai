@@ -18,7 +18,7 @@
 <div class="row">
 <!-- //viết hàm js taoKyThi() -->
 <br>
-<a type="" class="btn btn-success" data-toggle="modal" href="#modal-id" >Tạo kỳ thi</a>
+<a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
 <%--  <div id="search" class="col-md-5" style="float:right">
 	<html:form action="" method="GET">   
     <div class="form-search search-only">
@@ -49,7 +49,7 @@
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
-						<a href="#modal-id" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
+						<a href="javascript:void(0)" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
 	                    <a href="XoaKyThi.do?maKyThi=${maKyThi}" onclick="return confirm('Bạn chắc chắn muốn xóa kỳ thi này?')" class="icon icon-danger" title="Xóa câu hỏi"><i class="glyphicon glyphicon-trash"></i></a></td>
 					</tr>
 					</logic:iterate>
@@ -62,7 +62,7 @@
 </div>
 
 
-<div class="modal fade" id="modal-id">
+<div class="modal fade" id="modal-kythi">
 	<div class="modal-dialog">
 		<div class="modal-content">
 		<html:form action="/ThemKyThi" styleId="formCreateEdit" styleClass="form-horizontal">
@@ -72,7 +72,6 @@
 			</div>
 			<div class="modal-body">
 						<p class="title">THÔNG TIN KỲ THI</p>
-						
 							<div class="form-group">
 						   		<label class="col-sm-2 pad-5">Tên kỳ thi:</label>
 						    	<div class="col-sm-10">
@@ -107,18 +106,22 @@
 						    	</div>
 						  	</div>
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Danh sách môn thi:</label>
-						    	<div class="col-sm-8">
-						      		<textarea rows="4" cols="50">
-						      			
-									</textarea>
-						    	</div>
+						    	<label class="control-label col-sm-4">Số môn thi: <i id="soMonThi">0</i></label>
+						  		<label class="control-label col-sm-8">Danh sách môn thi:</label>
 						  	</div>
+						  	<div class="form-group row">
+						    	<div class="col-sm-8 col-sm-offset-2">
+						    		<input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi">
+						    	</div>
+						    	<button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button>
+						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
+						  	</div>
+						  	<button type="button" class="btn btn-default col-md-8 col-md-offset-2" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
 				<button type="button" class="btn btn-primary">Xóa</button>
-				<button type="submit" name="submit" value="submit" onclick="" class="btn btn-success">Đồng ý</button>
+				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
 			</div>
 			</html:form>
 		</div>
@@ -126,4 +129,4 @@
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 </body>
-</html>
+</htm>>

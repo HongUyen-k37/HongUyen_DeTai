@@ -48,7 +48,7 @@
 				</div>
 				</div>
 				<div class="btn-gr">
-					<button type="submit" class="btn btn-success" name="submit">Thực hiện</button>
+					<button type="submit" name="submit" value="submit" class="btn btn-success">Thực hiện</button>
 				</div>
 			</html:form>
 			</div>

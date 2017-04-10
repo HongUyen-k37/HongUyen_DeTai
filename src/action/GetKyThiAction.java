@@ -21,6 +21,7 @@ public class GetKyThiAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		response.setCharacterEncoding("UTF-8");
 		KyThiActionForm frm = (KyThiActionForm)form;
 		
 		String maKyThi=frm.getMaKyThi();
@@ -30,6 +31,7 @@ public class GetKyThiAction extends Action{
 		ObjectWriter ow= new ObjectMapper().writer().withDefaultPrettyPrinter();
 		String json=ow.writeValueAsString(kt);
 		PrintWriter pw=response.getWriter();
+		
 		pw.print(json);
 		return null;
 	}
