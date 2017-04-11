@@ -36,11 +36,10 @@ public class ThemThiSinhAction extends Action{
 			String dienThoai = frm.getDienThoai();
 			String email = frm.getEmail();
 			String diaChi = frm.getDiaChi();
-			
 		
-			ThiSinhBean ts = new ThiSinhBean(null, null, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+			ThiSinhBean ts = new ThiSinhBean(null, "KT0001", null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			tsBO.insert(ts);
-			return mapping.findForward("success");
+			return mapping.findForward("ThemThiSinh");
 		}
 		return mapping.findForward("ShowThiSinh");
 	}

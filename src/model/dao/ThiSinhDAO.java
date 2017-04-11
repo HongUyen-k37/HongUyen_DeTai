@@ -89,17 +89,21 @@ public class ThiSinhDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "INSERT INTO THISINH VALUES(?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO THISINH VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setString(1, thiSinh.getHoDem());
-			pstm.setString(2, thiSinh.getTen());
-			pstm.setString(3, thiSinh.getNgaySinh());
-			pstm.setString(4, thiSinh.getNoiSinh());	
-			pstm.setString(5, thiSinh.getKhuVuc());
-			pstm.setString(6, thiSinh.getDoiTuong());
-			pstm.setString(7, thiSinh.getDienThoai());
-			pstm.setString(8, thiSinh.getEmail());
-			pstm.setString(9, thiSinh.getDiaChi());			
+			pstm.setString(1, thiSinh.getMaKyThi());
+			pstm.setString(2, thiSinh.getMaPhongThi());
+			pstm.setString(3, thiSinh.getHoDem());
+			pstm.setString(4, thiSinh.getTen());
+			pstm.setString(5, thiSinh.getNgaySinh());
+			pstm.setString(6, thiSinh.getNoiSinh());	
+			pstm.setString(7, thiSinh.getKhuVuc());
+			pstm.setString(8, thiSinh.getDoiTuong());
+			pstm.setString(9, thiSinh.getDienThoai());
+			pstm.setString(10, thiSinh.getEmail());
+			pstm.setString(11, thiSinh.getDiaChi());
+			pstm.setString(12, thiSinh.getSoBaoDanh());
+			
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {

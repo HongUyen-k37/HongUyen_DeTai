@@ -33,17 +33,21 @@
 			<table id="table" class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
+						<th>STT</th>
 						<th>Tên kỳ thi</th>
 						<th>Ngành</th>
 						<th>Thời gian thi</th>
 						 <th style="width: 92px;"></th>
 					</tr>
 				</thead>
+					<bean:define id="stt" value="0"/>
 				<tbody>
 					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
 					<tr <%-- onclick="linkTo('makt',${dskt.maKyThi})" --%>>					
 						<%-- <td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td> --%>
-						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>
+						<bean:define id="stt" value="${stt+1}"/>
+						<td>${stt}</td>	
+						<%-- <bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define> --%>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
@@ -70,6 +74,7 @@
 				<h4 class="modal-title">Thêm Kỳ thi</h4>
 			</div>
 			<div class="modal-body">
+			<div class="row main-nav" >
 						<p class="title">THÔNG TIN KỲ THI</p>
 							<div class="form-group">
 						   		<label class="col-sm-2 pad-5">Tên kỳ thi:</label>
@@ -121,6 +126,7 @@
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
 				<button type="button" class="btn btn-primary">Xóa</button>
 				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
+			</div>
 			</div>
 			</html:form>
 		</div>
