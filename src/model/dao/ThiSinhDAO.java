@@ -62,7 +62,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		return ts;
 	}
 	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
-		if(tiepDauNgu==null || tiepDauNgu.equals("")) System.out.println("Đéo có giề");
+		if(tiepDauNgu==null || tiepDauNgu.equals("")) System.out.println("Nothing");
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;

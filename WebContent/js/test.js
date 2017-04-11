@@ -90,5 +90,32 @@ function suaThiSinh(maThiSinh){
 	});
 	$("#modal-thisinh").modal();
 }
+function suaPhongThi(maPhongThi){
+	document.forms.formCreateEdit.reset();
+	document.forms.formCreateEdit.action="SuaPhongThi.do?maPhongThi="+maPhongThi;
+	$(".modal-title").html("Sửa phòng thi");
+	$.ajax({
+		type: "POST",
+		data:{
+			maPhongThi : maPhongThi,
+		},
+		url:"GetPhongThi.do",
+		success: function (result) {
+			result=JSON.parse(result);
+			test=result;
+			$("#f_soHieuPhongThi").val(result["soHieuPhongThi"]);
+			$("#f_soLuongThiSinh").val(result["soLuongThiSinh"]);
+	    }
+	});
+	$("#modal-phongthi").modal();
+}
+function taoPhongThi(){
+	document.forms.formCreateEdit.reset();
+	document.forms.formCreateEdit.action="ThemPhongThi.do";
+	$(".modal-title").html("Thêm phòng thi");
+	
+	$("#modal-phongthi").modal();
+}
+
 
 
