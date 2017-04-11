@@ -91,4 +91,9 @@ function suaThiSinh(mats){
 	$("#modal-thisinh").modal();
 }
 
+function getMaKyThi(){
+	var makt = document.getElementById("f_maKyThi").value;
+	document.forms.formCreateEdit.action="ThiSinh.do?maKyThi="+makt;
+}
+
 

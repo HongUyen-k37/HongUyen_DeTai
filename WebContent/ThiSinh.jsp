@@ -44,7 +44,7 @@
 					</thead>
 						<bean:define id="stt" value="0"/>
 					<tbody>
-						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh" >	
+						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
 						<tr>	
 					
 							<bean:define id="stt" value="${stt+1}"/>

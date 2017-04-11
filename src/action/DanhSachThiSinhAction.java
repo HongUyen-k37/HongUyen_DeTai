@@ -1,5 +1,8 @@
 package action;
 
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,9 +11,12 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectWriter;
 
 import form.ThiSinhActionForm;
 import model.bean.NguoiDungBean;
+import model.bean.ThiSinhBean;
 import model.bo.ThiSinhBO;
 
 public class DanhSachThiSinhAction extends Action{
@@ -25,8 +31,7 @@ public class DanhSachThiSinhAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		
 		ThiSinhBO tsBO = new ThiSinhBO();
-		//frm.setListThiSinh(tsBO.getListThiSinh(frm.getMaKyThi()));
-		frm.setListThiSinh(tsBO.getListThiSinh("KT0001"));
+		frm.setListThiSinh(tsBO.getListThiSinh(frm.getMaKyThi()));
 		return mapping.findForward("success");
 	}
 	
