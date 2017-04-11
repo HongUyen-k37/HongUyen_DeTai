@@ -20,7 +20,7 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
-				<jsp:include page="Asset/ThongTinKyThi.jsp" />
+				<%@include file="Asset/ThongTinKyThi.jsp" %>
 			</div>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 					</thead>
 						<bean:define id="stt" value="0"/>
 					<tbody>
-						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh" >	
+						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
 							<td>${stt}</td>				

@@ -9,10 +9,10 @@
 				<div class="form-group">
 			   		<label class="col-sm-3">Tên kỳ thi:</label>
 			    	<div class="col-sm-9">
-			      		<select class="form-control">
-							<option value="FPT">Kỳ thi 1</option>
-							<option value="gosu">Kỳ thi 2</option>
-						</select>
+				      	<html:select property="maKyThi" name="thiSinhActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+	                    		<html:optionsCollection name="thiSinhActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
+		             	</html:select>
+		             	
 			    	</div>
 			  	</div>
 			  	<div class="form-group">

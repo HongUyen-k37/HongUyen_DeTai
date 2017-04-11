@@ -118,4 +118,7 @@ function taoPhongThi(){
 }
 
 
-
+function getMaKyThi(){
+	var makt = $("#f_maKyThi").val();
+	document.location.href="ThiSinh.do?maKyThi="+makt;
+}

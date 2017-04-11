@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
+import model.bean.KyThiBean;
 import model.bean.ThiSinhBean;
 
 public class ThiSinhActionForm extends ActionForm{
@@ -15,6 +16,15 @@ public class ThiSinhActionForm extends ActionForm{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private List<KyThiBean> listKyThi;
+	public List<KyThiBean> getListKyThi() {
+		return listKyThi;
+	}
+
+	public void setListKyThi(List<KyThiBean> listKyThi) {
+		this.listKyThi = listKyThi;
+	}
+
 	private String maKyThi;
 	private String maThiSinh;
 	private String maPhongThi;
