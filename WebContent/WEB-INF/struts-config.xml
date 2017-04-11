@@ -55,8 +55,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="error" path="/DangNhap.jsp" />
 		</action>
 		<action path="/ThemThiSinh" type="action.ThemThiSinhAction" scope="request" name="thiSinhActionForm">
-			<forward name="success" path="/ThiSinh.do" redirect="true"></forward>
+			<forward name="ThemThiSinh" path="/ThiSinh.do" redirect="true"></forward>
 			<forward name="ShowThiSinh" path="/ThiSinh.do" redirect="true"></forward>
+		</action>
+			<action path="/GetThiSinh" name="thiSinhActionForm" type="action.GetThiSinhAction" scope="request">
 		</action>
 		<action path="/SuaThiSinh" type="action.SuaThiSinhAction" name="thiSinhActionForm" scope="request">
 			<forward name="success" path="/ThiSinh.do" redirect="true"></forward>

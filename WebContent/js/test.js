@@ -64,14 +64,14 @@ function taoThiSinh(){
 	$("#modal-thisinh").modal();
 }
 
-function suaThiSinh(mats){
+function suaThiSinh(maThiSinh){
 	document.forms.formCreateEdit.reset();
-	document.forms.formCreateEdit.action="SuaThiSinh.do?maThiSinh="+mats;
+	document.forms.formCreateEdit.action="SuaThiSinh.do?maThiSinh="+maThiSinh;
 	$(".modal-title").html("Sửa thí sinh");
 	$.ajax({
 		type: "POST",
 		data:{
-			maThiSinh : mats,
+			maThiSinh : maThiSinh,
 		},
 		url:"GetThiSinh.do",
 		success: function (result) {
