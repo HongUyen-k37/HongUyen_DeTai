@@ -63,8 +63,8 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="success" path="/ThiSinh.do" redirect="true"></forward>
 		</action>
 		<action path="/XoaThiSinh" type="action.XoaThiSinhAction" name="thiSinhActionForm" scope="request">
-<<<<<<< HEAD
 			<forward name="success" redirect="true" path="/ThiSinh.do"></forward></action>
+		
 		<action path="/PhanPhongThi" name="phongThiActionForm"
 			type="action.DanhSachPhongThiAction" scope="request">
 			<forward name="success" path="/PhanPhongThi.jsp" />
@@ -80,9 +80,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action path="/SuaPhongThi" name="phongThiActionForm"
 				type="action.SuaPhongThiAction" scope="request">
 			<forward name="success" path="/PhanPhongThi.do" redirect="true"/>
-=======
-			<forward name="success" redirect="true" path="/ThiSinh.do"></forward>
->>>>>>> origin/master
 		</action>
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />

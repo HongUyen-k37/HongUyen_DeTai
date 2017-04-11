@@ -122,3 +122,7 @@ function getMaKyThi(){
 	var makt = $("#f_maKyThi").val();
 	document.location.href="ThiSinh.do?maKyThi="+makt;
 }
+function getMaKyThi2(){
+	var makt = $("#f_maKyThi").val();
+	document.location.href="PhanPhongThi.do?maKyThi="+makt;
+}

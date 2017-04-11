@@ -22,4 +22,7 @@ public class PhongThiBO {
 	public boolean update(PhongThiBean phongThi) {
 		return pt.update(phongThi);
 	}
+	public List<PhongThiBean> getListPhongThiTheoMaKyThi(String maKyThi){
+		return pt.getListPhongThiTheoMaKyThi(maKyThi);
+	}
 }
