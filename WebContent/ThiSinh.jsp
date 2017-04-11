@@ -20,7 +20,7 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
-				<jsp:include page="Asset/ThongTinKyThi.jsp" />
+				<%@include file="Asset/ThongTinKyThi.jsp" %>
 			</div>
 		</div>
 	</div>
