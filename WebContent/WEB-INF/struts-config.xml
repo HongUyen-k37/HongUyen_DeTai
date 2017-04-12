@@ -8,7 +8,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="kyThiActionForm" type="form.KyThiActionForm" />
 		
 		<form-bean name="thiSinhActionForm" type="form.ThiSinhActionForm" />
-		<form-bean name="danhSoBaoDanhActionForm" type="form.ThiSinhActionForm" />
 		<form-bean name="phongThiActionForm" type="form.PhongThiActionForm" />
 	</form-beans>
 	<action-mappings>
@@ -47,7 +46,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="success" path="/ThiSinh.jsp" />
 			<forward name="error" path="/DangNhap.jsp" />
 		</action>
-		<action path="/SoBaoDanh" name="danhSoBaoDanhActionForm"
+		<action path="/SoBaoDanh" name="thiSinhActionForm"
 				type="action.DanhSoBaoDanhAction" scope="request">
 			<forward name="success" path="/SoBaoDanh.jsp" />
 			<forward name="error" path="/DangNhap.jsp" />
