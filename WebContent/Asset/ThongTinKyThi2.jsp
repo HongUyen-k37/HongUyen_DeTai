@@ -9,8 +9,8 @@
 				<div class="form-group">
 			   		<label class="col-sm-3">Tên kỳ thi:</label>
 			    	<div class="col-sm-9">
-				      	<html:select property="maKyThi" name="phongThiActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi2()">
-	                    		<html:optionsCollection name="phongThiActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
+				      	<html:select property="maKyThi" name="thongTinKyThiAction" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+	                    		<html:optionsCollection name="thongTinKyThiAction" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
 			  	</div>

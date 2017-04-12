@@ -10,9 +10,6 @@ public class PhongThiBO {
 	public List<PhongThiBean> getListPhongThi(){
 		return pt.getListPhongThi();
 	}
-	public List<PhongThiBean> getListPhongThi(String maPhongThi){
-		return pt.getListPhongThi(maPhongThi);
-	}
 	public PhongThiBean getPhongThi(String maPhongThi) {
 		return pt.getPhongThi(maPhongThi);
 	}

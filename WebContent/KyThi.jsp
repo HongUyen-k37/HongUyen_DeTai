@@ -55,11 +55,11 @@
 					<bean:define id="stt" value="0"/>
 				<tbody>
 					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
-					<tr <%-- onclick="linkTo('makt',${dskt.maKyThi})" --%>>					
+					<tr  onclick="linkTo('makt',${dskt.maKyThi})">					
 						<%-- <td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td> --%>
 						<bean:define id="stt" value="${stt+1}"/>
 						<td>${stt}</td>	
-						<%-- <bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define> --%>
+						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>

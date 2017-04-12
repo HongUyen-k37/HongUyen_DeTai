@@ -37,7 +37,7 @@ function linkTo(ma,value){
    x=x[x.length-1];
    var i=x.indexOf(".do");
    x=x.substring(0,i+3);
-   window.location.href=x+"?"+ma+"="+value;
+   window.location.href=x+"?makt="+value;
 }
 function taoHTMLMonThi(that){
 	var htmlMonThi='<div class="form-group row"><div class="col-sm-8 col-sm-offset-2"><input type="text" class="form-control" placeholder="Tên môn thi"></div><button onclick="luuMonThi(this)" type="button" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button onclick="xoaMonThi(this)" type="button" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
@@ -116,13 +116,13 @@ function taoPhongThi(){
 	
 	$("#modal-phongthi").modal();
 }
-
-
 function getMaKyThi(){
 	var makt = $("#f_maKyThi").val();
-	document.location.href="ThiSinh.do?maKyThi="+makt;
+	var url=window.location.href;
+	var x = url.split("/");
+	x=x[x.length-1];
+	var i=x.indexOf(".do");
+	x=x.substring(0,i+3);
+	window.location.href=x+"?maKyThi="+makt;
 }
-function getMaKyThi2(){
-	var makt = $("#f_maKyThi").val();
-	document.location.href="PhanPhongThi.do?maKyThi="+makt;
-}
+

@@ -57,30 +57,6 @@ public class PhongThiDAO extends DataAccessObject {
 		}
 		return lst;
 	}
-	public List<PhongThiBean> getListPhongThi(String maPhongThi){
-		List<PhongThiBean> lst = new ArrayList<PhongThiBean>();
-		Connection cnn = getConnection();
-		ResultSet rs = null;
-		PreparedStatement pstm = null;		
-		try {
-			String sql = "SELECT * FROM PHONGTHI WHERE maPhongThi = ?";
-			pstm = cnn.prepareStatement(sql);
-			pstm.setString(1, maPhongThi);
-			rs = pstm.executeQuery();
-			PhongThiBean pt = null;
-			while (rs.next()) {
-				pt = new PhongThiBean(rs.getString("maPhongThi"), rs.getString("maKyThi"), rs.getString("soHieuPhongThi"), rs.getInt("soLuongThiSinh"));
-				lst.add(pt);
-			}
-		} catch (Exception ex) {
-			getMessenger(ex);
-		} finally {
-			tryToClose(cnn);
-			tryToClose(pstm);
-			tryToClose(rs);
-		}
-		return lst;
-	}
 	public PhongThiBean getPhongThi(String maPhongThi) {
 		PhongThiBean pt = null;
 		Connection cnn = getConnection();
