@@ -42,7 +42,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 				type="action.XoaKyThiAction" scope="request">
 			<forward name="success" path="/KyThi.do" redirect="true"/>
 		</action>
-		
 		<action path="/ThiSinh" name="thiSinhActionForm"
 				type="action.DanhSachThiSinhAction" scope="request">
 			<forward name="success" path="/ThiSinh.jsp" />

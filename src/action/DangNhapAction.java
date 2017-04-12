@@ -28,7 +28,7 @@ public class DangNhapAction extends Action{
 			return mapping.findForward("success");
 		}
 		else{
-			frm.setError("Đăng nhập không thành công!");
+			frm.setError("Dữ liệu không đúng. Vui lòng nhập lại!");
 			return mapping.findForward("error");
 		}
 	}

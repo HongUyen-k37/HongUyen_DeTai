@@ -26,7 +26,6 @@
 			</li>
 			
 			<li> <a href="#">Báo cáo - Thống kê</a></li>
-			<li> <a href="#">Tìm kiếm</a></li>
 			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
 			<div class="log-out">
 				<logic:notEmpty name="user" scope="session">

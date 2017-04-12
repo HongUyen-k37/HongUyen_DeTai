@@ -19,6 +19,18 @@
 <br>
 <a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
 <%--  <div id="search" class="col-md-5" style="float:right">
+	           		<html:form action="/QuanLyBaiThi" method="GET">   
+	                <div class="form-search search-only">
+	                    <i class="search-icon glyphicon glyphicon-search"></i>
+	                    <html:select property="inputSearch" styleId="select-search" styleClass="form-control">
+	                    	<option value="">-- Tất cả --</option>
+	                    	<html:optionsCollection name="baiThiActionForm" property="listLoai" label="tenLoai" value="idLoai"/>
+	                    </html:select>
+	                    <input type="text" name ="search" class="form-control search-query">
+	                </div>
+	                </html:form>
+	            </div> --%>
+<%--  <div id="search" class="col-md-5" style="float:right">
 	<html:form action="" method="GET">   
     <div class="form-search search-only">
         <i class="search-icon glyphicon glyphicon-search"></i>
@@ -53,8 +65,8 @@
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
 						<a href="javascript:void(0)" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
-	                    <a href="XoaKyThi.do?maKyThi=${maKyThi}" onclick="return confirm('Bạn chắc chắn muốn xóa kỳ thi này?')" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
-					</tr>
+	                    <a href="#xoaKyThi" data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
+						</tr>
 					</logic:iterate>
 				</tbody>
 			</table>
@@ -62,6 +74,29 @@
 	</div>
 	</div>
 </div>
+</div>
+
+<div class="modal fade" id="xoaKyThi">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	
+        	<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Xóa kỳ thi</h4>
+            </div>
+            
+             <div class="modal-body">
+             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất. Việc làm của bạn sẽ ảnh hưởng đến thông tin và điểm số của các thí sinh.</p>
+             	<p>Bạn có bỏ chọn <b>Hoạt động</b> thay vì xóa kỳ thi.</p>
+             	<p>Bạn có chắc chắn xóa kỳ thi này?</p>
+             </div>
+            
+            <div class="modal-footer">
+            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+            	<a href="XoaKyThi.do?maKyThi=${maKyThi}"  class="btn btn-danger">Đồng ý</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 
