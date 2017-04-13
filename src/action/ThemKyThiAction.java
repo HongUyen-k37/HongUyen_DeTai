@@ -1,8 +1,11 @@
 package action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -27,12 +30,19 @@ public class ThemKyThiAction extends Action {
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
 		if(user == null) return mapping.findForward("error");
-		
+		//them
 		if ("submit".equals(frm.getSubmit())) {
 			String tenKyThi = frm.getTenKyThi();
+			String nganh = frm.getNganh();
+			List<KyThiBean> lst = ktBO.getListKyThi();
+			
+			for (KyThiBean kt1 : lst) {
+				if(kt1.getTenKyThi().equals(tenKyThi) && kt1.getNganh().equals(nganh)){
+					return mapping.findForward("error");
+				}
+			}
 			String ngayThi = frm.getNgayThi();
 			int namTuyenSinh = frm.getNamTuyenSinh();
-			String nganh = frm.getNganh();
 			String hinhThucDT = frm.getHinhThucDT();
 			String coSoLKDT = frm.getCoSoLKDT();
 			int soMonThi = 3;

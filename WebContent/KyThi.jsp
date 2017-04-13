@@ -112,41 +112,41 @@
 			<div class="row main-nav" >
 						<p class="title">THÔNG TIN KỲ THI</p>
 							<div class="form-group">
-						   		<label class="col-sm-2 pad-5">Tên kỳ thi:</label>
+						   		<label class="col-sm-2 pad-5">Tên kỳ thi(*)</label>
 						    	<div class="col-sm-10">
-						      		<input type="text" class="form-control" id="f_tenKyThi" name="tenKyThi" onchange="this.value=this.value.trim()">
+						      		<input type="text" class="form-control" id="f_tenKyThi" name="tenKyThi" title="Sida rồi bạn ơi" required onchange="this.value=this.value.trim()">
 						    	</div>
 						  	</div>
 							<div class="form-group row">
-							<label class="control-label col-sm-2 pad-5">Ngày thi:</label>
+							<label class="control-label col-sm-2 pad-5">Ngày thi(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" placeholder="Ví dụ: 02-11">
+						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Sida rồi bạn ơi" pattern="[0-9],[0-9],[0-9]/[0-9]">
 						    	</div>
-						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh:</label>
+						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh(*)</label>
 						    	<div class="col-sm-3"> 
-						      		<input type="number" class="form-control" id="f_namTuyenSinh" name="namTuyenSinh" min="2015">
+						      		<input type="number" class="form-control" id="f_namTuyenSinh" name="namTuyenSinh" min="2015" required="required"  data-original-title="Chỉ chứa số" maxlength="4">
 						    	</div>
 						    	
 						  	</div>
 							<div class="form-group row">
-						    	<label class="control-label col-sm-2 pad-5">Ngành:</label>
+						    	<label class="control-label col-sm-2 pad-5">Ngành(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_nganh" name="nganh">
+						      		<input type="text" class="form-control" id="f_nganh" name="nganh" required="required"  onchange="this.value=this.value.trim()">
 						    	</div>
-						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo:</label>
+						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo(*)</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT">
+						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required="required" >
 					    		</div>
 						  	</div>
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Cơ sở liên kết đào tạo:</label>
+						    	<label class="control-label col-sm-4">Cơ sở liên kết đào tạo</label>
 						    	<div class="col-sm-8">
 						      		<input type="text" class="form-control" id="f_coSoLKDT" name="coSoLKDT">
 						    	</div>
 						  	</div>
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Số môn thi: <i id="soMonThi">0</i></label>
-						  		<label class="control-label col-sm-8">Danh sách môn thi:</label>
+						    	<label class="control-label col-sm-4">Số môn thi <i id="soMonThi">0</i></label>
+						  		<label class="control-label col-sm-8">Danh sách môn thi</label>
 						  	</div>
 						  	<div class="form-group row">
 						    	<div class="col-sm-8 col-sm-offset-2">
@@ -156,10 +156,12 @@
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
 						  	<button type="button" class="btn btn-default col-md-8 col-md-offset-2" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
+				<label><i>(*): Thông tin bắt buộc</i></label>
 				</div>
+			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-				<button type="button" class="btn btn-primary">Xóa</button>
+				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>
 				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
 			</div>
 			</div>

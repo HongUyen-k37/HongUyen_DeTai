@@ -87,44 +87,44 @@
 				<div>
 					<div class="col-md-7">
 						<div class="form-group">
-							<label class="col-md-3 no-pad" for="first-name">Họ đệm:</label>
+							<label class="col-md-3 no-pad" for="first-name">Họ đệm(*)</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="f_hoDem" name="hoDem">
+								<input type="text" class="form-control" id="f_hoDem" name="hoDem" required="required" onchange="this.value=this.value.trim()">
 							</div>
 						</div>	
 					</div>
 					<div class="col-md-5">
 						<div class="form-group">
-							<label class="col-md-4 no-pad" for="last-name">Tên:</label>
+							<label class="col-md-4 no-pad" for="last-name">Tên(*)</label>
 							<div class="col-md-8 no-pad">
-								<input type="text" class="form-control" id="f_ten" name="ten">
+								<input type="text" class="form-control" id="f_ten" name="ten" required="required" onchange="this.value=this.value.trim()">
 							</div>
 						</div>
 					</div>
 				</div>
 					<div class="form-group">
-						<label class="col-md-2" for="birthday-place">Nơi sinh:</label>
+						<label class="col-md-2"  for="birthday-place">Nơi sinh</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_noiSinh" name="noiSinh">
+							<input type="text" class="form-control" id="f_noiSinh" name="noiSinh" onchange="this.value=this.value.trim()">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-2" for="birthday">Ngày sinh:</label>
+						<label class="col-md-2" style="padding-right:0;" for="birthday">Ngày sinh(*)</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh">
+							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" onchange="this.value=this.value.trim()" >
 						</div>
 					</div>
 					<div class="col-md-7">
 						<div class="form-group">
-							<label class="col-md-3 no-pad" for="Subjects">Đối tượng:</label>
+							<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="f_doiTuong" name="doiTuong">
+								<input type="text" class="form-control" id="f_doiTuong" name="doiTuong" required="required" onchange="this.value=this.value.trim()">
 							</div>
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="form-group">
-							<label class="col-md-4 no-pad" for="area">Khu vực:</label>
+							<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
 							<div class="col-md-8 no-pad">
 						<!-- 		<select class="form-control" id="f_khuVuc" name="khuVuc">
 									<option value="f_khuVuc">Khu vực 1</option>	
@@ -139,14 +139,14 @@
 									<html:option value="KV2NT">Khu vực 2 - NT</html:option>
 									<html:option value="KV3">Khu vực 3</html:option>
 		                    </html:select> --%>
-		                    <input type="text" class="form-control" id="f_khuVuc" name="khuVuc">
+		                    <input type="text" class="form-control" id="f_khuVuc" name="khuVuc" required="required" maxlength="50" onchange="this.value=this.value.trim()">
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-2" for="email">Email:</label>
+						<label class="col-md-2" for="email">Email(*)</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_email" name="email">
+							<input type="email" class="form-control" id="f_email" name="email" required="required" maxlength="50" onchange="this.value=this.value.trim()">
 						</div>
 					</div>
 				
@@ -154,15 +154,14 @@
 					<div class="form-group">
 						<label class="col-md-2" for="phone">SĐT:</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_dienThoai" name="dienThoai">
+							<input type="text" class="form-control" id="f_dienThoai" name="dienThoai" data-original-title="Chỉ chứa số, độ dài từ 10-12 số" maxlength="12" pattern="[0-9]{10,12}" onchange="this.value=this.value.trim()">
 						</div>
 					</div>	
 					<div class="form-group" style="margin-right: 0px; margin-left: 0px;">
 						<label class="" for="address">Địa chỉ liên hệ:</label>
-						<textarea class="form-control" rows="3" cols="50" id="f_diaChi" name="diaChi"></textarea>
+						<textarea class="form-control" rows="3" cols="50" id="f_diaChi" name="diaChi" onchange="this.value=this.value.trim()"></textarea>
 					</div>
-			
-		
+            <label><i>(*): Thông tin bắt buộc</i></label>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
 				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>

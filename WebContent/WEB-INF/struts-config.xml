@@ -32,6 +32,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 				type="action.ThemKyThiAction" scope="request">
 			<forward name="ThemKyThi" path="/KyThi.do" redirect="true"/>
 			<forward name="ShowKyThi" path="/KyThi.do" redirect="true"/>
+			<forward name="error" path="/test.jsp"/>
 		</action>
 		<action path="/SuaKyThi" name="kyThiActionForm"
 				type="action.SuaKyThiAction" scope="request">
