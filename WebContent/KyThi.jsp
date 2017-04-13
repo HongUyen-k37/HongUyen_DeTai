@@ -55,8 +55,7 @@
 					<bean:define id="stt" value="0"/>
 				<tbody>
 					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
-					<tr  onclick="linkTo('makt',${dskt.maKyThi})">					
-						<%-- <td style="display: none;"><bean:write name="dskt" property="maKyThi" /></td> --%>
+					<tr>
 						<bean:define id="stt" value="${stt+1}"/>
 						<td>${stt}</td>	
 						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>

@@ -44,7 +44,6 @@ function taoHTMLMonThi(that){
 	$(htmlMonThi).insertBefore($(that));
 }
 
-//Thiếu kết thúc lưu môn thi --> submit
 function luuMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax insert: "+tenMonThi);
@@ -113,7 +112,6 @@ function taoPhongThi(){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="ThemPhongThi.do";
 	$(".modal-title").html("Thêm phòng thi");
-	
 	$("#modal-phongthi").modal();
 }
 function getMaKyThi(){
@@ -125,4 +123,3 @@ function getMaKyThi(){
 	x=x.substring(0,i+3);
 	window.location.href=x+"?maKyThi="+makt;
 }
-
