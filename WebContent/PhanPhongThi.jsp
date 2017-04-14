@@ -19,7 +19,8 @@
 		<div class="col-md-4 no-pad">
 			<div class="thongtinkithi group-content">
 				<div class="main-nav">
-					<jsp:include page="Asset/FileTam.jsp" />
+					<bean:define id="listMaKyThi" name="phongThiActionForm"></bean:define>
+					<%@include file="Asset/ThongTinKyThi.jsp" %>
 				</div>
 			</div>
 		</div>

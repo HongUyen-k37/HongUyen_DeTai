@@ -24,7 +24,14 @@ public class ThiSinhActionForm extends ActionForm{
 	public void setListKyThi(List<KyThiBean> listKyThi) {
 		this.listKyThi = listKyThi;
 	}
+	private KyThiBean kyThi;
+	public KyThiBean getKyThi() {
+		return kyThi;
+	}
 
+	public void setKyThi(KyThiBean kyThi) {
+		this.kyThi = kyThi;
+	}
 	private String maKyThi;
 	private String maThiSinh;
 	private String maPhongThi;

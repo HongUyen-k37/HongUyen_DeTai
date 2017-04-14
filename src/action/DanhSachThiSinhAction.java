@@ -31,11 +31,13 @@ public class DanhSachThiSinhAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		//get list thi sinh theo ky thi
 		ThiSinhBO tsBO = new ThiSinhBO();
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
+		//get thong tin cua ky thi duoc chon
+		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list thi sinh theo ky thi
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));
 		return mapping.findForward("success");
 	}

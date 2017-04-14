@@ -9,45 +9,39 @@
 				<div class="form-group">
 			   		<label class="col-sm-3">Tên kỳ thi:</label>
 			    	<div class="col-sm-9">
-				      	<html:select property="maKyThi" name="thongTinKyThiActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
-	                    		<html:optionsCollection name="thongTinKyThiActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
+				      	<html:select property="maKyThi" name="listMaKyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+	                    		<html:optionsCollection name="listMaKyThi" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
 			  	</div>
 			  	<div class="form-group">
 			    	<label class="col-sm-3">Ngành:</label>
 			    	<div class="col-sm-9">
-			      		<select class="form-control">
-							<option value="FPT">FPT</option>
-							<option value="gosu">Gosu</option>
-						</select>
+			      		<input type="text" class="form-control" value="${listMaKyThi.kyThi.nganh}" disabled>
 			    	</div>
 			    </div>
 			    <div class="form-group">	
 			    	<label class="col-sm-3">Ngày thi:</label>
 			    	<div class="col-sm-9">
-			      		<input type="text" class="form-control" id="ngaythi" disabled>
+			      		<input type="text" class="form-control" value="${listMaKyThi.kyThi.ngayThi}" disabled>
 			    	</div>
 			    </div>
 				<div class="form-group">
 			    	<label class="col-sm-6">Năm tuyển sinh:</label>
 			    	<div class="col-sm-6"> 
-			      		<input type="number" class="form-control" id="namts" min="2015" disabled>
+			      		<input type="text" class="form-control" value="${listMaKyThi.kyThi.namTuyenSinh}" disabled>
 			    	</div>
 			    </div>
 			    <div class="form-group">
 			    	<label class="col-sm-6">Hình thức đào tạo:</label>
 			    	<div class="col-sm-6">
-			    		<select class="form-control" disabled>
-							<option value="dh">Đại học</option>
-							<option value="ch">Cao học</option>
-						</select>
+			    		<input type="text" class="form-control" value="${listMaKyThi.kyThi.hinhThucDT}" disabled>
 		    		</div>
 			  	</div>
 			  	<div class="form-group">
 			    	<label class="col-sm-6">Cơ sở liên kết đào tạo:</label>
 			    	<div class="col-sm-6">
-			      		<input type="text" class="form-control" id="cslkdt" disabled>
+			      		<input type="text" class="form-control" value="${listMaKyThi.kyThi.coSoLKDT}" disabled>
 			    	</div>
 			  	</div>
 			  	<div class="form-group">

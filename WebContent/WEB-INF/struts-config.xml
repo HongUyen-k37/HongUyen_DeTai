@@ -48,9 +48,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="success" path="/ThiSinh.jsp" />
 			<forward name="error" path="/DangNhap.jsp" />
 		</action>
-		<action path="/ThiSinh" name="thongTinKyThiActionForm"
-				type="action.ThongTinKyThiAction" scope="request">
-		</action>
 		
 		<action path="/SoBaoDanh" name="thiSinhActionForm"
 				type="action.DanhSoBaoDanhAction" scope="request">

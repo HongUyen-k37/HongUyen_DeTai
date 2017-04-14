@@ -40,14 +40,16 @@ function linkTo(ma,value){
    window.location.href=x+"?makt="+value;
 }
 function taoHTMLMonThi(that){
-	var htmlMonThi='<div class="form-group row"><div class="col-sm-8 col-sm-offset-2"><input type="text" class="form-control" placeholder="Tên môn thi"></div><button onclick="luuMonThi(this)" type="button" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button onclick="xoaMonThi(this)" type="button" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var htmlMonThi='<div class="form-group row"><div class="col-sm-8 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 }
 
 function luuMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax insert: "+tenMonThi);
-	$("#soMonThi")
+	var soMonThi = $("#soMonThi").html();
+	soMonThi++;
+	$("#soMonThi").html(soMonThi);
 }
 
 function xoaMonThi(that){

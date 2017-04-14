@@ -20,6 +20,7 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
+				<bean:define id="listMaKyThi" name="thiSinhActionForm"></bean:define>
 				<%@include file="Asset/ThongTinKyThi.jsp" %>
 			</div>
 		</div>

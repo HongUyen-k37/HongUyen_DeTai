@@ -4,7 +4,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
-<div id="header" style="background-image: url(img/beo.jpg); height: 100%; opacity: 0.9; width: 100%">
+<div id="header" style="background-image: url(img/beo.jpg); background-size: 100%; background-position: center;">
 							<p>CHƯƠNG TRÌNH<br>QUẢN LÝ TUYỂN SINH ĐẠI HỌC HỆ KHÔNG CHÍNH QUY</p>
 							<p></p>
 </div>
