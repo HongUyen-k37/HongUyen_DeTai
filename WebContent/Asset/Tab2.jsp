@@ -8,19 +8,21 @@
 	<div class="title-content">
 		<div class="title-left col-md-6">
 			<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-			<h6>HỘI ĐỒNG TUYỂN SINH NĂM 2017</h6>
+			<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
+			<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 		</div>
 		<div class="title-right col-md-6">
 			<h5>BIÊN BẢN THU BÀI THI</h5>
-			<h6>Môn:................</h6>
+			<h6>Môn: ..........</h6>
 		</div>
 	</div>
 	<div class="col-md-10" style="text-align: center">	
-				<p>Ngành: <span>Báo chí</span></p>
-				<p>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</p>
+				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
+				<p>Điểm thi: Trường Đại Học Khoa Học</p>
 	</div>
 	<div class="numberroom col-md-2">
-		<p>Phòng thi: <span>01</span></p>
+		<bean:define id="phongThi" name="phongThiActionForm" property="phongThi"></bean:define>
+		<p>Phòng thi: <bean:write name="phongThi" property="soHieuPhongThi"></bean:write></p>
 	</div>
 	<div class="room-info">
 		<table class="table table-bordered table-hover table-striped">
@@ -35,39 +37,25 @@
 				<th>Ghi chú</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Trần Nữ Như Quỳnh</td>
-				<td>26/05/1995</td>
-				<td>123</td>
-				<td>02</td>
-				<td>Quỳnh</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>Trần Nữ Như Quỳnh</td>
-				<td>26/05/1995</td>
-				<td>123</td>
-				<td>02</td>
-				<td>Quỳnh</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>Trần Nữ Như Quỳnh</td>
-				<td>26/05/1995</td>
-				<td>123</td>
-				<td>02</td>
-				<td>Quỳnh</td>
-				<td></td>
-			</tr>
-		</tbody>
+		<bean:define id="stt" value="0"/>
+	<tbody>
+	<logic:iterate id="dsts" name="phongThiActionForm" property="listThiSinh">	
+		<tr>	
+			<bean:define id="stt" value="${stt+1}"/>
+			<td>${stt}</td>
+			<td><bean:write name="dsts" property="hoDem"/> <bean:write name="dsts" property="ten"/></td>
+			<td><bean:write name="dsts" property="ngaySinh"/></td>
+			<td><bean:write name="dsts" property="soBaoDanh"/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</logic:iterate>
+	</tbody>
 		</table>
 	<div class="row totalCandidates">
 		<div class="col-md-12">
-			<p>Tổng cộng danh sách có ... bài thi và ... tờ giấy thi.</p>
+			<p>Tổng cộng danh sách có ..... bài thi và ..... tờ giấy thi.</p>
 		</div>
 		<div class="col-md-3" style="text-align: center">
 			<p>Cán bộ coi thi 1</p>

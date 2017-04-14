@@ -14,10 +14,13 @@ import org.apache.struts.action.ActionMapping;
 import form.PhongThiActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
+import model.bean.PhongThiBean;
 import model.bo.KyThiBO;
 import model.bo.PhongThiBO;
+import model.bo.ThiSinhBO;
 
-public class DanhSachPhongThiAction extends Action{
+public class DanhSachPhongThiAction extends Action {
+
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -26,19 +29,30 @@ public class DanhSachPhongThiAction extends Action{
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
 		if(user == null) return mapping.findForward("error");
-		
-		
 		//get list ky thi de select
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		//get list thi sinh theo ky thi
-		PhongThiBO ptBO = new PhongThiBO();
+		//get ma ky thi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
-		
-		frm.setListPhongThi(ptBO.getListPhongThiTheoMaKyThi(maKyThi));
+		//get thong tin cua ky thi duoc chon
+		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list phong thi theo ky thi
+		PhongThiBO ptBO = new PhongThiBO();
+		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi); 
+		frm.setListPhongThi(listPhongThi);
+		//get ma phong thi
+		String maPhongThi = listPhongThi.size()==0?"":listPhongThi.get(0).getMaPhongThi();
+		if(frm.getMaPhongThi()!=null)
+			maPhongThi = frm.getMaPhongThi();
+		//get thong tin phong thi
+		frm.setPhongThi(ptBO.getPhongThi(maPhongThi));
+		//get list thi sinh theo phong thi
+		ThiSinhBO tsBO = new ThiSinhBO();
+		frm.setListThiSinh(tsBO.getListThiSinhTheoPhongThi(maPhongThi));
 		return mapping.findForward("success");
 	}
+	
 }

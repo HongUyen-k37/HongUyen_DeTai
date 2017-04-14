@@ -119,22 +119,22 @@
 							<div class="form-group row">
 							<label class="control-label col-sm-2 pad-5">Ngày thi(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Sida rồi bạn ơi" pattern="[0-9],[0-9],[0-9]/[0-9]">
+						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Vui lòng nhập đúng quy định" pattern="[0-9]{2},[0-9]{2},[0-9]{2}/[0-9]{2}">
 						    	</div>
 						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh(*)</label>
 						    	<div class="col-sm-3"> 
-						      		<input type="number" class="form-control" id="f_namTuyenSinh" name="namTuyenSinh" min="2015" required="required"  data-original-title="Chỉ chứa số" maxlength="4">
+						      		<input type="number" class="form-control" id="f_namTuyenSinh" name="namTuyenSinh" min="2015" required data-original-title="Chỉ chứa số" maxlength="4">
 						    	</div>
 						    	
 						  	</div>
 							<div class="form-group row">
 						    	<label class="control-label col-sm-2 pad-5">Ngành(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_nganh" name="nganh" required="required"  onchange="this.value=this.value.trim()">
+						      		<input type="text" class="form-control" id="f_nganh" name="nganh" required onchange="this.value=this.value.trim()">
 						    	</div>
 						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo(*)</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required="required" >
+						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required>
 					    		</div>
 						  	</div>
 						  	<div class="form-group row">
@@ -144,7 +144,7 @@
 						    	</div>
 						  	</div>
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Số môn thi <i id="soMonThi">0</i></label>
+						    	<label class="control-label col-sm-4">Số môn thi <i id="soMonThi" name="soMonThi">0</i></label>
 						  		<label class="control-label col-sm-8">Danh sách môn thi</label>
 						  	</div>
 						  	<div class="form-group row">

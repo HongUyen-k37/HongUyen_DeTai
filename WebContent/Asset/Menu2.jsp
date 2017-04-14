@@ -13,7 +13,7 @@
 				<li><a href="ThiSinh.do">Thí sinh dự thi</a></li>
 				<li><a href="SoBaoDanh.do">Đánh số báo danh</a></li>
 				<li><a href="PhanPhongThi.do">Phân phòng thi</a></li>
-				<li><a href="DanhSachPhongThi.jsp">Danh sách phòng thi</a></li>
+				<li><a href="DanhSachPhongThi.do">Danh sách phòng thi</a></li>
 			</ul>
 			</li>
 			<li><a href="#">Tổ chức chấm thi</a>

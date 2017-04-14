@@ -8,16 +8,17 @@
 			<div class="title-content">
 				<div class="title-left col-md-6">
 					<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-					<h6>HỘI ĐỒNG TUYỂN SINH NĂM 2017</h6>
+					<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
+					<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 				</div>
 				<div class="title-right col-md-6">
 					<h6>DANH SÁCH THÍ SINH ĐĂNG KÝ DỰ THI</h6>
-					<p>Loại hình đào tạo: Đại học bằng 2- vừa làm vừa học</p>
+					<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 				</div>
 			</div>
 			<div style="text-align: center">	
-				<p>Ngành: <span>Báo chí</span></p>
-				<p>Điểm thi: Trường Trung cấp Đam San - Đắk Lắk</p>
+				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
+				<p>Điểm thi: Trường Đại Học Khoa Học</p>
 			</div>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
@@ -28,30 +29,22 @@
 			<th>Tên</th>
 		</tr>
 	</thead>
+	<bean:define id="stt" value="0"/>
 	<tbody>
-		<tr>
-			<td>1</td>
-			<td>01</td>
-			<td>Trần Nữ Như</td>
-			<td>Quỳnh</td>
+	<logic:iterate id="dsts" name="phongThiActionForm" property="listThiSinh">	
+		<tr>	
+			<bean:define id="stt" value="${stt+1}"/>
+			<td>${stt}</td>
+			<td><bean:write name="dsts" property="soBaoDanh"/></td>
+			<td><bean:write name="dsts" property="hoDem"/></td>
+			<td><bean:write name="dsts" property="ten"/></td>
 		</tr>
-		<tr>
-			<td>2</td>
-			<td>02</td>
-			<td>Trần Thị Hồng</td>
-			<td>Uyên</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>03</td>
-			<td>Phạm Như Ngọc</td>
-			<td>Tuấn</td>
-		</tr>
+	</logic:iterate>
 	</tbody>
 	</table>
 	<div class="row totalCandidates">
 		<div class="col-md-7">
-			<p>Danh sách gồm có: <span> 50/100 </span> sinh viên.</p>
+			<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>
 		</div>
 		<div class="col-md-5 btn-group" style="text-align: center">
 			<p>Thừa Thiên Huế, ngày 10 tháng 12 năm 2016</p>

@@ -8,7 +8,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="kyThiActionForm" type="form.KyThiActionForm" />
 		<form-bean name="thiSinhActionForm" type="form.ThiSinhActionForm" />
 		<form-bean name="phongThiActionForm" type="form.PhongThiActionForm" />
-		<form-bean name="thongTinKyThiActionForm" type="form.KyThiActionForm" />
 	</form-beans>
 	<action-mappings>
 		<action path="/DangNhap" name="dangNhapActionForm"
@@ -67,7 +66,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="success" redirect="true" path="/ThiSinh.do"></forward></action>
 		
 		<action path="/PhanPhongThi" name="phongThiActionForm"
-			type="action.DanhSachPhongThiAction" scope="request">
+			type="action.PhanPhongThiAction" scope="request">
 			<forward name="success" path="/PhanPhongThi.jsp" />
 			<forward name="error" path="/DangNhap.jsp" />
 		</action>
@@ -81,6 +80,11 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action path="/SuaPhongThi" name="phongThiActionForm"
 				type="action.SuaPhongThiAction" scope="request">
 			<forward name="success" path="/PhanPhongThi.do" redirect="true"/>
+		</action>
+		<action path="/DanhSachPhongThi" name="phongThiActionForm"
+			type="action.DanhSachPhongThiAction" scope="request">
+			<forward name="success" path="/DanhSachPhongThi.jsp" />
+			<forward name="error" path="/DangNhap.jsp" />
 		</action>
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />

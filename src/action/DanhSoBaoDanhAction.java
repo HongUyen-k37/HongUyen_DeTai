@@ -37,10 +37,12 @@ public class DanhSoBaoDanhAction extends Action{
 		if ("submit".equals(frm.getSubmit())){
 			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), "KT0001");
 		}
-		//show list thi sinh
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
+		//get thong tin cua ky thi duoc chon
+		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//show list thi sinh
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));
 		return mapping.findForward("success");
 	}

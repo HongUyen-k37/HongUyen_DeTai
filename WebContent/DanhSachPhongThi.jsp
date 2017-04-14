@@ -20,7 +20,8 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
-				<jsp:include page="Asset/ThongTinKyThi.jsp" />
+				<bean:define id="listMaKyThi" name="phongThiActionForm"></bean:define>
+				<%@include file="Asset/ThongTinKyThi.jsp" %>
 			</div>
 		</div>
 	</div>
@@ -32,11 +33,9 @@
 					<div class="form-group row">
 						<label class="col-md-2" for="sl">Danh sách:</label>
 						<div class="col-md-10">
-							<select class="form-control">								
-								<option value="01">Phòng số 01</option>
-								<option value="02">Phòng số 02</option>
-								<option value="03">Phòng số 03</option>
-							</select>
+							<html:select property="maPhongThi" name="phongThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getMaPhongThi()">
+	                    		<html:optionsCollection name="phongThiActionForm" property="listPhongThi" label="soHieuPhongThi" value="maPhongThi"/>
+		             		</html:select>
 						</div>
 					</div>
 				</form>
@@ -64,10 +63,10 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="dsPhongThi">
-							<jsp:include page="Asset/Tab1.jsp" />
+							<%@include file="Asset/Tab1.jsp" %>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="bienBanPhongThi">
-							<jsp:include page="Asset/Tab2.jsp" />
+							<%@include file="Asset/Tab2.jsp" %>
 						</div>
 					</div>
 				</div>

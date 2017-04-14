@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import model.bean.KyThiBean;
 import model.bean.PhongThiBean;
+import model.bean.ThiSinhBean;
 public class PhongThiActionForm extends ActionForm {
 	/**
 	 * 
@@ -22,6 +23,27 @@ public class PhongThiActionForm extends ActionForm {
 	private String soHieuPhongThi;
 	private int soLuongThiSinh;
 	private String submit;
+	private KyThiBean kyThi;
+	private List<ThiSinhBean> listThiSinh;
+	private PhongThiBean phongThi;
+	public PhongThiBean getPhongThi() {
+		return phongThi;
+	}
+	public void setPhongThi(PhongThiBean phongThi) {
+		this.phongThi = phongThi;
+	}
+	public List<ThiSinhBean> getListThiSinh() {
+		return listThiSinh;
+	}
+	public void setListThiSinh(List<ThiSinhBean> listThiSinh) {
+		this.listThiSinh = listThiSinh;
+	}
+	public KyThiBean getKyThi() {
+		return kyThi;
+	}
+	public void setKyThi(KyThiBean kyThi) {
+		this.kyThi = kyThi;
+	}
 	public List<PhongThiBean> getListPhongThi() {
 		return listPhongThi;
 	}

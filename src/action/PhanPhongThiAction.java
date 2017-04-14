@@ -11,18 +11,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import form.ThiSinhActionForm;
+import form.PhongThiActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
-import model.bo.ThiSinhBO;
+import model.bo.PhongThiBO;
 
-public class DanhSachThiSinhAction extends Action{
-
+public class PhanPhongThiAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ThiSinhActionForm frm = (ThiSinhActionForm)form;
+		PhongThiActionForm frm = (PhongThiActionForm)form;
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -32,15 +31,14 @@ public class DanhSachThiSinhAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		
-		ThiSinhBO tsBO = new ThiSinhBO();
+		PhongThiBO ptBO = new PhongThiBO();
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//get list thi sinh theo ky thi
-		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));
+		//get list phong thi theo ky thi
+		frm.setListPhongThi(ptBO.getListPhongThiTheoMaKyThi(maKyThi));
 		return mapping.findForward("success");
 	}
-	
 }

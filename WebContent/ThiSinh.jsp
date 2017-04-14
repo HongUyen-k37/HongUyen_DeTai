@@ -48,10 +48,7 @@
 						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
-							<td>${stt}</td>				
-							<%-- <bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
-							<td><bean:write name="dsts" property="maThiSinh"/></td> --%>
-							<%-- <tr onclick="linkTo('mats',${dsts.maThiSinh})"> --%>
+							<td>${stt}</td>
 							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>

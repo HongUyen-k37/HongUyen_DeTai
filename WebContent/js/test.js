@@ -1,4 +1,3 @@
-var test = 0 ;
 function suaKyThi(maKyThi){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="SuaKyThi.do?maKyThi="+maKyThi;
@@ -18,27 +17,20 @@ function suaKyThi(maKyThi){
 			$("#f_nganh").val(result["nganh"]);
 			$("#f_hinhThucDT").val(result["hinhThucDT"]);
 			$("#f_coSoLKDT").val(result["coSoLKDT"]);
+			$("#soMonThi").val(result["soMonThi"]);
 			//$("#f_maMonThi").val(result["maMonThi"]).trigger("change");
 	    }
 	});
 	$("#modal-kythi").modal();
 }
+
 function taoKyThi(){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="ThemKyThi.do";
 	$(".modal-title").html("Thêm kỳ thi");
-	
 	$("#modal-kythi").modal();
 }
 
-function linkTo(ma,value){
-   var url=window.location.href;
-   var x = url.split("/");
-   x=x[x.length-1];
-   var i=x.indexOf(".do");
-   x=x.substring(0,i+3);
-   window.location.href=x+"?makt="+value;
-}
 function taoHTMLMonThi(that){
 	var htmlMonThi='<div class="form-group row"><div class="col-sm-8 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
@@ -56,6 +48,9 @@ function xoaMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax delete: "+tenMonThi);
 	$(that).parent().remove();
+	var soMonThi = $("#soMonThi").html();
+	soMonThi--;
+	$("#soMonThi").html(soMonThi);
 }
 
 function taoThiSinh(){
@@ -91,6 +86,7 @@ function suaThiSinh(maThiSinh){
 	});
 	$("#modal-thisinh").modal();
 }
+
 function suaPhongThi(maPhongThi){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="SuaPhongThi.do?maPhongThi="+maPhongThi;
@@ -110,12 +106,14 @@ function suaPhongThi(maPhongThi){
 	});
 	$("#modal-phongthi").modal();
 }
+
 function taoPhongThi(){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="ThemPhongThi.do";
 	$(".modal-title").html("Thêm phòng thi");
 	$("#modal-phongthi").modal();
 }
+
 function getMaKyThi(){
 	var makt = $("#f_maKyThi").val();
 	var url=window.location.href;
@@ -124,4 +122,9 @@ function getMaKyThi(){
 	var i=x.indexOf(".do");
 	x=x.substring(0,i+3);
 	window.location.href=x+"?maKyThi="+makt;
+}
+
+function getMaPhongThi(){
+	var mapt = $("#f_maPhongThi").val();
+	window.location.href="DanhSachPhongThi.do?maPhongThi="+mapt;
 }
