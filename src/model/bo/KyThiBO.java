@@ -22,5 +22,7 @@ public class KyThiBO {
 	public boolean insert(KyThiBean kyThi) {
 		return kt.insert(kyThi);	
 	}
-	
+	public List<KyThiBean> searchKyThi(String key){
+		return kt.searchKyThi(key);
+	}
 }

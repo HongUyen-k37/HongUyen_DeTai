@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.bean.KyThiBean;
+import model.bean.ThiSinhBean;
 
 public class KyThiDAO extends DataAccessObject{
 	public List<KyThiBean> getListKyThi(){
@@ -147,5 +148,31 @@ public class KyThiDAO extends DataAccessObject{
 			tryToClose(rs);
 		}
 		return kt;
+	}
+	public List<KyThiBean> searchKyThi(String key){
+		List<KyThiBean> lst = new ArrayList<KyThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM KYTHI where tenKyThi Like N'%"+key+"%' or nganh Like N'%"+key+"%'";
+			pstm = cnn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			KyThiBean kt = null;
+			while (rs.next()) {
+				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
+						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"), 
+						rs.getInt("trangThai"), rs.getString("tiepDauNgu"), rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), 
+						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"));
+				lst.add(kt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;		
 	}
 }

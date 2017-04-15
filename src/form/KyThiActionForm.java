@@ -26,7 +26,8 @@ public class KyThiActionForm extends ActionForm{
 	private int soMonThi;
 	private int trangThai;
 	private String submit;
-
+	private String search;
+	
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -125,4 +126,14 @@ public class KyThiActionForm extends ActionForm{
 			e.printStackTrace();
 		}
 	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	
 }

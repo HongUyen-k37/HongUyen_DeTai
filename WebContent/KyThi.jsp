@@ -18,26 +18,20 @@
 <div class="row">
 <br>
 <a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
-<%--  <div id="search" class="col-md-5" style="float:right">
-	           		<html:form action="/QuanLyBaiThi" method="GET">   
-	                <div class="form-search search-only">
-	                    <i class="search-icon glyphicon glyphicon-search"></i>
-	                    <html:select property="inputSearch" styleId="select-search" styleClass="form-control">
-	                    	<option value="">-- Tất cả --</option>
-	                    	<html:optionsCollection name="baiThiActionForm" property="listLoai" label="tenLoai" value="idLoai"/>
-	                    </html:select>
-	                    <input type="text" name ="search" class="form-control search-query">
-	                </div>
-	                </html:form>
-	            </div> --%>
-<%--  <div id="search" class="col-md-5" style="float:right">
-	<html:form action="" method="GET">   
+<%--  <div class="col-md-5" style="float:right">
+	<html:form action="/TimKiemKyThi" method="GET">   
     <div class="form-search search-only">
         <i class="search-icon glyphicon glyphicon-search"></i>
         <input type="text" name ="search" class="form-control search-query">
     </div>
     </html:form>
 </div> --%>
+	<div id="search" style="float:right">
+		<html:form action="/TimKiemKyThi" styleClass="searchform" method="GET"> 
+			<input type="text" name="search" class="searchform">			  
+			<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
+		</html:form>
+	</div>
 	<div class="group-content">
 	<div class="main-nav">
 		<p class="title">DANH SÁCH CÁC KỲ THI</p>
@@ -143,21 +137,30 @@
 						      		<input type="text" class="form-control" id="f_coSoLKDT" name="coSoLKDT">
 						    	</div>
 						  	</div>
+						  	
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Số môn thi <i id="soMonThi" name="soMonThi">0</i></label>
-						  		<label class="control-label col-sm-8">Danh sách môn thi</label>
+							  	<label class="control-label col-sm-6">Danh sách môn thi</label>
+							  	<label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label>
+							  	<br>
+								<br>
+								<div class="col-sm-3"></div>
+						  		<label class="control-label col-sm-5">Tên môn thi</label>
+						  		<label class="control-label col-sm-4">Hệ số</label>
 						  	</div>
 						  	<div class="form-group row">
-						    	<div class="col-sm-8 col-sm-offset-2">
+						    	<div class="col-sm-5 col-sm-offset-2">
 						    		<input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi">
+						    	</div>
+						    	<div class="col-sm-3">
+						    		<input type="number" class="form-control" name="heSo" placeholder="Hệ số">
 						    	</div>
 						    	<button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button>
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
 						  	<button type="button" class="btn btn-default col-md-8 col-md-offset-2" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
-				<label><i>(*): Thông tin bắt buộc</i></label>
+				<br>
+				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p>
 				</div>
-			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
 				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>
