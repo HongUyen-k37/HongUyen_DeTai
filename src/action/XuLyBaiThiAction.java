@@ -12,7 +12,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.BaiThiActionForm;
-import form.PhongThiActionForm;
 import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
@@ -36,23 +35,24 @@ public class XuLyBaiThiAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		
+		//get ma ky thi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list phòng để select
-		PhongThiActionForm frm1= (PhongThiActionForm) form;
 		PhongThiBO pt = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = pt.getListPhongThi();
-		frm1.setListPhongThi(listPhongThi);
-		
-		//get list thí sinh hiển thị ra table
-		ThiSinhActionForm frm2 = (ThiSinhActionForm) form;
+		frm.setListPhongThi(listPhongThi);
+		//get ma phong thi
+		String maPhongThi = listPhongThi.size()==0?"":listPhongThi.get(0).getMaPhongThi();
+		if(frm.getMaPhongThi()!=null)
+			maPhongThi = frm.getMaPhongThi();
+		//get list thí sinh theo phong thi hiển thị ra table
 		ThiSinhBO ts = new ThiSinhBO();
-		List<ThiSinhBean> listThiSinh = ts.getListThiSinh(maKyThi);
-		frm2.setListThiSinh(listThiSinh);
+		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
+		frm.setListThiSinh(listThiSinh);
 		
 		return mapping.findForward("success");
 	}

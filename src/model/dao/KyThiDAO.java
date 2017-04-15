@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.bean.KyThiBean;
-import model.bean.ThiSinhBean;
 
 public class KyThiDAO extends DataAccessObject{
 	public List<KyThiBean> getListKyThi(){
