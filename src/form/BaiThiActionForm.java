@@ -14,6 +14,8 @@ public class BaiThiActionForm extends ActionForm{
 	private String maKyThi;
 	private List<KyThiBean> listKyThi;
 	private KyThiBean kyThi;
+	private String xuLyThi;
+	private String save;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -31,5 +33,17 @@ public class BaiThiActionForm extends ActionForm{
 	}
 	public void setKyThi(KyThiBean kyThi) {
 		this.kyThi = kyThi;
+	}
+	public String getXuLyThi() {
+		return xuLyThi;
+	}
+	public void setXuLyThi(String xuLyThi) {
+		this.xuLyThi = xuLyThi;
+	}
+	public String getSave() {
+		return save;
+	}
+	public void setSave(String save) {
+		this.save = save;
 	}
 }

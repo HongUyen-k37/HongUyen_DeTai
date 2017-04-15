@@ -12,9 +12,15 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.BaiThiActionForm;
+import form.PhongThiActionForm;
+import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
+import model.bean.PhongThiBean;
+import model.bean.ThiSinhBean;
 import model.bo.KyThiBO;
+import model.bo.PhongThiBO;
+import model.bo.ThiSinhBO;
 
 public class XuLyBaiThiAction extends Action{
 
@@ -36,6 +42,18 @@ public class XuLyBaiThiAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list phòng để select
+		PhongThiActionForm frm1= (PhongThiActionForm) form;
+		PhongThiBO pt = new PhongThiBO();
+		List<PhongThiBean> listPhongThi = pt.getListPhongThi();
+		frm1.setListPhongThi(listPhongThi);
+		
+		//get list thí sinh hiển thị ra table
+		ThiSinhActionForm frm2 = (ThiSinhActionForm) form;
+		ThiSinhBO ts = new ThiSinhBO();
+		List<ThiSinhBean> listThiSinh = ts.getListThiSinh(maKyThi);
+		frm2.setListThiSinh(listThiSinh);
+		
 		return mapping.findForward("success");
 	}
 	

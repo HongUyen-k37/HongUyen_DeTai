@@ -124,6 +124,25 @@ public class PhongThiDAO extends DataAccessObject {
 		}
 		return result;
 	}
-	
+	/*public boolean insert(int xuLy) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "INSERT INTO BAITHI VALUES ? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setInt(1, xuLy);
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	*/
 	
 }
