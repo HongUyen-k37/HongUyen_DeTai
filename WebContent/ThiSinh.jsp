@@ -29,6 +29,16 @@
 	<div class="col-md-8">
 		<div class="group-content">
 			<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh()">Thêm thí sinh</a>
+			<div class="col-md-4" style="float:right">
+				<html:form action="/TimKiemThiSinh" styleClass="input-group" method="POST"> 				
+			        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">
+			        <input class="form-control" type="text" size="9" name="search" style="border-radius: 5px 0 0 5px; height: 34px" placeholder="Nhập tên thí sinh, khu vực để tìm kiếm..">
+					<span class="input-group-btn">
+				        <button style="height: 34px;" for="menu_my_bootstrap_menu_settings_main_menu_search" type="submit" name="submit" value="submit" class="btn ">
+						<i class="glyphicon glyphicon-search"></i></button>
+			        </span>
+				</html:form>
+			</div>
 			<div class="details_info">
 				<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 				<table id="table" class="table table-bordered table-hover table-striped">

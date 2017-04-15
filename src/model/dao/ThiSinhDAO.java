@@ -121,8 +121,8 @@ public class ThiSinhDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Update THISINH Set hoDem=?; ten=?; ngaySinh=?; noiSinh=?; khuVuc=?; doiTuong=?; dienThoai=?;"
-					+ "email=?; diaChi=? where maThiSinh=? ";
+			String sql = "Update THISINH Set hoDem=?, ten=?, ngaySinh=?, noiSinh=?, khuVuc=?, doiTuong=?, dienThoai=?,"
+					+ "email=?, diaChi=? where maThiSinh=? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(10, thiSinh.getMaThiSinh());
 			pstm.setString(1, thiSinh.getHoDem());
@@ -164,13 +164,13 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return result;
 	}
-	public List<ThiSinhBean> searchThiSinh(String tenThiSinh, String maThiSinh){
+	public List<ThiSinhBean> searchThiSinh(String key){
 		List<ThiSinhBean> lst = new ArrayList<ThiSinhBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH where ten Like N'%"+tenThiSinh +"%' or maThiSinh Like N'%"+maThiSinh+"%'";
+			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%'";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;

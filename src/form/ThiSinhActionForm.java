@@ -49,6 +49,7 @@ public class ThiSinhActionForm extends ActionForm{
 	private int soBatDau;
 	private int soLuong;
 	private String submit;
+	private String search;
 	public String getSubmit() {
 		return submit;
 	}
@@ -203,6 +204,14 @@ public class ThiSinhActionForm extends ActionForm{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
 }

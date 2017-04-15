@@ -65,15 +65,15 @@ tr td{
 }
 #header p{
 	text-align: center;
-    color: #F44336;
-    font-size: 30px;
-    padding: 20px 0 20px 0;
+    color: #ffffff;
+    font-size: 25px;
+    padding: 130px 0 20px 0;
     font-weight: bold;
     margin: 0;
 }
 #header .choose-year{
-    margin: 30px auto;
-    width: 20%;
+    margin: 50px auto;
+    width: 30%;
 }
 /***********************Style navBar*************************/
 #link-log{
@@ -308,28 +308,13 @@ input[type="radio"]{
 
 /*--style Search--*/
 
-.searchform {
-float: left;
-margin-top: 20px;
-border:#00afdd 2px solid;
-height:27px;
-width:350px;
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
-.searchform input[type=text]
-{
-width:270px;
-height:21px;
-border:0px;
-background:#ffffff;
-float:left;
-margin:0px;padding:3px;
-}
-.searchform input[type=submit]
-{
-border:#00afdd 2px solid;
-float:right;
-margin:2px 2px 2px 2px;
-height:23px;
-padding-top:1px;
-background:#4fbfdc;
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
 }

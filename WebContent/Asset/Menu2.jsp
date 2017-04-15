@@ -18,10 +18,10 @@
 			</li>
 			<li><a href="#">Tổ chức chấm thi</a>
 			<ul>
-				<li><a href="BaiThi.jsp">Xử lý bài thi</a></li>
-				<li><a href="DonTui.jsp">Dồn túi phách</a></li>
-				<li><a href="NhapDiem.jsp">Nhập điểm thi</a></li>
-				<li><a href="DiemChuan.jsp">Xác định điểm chuẩn</a></li>
+				<li><a href="XuLyBaiThi.do">Xử lý bài thi</a></li>
+				<li><a href="DonTuiPhach.do">Dồn túi phách</a></li>
+				<li><a href="NhapDiemThi.do">Nhập điểm thi</a></li>
+				<li><a href="XacDinhDiemChuan.do">Xác định điểm chuẩn</a></li>
 			</ul>
 			</li>
 			
