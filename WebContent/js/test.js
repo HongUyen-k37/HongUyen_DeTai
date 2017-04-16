@@ -128,3 +128,52 @@ function getMaPhongThi(){
 	var mapt = $("#f_maPhongThi").val();
 	window.location.href="DanhSachPhongThi.do?maPhongThi="+mapt;
 }
+
+var $input = $("#input");
+var $output = $("#output");
+var ClipboardHelper = {
+    copyElement: function ($element)
+    {
+       this.copyText($element.text())
+    },
+    copyText:function(text) // Linebreaks with \n
+    {
+        var $tempInput =  $("<input>");
+        $("body").append($tempInput);
+        $tempInput.val(text).select();
+        document.execCommand("copy");
+        $tempInput.remove();
+    }
+};
+
+function soSangChu(str) {
+	str = str.replace(/1/g, ' Một');
+	str = str.replace(/2/g, ' Hai');
+	str = str.replace(/3/g, ' Ba');
+	str = str.replace(/4/g, ' Bốn');
+	str = str.replace(/5/g, ' Năm');
+	str = str.replace(/6/g, ' Sáu');
+	str = str.replace(/7/g, ' Bảy');
+	str = str.replace(/8/g, ' Tám');
+	str = str.replace(/9/g, ' Chín');
+	str = str.replace(/10/g, ' Mười');
+	str = str.replace(/0/g, ' Không');
+	str = str.replace(/,/g, ' phẩy');
+	str = str.trim();
+	return str;
+}
+
+function convertCode(){
+	var str=$input.val();
+	str = soSangChu(str);
+	if (str=="Một Không") {
+		str = "Mười";
+	}
+	$output.val(str);
+	ClipboardHelper.copyText(str);
+	$input.focus();
+}
+
+$input.on("input",function(){
+	convertCode();
+});

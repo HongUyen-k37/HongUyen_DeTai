@@ -63,23 +63,11 @@
 				<tr>
 					<td colspan="4">01</td>
 					<td colspan="4">
-						<input type="text" name="diem" class="form-control">
+						<input type="text" name="diemSo" class="form-control" id="input">
 					</td>
-					<td colspan="4"></td>
-				</tr>
-				<tr>
-					<td colspan="4">02</td>
-					<td colspan="4">
-						<input type="text" name="diem" class="form-control">
+					<td colspan="4"><span id="output"></span>
+					<input type="text" name="diemChu" class="form-control" id="output">
 					</td>
-					<td colspan="4"></td>
-				</tr>
-					<tr>
-					<td colspan="4">03</td>
-					<td colspan="4">
-						<input type="text" name="diem" class="form-control">
-					</td>
-					<td colspan="4"></td>
 				</tr>
 			</tbody>
 			</table>
