@@ -126,5 +126,15 @@ function getMaKyThi(){
 
 function getMaPhongThi(){
 	var mapt = $("#f_maPhongThi").val();
-	window.location.href="DanhSachPhongThi.do?maPhongThi="+mapt;
+	var url=window.location.href;
+	var x = url.split("/");
+	x=x[x.length-1];
+	var i=x.indexOf(".do");
+	x=x.substring(0,i+3);
+	window.location.href=x+"&maPhongThi="+mapt;
+}
+function getMaMonThi(){
+	var mamt = $("#f_maMonThi").val();
+	var url=window.location.href;
+	window.location.href=url+"&maMonThi="+mamt;
 }

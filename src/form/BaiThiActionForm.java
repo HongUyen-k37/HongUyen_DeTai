@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.struts.action.ActionForm;
 
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
 
@@ -16,11 +17,13 @@ public class BaiThiActionForm extends ActionForm{
 	private String maKyThi;
 	private List<KyThiBean> listKyThi;
 	private KyThiBean kyThi;
-	private String xuLyThi;
+	private String trangThaiDuThi;
 	private String save;
 	private List<PhongThiBean> listPhongThi;
 	private List<ThiSinhBean> listThiSinh;
+	private List<MonThiBean> listMonThi;
 	private String maPhongThi;
+	private String maMonThi;
 	public String getMaPhongThi() {
 		return maPhongThi;
 	}
@@ -57,16 +60,28 @@ public class BaiThiActionForm extends ActionForm{
 	public void setKyThi(KyThiBean kyThi) {
 		this.kyThi = kyThi;
 	}
-	public String getXuLyThi() {
-		return xuLyThi;
-	}
-	public void setXuLyThi(String xuLyThi) {
-		this.xuLyThi = xuLyThi;
-	}
 	public String getSave() {
 		return save;
 	}
 	public void setSave(String save) {
 		this.save = save;
+	}
+	public String getTrangThaiDuThi() {
+		return trangThaiDuThi;
+	}
+	public void setTrangThaiDuThi(String trangThaiDuThi) {
+		this.trangThaiDuThi = trangThaiDuThi;
+	}
+	public List<MonThiBean> getListMonThi() {
+		return listMonThi;
+	}
+	public void setListMonThi(List<MonThiBean> listMonThi) {
+		this.listMonThi = listMonThi;
+	}
+	public String getMaMonThi() {
+		return maMonThi;
+	}
+	public void setMaMonThi(String maMonThi) {
+		this.maMonThi = maMonThi;
 	}
 }
