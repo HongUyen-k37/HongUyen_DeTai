@@ -31,13 +31,13 @@
 			<p class="title">XỬ LÝ BÀI THI</p>
 			<label class="control-label col-sm-2">Phòng thi:</label>
 	    	<div class="col-sm-4">
-	    		<html:select property="maPhongThi" name="baiThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getMaPhongThi()">
+	    		<html:select property="maPhongThi" name="baiThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getXuLyBaiThi()">
                 	<html:optionsCollection name="baiThiActionForm" property="listPhongThi" label="soHieuPhongThi" value="maPhongThi"/>
 	            </html:select>
 	    	</div>
 	    	<label class="control-label col-sm-2">Môn thi:</label>
 	    	<div class="col-sm-4">
-	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getMaMonThi()">
+	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getXuLyBaiThi()">
                 	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
 	            </html:select>
 	    	</div>
@@ -85,7 +85,7 @@
 				<div class="col-sm-9">
 						<p>Danh sách gồm có: <span> ${stt} </span> sinh viên</p>
 				</div>
-				<button type="submit" name="save" value="save" class="btn btn-success">Lưu</button>
+				<button type="submit" name="save" value="save" class="btn btn-success btn-all">Lưu</button>
 				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
 				</html:form>
 			</div>

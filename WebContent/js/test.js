@@ -32,13 +32,14 @@ function taoKyThi(){
 }
 
 function taoHTMLMonThi(that){
-	var htmlMonThi='<div class="form-group row"><div class="col-sm-8 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var htmlMonThi='<div class="form-group row"><div class="col-sm-5 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><div class="col-sm-3"><input type="number" class="form-control" name="heSo" placeholder="Hệ số"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 }
 
 function luuMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax insert: "+tenMonThi);
+	that.disabled = true;
 	var soMonThi = $("#soMonThi").html();
 	soMonThi++;
 	$("#soMonThi").html(soMonThi);
@@ -124,17 +125,65 @@ function getMaKyThi(){
 	window.location.href=x+"?maKyThi="+makt;
 }
 
-function getMaPhongThi(){
+function getDanhSachPhongThi(){
+	var makt = $("#f_maKyThi").val();
 	var mapt = $("#f_maPhongThi").val();
-	var url=window.location.href;
-	var x = url.split("/");
-	x=x[x.length-1];
-	var i=x.indexOf(".do");
-	x=x.substring(0,i+3);
-	window.location.href=x+"&maPhongThi="+mapt;
+	window.location.href="DanhSachPhongThi.do?maKyThi="+makt+"&maPhongThi="+mapt;
 }
-function getMaMonThi(){
+
+function getXuLyBaiThi(){
+	var makt = $("#f_maKyThi").val();
+	var mapt = $("#f_maPhongThi").val();
 	var mamt = $("#f_maMonThi").val();
-	var url=window.location.href;
-	window.location.href=url+"&maMonThi="+mamt;
+	window.location.href="XuLyBaiThi.do?maKyThi="+makt+"&maPhongThi="+mapt+"&maMonThi="+mamt;
 }
+
+var ClipboardHelper = {
+    copyElement: function ($element)
+    {
+       this.copyText($element.text())
+    },
+    copyText:function(text) // Linebreaks with \n
+    {
+        var $tempInput =  $("<input>");
+        $("body").append($tempInput);
+        $tempInput.val(text).select();
+        document.execCommand("copy");
+        $tempInput.remove();
+    }
+};
+
+function soSangChu(str) {
+	str = str.replace(/1/g, ' Một');
+	str = str.replace(/2/g, ' Hai');
+	str = str.replace(/3/g, ' Ba');
+	str = str.replace(/4/g, ' Bốn');
+	str = str.replace(/5/g, ' Năm');
+	str = str.replace(/6/g, ' Sáu');
+	str = str.replace(/7/g, ' Bảy');
+	str = str.replace(/8/g, ' Tám');
+	str = str.replace(/9/g, ' Chín');
+	str = str.replace(/10/g, ' Mười');
+	str = str.replace(/0/g, ' Không');
+	str = str.replace(/,/g, ' phẩy');
+	str = str.trim();
+	return str;
+}
+
+function convertCode(){
+	var str=$input.val();
+	str = soSangChu(str);
+	if (str=="Một Không") {
+		str = "Mười";
+	}
+	//$output.val(str);
+	$output.html(str);
+	ClipboardHelper.copyText(str);
+	$input.focus();
+}
+
+var $input = $("#input");
+var $output = $("#output");
+$input.on("input",function(){
+	convertCode();
+});	

@@ -65,8 +65,9 @@
 					<td colspan="4">
 						<input type="text" name="diemSo" class="form-control" id="input">
 					</td>
-					<td colspan="4"><span id="output"></span>
-					<input type="text" name="diemChu" class="form-control" id="output">
+					<td colspan="4">
+						<!-- <input type="text" name="diemChu" class="form-control" id="output"> -->
+						<span id="output"></span>
 					</td>
 				</tr>
 			</tbody>

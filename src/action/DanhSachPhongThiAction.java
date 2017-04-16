@@ -41,7 +41,7 @@ public class DanhSachPhongThiAction extends Action {
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list phong thi theo ky thi
 		PhongThiBO ptBO = new PhongThiBO();
-		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi); 
+		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		frm.setListPhongThi(listPhongThi);
 		//get ma phong thi
 		String maPhongThi = listPhongThi.size()==0?"":listPhongThi.get(0).getMaPhongThi();
