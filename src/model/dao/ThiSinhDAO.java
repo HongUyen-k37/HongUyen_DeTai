@@ -103,7 +103,6 @@ public class ThiSinhDAO extends DataAccessObject{
 			pstm.setString(10, thiSinh.getEmail());
 			pstm.setString(11, thiSinh.getDiaChi());
 			pstm.setString(12, thiSinh.getSoBaoDanh());
-			
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {

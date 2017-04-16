@@ -12,12 +12,13 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.BaiThiActionForm;
-import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 import model.bo.PhongThiBO;
 import model.bo.ThiSinhBO;
 
@@ -45,16 +46,39 @@ public class XuLyBaiThiAction extends Action{
 		PhongThiBO pt = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = pt.getListPhongThi();
 		frm.setListPhongThi(listPhongThi);
+		//get list môn để select
+		MonThiBO mt = new MonThiBO();
+		List<MonThiBean> listMonThi = mt.getListMonThi(maKyThi);
+		frm.setListMonThi(listMonThi);;
 		//get ma phong thi
 		String maPhongThi = listPhongThi.size()==0?"":listPhongThi.get(0).getMaPhongThi();
 		if(frm.getMaPhongThi()!=null)
 			maPhongThi = frm.getMaPhongThi();
-		//get list thí sinh theo phong thi hiển thị ra table
+		//get ma mon thi
+		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
+		if(frm.getMaMonThi()!=null)
+			maMonThi = frm.getMaMonThi();
+		//get list thí sinh theo phòng thi hiển thị ra table
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
 		frm.setListThiSinh(listThiSinh);
+		//get trạng thái dự thi 
+		String trangThaiDuThi = null;
+		if ("save".equals(frm.getSave())) {
+			trangThaiDuThi = frm.getTrangThaiDuThi();
+			System.out.println(maKyThi);
+			System.out.println(maPhongThi);
+			System.out.println(trangThaiDuThi);
+			System.out.println(maMonThi);
+			return mapping.findForward("success");
+		}
+	/*	
+		for(int i = 0; i<listThiSinh.size();i++){
+			String trangThaiDuThi = frm.getTrangThaiDuThi();
+		}*/
 		
 		return mapping.findForward("success");
+
 	}
 	
 }

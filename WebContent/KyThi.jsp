@@ -18,7 +18,7 @@
 <div class="row">
 <br>
 <a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
-	<div class="col-md-4" style="float:right">
+	<div class="col-md-4 col-xs-6" style="float:right">
 	<html:form action="/TimKiemKyThi" styleClass="input-group" method="POST"> 
 	
         <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">

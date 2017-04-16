@@ -29,16 +29,23 @@
 		<div class="group-content">
 			<div class="row main-nav">
 			<p class="title">XỬ LÝ BÀI THI</p>
-			<label class="control-label col-sm-2 pad-5">Phòng thi:</label>
+			<label class="control-label col-sm-2">Phòng thi:</label>
 	    	<div class="col-sm-4">
-	      		<select class="form-control">
-					<option value="">01(<%=25 %>)</option>					
-				</select>
+	    		<html:select property="maPhongThi" name="baiThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getMaPhongThi()">
+                	<html:optionsCollection name="baiThiActionForm" property="listPhongThi" label="soHieuPhongThi" value="maPhongThi"/>
+	            </html:select>
+	    	</div>
+	    	<label class="control-label col-sm-2">Môn thi:</label>
+	    	<div class="col-sm-4">
+	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getMaMonThi()">
+                	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
+	            </html:select>
 	    	</div>
 			</div>
 		<div class="details_info">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<div class="main-list">
+			<html:form>
 				<table class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
@@ -50,10 +57,9 @@
 						<th>Xử lý thi</th>
 					</tr>
 				</thead>
-				<%-- <bean:define id="stt" value="0"/>
+				<bean:define id="stt" value="0"/>
 				<tbody>
-					<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
-						<logic:iterate id="dsbt" name="baiThiActionForm" property="listBaiThi">
+					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
 							<td>${stt}</td>
@@ -62,34 +68,26 @@
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td><bean:write name="dsts" property="ngaySinh"/></td>
-							<td><bean:write name="dsbt" property="trangThaiDuThi"/></td>	                    
+							
+							<td>		
+							<html:select property="trangThaiDuThi" styleClass="form-control" value="1">
+								<html:option value="1">Dự thi</html:option>
+								<html:option value="2">Khiển trách</html:option>
+								<html:option value="3">Cảnh cáo</html:option>
+								<html:option value="4">Đình chỉ thi</html:option>						
+								<html:option value="5">Vắng thi</html:option>
+							</html:select>
+							</td>	                    
 						</tr>
-						</logic:iterate>
 					</logic:iterate>
-				
-					<tr> --%>
-						<td>1</td>
-						<td>001</td>
-						<td>Trần Thị Hồng</td>
-						<td>Uyên</td>
-						<td>02/11/1995</td>
-						<td>
-							<select class="form-control">
-								<option value="vangthi">Dự thi</option>
-								<option value="dinhchi">Khiển trách</option>
-								<option value="dinhchi">Cảnh cáo</option>
-								<option value="dinhchi">Đình chỉ thi</option>						
-								<option value="dinhchi">Vắng thi</option>
-							</select>
-						</td>
-					</tr>
 				</tbody>
 				</table>
 				<div class="col-sm-9">
-						<p>Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
+						<p>Danh sách gồm có: <span> ${stt} </span> sinh viên</p>
 				</div>
-				<button type="submit" class="btn btn-success btn-all" name='save'>Lưu</button>
+				<button type="submit" name="save" value="save" class="btn btn-success">Lưu</button>
 				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
+				</html:form>
 			</div>
 		</div>
 		</div>
