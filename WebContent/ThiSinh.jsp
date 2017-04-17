@@ -67,7 +67,7 @@
 							<td><bean:write name="dsts" property="doiTuong"/></td>
 							<td>
 							<a href="javascript:void(0)" onclick="suaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
-	                   		 <a href="#xoaThiSinh" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
+	                   		<a href="javascript:void(0)" onclick="xoaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
 	                   		</td>	                    
 						</tr>
 						</logic:iterate>
@@ -84,21 +84,22 @@
 <div class="modal fade" id="xoaThiSinh">
     <div class="modal-dialog">
         <div class="modal-content">
-        	
-        	<div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Xóa thí sinh</h4>
-            </div>
+        	<html:form action="/XoaPhongThi" styleId="formDelete" styleClass="form-horizontal">
+	        	<div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">Xóa thí sinh</h4>
+	            </div>
+	            
+	             <div class="modal-body">
+	             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất.</p>
+	             	<p>Bạn có chắc chắn xóa thí sinh này?</p>
+	             </div>
             
-             <div class="modal-body">
-             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất.</p>
-             	<p>Bạn có chắc chắn xóa thí sinh này?</p>
-             </div>
-            
-            <div class="modal-footer">
-            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-            	<a href="XoaThiSinh.do?maThiSinh=${maThiSinh}"  class="btn btn-danger">Đồng ý</a>
-            </div>
+	            <div class="modal-footer">
+	            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	            	<button type="submit" name="delete" value="delete" class="btn btn-danger">Đồng ý</button>
+	            </div>
+            </html:form>
         </div>
     </div>
 </div>
@@ -141,7 +142,7 @@
 					<div class="form-group">
 						<label class="col-md-2" style="padding-right:0;" for="birthday">Ngày sinh(*)</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" onchange="this.value=this.value.trim()" >
+							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995" title="Vui lòng nhập đúng Ngày sinh quy định." pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" >
 						</div>
 					</div>
 					<div class="col-md-7">

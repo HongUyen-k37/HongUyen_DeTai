@@ -56,7 +56,7 @@
 						<td><bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						<td>	                    
 						<a href="javascript:void(0)" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
-	                    <a href="#xoaKyThi" data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
+	                    <a href="javascript:void(0)" onclick="xoaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>
 					</logic:iterate>
 				</tbody>
@@ -70,22 +70,23 @@
 <div class="modal fade" id="xoaKyThi">
     <div class="modal-dialog">
         <div class="modal-content">
-        	
-        	<div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Xóa kỳ thi</h4>
-            </div>
-            
-             <div class="modal-body">
-             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất. Việc làm của bạn sẽ ảnh hưởng đến thông tin và điểm số của các thí sinh.</p>
-             	<p>Bạn có bỏ chọn <b>Hoạt động</b> thay vì xóa kỳ thi.</p>
-             	<p>Bạn có chắc chắn xóa kỳ thi này?</p>
-             </div>
-            
-            <div class="modal-footer">
-            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-            	<a href="XoaKyThi.do?maKyThi=${maKyThi}"  class="btn btn-danger">Đồng ý</a>
-            </div>
+        	<html:form action="/XoaPhongThi" styleId="formDelete" styleClass="form-horizontal">
+	        	<div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">Xóa kỳ thi</h4>
+	            </div>
+	            
+	             <div class="modal-body">
+	             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất. Việc làm của bạn sẽ ảnh hưởng đến thông tin và điểm số của các thí sinh.</p>
+	             	<p>Bạn có bỏ chọn <b>Hoạt động</b> thay vì xóa kỳ thi.</p>
+	             	<p>Bạn có chắc chắn xóa kỳ thi này?</p>
+	             </div>
+	            
+	            <div class="modal-footer">
+	            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	            	<button type="submit" name="delete" value="delete" class="btn btn-danger">Đồng ý</button>
+	            </div>
+            </html:form>
         </div>
     </div>
 </div>
@@ -111,7 +112,7 @@
 							<div class="form-group row">
 							<label class="control-label col-sm-2 pad-5">Ngày thi(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Vui lòng nhập đúng quy định" pattern="[0-9]{2},[0-9]{2},[0-9]{2}/[0-9]{2}">
+						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Vui lòng nhập đúng Ngày thi quy định." pattern="[0-9]{2},[0-9]{2},[0-9]{2}/[0-9]{2}">
 						    	</div>
 						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh(*)</label>
 						    	<div class="col-sm-3"> 

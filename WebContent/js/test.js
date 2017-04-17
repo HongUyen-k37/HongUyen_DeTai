@@ -31,6 +31,12 @@ function taoKyThi(){
 	$("#modal-kythi").modal();
 }
 
+function xoaKyThi(maKyThi){
+	document.forms.formDelete.reset();
+	document.forms.formDelete.action="XoaKyThi.do?maKyThi="+maKyThi;
+	$("#xoaKyThi").modal();
+}
+
 function taoHTMLMonThi(that){
 	var htmlMonThi='<div class="form-group row"><div class="col-sm-5 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><div class="col-sm-3"><input type="number" class="form-control" name="heSo" placeholder="Hệ số"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
@@ -88,6 +94,12 @@ function suaThiSinh(maThiSinh){
 	$("#modal-thisinh").modal();
 }
 
+function xoaThiSinh(maThiSinh){
+	document.forms.formDelete.reset();
+	document.forms.formDelete.action="XoaThiSinh.do?maThiSinh="+maThiSinh;
+	$("#xoaThiSinh").modal();
+}
+
 function suaPhongThi(maPhongThi){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="SuaPhongThi.do?maPhongThi="+maPhongThi;
@@ -114,6 +126,18 @@ function taoPhongThi(){
 	$(".modal-title").html("Thêm phòng thi");
 	$("#modal-phongthi").modal();
 }
+
+function xoaPhongThi(maPhongThi){
+	document.forms.formDelete.reset();
+	document.forms.formDelete.action="XoaPhongThi.do?maPhongThi="+maPhongThi;
+	$("#xoaPhongThi").modal();
+}
+
+var sum = 0;
+$(".soLuongThiSinh").each(function(){
+    sum += parseInt($(this).text());  // Or this.innerHTML, this.innerText
+});
+$("#tongSoLuong").html(sum);
 
 function getMaKyThi(){
 	var makt = $("#f_maKyThi").val();

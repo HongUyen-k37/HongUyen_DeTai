@@ -18,7 +18,6 @@ public class XoaPhongThiAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
-		
 		PhongThiActionForm frm = (PhongThiActionForm)form;
 		PhongThiBO ptBO = new PhongThiBO();
 		//check login
@@ -27,15 +26,7 @@ public class XoaPhongThiAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		//get maPhongThi
 		String maPhongThi = frm.getMaPhongThi();
-		/*String bienChe = frm.getBienChe();*/
 		System.out.println(maPhongThi);
-	/*	if(maPhongThi==null || maPhongThi.equals("")){
-			
-			if(bienChe != null)
-				return mapping.findForward("error");
-			else
-				ptBO.delete(maPhongThi);
-		}*/
 		if(maPhongThi==null || maPhongThi.equals(""))
 			return mapping.findForward("error");
 		ptBO.delete(maPhongThi);
