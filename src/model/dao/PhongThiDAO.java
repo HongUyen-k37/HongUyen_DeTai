@@ -124,5 +124,23 @@ public class PhongThiDAO extends DataAccessObject {
 		}
 		return result;
 	}
+	public boolean delete(String maPhongThi) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Delete from PHONGTHI where maPhongThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maPhongThi);
+			result = pstm.execute();
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 	
 }

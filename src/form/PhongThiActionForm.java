@@ -23,6 +23,7 @@ public class PhongThiActionForm extends ActionForm {
 	private String soHieuPhongThi;
 	private int soLuongThiSinh;
 	private String submit;
+	private String bienChe;
 	private KyThiBean kyThi;
 	private List<ThiSinhBean> listThiSinh;
 	private PhongThiBean phongThi;
@@ -74,12 +75,6 @@ public class PhongThiActionForm extends ActionForm {
 	public void setSoLuongThiSinh(int soLuongThiSinh) {
 		this.soLuongThiSinh = soLuongThiSinh;
 	}
-	public String getSubmit() {
-		return submit;
-	}
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		// TODO Auto-generated method stub
@@ -95,5 +90,17 @@ public class PhongThiActionForm extends ActionForm {
 	}
 	public void setListKyThi(List<KyThiBean> listKyThi) {
 		this.listKyThi = listKyThi;
+	}
+	public String getBienChe() {
+		return bienChe;
+	}
+	public void setBienChe(String bienChe) {
+		this.bienChe = bienChe;
+	}
+	public String getSubmit() {
+		return submit;
+	}
+	public void setSubmit(String submit) {
+		this.submit = submit;
 	}
 }

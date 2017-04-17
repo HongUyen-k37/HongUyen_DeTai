@@ -36,7 +36,7 @@
 								<th>STT</th>
 								<th>Mã phòng thi</th>	
 								<th>Số hiệu phòng thi</th>						
-								<th>Số lượng</th>
+								<th>Số lượng thí sinh</th>
 								<!-- <th>Ghi chú</th> -->
 								<th></th>
 							</tr>
@@ -51,7 +51,8 @@
 								<td><bean:write name="dspt" property="maPhongThi"/></td>
 								<td><bean:write name="dspt" property="soHieuPhongThi"/></td>
 								<td><bean:write name="dspt" property="soLuongThiSinh"/></td>		
-								<td><a href="javascript:void(0)" onclick="suaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a></td>
+								<td><a href="javascript:void(0)" onclick="suaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a>
+								<a href="#xoaPhongThi" data-toggle="modal" class="icon icon-danger" title="Xóa phòng thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 							</tr>
 							</logic:iterate>
 						</tbody>
@@ -59,13 +60,34 @@
 					<div class="row">
 						<div class="col-sm-5 col-md-offset-6">
 							Tổng: <span> 90/100 </span> sinh viên
-							<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name='bienche'>Biên chế</button>
+							<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name='bienChe'>Biên chế</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="modal fade" id="xoaPhongThi">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	
+        	<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Xóa phòng thi</h4>
+            </div>
+            
+             <div class="modal-body">
+             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất.</p>
+             	<p>Bạn có chắc chắn xóa phòng thi này?</p>
+             </div>
+            
+            <div class="modal-footer">
+            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+            	<a href="XoaPhongThi.do?maPhongThi=${maPhongThi}"  class="btn btn-danger">Đồng ý</a>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade" id="modal-phongthi">
 	<div class="modal-dialog">

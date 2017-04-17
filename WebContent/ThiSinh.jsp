@@ -67,7 +67,7 @@
 							<td><bean:write name="dsts" property="doiTuong"/></td>
 							<td>
 							<a href="javascript:void(0)" onclick="suaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
-	                   		<a href="XoaThiSinh.do?maThiSinh=${maThiSinh}" onclick="return confirm('Bạn chắc chắn muốn xóa tất cả thông tin về thí sinh này?')" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
+	                   		 <a href="#xoaThiSinh" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
 	                   		</td>	                    
 						</tr>
 						</logic:iterate>
@@ -81,6 +81,28 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="xoaThiSinh">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	
+        	<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Xóa thí sinh</h4>
+            </div>
+            
+             <div class="modal-body">
+             	<p>Nếu xóa thì các dữ liệu liên quan sẽ mất.</p>
+             	<p>Bạn có chắc chắn xóa thí sinh này?</p>
+             </div>
+            
+            <div class="modal-footer">
+            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+            	<a href="XoaThiSinh.do?maThiSinh=${maThiSinh}"  class="btn btn-danger">Đồng ý</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modal-thisinh">
 	<div class="modal-dialog">
 		<div class="modal-content">
