@@ -28,7 +28,9 @@
 
 	<div class="col-md-8">
 		<div class="group-content">
-			<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh()">Thêm thí sinh</a>
+			<bean:define id="kyThi" name="thiSinhActionForm" property="kyThi"></bean:define>
+			<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
+			<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
 			<div class="col-md-4 col-xs-6" style="float:right">
 				<html:form action="/TimKiemThiSinh" styleClass="input-group" method="POST"> 				
 			        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">
@@ -66,7 +68,7 @@
 							<td><bean:write name="dsts" property="khuVuc"/></td>
 							<td><bean:write name="dsts" property="doiTuong"/></td>
 							<td>
-							<a href="javascript:void(0)" onclick="suaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
+							<a href="javascript:void(0)" onclick="suaThiSinh('${maKyThi}', '${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
 	                   		<a href="javascript:void(0)" onclick="xoaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
 	                   		</td>	                    
 						</tr>

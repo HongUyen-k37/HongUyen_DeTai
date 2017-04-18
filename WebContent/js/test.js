@@ -60,16 +60,16 @@ function xoaMonThi(that){
 	$("#soMonThi").html(soMonThi);
 }
 
-function taoThiSinh(){
+function taoThiSinh(maKyThi){
 	document.forms.formCreateEdit.reset();
-	document.forms.formCreateEdit.action="ThemThiSinh.do";
+	document.forms.formCreateEdit.action="ThemThiSinh.do?maKyThi="+maKyThi;
 	$(".modal-title").html("Thêm thí sinh");
 	$("#modal-thisinh").modal();
 }
 
-function suaThiSinh(maThiSinh){
+function suaThiSinh(maKyThi, maThiSinh){
 	document.forms.formCreateEdit.reset();
-	document.forms.formCreateEdit.action="SuaThiSinh.do?maThiSinh="+maThiSinh;
+	document.forms.formCreateEdit.action="SuaThiSinh.do?maKyThi="+maKyThi+"&maThiSinh="+maThiSinh;
 	$(".modal-title").html("Sửa thí sinh");
 	$.ajax({
 		type: "POST",
@@ -100,9 +100,16 @@ function xoaThiSinh(maThiSinh){
 	$("#xoaThiSinh").modal();
 }
 
-function suaPhongThi(maPhongThi){
+function taoPhongThi(maKyThi){
 	document.forms.formCreateEdit.reset();
-	document.forms.formCreateEdit.action="SuaPhongThi.do?maPhongThi="+maPhongThi;
+	document.forms.formCreateEdit.action="ThemPhongThi.do?maKyThi="+maKyThi;
+	$(".modal-title").html("Thêm phòng thi");
+	$("#modal-phongthi").modal();
+}
+
+function suaPhongThi(maKyThi, maPhongThi){
+	document.forms.formCreateEdit.reset();
+	document.forms.formCreateEdit.action="SuaPhongThi.do?maKyThi="+maKyThi+"&maPhongThi="+maPhongThi;
 	$(".modal-title").html("Sửa phòng thi");
 	$.ajax({
 		type: "POST",
@@ -117,13 +124,6 @@ function suaPhongThi(maPhongThi){
 			$("#f_soLuongThiSinh").val(result["soLuongThiSinh"]);
 	    }
 	});
-	$("#modal-phongthi").modal();
-}
-
-function taoPhongThi(){
-	document.forms.formCreateEdit.reset();
-	document.forms.formCreateEdit.action="ThemPhongThi.do";
-	$(".modal-title").html("Thêm phòng thi");
 	$("#modal-phongthi").modal();
 }
 

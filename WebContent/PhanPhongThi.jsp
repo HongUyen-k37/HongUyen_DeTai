@@ -25,8 +25,10 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div class="group-content">		
-				<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoPhongThi()">Thêm phòng thi</a>
+			<div class="group-content">
+				<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
+				<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
+				<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoPhongThi('${maKyThi}')">Thêm phòng thi</a>
 				
 				<div class="details_info">
 				<p class="title">DANH SÁCH PHÒNG THI</p>
@@ -52,7 +54,7 @@
 								<td><bean:write name="dspt" property="soHieuPhongThi"/></td>
 								<td class="soLuongThiSinh"><bean:write name="dspt" property="soLuongThiSinh"/></td>		
 								<td>
-								<a href="javascript:void(0)" onclick="suaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a>
+								<a href="javascript:void(0)" onclick="suaPhongThi('${maKyThi}', '${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a>
 								<a href="javascript:void(0)" onclick="xoaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-danger" title="Xóa phòng thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 							</tr>
 							</logic:iterate>

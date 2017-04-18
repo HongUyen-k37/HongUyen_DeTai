@@ -30,7 +30,7 @@ public class SuaThiSinhAction extends Action {
 		String maThiSinh = frm.getMaThiSinh();
 		if(maThiSinh==null || maThiSinh.equals("")) 
 			return mapping.findForward("error");
-
+		//get ma ky thi
 		String maKyThi = frm.getMaKyThi();
 		System.out.println(maKyThi);
 		String hoDem = frm.getHoDem();

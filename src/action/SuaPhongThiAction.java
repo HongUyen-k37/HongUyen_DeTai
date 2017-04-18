@@ -30,7 +30,7 @@ public class SuaPhongThiAction extends Action  {
 		String maPhongThi = frm.getMaPhongThi();
 		if(maPhongThi==null || maPhongThi.equals("")) 
 			return mapping.findForward("error");
-		
+		//get ma ky thi
 		String maKyThi = frm.getMaKyThi();
 		System.out.println(maKyThi);
 		String soHieuPhongThi = frm.getSoHieuPhongThi();
