@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Thống kê bảng điểm theo môn</title>
+<title>Thống kê bảng điểm tổng hợp</title>
 <jsp:include page="Asset/Head.jsp" />
 </head>
 <body>
@@ -27,20 +27,12 @@
 	<div class="col-md-8">
 		<div class="group-content">
 			<div class="row main-nav">
-				<p class="title">THỐNG KÊ BẢNG ĐIỂM THEO MÔN</p>
-		    	
-		    	<div>
-		    	<label class="control-label col-sm-2">Môn thi:</label>
-		    	<select>
-		    		<option>p01</option>
-		    	</select>
-		    		<%-- <html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getXuLyBaiThi()">
-	                	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
-		            </html:select> --%>
-		    	</div>
+				<p class="title">THỐNG KÊ BẢNG ĐIỂM TỔNG HỢP</p>
 	    	</div>
-	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content" style="border: 1px solid #ddd;border-radius: inherit;">
+	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
+
+	    <!-- 	Form bảng điểm -->
+	    	<div style="border: 1px solid #ddd;border-radius: inherit;">
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
@@ -101,11 +93,14 @@
 							</logic:iterate>
 						</tbody> --%>
 						</table>
-						<!-- <button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button> -->
+						
 						<%-- </html:form> --%>
 					</div>
 				</div>
 	    	</div>
+	    <!-- 	End of Form  -->
+	    <br>
+	    	<!-- <button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button> -->
 		</div>
 	</div>
 </div>

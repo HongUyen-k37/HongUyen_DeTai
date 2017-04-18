@@ -9,9 +9,9 @@
 				<div class="form-group">
 			   		<label class="col-sm-3">Tên kỳ thi:</label>
 			    	<div class="col-sm-9">
-				      	<html:select property="maKyThi" name="listMaKyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<%-- <html:select property="maKyThi" name="listMaKyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="listMaKyThi" property="listKyThi" label="tenKyThi" value="maKyThi"/>
-		             	</html:select>
+		             	</html:select> --%>
 			    	</div>
 			  	</div>
 			  	<div class="form-group">
