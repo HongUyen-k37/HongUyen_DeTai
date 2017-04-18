@@ -2,6 +2,8 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.bean.BaiThiBean;
 public class BaiThiDAO extends DataAccessObject{
@@ -33,5 +35,9 @@ public class BaiThiDAO extends DataAccessObject{
 	return result;
 }
 
-
+	public List<BaiThiBean> getList(String maKyThi, String maPhongThi, String maMonThi){
+		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
+		//viết hàm
+		return lst;
+	}
 }

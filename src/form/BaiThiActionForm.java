@@ -8,6 +8,7 @@ import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.bean.TrangThai;
 
 public class BaiThiActionForm extends ActionForm{
 	/**
@@ -24,7 +25,17 @@ public class BaiThiActionForm extends ActionForm{
 	private List<MonThiBean> listMonThi;
 	private String maPhongThi;
 	private String maMonThi;
-	private List<String> listTrangThai;
+	private List<TrangThai> listTrangThai;
+	//get ca nhom
+	public TrangThai getTrangThai(int index){
+		while(index >= listTrangThai.size()){
+			listTrangThai.add(new TrangThai());
+		}
+		return this.listTrangThai.get(index);
+	}
+	public void setTrangThai(int index, TrangThai trangThai){
+		this.listTrangThai.add(index, trangThai);
+	}
 	
 	public String getMaPhongThi() {
 		return maPhongThi;
@@ -86,10 +97,10 @@ public class BaiThiActionForm extends ActionForm{
 	public void setMaMonThi(String maMonThi) {
 		this.maMonThi = maMonThi;
 	}
-	public List<String> getListTrangThai() {
+	public List<TrangThai> getListTrangThai() {
 		return listTrangThai;
 	}
-	public void setListTrangThai(List<String> listTrangThai) {
+	public void setListTrangThai(List<TrangThai> listTrangThai) {
 		this.listTrangThai = listTrangThai;
 	}
 }

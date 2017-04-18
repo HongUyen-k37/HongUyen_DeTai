@@ -59,18 +59,18 @@
 				</thead>
 				<bean:define id="stt" value="0"/>
 				<tbody>
-					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh">	
+					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh" indexId="rowindex">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
 							<td>${stt}</td>
-							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
+							<bean:define id="maThiSinh" name="dsts" property="maThiSinh" indexed="true"></bean:define>
 							<td><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td><bean:write name="dsts" property="ngaySinh"/></td>
 							
 							<td>		
-							<html:select property="trangThaiDuThi" styleClass="trangThaiDuThi form-control" value="1">
+							<html:select property="trangThaiDuThi" styleClass="trangThaiDuThi form-control" value="1" indexed="true">
 								<html:option value="1">Dự thi</html:option>
 								<html:option value="2">Khiển trách</html:option>
 								<html:option value="3">Cảnh cáo</html:option>

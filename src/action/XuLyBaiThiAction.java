@@ -1,6 +1,5 @@
 package action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,11 +12,14 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.BaiThiActionForm;
+import model.bean.BaiThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.bean.TrangThai;
+import model.bo.BaiThiBO;
 import model.bo.KyThiBO;
 import model.bo.MonThiBO;
 import model.bo.PhongThiBO;
@@ -63,26 +65,21 @@ public class XuLyBaiThiAction extends Action{
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
 		frm.setListThiSinh(listThiSinh);
-		//get trạng thái dự thi 
-		String trangThaiDuThi = null;
-		List<String> listTrangThai = new ArrayList<>();
-		for(int i = 0; i < listThiSinh.size(); i++){
-			trangThaiDuThi = frm.getTrangThaiDuThi();
-			listTrangThai.add(trangThaiDuThi);
-		}
-		frm.setListTrangThai(listTrangThai);
+		
+		//Kiem tra trong database đã có dữ liệu xử lý bài thi chưa
+		BaiThiBO bt=new BaiThiBO();
+		List<BaiThiBean> lst=bt.getList(maKyThi, maPhongThi, maMonThi);
+		//if(lst.size()==0){ bt.khoiTao(); lst=bt.getList(maKyThi);
+		//frm.setListBaiThi(lst);
 		if ("save".equals(frm.getSave())) {
-			trangThaiDuThi = frm.getTrangThaiDuThi();
 			System.out.println(maKyThi);
 			System.out.println(maPhongThi);
-			for(String tt : listTrangThai){
-				System.out.println(tt);
-			}
+			//System.out.println(tt);
 			System.out.println(maMonThi);
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");
-
+		
 	}
 	
 }
