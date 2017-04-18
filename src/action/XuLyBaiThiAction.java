@@ -45,7 +45,7 @@ public class XuLyBaiThiAction extends Action{
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list phòng để select
 		PhongThiBO pt = new PhongThiBO();
-		List<PhongThiBean> listPhongThi = pt.getListPhongThi();
+		List<PhongThiBean> listPhongThi = pt.getListPhongThiTheoMaKyThi(maKyThi);
 		frm.setListPhongThi(listPhongThi);
 		//get list môn để select
 		MonThiBO mt = new MonThiBO();

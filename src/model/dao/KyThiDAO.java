@@ -108,7 +108,9 @@ public class KyThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Delete from KYTHI where maKyThi=?";
+			String sql = "Delete from KYTHI where maKyThi=?"
+					+ "Delete from THISINH where maKyThi=?"
+					+ "Delete from PHONGTHI where maKyThi=?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			result = pstm.execute();
