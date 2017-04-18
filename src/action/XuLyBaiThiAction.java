@@ -1,5 +1,6 @@
 package action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,19 +65,22 @@ public class XuLyBaiThiAction extends Action{
 		frm.setListThiSinh(listThiSinh);
 		//get trạng thái dự thi 
 		String trangThaiDuThi = null;
+		List<String> listTrangThai = new ArrayList<>();
+		for(int i = 0; i < listThiSinh.size(); i++){
+			trangThaiDuThi = frm.getTrangThaiDuThi();
+			listTrangThai.add(trangThaiDuThi);
+		}
+		frm.setListTrangThai(listTrangThai);
 		if ("save".equals(frm.getSave())) {
 			trangThaiDuThi = frm.getTrangThaiDuThi();
 			System.out.println(maKyThi);
 			System.out.println(maPhongThi);
-			System.out.println(trangThaiDuThi);
+			for(String tt : listTrangThai){
+				System.out.println(tt);
+			}
 			System.out.println(maMonThi);
 			return mapping.findForward("success");
 		}
-	/*	
-		for(int i = 0; i<listThiSinh.size();i++){
-			String trangThaiDuThi = frm.getTrangThaiDuThi();
-		}*/
-		
 		return mapping.findForward("success");
 
 	}

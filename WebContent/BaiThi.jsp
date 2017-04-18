@@ -70,7 +70,7 @@
 							<td><bean:write name="dsts" property="ngaySinh"/></td>
 							
 							<td>		
-							<html:select property="trangThaiDuThi" styleClass="form-control" value="1">
+							<html:select property="trangThaiDuThi" styleClass="trangThaiDuThi form-control" value="1">
 								<html:option value="1">Dự thi</html:option>
 								<html:option value="2">Khiển trách</html:option>
 								<html:option value="3">Cảnh cáo</html:option>

@@ -24,6 +24,8 @@ public class BaiThiActionForm extends ActionForm{
 	private List<MonThiBean> listMonThi;
 	private String maPhongThi;
 	private String maMonThi;
+	private List<String> listTrangThai;
+	
 	public String getMaPhongThi() {
 		return maPhongThi;
 	}
@@ -83,5 +85,11 @@ public class BaiThiActionForm extends ActionForm{
 	}
 	public void setMaMonThi(String maMonThi) {
 		this.maMonThi = maMonThi;
+	}
+	public List<String> getListTrangThai() {
+		return listTrangThai;
+	}
+	public void setListTrangThai(List<String> listTrangThai) {
+		this.listTrangThai = listTrangThai;
 	}
 }
