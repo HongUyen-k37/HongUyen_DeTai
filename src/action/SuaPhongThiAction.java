@@ -22,7 +22,6 @@ public class SuaPhongThiAction extends Action  {
 		
 		PhongThiActionForm frm = (PhongThiActionForm)form;
 		PhongThiBO ptBO = new PhongThiBO();
-	/*	KyThiActionForm frm1 = (KyThiActionForm)form;*/
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -31,11 +30,12 @@ public class SuaPhongThiAction extends Action  {
 		String maPhongThi = frm.getMaPhongThi();
 		if(maPhongThi==null || maPhongThi.equals("")) 
 			return mapping.findForward("error");
-	/*	
-		String maKyThi = frm1.getMaKyThi();*/
+		
+		String maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		String soHieuPhongThi = frm.getSoHieuPhongThi();
 		int soLuongThiSinh = frm.getSoLuongThiSinh();
-		PhongThiBean pt =new PhongThiBean(maPhongThi, "KT0001", soHieuPhongThi, soLuongThiSinh);
+		PhongThiBean pt =new PhongThiBean(maPhongThi, maKyThi, soHieuPhongThi, soLuongThiSinh);
 		ptBO.update(pt);
 		return mapping.findForward("success");
 	}

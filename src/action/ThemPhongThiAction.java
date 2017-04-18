@@ -26,12 +26,13 @@ public class ThemPhongThiAction extends Action  {
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
 		if(user == null) return mapping.findForward("error");
-		
+		String maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		if ("submit".equals(frm.getSubmit())) {			
 			String soHieuPhongThi = frm.getSoHieuPhongThi();
 			int soLuongThiSinh = frm.getSoLuongThiSinh();
 		
-			PhongThiBean pt = new PhongThiBean(null, "KT0001", soHieuPhongThi, soLuongThiSinh);
+			PhongThiBean pt = new PhongThiBean(null, maKyThi, soHieuPhongThi, soLuongThiSinh);
 			ptBO.insert(pt);
 			return mapping.findForward("success");
 		}

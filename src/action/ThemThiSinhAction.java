@@ -25,7 +25,8 @@ public class ThemThiSinhAction extends Action{
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
 		if(user == null) return mapping.findForward("error");
-		
+		String maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		if ("submit".equals(frm.getSubmit())) {
 			String hoDem = frm.getHoDem();
 			String ten = frm.getTen();
@@ -37,7 +38,7 @@ public class ThemThiSinhAction extends Action{
 			String email = frm.getEmail();
 			String diaChi = frm.getDiaChi();
 		
-			ThiSinhBean ts = new ThiSinhBean(null, "KT0001", null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			tsBO.insert(ts);
 			return mapping.findForward("ThemThiSinh");
 		}

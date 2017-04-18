@@ -25,7 +25,12 @@
 			</ul>
 			</li>
 			
-			<li> <a href="#">Báo cáo - Thống kê</a></li>
+			<li> <a href="#">Báo cáo - Thống kê</a>
+			<ul>
+				<li><a href="TKBangDiemMonThi.do">Bảng điểm theo môn thi</a></li>
+				<li><a href="TKBangDiemTongHop.do">Bảng điểm tổng hợp</a></li>
+				<li><a href="TKDanhSachThiSinhTrungTuyen.do">Danh sách trúng tuyển</a></li>
+			</ul></li>
 			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
 			<div class="log-out">
 				<logic:notEmpty name="user" scope="session">

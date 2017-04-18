@@ -30,7 +30,9 @@ public class SuaThiSinhAction extends Action {
 		String maThiSinh = frm.getMaThiSinh();
 		if(maThiSinh==null || maThiSinh.equals("")) 
 			return mapping.findForward("error");
-		
+
+		String maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		String hoDem = frm.getHoDem();
 		String ten = frm.getTen();
 		String ngaySinh = frm.getNgaySinh();
@@ -40,7 +42,7 @@ public class SuaThiSinhAction extends Action {
 		String email = frm.getEmail();
 		String dienThoai = frm.getDienThoai();
 		String diaChi = frm.getDiaChi();
-		ThiSinhBean ts =new ThiSinhBean(maThiSinh, null, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+		ThiSinhBean ts =new ThiSinhBean(maThiSinh, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 		tsBO.update(ts);
 		return mapping.findForward("success");
 	}
