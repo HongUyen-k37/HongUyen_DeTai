@@ -14,8 +14,10 @@ import org.apache.struts.action.ActionMapping;
 import form.PhongThiActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
+import model.bean.ThiSinhBean;
 import model.bo.KyThiBO;
 import model.bo.PhongThiBO;
+import model.bo.ThiSinhBO;
 
 public class PhanPhongThiAction extends Action{
 	@Override
@@ -30,7 +32,7 @@ public class PhanPhongThiAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		
+		//get ma ky thi
 		PhongThiBO ptBO = new PhongThiBO();
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
@@ -39,6 +41,15 @@ public class PhanPhongThiAction extends Action{
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list phong thi theo ky thi
 		frm.setListPhongThi(ptBO.getListPhongThiTheoMaKyThi(maKyThi));
+		//get list thi sinh theo ky thi
+		ThiSinhBO tsBO = new ThiSinhBO();
+		List<ThiSinhBean> listThiSinh = tsBO.getListThiSinh(maKyThi);
+		//so luong thi sinh
+		frm.setSoLuongThiSinh(listThiSinh.size());
+		if ("bienChe".equals(frm.getBienChe())) {
+			tsBO.phanPhongThi(maKyThi);
+			return mapping.findForward("success");
+		}
 		return mapping.findForward("success");
 	}
 }

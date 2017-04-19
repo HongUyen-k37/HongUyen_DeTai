@@ -15,7 +15,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH WHERE maKyThi = ?";
+			String sql = "SELECT * FROM THISINH WHERE maKyThi = ? ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
@@ -169,7 +169,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%'";
+			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
@@ -195,7 +195,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH WHERE maPhongThi = ?";
+			String sql = "SELECT * FROM THISINH WHERE maPhongThi = ? ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maPhongThi);
 			rs = pstm.executeQuery();
@@ -215,5 +215,25 @@ public class ThiSinhDAO extends DataAccessObject{
 			tryToClose(rs);
 		}
 		return lst;
+	}
+	public boolean update(String maThiSinh, String maPhongThi){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update THISINH Set maPhongThi=? where maThiSinh=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maPhongThi);
+			pstm.setString(2, maThiSinh);
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
 	}
 }

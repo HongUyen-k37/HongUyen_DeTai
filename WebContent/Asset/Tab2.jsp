@@ -8,7 +8,6 @@
 	<div class="title-content">
 		<div class="title-left col-md-6">
 			<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-			<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
 			<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 		</div>
 		<div class="title-right col-md-6">

@@ -62,8 +62,10 @@
 					</table>
 					<div class="row">
 						<div class="col-sm-5 col-md-offset-6">
-							Tổng: <span id="tongSoLuong"></span>/100 sinh viên.
-							<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name='bienChe'>Biên chế</button>
+							Tổng: <span id="tongSoLuong"></span>/${phongThiActionForm.soLuongThiSinh} sinh viên.
+							<html:form action="/PhanPhongThi" method="POST">
+							<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name="bienChe" value="bienChe">Biên chế</button>
+							</html:form>
 						</div>
 					</div>
 				</div>

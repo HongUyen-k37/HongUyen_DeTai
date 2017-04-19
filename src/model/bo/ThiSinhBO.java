@@ -2,7 +2,9 @@ package model.bo;
 
 import java.util.List;
 
+import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.dao.PhongThiDAO;
 import model.dao.ThiSinhDAO;
 
 public class ThiSinhBO {
@@ -30,5 +32,23 @@ public class ThiSinhBO {
 	}
 	public List<ThiSinhBean> getListThiSinhTheoPhongThi(String maPhongThi){
 		return ts.getListThiSinhTheoPhongThi(maPhongThi);
+	}
+	public void phanPhongThi(String maKyThi){
+		List<ThiSinhBean> listThiSinh = ts.getListThiSinh(maKyThi);
+		PhongThiDAO pt = new PhongThiDAO();
+		List<PhongThiBean> listPhongThi = pt.getListPhongThiTheoMaKyThi(maKyThi);
+		int slot = 0;
+		for(int i = 0; i < listPhongThi.size(); i++){
+			slot += listPhongThi.get(i).getSoLuongThiSinh();
+		}
+		float avgRoom = 1.0f*listThiSinh.size()/slot;
+		int current = 0;
+		for(int i = 0; i < listPhongThi.size(); i++){
+			for(int j = 0; j < Math.ceil(listPhongThi.get(i).getSoLuongThiSinh()*avgRoom); j++){
+				if(listThiSinh.size()<=j+current) return;
+				ts.update(listThiSinh.get(j+current).getMaThiSinh(), listPhongThi.get(i).getMaPhongThi());	
+			}
+			current += Math.ceil(listPhongThi.get(i).getSoLuongThiSinh()*avgRoom);
+		}
 	}
 }

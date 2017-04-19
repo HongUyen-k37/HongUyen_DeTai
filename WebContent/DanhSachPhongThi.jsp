@@ -61,6 +61,7 @@
 						</script>
 					</ul>
 					<!-- Tab panes -->
+					<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="dsPhongThi">
 							<%@include file="Asset/Tab1.jsp" %>
