@@ -10,7 +10,8 @@ import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
 import model.bean.TrangThai;
 
-public class BaiThiActionForm extends ActionForm{
+@SuppressWarnings("hiding")
+public class BaiThiActionForm<TrangThai> extends ActionForm{
 	/**
 	 * 
 	 */
@@ -27,12 +28,12 @@ public class BaiThiActionForm extends ActionForm{
 	private String maMonThi;
 	private List<TrangThai> listTrangThai;
 	//get ca nhom
-	public TrangThai getTrangThai(int index){
+/*	public TrangThai getTrangThai(int index){
 		while(index >= listTrangThai.size()){
 			listTrangThai.add(new TrangThai());
 		}
 		return this.listTrangThai.get(index);
-	}
+	}*/
 	public void setTrangThai(int index, TrangThai trangThai){
 		this.listTrangThai.add(index, trangThai);
 	}
