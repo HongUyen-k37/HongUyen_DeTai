@@ -211,18 +211,8 @@ $input.on("input",function(){
 	convertCode();
 });
 
-function phanPhong(soThiSinh){
-	var arr=[];
-	$(".soLuongThiSinh").each(function(){
-		arr.push(parseInt($(this).html()));
-	});
-	arr.sort(function(a,b){return b-a;})
-	var slot=0;
-	for(var i=0;i<arr.length;i++) slot+=arr[i];
-	var avgRoom=soThiSinh/slot;
-	var ans=[];
-	var current=0;
-	for(var i=0;i<arr.length-1;i++){ ans.push([arr[i],Math.ceil(arr[i]*avgRoom)]); current+=Math.ceil(arr[i]*avgRoom);}
-	ans.push([arr[arr.length-1],soThiSinh-current]);
-	return ans;
+function getTKBangDiemTheoMon(){
+	var makt = $("#f_maKyThi").val();
+	var mamt = $("#f_maMonThi").val();
+	window.location.href="ThongKeBangDiemTheoMon.do?maKyThi="+makt+"&maMonThi="+mamt;
 }

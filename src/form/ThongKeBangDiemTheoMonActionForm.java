@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
+import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.ThongKeBangDiemTheoMonBean;
 
@@ -22,6 +23,10 @@ public class ThongKeBangDiemTheoMonActionForm extends ActionForm {
 	private String maMonThi;
 	private String nganh;
 	private String hinhThucDT;
+	private String maKyThi;
+	private List<KyThiBean> listKyThi;
+	private KyThiBean kyThi;
+	private MonThiBean monThi;
 	
 	public String getNganh() {
 		return nganh;
@@ -100,6 +105,30 @@ public class ThongKeBangDiemTheoMonActionForm extends ActionForm {
 	}
 	public void setListMaKyThi(List<MonThiBean> listMaKyThi) {
 		this.listMaKyThi = listMaKyThi;
+	}
+	public String getMaKyThi() {
+		return maKyThi;
+	}
+	public void setMaKyThi(String maKyThi) {
+		this.maKyThi = maKyThi;
+	}
+	public List<KyThiBean> getListKyThi() {
+		return listKyThi;
+	}
+	public void setListKyThi(List<KyThiBean> listKyThi) {
+		this.listKyThi = listKyThi;
+	}
+	public KyThiBean getKyThi() {
+		return kyThi;
+	}
+	public void setKyThi(KyThiBean kyThi) {
+		this.kyThi = kyThi;
+	}
+	public MonThiBean getMonThi() {
+		return monThi;
+	}
+	public void setMonThi(MonThiBean monThi) {
+		this.monThi = monThi;
 	}
 	
 }

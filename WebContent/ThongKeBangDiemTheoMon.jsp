@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Thống kê bảng điểm theo môn</title>
+<title>Tuyển sinh</title>
 <jsp:include page="Asset/Head.jsp" />
 </head>
 <body>
@@ -31,7 +31,7 @@
 		    	
 		    	<div>
 		    	<label class="control-label col-sm-2">Môn thi:</label>
-		    		<html:select property="maMonThi" name="thongKeBangDiemTheoMonActionForm" styleId="f_maMonThi" styleClass="form-control">
+		    		<html:select property="maMonThi" name="thongKeBangDiemTheoMonActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getTKBangDiemTheoMon()">
 	                	<html:optionsCollection name="thongKeBangDiemTheoMonActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
 		            </html:select>
 		    	</div>
@@ -41,20 +41,20 @@
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-						<bean:define id="thongKe" name="thongKeBangDiemTheoMonActionForm" property="thongKe"></bean:define>
-						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM<bean:write name="thongKe" property="namTuyenSinh"></bean:write></b></h6>
+						<bean:define id="kyThi" name="thongKeBangDiemTheoMonActionForm" property="kyThi"></bean:define>
+						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM<bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
 					<div class="col-md-6">
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
-						<p style="padding-left:30px;">Hình thức đào tạo: <bean:write name="thongKe" property="hinhThucDT"></bean:write></p>
+						<p style="padding-left:30px;">Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 					</div>
 				</div>
 				<div class="col-md-7">	
-					<p>Ngành: <bean:write name="thongKe" property="nganh"></bean:write></p>
+					<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
 					<p>Điểm thi: Trường Đại Học Khoa Học</p>
 				</div>
 				<div class="col-md-5">
-					<p><b>Môn thi: <bean:write name="thongKe" property="monThi"></bean:write></b></p>
+					<p><b>Môn thi: <%-- <bean:write name="thongKe" property="monThi"></bean:write></b> --%></p>
 				</div>
 				
 				<div class="details_info">
@@ -76,7 +76,7 @@
 						</thead>
 						<bean:define id="stt" value="0"/>
 						<tbody>
-							<logic:iterate id="dsts" name="TKBangDiemTheoMonActionForm" property="listThiSinh">	
+							<logic:iterate id="dsts" name="thongKeBangDiemTheoMonActionForm" property="listTKBangDiem">	
 								<tr>	
 									<bean:define id="stt" value="${stt+1}"/>
 									<td>${stt}</td>
