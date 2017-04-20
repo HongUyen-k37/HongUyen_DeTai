@@ -236,4 +236,48 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return result;
 	}
+	public List<String> getListKhuVuc(){
+		List<String> lst = new ArrayList<>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT distinct khuVuc FROM THISINH";
+			pstm = cnn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				String kv = rs.getString("khuVuc");
+				lst.add(kv);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
+	}
+	public List<String> getListDoiTuong(){
+		List<String> lst = new ArrayList<>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT distinct doiTuong FROM THISINH";
+			pstm = cnn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				String dt = rs.getString("doiTuong");
+				lst.add(dt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
+	}
 }

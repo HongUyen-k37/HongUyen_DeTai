@@ -15,6 +15,7 @@ import form.DiemActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
+import model.bo.ThiSinhBO;
 
 public class XacDinhDiemChuanAction extends Action{
 
@@ -37,13 +38,16 @@ public class XacDinhDiemChuanAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//get input
-		float diemLiet = frm.getDiemLiet();
-		int check = frm.getCheck();
-		float diemChuan = frm.getDiemChuan();
-		//xu ly
-		
-		
+		if ("test".equals(frm.getKiemTra())) {
+			//get input
+			float diemLiet = frm.getDiemLiet();
+			int check = frm.getCheck();
+			float diemChuan = frm.getDiemChuan();
+			//xu ly
+			ThiSinhBO tsBO = new ThiSinhBO();
+			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));
+			return mapping.findForward("success");
+			}
 		return mapping.findForward("success");
 	}
 	

@@ -45,13 +45,13 @@
 				</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-md-6" style="padding-left: 30px;">Điểm chuẩn cho khu vực 3 - không ưu tiên:</label>
+					<label class="col-md-6" style="padding-left: 30px;">Điểm chuẩn cho Khu vực 3 - KƯT:</label>
 					<div class="col-md-6">
 						<input type="number" class="form-control" name="diemchuan">
 					</div>
 				</div>
 				<div class="btn-gr">
-					<button type="submit" class="btn btn-success btn-all" name="kt">Kiểm tra</button>
+					<button type="submit" class="btn btn-success btn-all" name="test" value="test">Kiểm tra</button>
 				</div>
 				</html:form>
 			</div>
@@ -60,38 +60,24 @@
 							<thead>
 								<tr>
 									<th>KV - Đối tượng</th>
-									<th>Điểm</th>
+									<!-- <th>Điểm</th>
 									<th>Số TS Đạt</th>
 									<th>Số TS Không Đạt</th>
 									<th>Số TS Bị Điểm Liệt</th>
-									<th>Tổng</th>
+									<th>Tổng</th> -->
 								</tr>
 							</thead>
 							<tbody>
+							<logic:iterate name="diemActionForm" property="listResult" id="dc">
 								<tr>
-									<td>Khu vực 3 - KUT</td>
-									<td>15.0</td>
-									<td>20</td>
-									<td>1</td>
-									<td>0</td>
-									<td>21</td>
+									<td><bean:write name="dc" property="ten"/> </td>
+									<%-- <td>${diemChuan.diem}</td>
+									<td>${diemChuan.soTSDat}</td>
+									<td>${diemChuan.soTSKhongDat}</td>
+									<td>${diemChuan.soTSBiDiemLiet}</td>
+									<td>${diemChuan.soTSDat}+${diemChuan.soTSKhongDat}+${diemChuan.soTSBiDiemLiet}</td> --%>
 								</tr>
-								<tr>
-									<td>Khu vực 3 - KUT</td>
-									<td>15.0</td>
-									<td>20</td>
-									<td>1</td>
-									<td>0</td>
-									<td>21</td>
-								</tr>
-								<tr>
-									<td>Khu vực 3 - KUT</td>
-									<td>15.0</td>
-									<td>20</td>
-									<td>1</td>
-									<td>0</td>
-									<td>21</td>
-								</tr>
+							</logic:iterate>
 							</tbody>
 						</table>
 				<div class="btn-gr">

@@ -1,7 +1,9 @@
 package model.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import model.bean.DiemChuanBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
 import model.dao.PhongThiDAO;
@@ -50,5 +52,27 @@ public class ThiSinhBO {
 			}
 			current += Math.ceil(listPhongThi.get(i).getSoLuongThiSinh()*avgRoom);
 		}
+	}
+	public List<DiemChuanBean> kiemTraDiemChuan(float diemLiet, float diemChuan, int check){
+		List<DiemChuanBean> lst = new ArrayList<>();
+		List<String> listKhuVuc = ts.getListKhuVuc();
+		List<String> listDoiTuong = ts.getListDoiTuong();
+		for(int i = 0; i < listKhuVuc.size(); i++){
+			for(int j = 0; j < listDoiTuong.size(); j++){
+				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j), 0, 0, 0, 0);
+				lst.add(d);
+			}
+		}
+		for(int i = 0; i < lst.size(); i++){
+			switch (lst.get(i).getTen()) {
+			case "Khu vực 3 - KƯT":
+				lst.get(i).setDiem(diemChuan);
+				break;
+
+			default:
+				break;
+			}
+		}
+		return lst;
 	}
 }

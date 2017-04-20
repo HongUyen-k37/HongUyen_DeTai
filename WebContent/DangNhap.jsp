@@ -16,7 +16,7 @@
 <jsp:include page="Asset/Menu1.jsp" />
 <div class="col-md-4 col-md-offset-4">
 <div class="login">
-	<html:form method="post" action="DangNhap.do">
+	<html:form method="post" action="/DangNhap">
 	    <div class="form-group">
 	      <label for="user">Tên đăng nhập:</label>
 	      <input type="text" class="form-control" name="username" placeholder="Nhập tên đăng nhập">  
