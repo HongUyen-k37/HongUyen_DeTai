@@ -98,7 +98,7 @@
 	             </div>
             
 	            <div class="modal-footer">
-	            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	            	<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
 	            	<button type="submit" name="delete" value="delete" class="btn btn-danger">Đồng ý</button>
 	            </div>
             </html:form>
@@ -151,7 +151,11 @@
 						<div class="form-group">
 							<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
 							<div class="col-md-9">
-								<input type="text" class="form-control" id="f_doiTuong" name="doiTuong" required="required" onchange="this.value=this.value.trim()">
+								<html:select styleId="f_doiTuong" property="doiTuong" styleClass="form-control" value="">
+									<html:option value=""></html:option>	
+									<html:option value="01">01</html:option>
+									<html:option value="02">02</html:option>													
+								</html:select>
 							</div>
 						</div>
 					</div>
@@ -159,20 +163,12 @@
 						<div class="form-group">
 							<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
 							<div class="col-md-8 no-pad">
-						<!-- 		<select class="form-control" id="f_khuVuc" name="khuVuc">
-									<option value="f_khuVuc">Khu vực 1</option>	
-									<option value="f_khuVuc">Khu vực 2-NT</option>	
-									<option value="f_khuVuc">Khu vực 2</option>	
-									<option value="f_khuVuc">Khu vực 3</option>	
-									
-								</select> -->
-								<%-- <html:select property="khuVuc" styleId="f_khuVuc" styleClass="form-control">
-									<html:option value="KV1">Khu vực 1</html:option>
+								<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="">
+									<html:option value="KV1">Khu vực 1</html:option>	
 									<html:option value="KV2">Khu vực 2</html:option>
-									<html:option value="KV2NT">Khu vực 2 - NT</html:option>
-									<html:option value="KV3">Khu vực 3</html:option>
-		                    </html:select> --%>
-		                    <input type="text" class="form-control" id="f_khuVuc" name="khuVuc" required="required" maxlength="50" onchange="this.value=this.value.trim()">
+									<html:option value="KV2NT">Khu vực 2 - NT</html:option>	
+									<html:option value="KV3">Khu vực 3</html:option>													
+								</html:select>		               
 							</div>
 						</div>
 					</div>
@@ -196,8 +192,8 @@
 					</div>
             <label><i>(*): Thông tin bắt buộc</i></label>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>
+				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
+				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa</button>
 				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
 			</div>
 			</div>

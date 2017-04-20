@@ -18,7 +18,6 @@ function suaKyThi(maKyThi){
 			$("#f_hinhThucDT").val(result["hinhThucDT"]);
 			$("#f_coSoLKDT").val(result["coSoLKDT"]);
 			$("#soMonThi").val(result["soMonThi"]);
-			//$("#f_maMonThi").val(result["maMonThi"]).trigger("change");
 	    }
 	});
 	$("#modal-kythi").modal();
@@ -38,7 +37,7 @@ function xoaKyThi(maKyThi){
 }
 
 function taoHTMLMonThi(that){
-	var htmlMonThi='<div class="form-group row"><div class="col-sm-5 col-sm-offset-2"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><div class="col-sm-3"><input type="number" class="form-control" name="heSo" placeholder="Hệ số"></div><button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button><button style="margin-left: 4px" type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var htmlMonThi='<div class="form-group row"><div class="col-sm-7"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><div class="col-sm-3"><input type="number" class="form-control" name="heSo" placeholder="Hệ số"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 }
 

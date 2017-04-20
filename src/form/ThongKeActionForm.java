@@ -6,11 +6,11 @@ import org.apache.struts.action.ActionForm;
 
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
-import model.bean.ThongKeBangDiemTheoMonBean;
+import model.bean.ThongKeBean;
 
 @SuppressWarnings("serial")
-public class ThongKeBangDiemTheoMonActionForm extends ActionForm {
-	private List<ThongKeBangDiemTheoMonBean> listTKBangDiem;
+public class ThongKeActionForm extends ActionForm {
+	private List<ThongKeBean> listTKBangDiem;
 	private String hoDem;
 	private List<MonThiBean> listMonThi;
 	private List<MonThiBean> listMaKyThi;
@@ -76,10 +76,10 @@ public class ThongKeBangDiemTheoMonActionForm extends ActionForm {
 	public void setDiemChamThi(String diemChamThi) {
 		this.diemChamThi = diemChamThi;
 	}
-	public List<ThongKeBangDiemTheoMonBean> getListTKBangDiem() {
+	public List<ThongKeBean> getListTKBangDiem() {
 		return listTKBangDiem;
 	}
-	public void setListTKBangDiem(List<ThongKeBangDiemTheoMonBean> listTKBangDiem) {
+	public void setListTKBangDiem(List<ThongKeBean> listTKBangDiem) {
 		this.listTKBangDiem = listTKBangDiem;
 	}
 	public int getNamTuyenSinh() {

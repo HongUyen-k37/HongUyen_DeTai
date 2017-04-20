@@ -17,7 +17,7 @@
 	</div>
 	<div class="col-md-10" style="text-align: center">	
 				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
-				<p>Điểm thi: Trường Đại Học Khoa Học</p>
+				<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 	</div>
 	<div class="numberroom col-md-2">
 		<bean:define id="phongThi" name="phongThiActionForm" property="phongThi"></bean:define>
@@ -63,7 +63,7 @@
 			<p>Cán bộ coi thi 2</p>
 		</div>
 		<div class="col-md-6 btn-group" style="text-align: center">
-			<p>Thừa Thiên Huế, ngày 10 tháng 12 năm 2016</p>
+			<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
 			<p>Trưởng ban coi thi</p>
 		</div>
 	</div>

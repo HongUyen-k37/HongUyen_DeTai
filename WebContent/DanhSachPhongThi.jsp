@@ -44,10 +44,10 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active">
-							<a href="#dsPhongThi" aria-controls="home" role="tab" data-toggle="tab">Danh sách phòng thi</a>
+							<a href="#dsPhongThi" aria-controls="home" role="tab" data-toggle="tab">Danh sách thí sinh dự thi</a>
 						</li>
 						<li role="presentation" class="">
-							<a href="#bienBanPhongThi" aria-controls="tab" role="tab" data-toggle="tab">Biên bản phòng thi</a>
+							<a href="#bienBanPhongThi" aria-controls="tab" role="tab" data-toggle="tab">Biên bản thu bài thi</a>
 						</li>
 						<li class="export-excel">
 							<a href="javascript:download()">Tải xuống</a>

@@ -11,22 +11,22 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import form.ThongKeBangDiemTheoMonActionForm;
+import form.ThongKeActionForm;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
-import model.bean.ThongKeBangDiemTheoMonBean;
+import model.bean.ThongKeBean;
 import model.bo.KyThiBO;
 import model.bo.MonThiBO;
-import model.bo.ThongKeBangDiemTheoMonBO;
+import model.bo.ThongKeBO;
 
 public class ThongKeBangDiemTheoMonAction extends Action{
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		
-		ThongKeBangDiemTheoMonActionForm frm = (ThongKeBangDiemTheoMonActionForm)form;
-		ThongKeBangDiemTheoMonBO tk = new ThongKeBangDiemTheoMonBO();
+		ThongKeActionForm frm = (ThongKeActionForm)form;
+		ThongKeBO tk = new ThongKeBO();
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -41,7 +41,7 @@ public class ThongKeBangDiemTheoMonAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//list mon thi de select
+		//get list mon thi de select
 		MonThiBO mtBO = new MonThiBO();
 		List<MonThiBean> listMonThi = mtBO.getListMonThi(maKyThi);
 		frm.setListMonThi(listMonThi);
@@ -49,10 +49,10 @@ public class ThongKeBangDiemTheoMonAction extends Action{
 		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
-		//get thong tin mon thi
-		//chua xu ly duoc vi chua co ham getMonThi(String maMonThi) o MonThiDAO
+		//get thong tin mon thi thong qua maMonThi 
+		frm.setMonThi(mtBO.getMonThi(maMonThi));
 		//show list thống kê bảng điểm theo môn
-		List<ThongKeBangDiemTheoMonBean> list = tk.tkBangDiemTheoMon();
+		List<ThongKeBean> list = tk.tkBangDiemTheoMon();
 		frm.setListTKBangDiem(list);
 		return mapping.findForward("success");
 	}

@@ -1,6 +1,6 @@
 package model.bean;
 
-public class ThongKeBangDiemTheoMonBean {
+public class ThongKeBean {
 	private String hoDem;
 	private String ten;
 	private String ngaySinh;
@@ -38,7 +38,7 @@ public class ThongKeBangDiemTheoMonBean {
 	public void setSoPhach(int soPhach) {
 		this.soPhach = soPhach;
 	}
-	public ThongKeBangDiemTheoMonBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach,
+	public ThongKeBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach,
 			float diemChamThi) {
 		super();
 		this.hoDem = hoDem;
@@ -54,7 +54,7 @@ public class ThongKeBangDiemTheoMonBean {
 	public void setDiemChamThi(float diemChamThi) {
 		this.diemChamThi = diemChamThi;
 	}
-	public ThongKeBangDiemTheoMonBean() {
+	public ThongKeBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

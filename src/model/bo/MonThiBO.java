@@ -10,4 +10,7 @@ public class MonThiBO {
 	public List<MonThiBean> getListMonThi(String maKyThi){
 		return mt.getListMonThi(maKyThi);
 	}
+	public MonThiBean getMonThi(String maMonThi){	
+		return mt.getMonThi(maMonThi);
+	}
 }

@@ -34,4 +34,27 @@ public class MonThiDAO extends DataAccessObject {
 		}
 		return lst;
 	}
+	public MonThiBean getMonThi(String maMonThi){		
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;	
+		MonThiBean mt = null;
+		try {
+			String sql = "SELECT * FROM MONTHI WHERE maMonThi = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maMonThi);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				mt = new MonThiBean(rs.getString("maMonThi"), rs.getString("maKyThi"), rs.getString("tenMonThi"), rs.getInt("trangThaiMonThi"), 
+						 rs.getInt("coSoPhongThi"),rs.getInt("coSoTui"), rs.getInt("soLuot"), rs.getInt("heSo"));
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return mt;
+	}
 }

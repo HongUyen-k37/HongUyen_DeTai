@@ -35,11 +35,9 @@
 				<table id="table" class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
-								<th>STT</th>
-								<th>Mã phòng thi</th>	
+								<th>STT</th>	
 								<th>Số hiệu phòng thi</th>						
-								<th>Số lượng thí sinh</th>
-								<!-- <th>Ghi chú</th> -->
+								<th>Số lượng chỗ</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -50,9 +48,8 @@
 								<bean:define id="stt" value="${stt+1}"/>
 								<td>${stt}</td>				
 								<bean:define id="maPhongThi" name="dspt" property="maPhongThi"></bean:define>
-								<td><bean:write name="dspt" property="maPhongThi"/></td>
 								<td><bean:write name="dspt" property="soHieuPhongThi"/></td>
-								<td class="soLuongThiSinh"><bean:write name="dspt" property="soLuongThiSinh"/></td>		
+								<td class="soLuongThiSinh"><bean:write name="dspt" property="soLuongThiSinh" /></td>		
 								<td>
 								<a href="javascript:void(0)" onclick="suaPhongThi('${maKyThi}', '${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a>
 								<a href="javascript:void(0)" onclick="xoaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-danger" title="Xóa phòng thi"><i class="glyphicon glyphicon-trash"></i></a></td>
@@ -61,10 +58,12 @@
 						</tbody>
 					</table>
 					<div class="row">
-						<div class="col-sm-5 col-md-offset-6">
-							Tổng: <span id="tongSoLuong"></span>/${phongThiActionForm.soLuongThiSinh} sinh viên.
+						<div class="col-sm-9">
+							Tổng: <span id="tongSoLuong"></span>/${phongThiActionForm.soLuongThiSinh} sinh viên.							
+						</div>
+						<div class="col-sm-3">
 							<html:form action="/PhanPhongThi" method="POST">
-							<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name="bienChe" value="bienChe">Biên chế</button>
+								<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name="bienChe" value="bienChe">Biên chế</button>
 							</html:form>
 						</div>
 					</div>
@@ -88,7 +87,7 @@
 	             </div>
 	            
 	            <div class="modal-footer">
-	            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	            	<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
 	            	<button type="submit" name="delete" value="delete" class="btn btn-danger">Đồng ý</button>
 	            </div>
 	        </html:form>
@@ -114,15 +113,15 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-md-3" for="first-name">Số lượng thí sinh:</label>
+							<label class="col-md-3" for="first-name">Số lượng chỗ:</label>
 							<div class="col-md-9">
-								<input type="number" class="form-control" id="f_soLuongThiSinh" name="soLuongThiSinh">
+								<input type="number" class="form-control" id="f_soLuongThiSinh" name="soLuongThiSinh" min="0">
 							</div>
 						</div>
 					</form>
 				<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>
+				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
+				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa</button>
 				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
 			</div>
 				</div>

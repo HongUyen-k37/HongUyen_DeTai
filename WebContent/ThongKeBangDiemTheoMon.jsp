@@ -54,7 +54,7 @@
 					<p>Điểm thi: Trường Đại Học Khoa Học</p>
 				</div>
 				<div class="col-md-5">
-					<p><b>Môn thi: <%-- <bean:write name="thongKe" property="monThi"></bean:write></b> --%></p>
+					<p><b>Môn thi: <bean:write name="" property="monThi"></bean:write></b></p>
 				</div>
 				
 				<div class="details_info">

@@ -17,7 +17,7 @@
 			</div>
 			<div style="text-align: center">	
 				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
-				<p>Điểm thi: Trường Đại Học Khoa Học</p>
+				<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 			</div>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
@@ -46,7 +46,7 @@
 			<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>
 		</div>
 		<div class="col-md-5 btn-group" style="text-align: center">
-			<p>Thừa Thiên Huế, ngày 10 tháng 12 năm 2016</p>
+			<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
 			<p>T.M. Hội đồng tuyển sinh</p>
 			<p>Chủ tịch</p>
 		</div>

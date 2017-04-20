@@ -83,7 +83,7 @@
 	             </div>
 	            
 	            <div class="modal-footer">
-	            	<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+	            	<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
 	            	<button type="submit" name="delete" value="delete" class="btn btn-danger">Đồng ý</button>
 	            </div>
             </html:form>
@@ -106,13 +106,13 @@
 							<div class="form-group">
 						   		<label class="col-sm-2 pad-5">Tên kỳ thi(*)</label>
 						    	<div class="col-sm-10">
-						      		<input type="text" class="form-control" id="f_tenKyThi" name="tenKyThi" title="Sida rồi bạn ơi" required onchange="this.value=this.value.trim()">
+						      		<input type="text" class="form-control" id="f_tenKyThi" name="tenKyThi" required onchange="this.value=this.value.trim()">
 						    	</div>
 						  	</div>
 							<div class="form-group row">
 							<label class="control-label col-sm-2 pad-5">Ngày thi(*)</label>
 						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" required placeholder="Ví dụ: 02,03,04/11" data-original-title="Chỉ chứa số" title="Vui lòng nhập đúng Ngày thi quy định." pattern="[0-9]{2},[0-9]{2},[0-9]{2}/[0-9]{2}">
+						      		<input type="text" class="form-control" id="f_ngayThi" name="ngayThi" min="0">
 						    	</div>
 						    	<label class="control-label col-sm-3 pad-5">Năm tuyển sinh(*)</label>
 						    	<div class="col-sm-3"> 
@@ -122,17 +122,50 @@
 						  	</div>
 							<div class="form-group row">
 						    	<label class="control-label col-sm-2 pad-5">Ngành(*)</label>
-						    	<div class="col-sm-4">
-						      		<input type="text" class="form-control" id="f_nganh" name="nganh" required onchange="this.value=this.value.trim()">
+						    	<div class="col-sm-10">
+									<html:select  styleId="f_nganh" property="nganh" styleClass="form-control">
+										<html:option value="Hán - Nôm">Hán - Nôm</html:option>
+										<html:option value="Ngôn ngữ học">Ngôn ngữ học</html:option>
+										<html:option value="Văn học">Văn học</html:option>
+										<html:option value="Kỹ thuật địa chất">Kỹ thuật địa chất</html:option>						
+										<html:option value="Địa chất học">Địa chất học</html:option>
+										<html:option value="Kỹ thuật trắc địa - Bản đồ">Kỹ thuật trắc địa - Bản đồ</html:option>
+										<html:option value="Toán ứng dụng">Toán ứng dụng</html:option>
+										<html:option value="Toán học">Toán học</html:option>
+										<html:option value="Địa lý tự nhiên">Địa lý tự nhiên</html:option>						
+										<html:option value="Quản lý tài nguyên và môi trường">Quản lý tài nguyên và môi trường</html:option>
+										<html:option value="Lịch sử">Lịch sử</html:option>
+										<html:option value="Đông phương học">Đông phương học</html:option>
+										<html:option value="Xã hội học">Xã hội học</html:option>
+										<html:option value="Báo chí">Báo chí</html:option>						
+										<html:option value="Sinh học">Sinh học</html:option>
+										<html:option value="Công nghệ sinh học">Công nghệ sinh học</html:option>
+										<html:option value="Vật lý học">Vật lý học</html:option>
+										<html:option value="Hóa học">Hóa học</html:option>
+										<html:option value="Khoa học môi trường">Khoa học môi trường</html:option>						
+										<html:option value="Triết học">Triết học</html:option>
+										<html:option value="Công nghệ thông tin">Công nghệ thông tin</html:option>
+										<html:option value="CN kỹ thuật điện tử - Truyền thông">CN kỹ thuật điện tử - Truyền thông</html:option>
+										<html:option value="Kiến trúc">Kiến trúc</html:option>
+										<html:option value="Công tác xã hội">Công tác xã hội</html:option>						
+									</html:select>			
+						      		<!-- <input type="text" class="form-control" id="f_nganh" name="nganh" required onchange="this.value=this.value.trim()"> -->
 						    	</div>
-						    	<label class="control-label col-sm-3 pad-5">Hình thức đào tạo(*)</label>
-						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required>
+						    </div>
+						    <div class="form-group row">
+						    	<label class="control-label col-sm-4 pad-5">Hình thức đào tạo(*)</label>
+						    	<div class="col-sm-8" style="padding-left: 0;">
+						    		<html:select styleId="f_hinhThucDT" property="hinhThucDT" styleClass="form-control">
+										<html:option value="Đại học - Vừa làm vừa học">Đại học - Vừa làm vừa học</html:option>
+										<html:option value="Liên thông Cao đẳng lên Đại học - Vừa học vừa làm">Liên thông Cao đẳng lên Đại học - Vừa học vừa làm</html:option>
+										<html:option value="Bằng thứ 2 - Vừa học vừa làm">Bằng thứ 2 - Vừa học vừa làm</html:option>					
+									</html:select>	
+						    		<!-- <input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required> -->
 					    		</div>
 						  	</div>
 						  	<div class="form-group row">
-						    	<label class="control-label col-sm-4">Cơ sở liên kết đào tạo</label>
-						    	<div class="col-sm-8">
+						    	<label class="control-label col-sm-4 pad-5">Cơ sở liên kết đào tạo</label>
+						    	<div class="col-sm-8" style="padding-left: 0;">
 						      		<input type="text" class="form-control" id="f_coSoLKDT" name="coSoLKDT">
 						    	</div>
 						  	</div>
@@ -142,27 +175,26 @@
 							  	<label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label>
 							  	<br>
 								<br>
-								<div class="col-sm-3"></div>
-						  		<label class="control-label col-sm-5">Tên môn thi</label>
-						  		<label class="control-label col-sm-4">Hệ số</label>
+						  		<label class="control-label col-sm-7">Tên môn thi</label>
+						  		<label class="control-label col-sm-5">Hệ số</label>
 						  	</div>
 						  	<div class="form-group row">
-						    	<div class="col-sm-5 col-sm-offset-2">
+						    	<div class="col-sm-7">
 						    		<input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi">
 						    	</div>
 						    	<div class="col-sm-3">
-						    		<input type="number" class="form-control" name="heSo" placeholder="Hệ số">
+						    		<input type="number" class="form-control" name="heSo" placeholder="Hệ số" value="1">
 						    	</div>
-						    	<button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button>
+						    	<!-- <button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button> -->
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
-						  	<button type="button" class="btn btn-default col-md-8 col-md-offset-2" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
+						  	<button type="button" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				<br>
 				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p>
 				</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning">Xóa</button>
+				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
+				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa</button>
 				<button type="submit" name="submit" value="submit" class="btn btn-success">Đồng ý</button>
 			</div>
 			</div>
