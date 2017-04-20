@@ -59,11 +59,11 @@
 				</thead>
 				<bean:define id="stt" value="0"/>
 				<tbody>
-					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh" indexId="rowindex">	
+					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
 							<td>${stt}</td>
-							<bean:define id="maThiSinh" name="dsts" property="maThiSinh" indexed="true"></bean:define>
+							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
 							<td><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>

@@ -49,10 +49,11 @@ public class ThongKeBangDiemTheoMonAction extends Action{
 		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
+		System.out.println(maMonThi);
 		//get thong tin mon thi thong qua maMonThi 
 		frm.setMonThi(mtBO.getMonThi(maMonThi));
 		//show list thống kê bảng điểm theo môn
-		List<ThongKeBean> list = tk.tkBangDiemTheoMon();
+		List<ThongKeBean> list = tk.tkBangDiemTheoMon(maKyThi);
 		frm.setListTKBangDiem(list);
 		return mapping.findForward("success");
 	}

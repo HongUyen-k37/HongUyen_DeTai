@@ -42,7 +42,7 @@
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 						<bean:define id="kyThi" name="thongKeBangDiemTheoMonActionForm" property="kyThi"></bean:define>
-						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM<bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
+						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
 					<div class="col-md-6">
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
@@ -54,7 +54,8 @@
 					<p>Điểm thi: Trường Đại Học Khoa Học</p>
 				</div>
 				<div class="col-md-5">
-					<p><b>Môn thi: <bean:write name="" property="monThi"></bean:write></b></p>
+					<%-- <bean:define id="monThi" name="thongKeBangDiemTheoMonActionForm" property="monThi"></bean:define> --%>
+					<p><b>Môn thi: ${thongKeBangDiemTheoMonActionForm.monThi.tenMonThi}</b></p>
 				</div>
 				
 				<div class="details_info">

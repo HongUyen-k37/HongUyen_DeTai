@@ -188,7 +188,7 @@ function soSangChu(str) {
 	str = str.replace(/9/g, ' Chín');
 	str = str.replace(/10/g, ' Mười');
 	str = str.replace(/0/g, ' Không');
-	str = str.replace(/,/g, ' phẩy');
+	str = str.replace(/\./g, ' chấm');
 	str = str.trim();
 	return str;
 }

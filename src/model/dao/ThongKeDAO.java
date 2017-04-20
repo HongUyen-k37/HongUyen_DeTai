@@ -9,14 +9,15 @@ import java.util.List;
 import model.bean.ThongKeBean;
 
 public class ThongKeDAO extends DataAccessObject{
-	public List<ThongKeBean> tkBangDiemTheoMon(){
+	public List<ThongKeBean> tkBangDiemTheoMon(String maKyThi){
 		List<ThongKeBean> lst= new ArrayList<ThongKeBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT * FROM TKBangDiemTheoMon ORDER BY soBaoDanh ASC";
+			String sql = "SELECT * FROM TKBangDiemTheoMon WHERE maKyThi=?";
 			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				ThongKeBean tk =  new ThongKeBean(rs.getString("hoDem"),rs.getString("ten"),rs.getString("ngaySinh"),

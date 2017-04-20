@@ -7,7 +7,7 @@ import model.dao.ThongKeDAO;
 
 public class ThongKeBO {
 	ThongKeDAO tk =new ThongKeDAO();
-	public List<ThongKeBean> tkBangDiemTheoMon(){
-		return tk.tkBangDiemTheoMon();
+	public List<ThongKeBean> tkBangDiemTheoMon(String maKyThi){
+		return tk.tkBangDiemTheoMon(maKyThi);
 	}
 }
