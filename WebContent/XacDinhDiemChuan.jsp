@@ -20,7 +20,7 @@
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
-				<bean:define id="listMaKyThi" name="thiSinhActionForm"></bean:define>
+				<bean:define id="listMaKyThi" name="diemActionForm"></bean:define>
 				<%@include file="Asset/ThongTinKyThi.jsp" %>
 			</div>
 		</div>
@@ -28,6 +28,7 @@
 	<div class="col-md-8">
 		<div class="group-content">
 			<div class="row main-nav">
+				<html:form action="/XacDinhDiemChuan" method="POST">
 				<p class="title">XÁC ĐỊNH ĐIỂM CHUẨN</p>
 				<div class="row">
 				<div class="col-md-6 form-group">
@@ -37,6 +38,8 @@
 					</div>
 				</div>
 				<div class="col-sm-6 form-group">
+					<%-- <html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio>
+					<html:radio property="check" value="0">Nhỏ hơn điểm liệt</html:radio> --%>
 						<input type="radio" name="" checked><label>Bằng hoặc nhỏ hơn điểm liệt</label><br>
 						<input type="radio" name=""><label>Nhỏ hơn điểm liệt</label>
 				</div>
@@ -50,6 +53,7 @@
 				<div class="btn-gr">
 					<button type="submit" class="btn btn-success btn-all" name="kt">Kiểm tra</button>
 				</div>
+				</html:form>
 			</div>
 			<div class="details_info">
 				<table class="table table-bordered table-hover table-striped">

@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import form.ThiSinhActionForm;
+import form.DiemActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
@@ -21,7 +21,8 @@ public class XacDinhDiemChuanAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ThiSinhActionForm frm = (ThiSinhActionForm)form;
+		request.setCharacterEncoding("UTF-8");
+		DiemActionForm frm = (DiemActionForm)form;
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -36,6 +37,13 @@ public class XacDinhDiemChuanAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get input
+		float diemLiet = frm.getDiemLiet();
+		int check = frm.getCheck();
+		float diemChuan = frm.getDiemChuan();
+		//xu ly
+		
+		
 		return mapping.findForward("success");
 	}
 	
