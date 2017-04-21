@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.DiemActionForm;
+import model.bean.DiemChuanBean;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
@@ -38,16 +39,28 @@ public class XacDinhDiemChuanAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		
+		/*ThiSinhBO tsBO = new ThiSinhBO();
+		List<DiemChuanBean> lst = tsBO.kiemTraDiemChuan(0, 15, 1);
+		for(int i = 0; i < lst.size(); i++){
+			System.out.println(lst.get(i).getTen());
+			System.out.println(lst.get(i).getDiem());
+			System.out.println(lst.get(i).getSoTSDat());
+			System.out.println(lst.get(i).getSoTSBiDiemLiet());
+			System.out.println(lst.get(i).getSoTSKhongDat());
+		}*/
+		
 		if ("test".equals(frm.getKiemTra())) {
 			//get input
 			float diemLiet = frm.getDiemLiet();
+			System.out.println(diemLiet);
 			int check = frm.getCheck();
 			float diemChuan = frm.getDiemChuan();
 			//xu ly
-			ThiSinhBO tsBO = new ThiSinhBO();
-			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));
+			/*ThiSinhBO tsBO = new ThiSinhBO();
+			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));*/
 			return mapping.findForward("success");
-			}
+		}
 		return mapping.findForward("success");
 	}
 	

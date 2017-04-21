@@ -59,7 +59,7 @@ public class ThiSinhBO {
 		List<String> listDoiTuong = ts.getListDoiTuong();
 		for(int i = 0; i < listKhuVuc.size(); i++){
 			for(int j = 0; j < listDoiTuong.size(); j++){
-				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j), 0, 0, 0, 0);
+				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j), 1.0f*0, 0, 0, 0);
 				lst.add(d);
 			}
 		}

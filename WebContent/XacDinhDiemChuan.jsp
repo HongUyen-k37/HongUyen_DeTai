@@ -40,8 +40,8 @@
 				<div class="col-sm-6 form-group">
 					<%-- <html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio>
 					<html:radio property="check" value="0">Nhỏ hơn điểm liệt</html:radio> --%>
-						<input type="radio" name="" checked><label>Bằng hoặc nhỏ hơn điểm liệt</label><br>
-						<input type="radio" name=""><label>Nhỏ hơn điểm liệt</label>
+						<!-- <input type="radio" name="" checked><label>Bằng hoặc nhỏ hơn điểm liệt</label><br>
+						<input type="radio" name=""><label>Nhỏ hơn điểm liệt</label> -->
 				</div>
 				</div>
 				<div class="form-group row">
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="btn-gr">
-					<button type="submit" class="btn btn-success btn-all" name="test" value="test">Kiểm tra</button>
+					<button type="submit" class="btn btn-success btn-all" name="kiemTra" value="test">Kiểm tra</button>
 				</div>
 				</html:form>
 			</div>
@@ -68,16 +68,16 @@
 								</tr>
 							</thead>
 							<tbody>
-							<logic:iterate name="diemActionForm" property="listResult" id="dc">
+							<%-- <logic:iterate name="diemActionForm" property="listResult" id="dc"> --%>
 								<tr>
-									<td><bean:write name="dc" property="ten"/> </td>
+									<td><%-- <bean:write name="dc" property="ten"/>  --%></td>
 									<%-- <td>${diemChuan.diem}</td>
 									<td>${diemChuan.soTSDat}</td>
 									<td>${diemChuan.soTSKhongDat}</td>
 									<td>${diemChuan.soTSBiDiemLiet}</td>
 									<td>${diemChuan.soTSDat}+${diemChuan.soTSKhongDat}+${diemChuan.soTSBiDiemLiet}</td> --%>
 								</tr>
-							</logic:iterate>
+							<%-- </logic:iterate> --%>
 							</tbody>
 						</table>
 				<div class="btn-gr">
