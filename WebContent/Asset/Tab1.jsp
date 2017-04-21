@@ -23,9 +23,12 @@
 	<thead>
 		<tr>
 			<th>STT</th>
-			<th>Số báo danh</th>
-			<th>Họ đệm</th>
-			<th>Tên</th>
+			<th>Số BD</th>
+			<th>Họ và tên</th>
+			<th>Ngày sinh</th>
+			<th>Khu vực</th>
+			<th>Đối tượng</th>
+			<th>Ghi chú</th>
 		</tr>
 	</thead>
 	<bean:define id="stt" value="0"/>
@@ -35,8 +38,11 @@
 			<bean:define id="stt" value="${stt+1}"/>
 			<td>${stt}</td>
 			<td><bean:write name="dsts" property="soBaoDanh"/></td>
-			<td><bean:write name="dsts" property="hoDem"/></td>
-			<td><bean:write name="dsts" property="ten"/></td>
+			<td>${dsts.hoDem}<span style="margin-left: 100px">${dsts.ten}</span></td>
+			<td><bean:write name="dsts" property="ngaySinh"/></td>
+			<td><bean:write name="dsts" property="khuVuc"/></td>
+			<td><bean:write name="dsts" property="doiTuong"/></td>
+			<td></td>
 		</tr>
 	</logic:iterate>
 	</tbody>

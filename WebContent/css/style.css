@@ -191,6 +191,7 @@ tr td{
 .btn-all{
 	padding: 4px 10px;
     font-size: 13px;
+    width: 96px;
 }
 .log-out .btn-all{
 	margin-top: -2px;
@@ -321,4 +322,7 @@ input[type=text]:focus {
 /*--style btn sua, xoa--*/
 .btn1{
     width: 71px;
+}
+textarea{
+	max-width: 100%;
 }

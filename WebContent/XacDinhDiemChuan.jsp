@@ -30,28 +30,26 @@
 			<div class="row main-nav">
 				<html:form action="/XacDinhDiemChuan" method="POST">
 				<p class="title">XÁC ĐỊNH ĐIỂM CHUẨN</p>
-				<div class="row">
-				<div class="col-md-6 form-group">
-					<label class="col-md-4">Điểm liệt:</label>
-					<div class="col-md-8">
-						<input type="number" class="form-control" name="diemliet">
+				<div class="clearfix">
+					<div class="col-sm-5 form-group">
+						<label class="col-sm-4">Điểm liệt:</label>
+						<div class="col-sm-8">
+							<input type="number" class="form-control" name="diemliet" min="0">
+						</div>
+						<div class="col-sm-offset-2">
+							<html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
+							<html:radio property="check" value="0">Nhỏ hơn điểm liệt</html:radio>
+						</div>
+					</div>
+					<div class="form-group col-sm-7">
+						<label class="col-sm-8">Điểm chuẩn cho Khu vực 3 - KƯT:</label>
+						<div class="col-sm-4">
+							<input type="number" class="form-control" name="diemchuan" min="0">
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 form-group">
-					<%-- <html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio>
-					<html:radio property="check" value="0">Nhỏ hơn điểm liệt</html:radio> --%>
-						<!-- <input type="radio" name="" checked><label>Bằng hoặc nhỏ hơn điểm liệt</label><br>
-						<input type="radio" name=""><label>Nhỏ hơn điểm liệt</label> -->
-				</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-md-6" style="padding-left: 30px;">Điểm chuẩn cho Khu vực 3 - KƯT:</label>
-					<div class="col-md-6">
-						<input type="number" class="form-control" name="diemchuan">
-					</div>
-				</div>
-				<div class="btn-gr">
-					<button type="submit" class="btn btn-success btn-all" name="kiemTra" value="test">Kiểm tra</button>
+				<div class="text-center">
+					<button type="submit" class="btn btn-success btn-gr btn-all" name="kiemTra" value="test">Kiểm tra</button>
 				</div>
 				</html:form>
 			</div>
@@ -60,24 +58,24 @@
 							<thead>
 								<tr>
 									<th>KV - Đối tượng</th>
-									<!-- <th>Điểm</th>
+									<th>Điểm</th>
 									<th>Số TS Đạt</th>
 									<th>Số TS Không Đạt</th>
 									<th>Số TS Bị Điểm Liệt</th>
-									<th>Tổng</th> -->
+									<th>Tổng</th>
 								</tr>
 							</thead>
 							<tbody>
-							<%-- <logic:iterate name="diemActionForm" property="listResult" id="dc"> --%>
+							<logic:iterate id="dc" name="diemActionForm" property="listResult">
 								<tr>
-									<td><%-- <bean:write name="dc" property="ten"/>  --%></td>
-									<%-- <td>${diemChuan.diem}</td>
-									<td>${diemChuan.soTSDat}</td>
-									<td>${diemChuan.soTSKhongDat}</td>
-									<td>${diemChuan.soTSBiDiemLiet}</td>
-									<td>${diemChuan.soTSDat}+${diemChuan.soTSKhongDat}+${diemChuan.soTSBiDiemLiet}</td> --%>
+									<td><bean:write name="dc" property="ten"/></td>
+									<td><bean:write name="dc" property="diem"/></td>
+									<td><bean:write name="dc" property="soTSDat"/></td>
+									<td><bean:write name="dc" property="soTSKhongDat"/></td>
+									<td><bean:write name="dc" property="soTSBiDiemLiet"/></td>
+									<td>${dc.soTSDat + dc.soTSKhongDat + dc.soTSBiDiemLiet}</td>
 								</tr>
-							<%-- </logic:iterate> --%>
+							</logic:iterate>
 							</tbody>
 						</table>
 				<div class="btn-gr">

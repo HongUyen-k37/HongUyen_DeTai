@@ -1,5 +1,6 @@
 package form;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
@@ -19,7 +20,7 @@ public class DiemActionForm extends ActionForm{
 	private int check;
 	private float diemChuan;
 	private String kiemTra;
-	private List<DiemChuanBean> listResult;
+	private List<DiemChuanBean> listResult = new ArrayList<>();
 	public String getMaKyThi() {
 		return maKyThi;
 	}

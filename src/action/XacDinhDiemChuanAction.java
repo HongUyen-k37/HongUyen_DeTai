@@ -12,7 +12,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.DiemActionForm;
-import model.bean.DiemChuanBean;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
@@ -49,7 +48,6 @@ public class XacDinhDiemChuanAction extends Action{
 			System.out.println(lst.get(i).getSoTSBiDiemLiet());
 			System.out.println(lst.get(i).getSoTSKhongDat());
 		}*/
-		
 		if ("test".equals(frm.getKiemTra())) {
 			//get input
 			float diemLiet = frm.getDiemLiet();
@@ -57,8 +55,8 @@ public class XacDinhDiemChuanAction extends Action{
 			int check = frm.getCheck();
 			float diemChuan = frm.getDiemChuan();
 			//xu ly
-			/*ThiSinhBO tsBO = new ThiSinhBO();
-			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));*/
+			ThiSinhBO tsBO = new ThiSinhBO();
+			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");
