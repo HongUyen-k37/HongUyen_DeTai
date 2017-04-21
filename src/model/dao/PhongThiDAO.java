@@ -16,7 +16,7 @@ public class PhongThiDAO extends DataAccessObject {
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM PHONGTHI";
+			String sql = "SELECT * FROM PHONGTHI ORDER BY soLuongThiSinh DESC";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			PhongThiBean pt = null;
@@ -39,7 +39,7 @@ public class PhongThiDAO extends DataAccessObject {
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM PHONGTHI WHERE maKyThi = ?";
+			String sql = "SELECT * FROM PHONGTHI WHERE maKyThi = ? ORDER BY soLuongThiSinh DESC";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();

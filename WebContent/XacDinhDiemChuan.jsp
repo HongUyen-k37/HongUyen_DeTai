@@ -34,7 +34,7 @@
 					<div class="col-sm-5 form-group">
 						<label class="col-sm-4">Điểm liệt:</label>
 						<div class="col-sm-8">
-							<input type="number" class="form-control" name="diemliet" min="0">
+							<input type="number" class="form-control" name="diemLiet" min="0">
 						</div>
 						<div class="col-sm-offset-2">
 							<html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
@@ -44,7 +44,7 @@
 					<div class="form-group col-sm-7">
 						<label class="col-sm-8">Điểm chuẩn cho Khu vực 3 - KƯT:</label>
 						<div class="col-sm-4">
-							<input type="number" class="form-control" name="diemchuan" min="0">
+							<input type="number" class="form-control" name="diemChuan" min="0">
 						</div>
 					</div>
 				</div>

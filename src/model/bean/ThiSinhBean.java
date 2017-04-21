@@ -14,7 +14,7 @@ public class ThiSinhBean {
 	private String email;
 	private String diaChi;
 	private String soBaoDanh;
-
+	private float diemChinhThuc;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -113,5 +113,11 @@ public class ThiSinhBean {
 	}
 	public void setMaThiSinh(String maThiSinh) {
 		this.maThiSinh = maThiSinh;
+	}
+	public float getDiemChinhThuc() {
+		return diemChinhThuc;
+	}
+	public void setDiemChinhThuc(float diemChinhThuc) {
+		this.diemChinhThuc = diemChinhThuc;
 	}
 }

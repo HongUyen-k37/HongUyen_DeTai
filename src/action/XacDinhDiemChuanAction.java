@@ -54,6 +54,7 @@ public class XacDinhDiemChuanAction extends Action{
 			System.out.println(diemLiet);
 			int check = frm.getCheck();
 			float diemChuan = frm.getDiemChuan();
+			System.out.println(diemChuan);
 			//xu ly
 			ThiSinhBO tsBO = new ThiSinhBO();
 			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));

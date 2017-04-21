@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.Define;
+import model.bean.KetQuaThiSinhBean;
 import model.bean.ThiSinhBean;
 
 public class ThiSinhDAO extends DataAccessObject{
@@ -280,18 +282,22 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public List<ThiSinhBean> getListThiSinhTheoKhuVucDoiTuong(String maKyThi, String khuVuc, String doiTuong){
-		List<ThiSinhBean> lst = new ArrayList<>();
+	public int getSoThiSinhDat(String maKyThi, String khuVuc, String doiTuong, float diemChuan, float diemLiet, int check){
+		int total = 0;
 		Connection cnn = getConnection();
 		ResultSet rs = null;
-		PreparedStatement pstm = null;		
+		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT distinct doiTuong FROM THISINH";
+			String sql = "SELECT *,tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ? tongDiem + diemKhuVuc + diemDoiTuong >= ?";
 			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setFloat(2, diemChuan);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				String dt = rs.getString("doiTuong");
-				lst.add(dt);
+				String maThiSinh = rs.getString("maThiSinh");
+				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
+				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && diem3Mon[2] >= diemLiet && check == 1) total++;
+				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && diem3Mon[2] > diemLiet && check == 0) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -300,6 +306,115 @@ public class ThiSinhDAO extends DataAccessObject{
 			tryToClose(pstm);
 			tryToClose(rs);
 		}
-		return l 
+		return total;
+	}
+	public int getSoThiSinhBiDiemLiet(String maKyThi, String khuVuc, String doiTuong, float diemLiet, int check){
+		int total = 0;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT *,tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, khuVuc);
+			pstm.setString(3, doiTuong);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				String maThiSinh = rs.getString("maThiSinh");
+				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
+				if(diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == 1) total++;
+				if(diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == 0) total++;
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return total;
+	}
+	public int getTongSoThiSinh(String maKyThi, String khuVuc, String doiTuong){
+		int total = 0;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT count(*) as tongSoThiSinh FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, khuVuc);
+			pstm.setString(3, doiTuong);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				total = rs.getInt("tongSoThiSinh");
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return total;
+	}
+	
+	public List<KetQuaThiSinhBean> getListKetQuaThiSinh(String maKyThi){
+		List<KetQuaThiSinhBean> lst = new ArrayList<>();
+		
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT * FROM THISINH WHERE maKyThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				KetQuaThiSinhBean ts = new KetQuaThiSinhBean(maKyThi, rs.getString("maThiSinh"),  rs.getString("soBaoDanh"), rs.getString("hoDem"), rs.getString("khuVuc"), 
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("doiTuong"));
+				float[] diem3Mon=getDiem3Mon(maKyThi, ts.getMaThiSinh());
+				ts.setDiemMon1(diem3Mon[0]);
+				ts.setDiemMon2(diem3Mon[1]);
+				ts.setDiemMon3(diem3Mon[2]);
+				ts.setDiemUuTien(Define.getDiemCongDoiTuong().get(ts.getDoiTuong())+Define.getDiemCongKhuVuc().get(ts.getKhuVuc()));
+				lst.add(ts);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+
+		
+		return lst;
+	}
+	
+	public float[] getDiem3Mon(String maKyThi,String maThiSinh){
+		float[] diem3Mon=new float[3];
+		int i=0;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT diemChinhThuc FROM BAITHI WHERE maKyThi=? AND maThiSinh=? ORDER BY maMonThi";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, maThiSinh);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				diem3Mon[i++]=rs.getFloat("diemChinhThuc");
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return diem3Mon;
 	}
 }
