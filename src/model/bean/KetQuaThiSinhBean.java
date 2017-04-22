@@ -12,6 +12,8 @@ public class KetQuaThiSinhBean {
 	private float diemUuTien;
 	private float diemMon1;
 	private float diemMon2;
+	private float diemMon3;
+	private String ghiChu;
 	public KetQuaThiSinhBean(String maKyThi, String maThiSinh, String soBaoDanh, String hoDem, String khuVuc,
 			String ten, String ngaySinh, String doiTuong) {
 		super();
@@ -24,7 +26,6 @@ public class KetQuaThiSinhBean {
 		this.ngaySinh = ngaySinh;
 		this.doiTuong = doiTuong;
 	}
-	private float diemMon3;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -97,6 +98,12 @@ public class KetQuaThiSinhBean {
 	}
 	public void setDiemMon3(float diemMon3) {
 		this.diemMon3 = diemMon3;
+	}
+	public String getGhiChu() {
+		return ghiChu;
+	}
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
 	}
 	
 }

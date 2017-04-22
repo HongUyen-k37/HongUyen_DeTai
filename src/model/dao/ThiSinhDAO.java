@@ -288,16 +288,18 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT *,tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ? tongDiem + diemKhuVuc + diemDoiTuong >= ?";
+			String sql = "SELECT *, tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ? AND tongDiem + diemKhuVuc + diemDoiTuong >= ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
-			pstm.setFloat(2, diemChuan);
+			pstm.setNString(2, khuVuc);
+			pstm.setNString(3, doiTuong);
+			pstm.setFloat(4, diemChuan);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				String maThiSinh = rs.getString("maThiSinh");
 				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
-				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && diem3Mon[2] >= diemLiet && check == 1) total++;
-				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && diem3Mon[2] > diemLiet && check == 0) total++;
+				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && diem3Mon[2] > diemLiet && check == 1) total++;
+				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && diem3Mon[2] >= diemLiet && check == 0) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -314,17 +316,17 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT *,tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
+			String sql = "SELECT * FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
-			pstm.setString(2, khuVuc);
-			pstm.setString(3, doiTuong);
+			pstm.setNString(2, khuVuc);
+			pstm.setNString(3, doiTuong);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				String maThiSinh = rs.getString("maThiSinh");
 				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
-				if(diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == 1) total++;
-				if(diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == 0) total++;
+				if((diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == 1)
+						|| (diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == 0)) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -341,14 +343,14 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT count(*) as tongSoThiSinh FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
+			String sql = "SELECT * FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
-			pstm.setString(2, khuVuc);
-			pstm.setString(3, doiTuong);
+			pstm.setNString(2, khuVuc);
+			pstm.setNString(3, doiTuong);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				total = rs.getInt("tongSoThiSinh");
+				total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -361,8 +363,7 @@ public class ThiSinhDAO extends DataAccessObject{
 	}
 	
 	public List<KetQuaThiSinhBean> getListKetQuaThiSinh(String maKyThi){
-		List<KetQuaThiSinhBean> lst = new ArrayList<>();
-		
+		List<KetQuaThiSinhBean> lst = new ArrayList<>();	
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
@@ -387,9 +388,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			tryToClose(cnn);
 			tryToClose(pstm);
 			tryToClose(rs);
-		}
-
-		
+		}	
 		return lst;
 	}
 	

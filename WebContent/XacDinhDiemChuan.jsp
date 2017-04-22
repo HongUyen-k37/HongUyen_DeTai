@@ -73,7 +73,7 @@
 									<td><bean:write name="dc" property="soTSDat"/></td>
 									<td><bean:write name="dc" property="soTSKhongDat"/></td>
 									<td><bean:write name="dc" property="soTSBiDiemLiet"/></td>
-									<td>${dc.soTSDat + dc.soTSKhongDat + dc.soTSBiDiemLiet}</td>
+									<td><bean:write name="dc" property="tong"/></td>
 								</tr>
 							</logic:iterate>
 							</tbody>

@@ -1,11 +1,11 @@
 package model.bo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import common.Define;
 import model.bean.DiemChuanBean;
+import model.bean.KetQuaThiSinhBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
 import model.dao.PhongThiDAO;
@@ -55,31 +55,24 @@ public class ThiSinhBO {
 			current += Math.ceil(listPhongThi.get(i).getSoLuongThiSinh()*avgRoom);
 		}
 	}
-	public Map<String,Float> getDiemCongKhuVuc(){
-		Map<String,Float> map=new HashMap<>();
-		map.put("Khu vực 1", 1.5f);
-		map.put("Khu vực 2", 1f);
-		map.put("Khu vực 2NT", .5f);
-		map.put("Khu vực 3", 0f);
-		return map;
-	}
-	public Map<String,Float> getDiemCongDoiTuong(){
-		Map<String,Float> map=new HashMap<>();
-		map.put("ƯT1", 2f);
-		map.put("ƯT2", 1f);
-		map.put("KƯT", 0f);
-		return map;
-	}
-	public List<DiemChuanBean> kiemTraDiemChuan(float diemLiet, float diemChuan, int check){
+	public List<DiemChuanBean> kiemTraDiemChuan(String maKyThi, float diemLiet, float diemChuan, int check){
 		List<DiemChuanBean> lst = new ArrayList<>();
 		List<String> listKhuVuc = ts.getListKhuVuc();
 		List<String> listDoiTuong = ts.getListDoiTuong();
 		for(int i = 0; i < listKhuVuc.size(); i++){
 			for(int j = 0; j < listDoiTuong.size(); j++){
-				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j), diemChuan+getDiemCongKhuVuc().get(listKhuVuc.get(i))+getDiemCongDoiTuong().get(listDoiTuong.get(j)), 0, 0, 0);
+				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j),
+						diemChuan+Define.getDiemCongKhuVuc().get(listKhuVuc.get(i))+Define.getDiemCongDoiTuong().get(listDoiTuong.get(j)),
+						ts.getSoThiSinhDat(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemChuan, diemLiet, check),
+						ts.getTongSoThiSinh(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j))-ts.getSoThiSinhDat(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemChuan, diemLiet, check),
+						ts.getSoThiSinhBiDiemLiet(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemLiet, check),
+						ts.getTongSoThiSinh(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j)));
 				lst.add(d);
 			}
 		}
 		return lst;
+	}
+	public List<KetQuaThiSinhBean> getListKetQuaThiSinh(String maKyThi){
+		return ts.getListKetQuaThiSinh(maKyThi);
 	}
 }

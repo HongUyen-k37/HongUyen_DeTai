@@ -15,33 +15,33 @@
 <jsp:include page="Asset/Header.jsp" />
 <jsp:include page="Asset/Menu2.jsp" />
 <div class="container">
-<div class="row">
-	<div class="col-md-4 no-pad">
-		<div class="thongtinkithi group-content">
-			<div class="main-nav">
-				<bean:define id="listMaKyThi" name="thongKeBangDiemTheoMonActionForm"></bean:define>
-				<%@include file="Asset/ThongTinKyThi.jsp" %>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-8">
 		<div class="group-content">
 			<div class="row main-nav">
 				<p class="title">THỐNG KÊ BẢNG ĐIỂM THEO MÔN</p>
-		    	
-		    	<div>
-		    	<label class="control-label col-sm-2">Môn thi:</label>
-		    		<html:select property="maMonThi" name="thongKeBangDiemTheoMonActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getTKBangDiemTheoMon()">
-	                	<html:optionsCollection name="thongKeBangDiemTheoMonActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
-		            </html:select>
+				<div class="row">
+				<div class="form-group col-sm-7">
+			   		<label class="col-sm-2">Tên kỳ thi:</label>
+			    	<div class="col-sm-10">
+				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
+		             	</html:select>
+			    	</div>
+			  	</div>
+		    	<div class="form-group col-sm-5">
+		    	<label class="col-sm-3">Môn thi:</label>
+		    		<div class="col-sm-9">
+			    		<html:select property="maMonThi" name="thongKeActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getTKBangDiemTheoMon()">
+		                	<html:optionsCollection name="thongKeActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
+			            </html:select>
+		            </div>
 		    	</div>
-	    	</div>
+		    	</div>
 	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content" style="border: 1px solid #ddd;border-radius: inherit;">
+	    	<div class="group-content">
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-						<bean:define id="kyThi" name="thongKeBangDiemTheoMonActionForm" property="kyThi"></bean:define>
+						<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
 					<div class="col-md-6">
@@ -54,54 +54,50 @@
 					<p>Điểm thi: Trường Đại Học Khoa Học</p>
 				</div>
 				<div class="col-md-5">
-					<%-- <bean:define id="monThi" name="thongKeBangDiemTheoMonActionForm" property="monThi"></bean:define> --%>
-					<p><b>Môn thi: ${thongKeBangDiemTheoMonActionForm.monThi.tenMonThi}</b></p>
+					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 				</div>
 				
 				<div class="details_info">
 					<div class="main-list">
-					<html:form>
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
-								<th>STT</th>						
-								<th>Họ đệm</th>
-								<th>Tên</th>
-								<th>Ngày sinh</th>
-								<th>Số báo danh</th>
-								<th>Số phách</th>
-								<th>Điểm thi<th>Bằng số</th>
-									<th>Bằng chữ</th></th>
-								<th>Ghi chú</th>
+								<th rowspan="2">STT</th>						
+								<th rowspan="2" colspan="2">Họ và tên</th>
+								<th rowspan="2">Ngày sinh</th>
+								<th rowspan="2">Số báo danh</th>
+								<th rowspan="2">Số phách</th>
+								<th colspan="2">Điểm thi</th>
+								<th rowspan="2">Ghi chú</th>
+							</tr>
+							<tr>
+								<th>Bằng số</th>
+								<th>Bằng chữ</th>
 							</tr>
 						</thead>
 						<bean:define id="stt" value="0"/>
 						<tbody>
-							<logic:iterate id="dsts" name="thongKeBangDiemTheoMonActionForm" property="listTKBangDiem">	
+							<logic:iterate id="dsts" name="thongKeActionForm" property="listTKTheoMon">	
 								<tr>	
 									<bean:define id="stt" value="${stt+1}"/>
 									<td>${stt}</td>
-									<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
-							
 									<td><bean:write name="dsts" property="hoDem"/></td>
 									<td><bean:write name="dsts" property="ten"/></td>
 									<td><bean:write name="dsts" property="ngaySinh"/></td>
 									<td><bean:write name="dsts" property="soBaoDanh"/></td>
 									<td><bean:write name="dsts" property="soPhach"/></td>
 									<td><bean:write name="dsts" property="diemChamThi"/></td>								
-		                    
+				                    <td><bean:write name="dsts" property="diemChu"/></td>
+				                    <td><bean:write name="dsts" property="ghiChu"/></td>
 								</tr>
 							</logic:iterate>
 						</tbody>
 						</table>
-						<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
-						</html:form>
 					</div>
 				</div>
 	    	</div>
 		</div>
 	</div>
-</div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 </body>

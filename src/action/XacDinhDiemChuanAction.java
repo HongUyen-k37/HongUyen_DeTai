@@ -39,25 +39,17 @@ public class XacDinhDiemChuanAction extends Action{
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		
-		/*ThiSinhBO tsBO = new ThiSinhBO();
-		List<DiemChuanBean> lst = tsBO.kiemTraDiemChuan(0, 15, 1);
-		for(int i = 0; i < lst.size(); i++){
-			System.out.println(lst.get(i).getTen());
-			System.out.println(lst.get(i).getDiem());
-			System.out.println(lst.get(i).getSoTSDat());
-			System.out.println(lst.get(i).getSoTSBiDiemLiet());
-			System.out.println(lst.get(i).getSoTSKhongDat());
-		}*/
 		if ("test".equals(frm.getKiemTra())) {
 			//get input
 			float diemLiet = frm.getDiemLiet();
-			System.out.println(diemLiet);
 			int check = frm.getCheck();
 			float diemChuan = frm.getDiemChuan();
+			System.out.println(diemLiet);
+			System.out.println(check);
 			System.out.println(diemChuan);
 			//xu ly
 			ThiSinhBO tsBO = new ThiSinhBO();
-			frm.setListResult(tsBO.kiemTraDiemChuan(diemLiet, diemChuan, check));
+			frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

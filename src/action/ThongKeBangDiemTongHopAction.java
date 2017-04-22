@@ -13,20 +13,17 @@ import org.apache.struts.action.ActionMapping;
 
 import form.ThongKeActionForm;
 import model.bean.KyThiBean;
-import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
-import model.bean.ThongKeBean;
 import model.bo.KyThiBO;
-import model.bo.MonThiBO;
-import model.bo.ThongKeBO;
+import model.bo.ThiSinhBO;
 
-public class ThongKeBangDiemTheoMonAction extends Action{
+public class ThongKeBangDiemTongHopAction extends Action{
+
+	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
-		
 		ThongKeActionForm frm = (ThongKeActionForm)form;
-		ThongKeBO tk = new ThongKeBO();
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -41,20 +38,10 @@ public class ThongKeBangDiemTheoMonAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//get list mon thi de select
-		MonThiBO mtBO = new MonThiBO();
-		List<MonThiBean> listMonThi = mtBO.getListMonThi(maKyThi);
-		frm.setListMonThi(listMonThi);
-		//get ma mon thi
-		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
-		if(frm.getMaMonThi()!=null)
-			maMonThi = frm.getMaMonThi();
-		System.out.println(maMonThi);
-		//get thong tin mon thi thong qua maMonThi 
-		frm.setMonThi(mtBO.getMonThi(maMonThi));
-		//show list thống kê bảng điểm theo môn
-		List<ThongKeBean> list = tk.tkBangDiemTheoMon(maKyThi, maMonThi);
-		frm.setListTKTheoMon(list);
+		//show list tong hop
+		ThiSinhBO tsBO = new ThiSinhBO();
+		frm.setListTKTongHop(tsBO.getListKetQuaThiSinh(maKyThi));
 		return mapping.findForward("success");
 	}
+	
 }

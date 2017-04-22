@@ -7,6 +7,20 @@ public class ThongKeBean {
 	private String soBaoDanh;
 	private int soPhach;
 	private float diemChamThi;
+	private String diemChu;
+	private String ghiChu;
+	public String getDiemChu() {
+		return diemChu;
+	}
+	public void setDiemChu(String diemChu) {
+		this.diemChu = diemChu;
+	}
+	public String getGhiChu() {
+		return ghiChu;
+	}
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
 	public String getHoDem() {
 		return hoDem;
 	}
@@ -39,7 +53,7 @@ public class ThongKeBean {
 		this.soPhach = soPhach;
 	}
 	public ThongKeBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach,
-			float diemChamThi) {
+			float diemChamThi, String diemChu, String ghiChu) {
 		super();
 		this.hoDem = hoDem;
 		this.ten = ten;
@@ -47,6 +61,8 @@ public class ThongKeBean {
 		this.soBaoDanh = soBaoDanh;
 		this.soPhach = soPhach;
 		this.diemChamThi = diemChamThi;
+		this.diemChu = diemChu;
+		this.ghiChu = ghiChu;
 	}
 	public float getDiemChamThi() {
 		return diemChamThi;
