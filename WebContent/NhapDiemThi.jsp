@@ -27,25 +27,22 @@
 	</div>
 	<div class="col-md-8">
 		<div class="group-content">
+		<html:form action="/NhapDiemThi" method="POST">
 			<div class="row main-nav">
 				<p class="title">NHẬP ĐIỂM THI</p>
 				<form>
 					<div class="form-group no-pad row">
 						<label class="col-sm-2">Chọn môn thi:</label>
 						<div class="col-sm-4">
-							<select class="form-control">
-							<option>Toán</option>
-							<option>Văn</option>
-							<option>Anh</option>
-						</select>
+							<html:select property="maMonThi" name="diemActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getNhapDiemThi()">
+	                    		<html:optionsCollection name="diemActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
+		             		</html:select>
 						</div>
 						<label class="col-sm-2">Túi số:</label>
 						<div class="col-sm-4">
-							<select class="form-control" min="1">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
+							<html:select property="tuiSo" name="diemActionForm" styleId="f_tuiSo" styleClass="form-control" onchange="getNhapDiemThi()">
+	                    		<html:options name="diemActionForm" property="listTui"/>
+		             		</html:select>
 						</div>
 					</div>
 				</form>
@@ -54,19 +51,21 @@
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
-					<th colspan="4">Số phách</th>
-					<th colspan="4">Điểm</th>
-					<th colspan="4">Điểm chữ</th>
+					<th>Số phách</th>
+					<th>Điểm</th>
+					<th>Điểm chữ</th>
 				</tr>
 			</thead>
+			<bean:define id="stt" value="0"/>
 			<tbody>
+				<logic:iterate id="bt" name="diemActionForm" property="listBaiThi"></logic:iterate>
 				<tr>
-					<td colspan="4">01</td>
-					<td colspan="4">
+					<bean:define id="stt" value="${stt+1}"/>
+					<td>${bt.soPhach}</td>
+					<td>
 						<input type="text" name="diemSo" class="form-control" id="input">
 					</td>
-					<td colspan="4">
-						<!-- <input type="text" name="diemChu" class="form-control" id="output"> -->
+					<td>
 						<span id="output"></span>
 					</td>
 				</tr>
@@ -74,15 +73,16 @@
 			</table>
 			<div class="row">
 				<div class="col-sm-6">
-				<p>Danh sách gồm có: <span> ... </span> bài thi.</p>
+				<p>Danh sách gồm có: <span> ${stt} </span> bài thi.</p>
 				</div>
 				<div class="btn-gr col-sm-6">
-					<button type="submit" class="btn btn-success btn-all" name="save">Lưu</button>
-					<button type="submit" class="btn btn-success btn-all" name="cancel">Kết thúc nhập</button>
-					<button type="submit" class="btn btn-success btn-all" name="delete">Xóa hết</button>
+					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
+					<button type="submit" class="btn btn-success btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
+					<button type="submit" class="btn btn-success btn-all" name="delete" id="delete">Xóa hết</button>
 				</div>
 			</div>
 		</div>
+		</html:form>
 	</div>
 </div>
 </div>

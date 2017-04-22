@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
+import model.bean.BaiThiBean;
 import model.bean.DiemChuanBean;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 
 public class DiemActionForm extends ActionForm{
 	/**
@@ -21,6 +23,11 @@ public class DiemActionForm extends ActionForm{
 	private float diemChuan;
 	private String kiemTra;
 	private List<DiemChuanBean> listResult = new ArrayList<>();
+	private List<BaiThiBean> listBaiThi;
+	private List<Integer> listTui;
+	private int tuiSo;
+	private List<MonThiBean> listMonThi;
+	private String maMonThi;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -68,5 +75,35 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setListResult(List<DiemChuanBean> listResult) {
 		this.listResult = listResult;
+	}
+	public List<BaiThiBean> getListBaiThi() {
+		return listBaiThi;
+	}
+	public void setListBaiThi(List<BaiThiBean> listBaiThi) {
+		this.listBaiThi = listBaiThi;
+	}
+	public List<Integer> getListTui() {
+		return listTui;
+	}
+	public void setListTui(List<Integer> listTui) {
+		this.listTui = listTui;
+	}
+	public List<MonThiBean> getListMonThi() {
+		return listMonThi;
+	}
+	public void setListMonThi(List<MonThiBean> listMonThi) {
+		this.listMonThi = listMonThi;
+	}
+	public String getMaMonThi() {
+		return maMonThi;
+	}
+	public void setMaMonThi(String maMonThi) {
+		this.maMonThi = maMonThi;
+	}
+	public int getTuiSo() {
+		return tuiSo;
+	}
+	public void setTuiSo(int tuiSo) {
+		this.tuiSo = tuiSo;
 	}
 }

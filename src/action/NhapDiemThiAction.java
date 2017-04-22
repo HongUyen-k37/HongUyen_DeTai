@@ -13,8 +13,11 @@ import org.apache.struts.action.ActionMapping;
 
 import form.DiemActionForm;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
+import model.bo.BaiThiBO;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 
 public class NhapDiemThiAction extends Action{
 
@@ -30,12 +33,30 @@ public class NhapDiemThiAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		
+		//get mã kỳ thi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list Môn
+		MonThiBO mtBO = new MonThiBO();
+		List<MonThiBean> listMonThi = mtBO.getListMonThi(maKyThi);
+		frm.setListMonThi(listMonThi);
+		//get Mã Môn thi
+		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
+		if(frm.getMaMonThi()!=null)
+			maMonThi = frm.getMaMonThi();
+		//get list Túi
+		BaiThiBO btBO = new BaiThiBO();
+		List<Integer> listTui = btBO.getListTui(maKyThi);
+		frm.setListTui(listTui);
+		//get Túi
+		int tuiSo = listTui.size()==0?0:listTui.get(0);
+		if(frm.getTuiSo()!=0)
+			tuiSo = frm.getTuiSo();
+		//get Bài thi theo Môn và Túi
+		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 		return mapping.findForward("success");
 	}
 	

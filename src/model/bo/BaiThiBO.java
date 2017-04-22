@@ -7,7 +7,22 @@ import model.dao.BaiThiDAO;
 
 public class BaiThiBO {
 	BaiThiDAO bt=new BaiThiDAO();
-	public List<BaiThiBean> getList(String maKyThi, String maPhongThi, String maMonThi){
-		return bt.getList(maKyThi, maPhongThi, maMonThi);
+	public List<BaiThiBean> getList(String maKyThi, String maMonThi, String maThiSinh){
+		return bt.getList(maKyThi, maMonThi, maThiSinh);
+	}
+	public boolean insert(BaiThiBean baiThi) {
+		return bt.insert(baiThi);
+	}
+	public boolean update(String maKyThi, String maMonThi, String maThiSinh, int trangThaiDuThi) {
+		return bt.update(maKyThi, maMonThi, maThiSinh, trangThaiDuThi);
+	}
+	public List<Integer> getListTui(String maKyThi){
+		return bt.getListTui(maKyThi);
+	}
+	public List<BaiThiBean> getListTheoTui(String maKyThi, String maMonThi, int tuiSo){
+		return bt.getListTheoTui(maKyThi, maMonThi, tuiSo);
+	}
+	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo, String diemChu) {
+		return bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo, diemChu);
 	}
 }

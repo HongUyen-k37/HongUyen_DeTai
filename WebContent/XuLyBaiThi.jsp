@@ -27,6 +27,7 @@
 	</div>
 	<div class="col-md-8">
 		<div class="group-content">
+		<html:form action="/XuLyBaiThi" method="POST">
 			<div class="row main-nav">
 			<p class="title">XỬ LÝ BÀI THI</p>
 			<label class="control-label col-sm-2">Phòng thi:</label>
@@ -45,7 +46,6 @@
 		<div class="details_info">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<div class="main-list">
-			<html:form>
 				<table class="table table-bordered table-hover table-striped">
 				<thead>
 					<tr>
@@ -74,7 +74,7 @@
 								<html:option value="1">Dự thi</html:option>
 								<html:option value="2">Khiển trách</html:option>
 								<html:option value="3">Cảnh cáo</html:option>
-								<html:option value="4">Đình chỉ thi</html:option>						
+								<html:option value="4">Đình chỉ thi</html:option>					
 								<html:option value="5">Vắng thi</html:option>
 							</html:select>
 							</td>	                    
@@ -87,13 +87,12 @@
 				</div>
 				<button type="submit" name="save" value="save" class="btn btn-success btn-all">Lưu</button>
 				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
-				</html:form>
 			</div>
 		</div>
+		</html:form>
 		</div>
 	</div>
 </div>
-
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 </body>

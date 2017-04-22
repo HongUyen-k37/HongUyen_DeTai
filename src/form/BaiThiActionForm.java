@@ -4,14 +4,13 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
+import model.bean.BaiThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
-import model.bean.TrangThai;
 
-@SuppressWarnings("hiding")
-public class BaiThiActionForm<TrangThai> extends ActionForm{
+public class BaiThiActionForm extends ActionForm{
 	/**
 	 * 
 	 */
@@ -22,33 +21,16 @@ public class BaiThiActionForm<TrangThai> extends ActionForm{
 	private String trangThaiDuThi;
 	private String save;
 	private List<PhongThiBean> listPhongThi;
-	private List<ThiSinhBean> listThiSinh;
+	private List<BaiThiBean> listBaiThi;
 	private List<MonThiBean> listMonThi;
+	private List<ThiSinhBean> listThiSinh;
 	private String maPhongThi;
-	private String maMonThi;
-	private List<TrangThai> listTrangThai;
-	//get ca nhom
-/*	public TrangThai getTrangThai(int index){
-		while(index >= listTrangThai.size()){
-			listTrangThai.add(new TrangThai());
-		}
-		return this.listTrangThai.get(index);
-	}*/
-	public void setTrangThai(int index, TrangThai trangThai){
-		this.listTrangThai.add(index, trangThai);
-	}
-	
+	private String maMonThi;	
 	public String getMaPhongThi() {
 		return maPhongThi;
 	}
 	public void setMaPhongThi(String maPhongThi) {
 		this.maPhongThi = maPhongThi;
-	}
-	public List<ThiSinhBean> getListThiSinh() {
-		return listThiSinh;
-	}
-	public void setListThiSinh(List<ThiSinhBean> listThiSinh) {
-		this.listThiSinh = listThiSinh;
 	}
 	public List<PhongThiBean> getListPhongThi() {
 		return listPhongThi;
@@ -98,10 +80,16 @@ public class BaiThiActionForm<TrangThai> extends ActionForm{
 	public void setMaMonThi(String maMonThi) {
 		this.maMonThi = maMonThi;
 	}
-	public List<TrangThai> getListTrangThai() {
-		return listTrangThai;
+	public List<BaiThiBean> getListBaiThi() {
+		return listBaiThi;
 	}
-	public void setListTrangThai(List<TrangThai> listTrangThai) {
-		this.listTrangThai = listTrangThai;
+	public void setListBaiThi(List<BaiThiBean> listBaiThi) {
+		this.listBaiThi = listBaiThi;
+	}
+	public List<ThiSinhBean> getListThiSinh() {
+		return listThiSinh;
+	}
+	public void setListThiSinh(List<ThiSinhBean> listThiSinh) {
+		this.listThiSinh = listThiSinh;
 	}
 }
