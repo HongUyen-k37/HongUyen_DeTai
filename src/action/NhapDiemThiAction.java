@@ -57,6 +57,10 @@ public class NhapDiemThiAction extends Action{
 			tuiSo = frm.getTuiSo();
 		//get Bài thi theo Môn và Túi
 		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
+		if("save".equals(frm.getSave())){
+			btBO.nhapDiem(maKyThi, maMonThi, 1, 10, "Mười");
+			return mapping.findForward("success");
+		}
 		return mapping.findForward("success");
 	}
 	

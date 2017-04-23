@@ -30,22 +30,20 @@
 		<html:form action="/NhapDiemThi" method="POST">
 			<div class="row main-nav">
 				<p class="title">NHẬP ĐIỂM THI</p>
-				<form>
-					<div class="form-group no-pad row">
-						<label class="col-sm-2">Chọn môn thi:</label>
-						<div class="col-sm-4">
-							<html:select property="maMonThi" name="diemActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getNhapDiemThi()">
-	                    		<html:optionsCollection name="diemActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
-		             		</html:select>
-						</div>
-						<label class="col-sm-2">Túi số:</label>
-						<div class="col-sm-4">
-							<html:select property="tuiSo" name="diemActionForm" styleId="f_tuiSo" styleClass="form-control" onchange="getNhapDiemThi()">
-	                    		<html:options name="diemActionForm" property="listTui"/>
-		             		</html:select>
-						</div>
+				<div class="form-group no-pad row">
+					<label class="col-sm-2">Chọn môn thi:</label>
+					<div class="col-sm-4">
+						<html:select property="maMonThi" name="diemActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getNhapDiemThi()">
+                    		<html:optionsCollection name="diemActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
+	             		</html:select>
 					</div>
-				</form>
+					<label class="col-sm-2">Túi số:</label>
+					<div class="col-sm-4">
+						<html:select property="tuiSo" name="diemActionForm" styleId="f_tuiSo" styleClass="form-control" onchange="getNhapDiemThi()">
+                    		<html:options name="diemActionForm" property="listTui"/>
+	             		</html:select>
+					</div>
+				</div>
 			</div>
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">

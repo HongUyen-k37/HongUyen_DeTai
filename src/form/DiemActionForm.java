@@ -28,6 +28,7 @@ public class DiemActionForm extends ActionForm{
 	private int tuiSo;
 	private List<MonThiBean> listMonThi;
 	private String maMonThi;
+	private String save;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -105,5 +106,11 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setTuiSo(int tuiSo) {
 		this.tuiSo = tuiSo;
+	}
+	public String getSave() {
+		return save;
+	}
+	public void setSave(String save) {
+		this.save = save;
 	}
 }
