@@ -1,16 +1,21 @@
 package form;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
+
+import com.sun.istack.internal.logging.Logger;
 
 import model.bean.BaiThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.bean.TrangThaiBean;
 
 public class BaiThiActionForm extends ActionForm{
+	Logger log = Logger.getLogger(this.getClass());
 	/**
 	 * 
 	 */
@@ -25,7 +30,20 @@ public class BaiThiActionForm extends ActionForm{
 	private List<MonThiBean> listMonThi;
 	private List<ThiSinhBean> listThiSinh;
 	private String maPhongThi;
-	private String maMonThi;	
+	private String maMonThi;
+	private List<TrangThaiBean> listTrangThai;
+	//get list value
+	public TrangThaiBean getTrangThai(int index){
+		if(listTrangThai==null) listTrangThai=new ArrayList<>();
+		while(index >= listTrangThai.size()){
+			listTrangThai.add(new TrangThaiBean());
+		}
+		return this.listTrangThai.get(index);
+	}
+	public void setTrangThai(int index, TrangThaiBean trangThai){
+		this.listTrangThai.add(index, trangThai);
+	}
+	
 	public String getMaPhongThi() {
 		return maPhongThi;
 	}
@@ -92,4 +110,11 @@ public class BaiThiActionForm extends ActionForm{
 	public void setListThiSinh(List<ThiSinhBean> listThiSinh) {
 		this.listThiSinh = listThiSinh;
 	}
+	public List<TrangThaiBean> getListTrangThai() {
+		return listTrangThai;
+	}
+	public void setListTrangThai(List<TrangThaiBean> listTrangThai) {
+		this.listTrangThai = listTrangThai;
+	}
+
 }

@@ -13,4 +13,7 @@ public class MonThiBO {
 	public MonThiBean getMonThi(String maMonThi){	
 		return mt.getMonThi(maMonThi);
 	}
+	public boolean insert(String maKyThi, MonThiBean monThi){
+		return mt.insert(maKyThi, monThi);
+	}
 }

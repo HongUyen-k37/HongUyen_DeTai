@@ -23,6 +23,13 @@ public class MonThiBean {
 		this.heSo = heSo;
 	}
 
+	public MonThiBean(String tenMonThi, int trangThaiMonThi, int heSo) {
+		super();
+		this.tenMonThi = tenMonThi;
+		this.trangThaiMonThi = trangThaiMonThi;
+		this.heSo = heSo;
+	}
+
 	public String getMaMonThi() {
 		return maMonThi;
 	}

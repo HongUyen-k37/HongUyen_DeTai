@@ -59,24 +59,33 @@
 				</thead>
 				<bean:define id="stt" value="0"/>
 				<tbody>
-					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh">	
+					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh" indexId="rowindex">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
 							<td>${stt}</td>
-							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
 							<td><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td><bean:write name="dsts" property="ngaySinh"/></td>
 							
-							<td>		
-							<html:select property="trangThaiDuThi" styleClass="trangThaiDuThi form-control" value="1" indexed="true">
+							<td>
+							
+							<input type="hidden" name="trangThai[${stt-1}].maThiSinh" value="${dsts.maThiSinh}" >
+							<select name="trangThai[${stt-1}].trangThaiDuThi" class="form-control">
+								<option value="1">Dự thi</option>
+								<option value="2">Khiển trách</option>
+								<option value="3">Cảnh cáo</option>
+								<option value="4">Đình chỉ thi</option>					
+								<option value="5">Vắng thi</option>
+							</select>	
+						<%--	<html:select property="trangThaiDuThi" styleClass="trangThaiDuThi form-control" value="1" indexed="true">
 								<html:option value="1">Dự thi</html:option>
 								<html:option value="2">Khiển trách</html:option>
 								<html:option value="3">Cảnh cáo</html:option>
 								<html:option value="4">Đình chỉ thi</html:option>					
 								<html:option value="5">Vắng thi</html:option>
 							</html:select>
+							--%>
 							</td>	                    
 						</tr>
 					</logic:iterate>

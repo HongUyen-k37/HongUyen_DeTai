@@ -14,7 +14,10 @@ public class BaiThiDAO extends DataAccessObject{
 	Connection cnn = getConnection();
 	PreparedStatement pstm = null;
 	try {
-		String sql = "INSERT INTO BAITHI VALUES (?,?,?,?,?,?,?,?,?) ";
+		if(baiThi.getTrangThaiDuThi()==5){
+			baiThi.setGhiChu("Vắng thi");
+		}
+		String sql = "INSERT INTO BAITHI VALUES (?,?,?,?,?,?,?,?,?,?) ";
 		pstm = cnn.prepareStatement(sql);
 		pstm.setString(1, baiThi.getMaKyThi());
 		pstm.setString(2, baiThi.getMaMonThi());
@@ -25,6 +28,7 @@ public class BaiThiDAO extends DataAccessObject{
 		pstm.setFloat(7, baiThi.getDiemChamThi());
 		pstm.setFloat(8, baiThi.getDiemChinhThuc());
 		pstm.setString(9, baiThi.getGhiChu());
+		pstm.setNString(10, baiThi.getDiemChu());
 		pstm.executeUpdate();
 		result = true;
 	} catch (Exception ex) {
@@ -52,7 +56,7 @@ public class BaiThiDAO extends DataAccessObject{
 			while (rs.next()) {
 				bt = new BaiThiBean(rs.getString("maKyThi"), rs.getString("maMonThi"), rs.getString("maThiSinh"),
 						rs.getInt("soPhach"), rs.getInt("tuiSo"), rs.getInt("trangThaiDuThi"), rs.getFloat("diemChamThi"),
-						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"));
+						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"), rs.getString("diemChu"));
 				lst.add(bt);
 			}
 		} catch (Exception ex) {
@@ -107,7 +111,7 @@ public class BaiThiDAO extends DataAccessObject{
 			while (rs.next()) {
 				bt = new BaiThiBean(rs.getString("maKyThi"), rs.getString("maMonThi"), rs.getString("maThiSinh"),
 						rs.getInt("soPhach"), rs.getInt("tuiSo"), rs.getInt("trangThaiDuThi"), rs.getFloat("diemChamThi"),
-						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"));
+						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"), rs.getString("diemChu"));
 				lst.add(bt);
 			}
 		} catch (Exception ex) {

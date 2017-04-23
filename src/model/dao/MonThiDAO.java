@@ -57,4 +57,26 @@ public class MonThiDAO extends DataAccessObject {
 		}
 		return mt;
 	}
+	public boolean insert(String maKyThi, MonThiBean monThi){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "INSERT INTO MONTHI VALUES(?,?,?,?)";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setNString(2, monThi.getTenMonThi());
+			pstm.setInt(3, monThi.getTrangThaiMonThi());
+			pstm.setInt(4, monThi.getHeSo());
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }

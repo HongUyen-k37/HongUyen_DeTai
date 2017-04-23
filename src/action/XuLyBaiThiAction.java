@@ -18,6 +18,7 @@ import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.bean.TrangThaiBean;
 import model.bo.BaiThiBO;
 import model.bo.KyThiBO;
 import model.bo.MonThiBO;
@@ -29,6 +30,7 @@ public class XuLyBaiThiAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
 		BaiThiActionForm frm = (BaiThiActionForm)form;
 		//check login
 		HttpSession session = request.getSession(true);
@@ -70,21 +72,29 @@ public class XuLyBaiThiAction extends Action{
 			if(frm.getMaMonThi()!=null)
 				maMonThi = frm.getMaMonThi();
 			System.out.println(maMonThi);
-			//get mã thí sinh
-			String maThiSinh = "TS0001";
-			BaiThiBO btBO = new BaiThiBO();
-			List<BaiThiBean> listBaiThi = btBO.getList(maKyThi, maMonThi, maThiSinh);
-			//kiểm tra xem đã có bài thi hay chưa?
-			if(listBaiThi.size()==0){
-				BaiThiBean baiThi = new BaiThiBean(maKyThi, maMonThi, maThiSinh, 0, 0, 1, 0, 0, "");
-				btBO.insert(baiThi);
+			//get mã thí sinh và trạng thái
+			if(frm.getListTrangThai()!=null){
+				System.out.println(frm.getListTrangThai().size());
+				for (TrangThaiBean trangThai : frm.getListTrangThai()) {
+					System.out.println(trangThai.getMaThiSinh()+" "+trangThai.getTrangThaiDuThi());
+					//kiểm tra đã có bài thi hay chưa?
+					BaiThiBO btBO = new BaiThiBO();
+					List<BaiThiBean> listBaiThi = btBO.getList(maKyThi, maMonThi, trangThai.getMaThiSinh());
+					if(listBaiThi.size()==0){
+						//không có => thêm mới
+						BaiThiBean baiThi = new BaiThiBean(maKyThi, maMonThi, trangThai.getMaThiSinh(), 0, 0,
+								trangThai.getTrangThaiDuThi(), 0, 0, null, null);
+						btBO.insert(baiThi);
+					}
+					else{
+						//ngược lại => update
+						btBO.update(maKyThi, maMonThi, trangThai.getMaThiSinh(), trangThai.getTrangThaiDuThi());
+					}
+				}
 			}
-			else{
-				btBO.update(maKyThi, maMonThi, maThiSinh, 1);
-			}
+			else System.out.println("NULL");
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");
 	}
-	
 }

@@ -10,6 +10,7 @@ public class BaiThiBean {
 	private float diemChamThi;
 	private float diemChinhThuc;
 	private String ghiChu;
+	private String diemChu;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -64,8 +65,18 @@ public class BaiThiBean {
 	public void setGhiChu(String ghiChu) {
 		this.ghiChu = ghiChu;
 	}
+	public BaiThiBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public String getDiemChu() {
+		return diemChu;
+	}
+	public void setDiemChu(String diemChu) {
+		this.diemChu = diemChu;
+	}
 	public BaiThiBean(String maKyThi, String maMonThi, String maThiSinh, int soPhach, int tuiSo, int trangThaiDuThi,
-			float diemChamThi, float diemChinhThuc, String ghiChu) {
+			float diemChamThi, float diemChinhThuc, String ghiChu, String diemChu) {
 		super();
 		this.maKyThi = maKyThi;
 		this.maMonThi = maMonThi;
@@ -76,10 +87,7 @@ public class BaiThiBean {
 		this.diemChamThi = diemChamThi;
 		this.diemChinhThuc = diemChinhThuc;
 		this.ghiChu = ghiChu;
-	}
-	public BaiThiBean() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.diemChu = diemChu;
 	}
 	
 }
