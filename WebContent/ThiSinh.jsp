@@ -144,7 +144,7 @@
 					<div class="form-group">
 						<label class="col-md-2" style="padding-right:0;" for="birthday">Ngày sinh(*)</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995" title="Vui lòng nhập đúng Ngày sinh quy định." pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" >
+							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995">
 						</div>
 					</div>
 					<div class="col-md-7">
@@ -163,19 +163,21 @@
 						<div class="form-group">
 							<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
 							<div class="col-md-8 no-pad">
-								<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="">
-									<html:option value="KV1">Khu vực 1</html:option>	
+								<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="KV3">
+									<html:option value="KV3">Khu vực 3</html:option>
 									<html:option value="KV2">Khu vực 2</html:option>
 									<html:option value="KV2NT">Khu vực 2 - NT</html:option>	
-									<html:option value="KV3">Khu vực 3</html:option>													
+									<html:option value="KV1">Khu vực 1</html:option>	
+									
+																						
 								</html:select>		               
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-2" for="email">Email(*)</label>
+						<label class="col-md-2" for="email">Email</label>
 						<div class="col-md-10">
-							<input type="email" class="form-control" id="f_email" name="email" required="required" maxlength="50" onchange="this.value=this.value.trim()">
+							<input type="email" class="form-control" id="f_email" name="email" maxlength="50" onchange="this.value=this.value.trim()">
 						</div>
 					</div>
 				
@@ -190,7 +192,6 @@
 						<label class="" for="address">Địa chỉ liên hệ:</label>
 						<textarea class="form-control" rows="3" cols="50" id="f_diaChi" name="diaChi" onchange="this.value=this.value.trim()"></textarea>
 					</div>
-            <label><i>(*): Thông tin bắt buộc</i></label>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
 				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa</button>

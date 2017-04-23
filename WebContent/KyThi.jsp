@@ -170,11 +170,9 @@
 						    	</div>
 						  	</div>
 						  	
-						  	<div class="form-group row">
-							  	<label class="control-label col-sm-6">Danh sách môn thi</label>
-							  	<label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label>
-							  	<br>
-								<br>
+						  	<div class="form-group row"><hr>
+							  	<p class="title">DANH SÁCH MÔN THI</p>
+							  	<!-- <label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label> -->
 						  		<label class="control-label col-sm-7">Tên môn thi</label>
 						  		<label class="control-label col-sm-5">Hệ số</label>
 						  	</div>
@@ -189,8 +187,8 @@
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
 						  	<button type="button" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
-				<br>
-				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p>
+				<!-- <br>
+				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p> -->
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
