@@ -21,9 +21,9 @@
 	    		<div class="form-group col-sm-8 col-sm-offset-2">
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
-				      <%-- 	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
-		             	</html:select> --%>
+		             	</html:select>
 			    	</div>
 			  	</div>
 	    	</div>
@@ -80,8 +80,8 @@
 							</tr>
 						</thead>
 						<bean:define id="stt" value="0"/>
-						<%-- <tbody>
-							<logic:iterate id="dsts" name="thongKeActionForm" property="listTKTongHop">	
+						<tbody>
+							<logic:iterate id="dsts" name="thongKeActionForm" property="listTrungTuyen">	
 								<tr>	
 									<bean:define id="stt" value="${stt+1}"/>
 									<td>${stt}</td>
@@ -100,7 +100,7 @@
 									<td><bean:write name="dsts" property="ghiChu"/></td>                    
 								</tr>
 							</logic:iterate>
-						</tbody> --%>
+						</tbody>
 						</table>
 					</div>
 				</div>

@@ -282,7 +282,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public int getSoThiSinhDat(String maKyThi, String khuVuc, String doiTuong, float diemChuan, float diemLiet, int check){
+	public int getSoThiSinhDat(String maKyThi, String khuVuc, String doiTuong, float diemChuan, float diemLiet, boolean check){
 		int total = 0;
 		Connection cnn = getConnection();
 		ResultSet rs = null;
@@ -298,8 +298,8 @@ public class ThiSinhDAO extends DataAccessObject{
 			while (rs.next()) {
 				String maThiSinh = rs.getString("maThiSinh");
 				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
-				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && diem3Mon[2] > diemLiet && check == 1) total++;
-				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && diem3Mon[2] >= diemLiet && check == 0) total++;
+				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && diem3Mon[2] > diemLiet && check == false) total++;
+				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && diem3Mon[2] >= diemLiet && check == true) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -310,7 +310,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return total;
 	}
-	public int getSoThiSinhBiDiemLiet(String maKyThi, String khuVuc, String doiTuong, float diemLiet, int check){
+	public int getSoThiSinhBiDiemLiet(String maKyThi, String khuVuc, String doiTuong, float diemLiet, boolean check){
 		int total = 0;
 		Connection cnn = getConnection();
 		ResultSet rs = null;
@@ -325,8 +325,8 @@ public class ThiSinhDAO extends DataAccessObject{
 			while (rs.next()) {
 				String maThiSinh = rs.getString("maThiSinh");
 				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
-				if((diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == 1)
-						|| (diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == 0)) total++;
+				if((diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == false)
+						|| (diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == true)) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -415,5 +415,47 @@ public class ThiSinhDAO extends DataAccessObject{
 			tryToClose(rs);
 		}
 		return diem3Mon;
+	}
+	public List<KetQuaThiSinhBean> getListThiSinhTrungTuyen(String maKyThi){
+		List<KetQuaThiSinhBean> lst = new ArrayList<>();	
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT * FROM THISINH, KYTHI WHERE THISINH.maKyThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				KetQuaThiSinhBean ts = new KetQuaThiSinhBean(maKyThi, rs.getString("maThiSinh"),  rs.getString("soBaoDanh"),
+						rs.getString("hoDem"), rs.getString("khuVuc"), rs.getString("ten"), rs.getString("ngaySinh"),
+						rs.getString("doiTuong"), rs.getFloat("diemChuan"), rs.getFloat("diemLiet"),
+						rs.getBoolean("nhoHonDiemLiet"));
+				float[] diem3Mon=getDiem3Mon(maKyThi, ts.getMaThiSinh());
+				ts.setDiemMon1(diem3Mon[0]);
+				ts.setDiemMon2(diem3Mon[1]);
+				ts.setDiemMon3(diem3Mon[2]);
+				ts.setDiemUuTien(Define.getDiemCongDoiTuong().get(ts.getDoiTuong())+Define.getDiemCongKhuVuc().get(ts.getKhuVuc()));
+				if((ts.getDiemMon1()+ts.getDiemMon2()+ts.getDiemMon3()+ts.getDiemUuTien()>ts.getDiemChuan()
+						&& ts.getDiemMon1()>=ts.getDiemLiet()
+						&& ts.getDiemMon2()>=ts.getDiemLiet()
+						&& ts.getDiemMon3()>=ts.getDiemLiet()
+						&& ts.isNhoHonDiemLiet()==true)
+						|| (ts.getDiemMon1()+ts.getDiemMon2()+ts.getDiemMon3()+ts.getDiemUuTien()>ts.getDiemChuan()
+								&& ts.getDiemMon1()>ts.getDiemLiet()
+								&& ts.getDiemMon2()>ts.getDiemLiet()
+								&& ts.getDiemMon3()>ts.getDiemLiet()
+								&& ts.isNhoHonDiemLiet()==false)){
+					lst.add(ts);
+				}
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}	
+		return lst;
 	}
 }

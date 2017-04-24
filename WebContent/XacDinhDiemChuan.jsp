@@ -27,8 +27,8 @@
 	</div>
 	<div class="col-md-8">
 		<div class="group-content">
+		<html:form action="/XacDinhDiemChuan" method="POST">
 			<div class="row main-nav">
-				<html:form action="/XacDinhDiemChuan" method="POST">
 				<p class="title">XÁC ĐỊNH ĐIỂM CHUẨN</p>
 				<div class="clearfix">
 					<div class="col-sm-5 form-group">
@@ -37,8 +37,8 @@
 							<input type="number" class="form-control" name="diemLiet" min="0">
 						</div>
 						<div class="col-sm-offset-2">
-							<html:radio property="check" value="1">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
-							<html:radio property="check" value="0">Nhỏ hơn điểm liệt</html:radio>
+							<html:radio property="check" value="false">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
+							<html:radio property="check" value="true">Nhỏ hơn điểm liệt</html:radio>
 						</div>
 					</div>
 					<div class="form-group col-sm-7">
@@ -51,7 +51,6 @@
 				<div class="text-center">
 					<button type="submit" class="btn btn-success btn-gr btn-all" name="kiemTra" value="test">Kiểm tra</button>
 				</div>
-				</html:form>
 			</div>
 			<div class="details_info">
 				<table class="table table-bordered table-hover table-striped">
@@ -77,15 +76,15 @@
 								</tr>
 							</logic:iterate>
 							</tbody>
-						</table>
-				<div class="btn-gr">
-					<button type="submit" class="btn btn-success btn-all" name="xddc">Xác định điểm chuẩn</button>
-				</div>		
+					</table>
+					<div class="text-center">
+						<button type="submit" class="btn btn-success btn-all" name="submit" value="submit">Xác định điểm chuẩn</button>
+					</div>	
 			</div>
+		</html:form>
 		</div>
 	</div>
 </div>
-
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 </body>

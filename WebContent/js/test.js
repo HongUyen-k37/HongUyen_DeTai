@@ -37,7 +37,7 @@ function xoaKyThi(maKyThi){
 }
 
 function taoHTMLMonThi(that){
-	var htmlMonThi='<div class="form-group row"><div class="col-sm-7"><input type="text" class="form-control" name="tenMonThi" placeholder="Tên môn thi"></div><div class="col-sm-3"><input type="number" class="form-control" name="heSo" placeholder="Hệ số"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var htmlMonThi='<div class="form-group row"><div class="col-sm-7"><input type="text" class="form-control" name="monThi[${stt+1}].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi[${stt+1}].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 }
 
@@ -204,11 +204,14 @@ function convertCode(){
 	$input.focus();
 }
 
-var $input = $("#input");
-var $output = $("#output");
-$input.on("input",function(){
-	convertCode();
-});
+var soBaiThi = $("#soBaiThi").html();
+for(var i = 0; i < soBaiThi; i++){
+	var $input = $("#input"+i);
+	var $output = $("#output"+i);
+	$input.on("input",function(){
+		convertCode();
+	});
+}
 
 function getTKBangDiemTheoMon(){
 	var makt = $("#f_maKyThi").val();

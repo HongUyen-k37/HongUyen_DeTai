@@ -3,7 +3,6 @@ package model.bean;
 public class DiemThiBean {
 	private int soPhach;
 	private float diemChamThi;
-	private String diemChu;
 	public int getSoPhach() {
 		return soPhach;
 	}
@@ -16,20 +15,13 @@ public class DiemThiBean {
 	public void setDiemChamThi(float diemChamThi) {
 		this.diemChamThi = diemChamThi;
 	}
-	public String getDiemChu() {
-		return diemChu;
-	}
-	public void setDiemChu(String diemChu) {
-		this.diemChu = diemChu;
-	}
 	public DiemThiBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DiemThiBean(int soPhach, float diemChamThi, String diemChu) {
+	public DiemThiBean(int soPhach, float diemChamThi) {
 		super();
 		this.soPhach = soPhach;
 		this.diemChamThi = diemChamThi;
-		this.diemChu = diemChu;
 	}
 }

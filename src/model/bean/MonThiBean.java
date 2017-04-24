@@ -23,10 +23,9 @@ public class MonThiBean {
 		this.heSo = heSo;
 	}
 
-	public MonThiBean(String tenMonThi, int trangThaiMonThi, int heSo) {
+	public MonThiBean(String tenMonThi, int heSo) {
 		super();
 		this.tenMonThi = tenMonThi;
-		this.trangThaiMonThi = trangThaiMonThi;
 		this.heSo = heSo;
 	}
 

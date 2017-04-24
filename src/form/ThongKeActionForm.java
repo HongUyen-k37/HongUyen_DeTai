@@ -19,6 +19,7 @@ public class ThongKeActionForm extends ActionForm {
 	private KyThiBean kyThi;
 	private MonThiBean monThi;
 	private List<KetQuaThiSinhBean> listTKTongHop;
+	private List<KetQuaThiSinhBean> listTrungTuyen;
 	public String getMaMonThi() {
 		return maMonThi;
 	}
@@ -66,5 +67,11 @@ public class ThongKeActionForm extends ActionForm {
 	}
 	public void setListTKTongHop(List<KetQuaThiSinhBean> listTKTongHop) {
 		this.listTKTongHop = listTKTongHop;
+	}
+	public List<KetQuaThiSinhBean> getListTrungTuyen() {
+		return listTrungTuyen;
+	}
+	public void setListTrungTuyen(List<KetQuaThiSinhBean> listTrungTuyen) {
+		this.listTrungTuyen = listTrungTuyen;
 	}
 }

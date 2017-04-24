@@ -55,7 +55,7 @@ public class ThiSinhBO {
 			current += Math.ceil(listPhongThi.get(i).getSoLuongThiSinh()*avgRoom);
 		}
 	}
-	public List<DiemChuanBean> kiemTraDiemChuan(String maKyThi, float diemLiet, float diemChuan, int check){
+	public List<DiemChuanBean> kiemTraDiemChuan(String maKyThi, float diemLiet, float diemChuan, boolean check){
 		List<DiemChuanBean> lst = new ArrayList<>();
 		List<String> listKhuVuc = ts.getListKhuVuc();
 		List<String> listDoiTuong = ts.getListDoiTuong();
@@ -74,5 +74,8 @@ public class ThiSinhBO {
 	}
 	public List<KetQuaThiSinhBean> getListKetQuaThiSinh(String maKyThi){
 		return ts.getListKetQuaThiSinh(maKyThi);
+	}
+	public List<KetQuaThiSinhBean> getListThiSinhTrungTuyen(String maKyThi){
+		return ts.getListThiSinhTrungTuyen(maKyThi);
 	}
 }

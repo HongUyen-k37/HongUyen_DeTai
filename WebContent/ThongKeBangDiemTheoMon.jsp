@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Tuyển sinh</title>
+<title>Thống kê bảng điểm theo môn thi</title>
 <jsp:include page="Asset/Head.jsp" />
 </head>
 <body>

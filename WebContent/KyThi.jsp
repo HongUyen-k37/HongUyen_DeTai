@@ -179,13 +179,13 @@
 						  	<bean:define id="stt" value="0"/>
 						  	<div class="form-group row">
 						    	<div class="col-sm-7">
-						    		<input type="text" class="form-control" name="trangThai[${stt}].tenMonThi">
+						    		<input type="text" class="form-control" name="monThi[${stt}].tenMonThi">
 						    	</div>
 						    	<div class="col-sm-3">
-						    		<input type="number" class="form-control" name="trangThai[${stt}].heSo" value="1" min="1">
+						    		<input type="number" class="form-control" name="monThi[${stt}].heSo" value="1" min="1">
 						    	</div>
 						    	<!-- <button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button> -->
-						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa câu hỏi"><i class="glyphicon glyphicon-remove"></i></button>
+						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
 						  	<button type="button" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				<!-- <br>

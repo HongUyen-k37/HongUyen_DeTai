@@ -14,6 +14,43 @@ public class KetQuaThiSinhBean {
 	private float diemMon2;
 	private float diemMon3;
 	private String ghiChu;
+	private float diemChuan;
+	private float diemLiet;
+	private boolean nhoHonDiemLiet;
+	
+	public KetQuaThiSinhBean(String maKyThi, String maThiSinh, String soBaoDanh, String hoDem, String khuVuc,
+			String ten, String ngaySinh, String doiTuong, float diemChuan, float diemLiet, boolean nhoHonDiemLiet) {
+		super();
+		this.maKyThi = maKyThi;
+		this.maThiSinh = maThiSinh;
+		this.soBaoDanh = soBaoDanh;
+		this.hoDem = hoDem;
+		this.khuVuc = khuVuc;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+		this.doiTuong = doiTuong;
+		this.diemChuan = diemChuan;
+		this.diemLiet = diemLiet;
+		this.nhoHonDiemLiet = nhoHonDiemLiet;
+	}
+	public float getDiemChuan() {
+		return diemChuan;
+	}
+	public void setDiemChuan(float diemChuan) {
+		this.diemChuan = diemChuan;
+	}
+	public float getDiemLiet() {
+		return diemLiet;
+	}
+	public void setDiemLiet(float diemLiet) {
+		this.diemLiet = diemLiet;
+	}
+	public boolean isNhoHonDiemLiet() {
+		return nhoHonDiemLiet;
+	}
+	public void setNhoHonDiemLiet(boolean nhoHonDiemLiet) {
+		this.nhoHonDiemLiet = nhoHonDiemLiet;
+	}
 	public KetQuaThiSinhBean(String maKyThi, String maThiSinh, String soBaoDanh, String hoDem, String khuVuc,
 			String ten, String ngaySinh, String doiTuong) {
 		super();

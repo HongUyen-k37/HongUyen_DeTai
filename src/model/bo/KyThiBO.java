@@ -25,4 +25,7 @@ public class KyThiBO {
 	public List<KyThiBean> searchKyThi(String key){
 		return kt.searchKyThi(key);
 	}
+	public boolean xacDinhDiemChuan(String maKyThi, float diemChuan, float diemLiet, boolean nhoHonDiemLiet) {
+		return kt.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, nhoHonDiemLiet);
+	}
 }

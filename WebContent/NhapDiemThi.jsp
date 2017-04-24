@@ -51,40 +51,45 @@
 				<tr>
 					<th>Số phách</th>
 					<th>Điểm</th>
-					<th>Điểm chữ</th>
+					<!-- <th>Điểm chữ</th> -->
 				</tr>
 			</thead>
 			<bean:define id="stt" value="0"/>
 			<tbody>
-				<logic:iterate id="bt" name="diemActionForm" property="listBaiThi"></logic:iterate>
+				<logic:iterate id="bt" name="diemActionForm" property="listBaiThi">
 				<tr>
 					<bean:define id="stt" value="${stt+1}"/>
-					<td>${bt.soPhach}</td>
 					<td>
-						<input type="text" name="diemSo" class="form-control" id="input">
+						${bt.soPhach}
+						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
 					</td>
 					<td>
-						<span id="output"></span>
+						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}">
 					</td>
+					<%-- <td>
+						<span id="output${stt-1}"></span>
+					</td> --%>
 				</tr>
+				</logic:iterate>
 			</tbody>
 			</table>
 			<div class="row">
 				<div class="col-sm-6">
-				<p>Danh sách gồm có: <span> ${stt} </span> bài thi.</p>
+				<p>Danh sách gồm có: <span id="soBaiThi"> ${stt} </span> bài thi.</p>
 				</div>
-				<div class="btn-gr col-sm-6">
+				<div class="col-sm-6">
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
 					<button type="submit" class="btn btn-success btn-all" name="delete" id="delete" onclick="clearCheckbox()">Xóa hết</button>
 				</div>
 			</div>
 		</div>
 		</html:form>
-		<button type="submit" class="btn btn-success btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
+		<div class="text-center">
+			<button type="submit" class="btn btn-danger btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
+		</div>
 	</div>
 </div>
 </div>
-
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 </body>

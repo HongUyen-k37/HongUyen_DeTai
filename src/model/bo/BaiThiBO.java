@@ -22,7 +22,7 @@ public class BaiThiBO {
 	public List<BaiThiBean> getListTheoTui(String maKyThi, String maMonThi, int tuiSo){
 		return bt.getListTheoTui(maKyThi, maMonThi, tuiSo);
 	}
-	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo, String diemChu) {
-		return bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo, diemChu);
+	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
+		return bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo);
 	}
 }

@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.DiemActionForm;
+import model.bean.DiemThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
@@ -37,6 +38,7 @@ public class NhapDiemThiAction extends Action{
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list Môn
@@ -47,6 +49,7 @@ public class NhapDiemThiAction extends Action{
 		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
+		System.out.println(maMonThi);
 		//get list Túi
 		BaiThiBO btBO = new BaiThiBO();
 		List<Integer> listTui = btBO.getListTui(maKyThi);
@@ -55,10 +58,14 @@ public class NhapDiemThiAction extends Action{
 		int tuiSo = listTui.size()==0?0:listTui.get(0);
 		if(frm.getTuiSo()!=0)
 			tuiSo = frm.getTuiSo();
+		System.out.println(tuiSo);
 		//get Bài thi theo Môn và Túi
 		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 		if("save".equals(frm.getSave())){
-			btBO.nhapDiem(maKyThi, maMonThi, 1, 10, "Mười");
+			List<DiemThiBean> lst = frm.getListDiemThi();
+			for (DiemThiBean diemThi : lst) {
+				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
+			}
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

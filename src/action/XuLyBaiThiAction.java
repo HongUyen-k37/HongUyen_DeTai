@@ -83,7 +83,7 @@ public class XuLyBaiThiAction extends Action{
 					if(listBaiThi.size()==0){
 						//không có => thêm mới
 						BaiThiBean baiThi = new BaiThiBean(maKyThi, maMonThi, trangThai.getMaThiSinh(), 0, 0,
-								trangThai.getTrangThaiDuThi(), 0, 0, null, null);
+								trangThai.getTrangThaiDuThi(), 0, 0, null);
 						btBO.insert(baiThi);
 					}
 					else{

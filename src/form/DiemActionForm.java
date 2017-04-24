@@ -7,6 +7,7 @@ import org.apache.struts.action.ActionForm;
 
 import model.bean.BaiThiBean;
 import model.bean.DiemChuanBean;
+import model.bean.DiemThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 
@@ -19,7 +20,7 @@ public class DiemActionForm extends ActionForm{
 	private KyThiBean kyThi;
 	private List<KyThiBean> listKyThi;
 	private float diemLiet;
-	private int check;
+	private boolean check;
 	private float diemChuan;
 	private String kiemTra;
 	private List<DiemChuanBean> listResult = new ArrayList<>();
@@ -29,6 +30,20 @@ public class DiemActionForm extends ActionForm{
 	private List<MonThiBean> listMonThi;
 	private String maMonThi;
 	private String save;
+	private List<DiemThiBean> listDiemThi;
+	private String submit;
+	//get list value
+	public DiemThiBean getDiemThi(int index){
+		if(listDiemThi==null) listDiemThi=new ArrayList<>();
+		while(index >= listDiemThi.size()){
+			listDiemThi.add(new DiemThiBean());
+		}
+		return this.listDiemThi.get(index);
+	}
+	public void setTrangThai(int index, DiemThiBean diemThi){
+		this.listDiemThi.add(index, diemThi);
+	}
+	
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -65,10 +80,10 @@ public class DiemActionForm extends ActionForm{
 	public void setKiemTra(String kiemTra) {
 		this.kiemTra = kiemTra;
 	}
-	public int getCheck() {
+	public boolean getCheck() {
 		return check;
 	}
-	public void setCheck(int check) {
+	public void setCheck(boolean check) {
 		this.check = check;
 	}
 	public List<DiemChuanBean> getListResult() {
@@ -112,5 +127,17 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setSave(String save) {
 		this.save = save;
+	}
+	public List<DiemThiBean> getListDiemThi() {
+		return listDiemThi;
+	}
+	public void setListDiemThi(List<DiemThiBean> listDiemThi) {
+		this.listDiemThi = listDiemThi;
+	}
+	public String getSubmit() {
+		return submit;
+	}
+	public void setSubmit(String submit) {
+		this.submit = submit;
 	}
 }

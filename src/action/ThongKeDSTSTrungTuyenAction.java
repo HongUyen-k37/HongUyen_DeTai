@@ -11,19 +11,19 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import form.DiemActionForm;
+import form.ThongKeActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
 import model.bo.ThiSinhBO;
 
-public class XacDinhDiemChuanAction extends Action{
+public class ThongKeDSTSTrungTuyenAction extends Action{
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
-		DiemActionForm frm = (DiemActionForm)form;
+		ThongKeActionForm frm = (ThongKeActionForm)form;
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
@@ -32,33 +32,15 @@ public class XacDinhDiemChuanAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		//get mã kỳ thi
+		//get ma ky thi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//chức năng
-		if ("test".equals(frm.getKiemTra()) || "submit".equals(frm.getSubmit())) {
-			//get input
-			float diemLiet = frm.getDiemLiet();
-			boolean check = frm.getCheck();
-			float diemChuan = frm.getDiemChuan();
-			System.out.println(diemLiet);
-			System.out.println(check);
-			System.out.println(diemChuan);
-			//xu ly
-			if("test".equals(frm.getKiemTra())){
-				ThiSinhBO tsBO = new ThiSinhBO();
-				frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
-				return mapping.findForward("success");
-			}
-			if("submit".equals(frm.getSubmit())){
-				ktBO.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, check);
-				return mapping.findForward("success");
-			}
-		}
+		//show danh sách
+		ThiSinhBO tsBO = new ThiSinhBO();
+		frm.setListTrungTuyen(tsBO.getListThiSinhTrungTuyen(maKyThi));
 		return mapping.findForward("success");
 	}
-	
 }
