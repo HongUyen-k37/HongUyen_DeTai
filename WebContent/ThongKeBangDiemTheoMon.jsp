@@ -51,7 +51,7 @@
 				</div>
 				<div class="col-md-7">	
 					<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
-					<p>Điểm thi: Trường Đại Học Khoa Học</p>
+					<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 				</div>
 				<div class="col-md-5">
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>

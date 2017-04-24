@@ -49,7 +49,9 @@ table,table tr,table td{
 tr td{
 	padding: 10px;
 }
-
+.thStyle{
+	line-height: 45px;
+}
 .clear{
 	clear: both;
 }
@@ -207,6 +209,7 @@ tr td{
 	padding: 5px;
 	font-size: 13px;
 	cursor: pointer;
+	text-align: center;
 }
 .form-control{
 	font-size: 13px;
