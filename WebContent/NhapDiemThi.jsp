@@ -75,12 +75,12 @@
 				</div>
 				<div class="btn-gr col-sm-6">
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-					<button type="submit" class="btn btn-success btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
-					<button type="submit" class="btn btn-success btn-all" name="delete" id="delete">Xóa hết</button>
+					<button type="submit" class="btn btn-success btn-all" name="delete" id="delete" onclick="clearCheckbox()">Xóa hết</button>
 				</div>
 			</div>
 		</div>
 		</html:form>
+		<button type="submit" class="btn btn-success btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
 	</div>
 </div>
 </div>
