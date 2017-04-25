@@ -188,8 +188,6 @@
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
 						  	<button type="button" id="taoMonThi" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
-				<!-- <br>
-				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p> -->
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
