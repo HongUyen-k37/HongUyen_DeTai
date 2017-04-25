@@ -32,6 +32,48 @@ public class BaiThiActionForm extends ActionForm{
 	private String maPhongThi;
 	private String maMonThi;
 	private List<TrangThaiBean> listTrangThai;
+	private int coSoPhong;
+	private int coSoTui;
+	private int luot;
+	private int soLuot;
+	private String cal;
+	private String submit;
+	public String getCal() {
+		return cal;
+	}
+	public void setCal(String cal) {
+		this.cal = cal;
+	}
+	public String getSubmit() {
+		return submit;
+	}
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
+	public int getCoSoPhong() {
+		return coSoPhong;
+	}
+	public void setCoSoPhong(int coSoPhong) {
+		this.coSoPhong = coSoPhong;
+	}
+	public int getCoSoTui() {
+		return coSoTui;
+	}
+	public void setCoSoTui(int coSoTui) {
+		this.coSoTui = coSoTui;
+	}
+	public int getLuot() {
+		return luot;
+	}
+	public void setLuot(int luot) {
+		this.luot = luot;
+	}
+	public int getSoLuot() {
+		return soLuot;
+	}
+	public void setSoLuot(int soLuot) {
+		this.soLuot = soLuot;
+	}
 	//get list value
 	public TrangThaiBean getTrangThai(int index){
 		if(listTrangThai==null) listTrangThai=new ArrayList<>();

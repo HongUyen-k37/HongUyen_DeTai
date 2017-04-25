@@ -34,17 +34,17 @@
 					<div class="col-sm-5 form-group">
 						<label class="col-sm-4">Điểm liệt:</label>
 						<div class="col-sm-8">
-							<input type="number" class="form-control" name="diemLiet" min="0">
+							<input type="number" value="${diemActionForm.diemLiet}" class="form-control" name="diemLiet" min="0">
 						</div>
 						<div class="col-sm-offset-2">
-							<html:radio property="check" value="false">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
-							<html:radio property="check" value="true">Nhỏ hơn điểm liệt</html:radio>
+							<html:radio name="diemActionForm" property="check" value="false">Bằng hoặc nhỏ hơn điểm liệt</html:radio><br>
+							<html:radio name="diemActionForm" property="check" value="true">Nhỏ hơn điểm liệt</html:radio>
 						</div>
 					</div>
 					<div class="form-group col-sm-7">
 						<label class="col-sm-8">Điểm chuẩn cho Khu vực 3 - KƯT:</label>
 						<div class="col-sm-4">
-							<input type="number" class="form-control" name="diemChuan" min="0">
+							<input type="number" value="${diemActionForm.diemChuan}" class="form-control" name="diemChuan" min="0">
 						</div>
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 					</table>
 					<div class="text-center">
 						<button type="submit" class="btn btn-success btn-all" name="submit" value="submit">Xác định điểm chuẩn</button>
-					</div>	
+					</div>
 			</div>
 		</html:form>
 		</div>
@@ -87,5 +87,12 @@
 </div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="diemActionForm" property="notice">
+			showNotice('${diemActionForm.notice}');
+		</logic:notEmpty>
+	});
+</script>
 </body>
 </html>

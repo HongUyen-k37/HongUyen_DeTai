@@ -111,7 +111,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		</action>
 		<action path="/DonTuiPhach" name="baiThiActionForm"
 				type="action.DonTuiPhachAction" scope="request">
-			<forward name="success" path="/DonTui.jsp"/>
+			<forward name="success" path="/DonTuiPhach.jsp"/>
 			<forward name="error" path="/DangNhap.jsp" />
 		</action>
 		<action path="/NhapDiemThi" name="diemActionForm"

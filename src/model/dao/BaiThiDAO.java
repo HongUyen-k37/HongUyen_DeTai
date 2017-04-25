@@ -168,4 +168,31 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return result;
 	}
+	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi){
+		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, maMonThi);
+			rs = pstm.executeQuery();
+			BaiThiBean bt = null;
+			while (rs.next()) {
+				bt = new BaiThiBean(rs.getString("maKyThi"), rs.getString("maMonThi"), rs.getString("maThiSinh"),
+						rs.getInt("soPhach"), rs.getInt("tuiSo"), rs.getInt("trangThaiDuThi"), rs.getFloat("diemChamThi"),
+						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"));
+				lst.add(bt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
+	}
 }

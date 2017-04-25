@@ -328,3 +328,14 @@ input[type=text]:focus {
 textarea{
 	max-width: 100%;
 }
+#notice{
+	background: #121212;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 7px;
+	position: fixed;
+	bottom: -20px;
+	right: 20px;
+	opacity: 0;
+	transition: 0.5s all ease;
+}

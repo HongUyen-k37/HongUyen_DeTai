@@ -250,3 +250,11 @@ function lock(){
 	$('#save')[0].disabled = true;
 	$('#delete')[0].disabled = true;
 }
+
+function showNotice(text){
+	$("#notice").html(text);
+	$("#notice").attr("style","opacity:0.8;bottom:20px");
+	setTimeout(function(){
+		$("#notice").attr("style","opacity:0;bottom:-20px");
+	},1500);
+}

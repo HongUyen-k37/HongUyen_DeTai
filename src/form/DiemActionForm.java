@@ -32,6 +32,7 @@ public class DiemActionForm extends ActionForm{
 	private String save;
 	private List<DiemThiBean> listDiemThi;
 	private String submit;
+	private String notice;
 	//get list value
 	public DiemThiBean getDiemThi(int index){
 		if(listDiemThi==null) listDiemThi=new ArrayList<>();
@@ -139,5 +140,11 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setSubmit(String submit) {
 		this.submit = submit;
+	}
+	public String getNotice() {
+		return notice;
+	}
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 }

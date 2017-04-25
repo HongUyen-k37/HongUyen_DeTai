@@ -31,6 +31,7 @@ public class XacDinhDiemChuanAction extends Action{
 		//get list ky thi de select
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
+		//java.util.Collections.shuffle(listKyThi);
 		frm.setListKyThi(listKyThi);
 		//get mã kỳ thi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
@@ -38,23 +39,20 @@ public class XacDinhDiemChuanAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		frm.setNotice(null);
 		//chức năng
 		if ("test".equals(frm.getKiemTra()) || "submit".equals(frm.getSubmit())) {
 			//get input
 			float diemLiet = frm.getDiemLiet();
 			boolean check = frm.getCheck();
 			float diemChuan = frm.getDiemChuan();
-			System.out.println(diemLiet);
-			System.out.println(check);
-			System.out.println(diemChuan);
 			//xu ly
-			if("test".equals(frm.getKiemTra())){
-				ThiSinhBO tsBO = new ThiSinhBO();
-				frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
-				return mapping.findForward("success");
-			}
+			ThiSinhBO tsBO = new ThiSinhBO();
+			frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
+			frm.setNotice("Kiểm tra thành công");
 			if("submit".equals(frm.getSubmit())){
 				ktBO.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, check);
+				frm.setNotice("Xác định điểm chuẩn thành công");
 				return mapping.findForward("success");
 			}
 		}

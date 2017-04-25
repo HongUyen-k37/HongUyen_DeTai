@@ -29,23 +29,32 @@
 		<div class="group-content">
 			<div class="row main-nav">
 		<p class="title">DỒN TÚI</p>
-	<form>
+		<div class="col-sm-6 col-sm-offset-3">
+			<label class="col-sm-3">Môn thi:</label>
+    		<div class="col-sm-9">
+	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getTKBangDiemTheoMon()">
+                	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
+	            </html:select>
+            </div>
+		</div>
 		<div class="row">
+		<html:form action="/DonTuiPhach" method="post">
 			<div class="col-md-5 form-group">
 				<label class="col-md-5">Cơ số phòng:</label>
 				<div class="col-md-7">
-					<input type="number" class="form-control" name="cosophong" min="1">
+					<input type="number" class="form-control" name="coSoPhong" min="1" value="${baiThiActionForm.coSoPhong}">
 				</div>
 			</div>
 			<div class="col-md-5 form-group">
 				<label class="col-md-5">Cơ số túi:</label>
 				<div class="col-md-7 no-pad">
-					<input type="number" class="form-control" name="cosotui" min="1">
+					<input type="number" class="form-control" name="coSoTui" min="1" value="${baiThiActionForm.coSoTui}">
 				</div>
 			</div>
 			<div class="btn-gr col-md-2">
-				<button type="submit" class="btn btn-success btn-all" name="execute">Tính số lượt</button>
+				<button type="submit" class="btn btn-success btn-all" name="cal" value="cal">Tính số lượt</button>
 			</div>
+			</html:form>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
@@ -58,17 +67,15 @@
 			</div>
 			<div class="col-md-5">
 				<div class="col-md-6 no-pad form-group">
-					<label>/Số lượt thực hiện:</label>
+					<label>/Số lượt thực hiện: ${baiThiActionForm.soLuot}</label>
 				</div>
 				<div class="col-md-6 no-pad">
-					<input class="form-control" type="text" name="soluot">
 				</div>	
 			</div>
 			<div class="col-md-2">
-				<button type="submit" class="btn btn-success btn-all" name="execute">Thực hiện</button>
+				<button style="width: 96px" type="submit" class="btn btn-success btn-all" name="execute">Thực hiện</button>
 			</div>
 		</div>
-	</form>
 	</div>
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">

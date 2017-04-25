@@ -5,6 +5,8 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>    
 <div id="footer">
+	
 	<p> &copy; Bản quyền Trường Đại Học Khoa Học Huế </p>
 </div>
+<span class="alert alert-success" id="notice"></span>
 <script src="js/test.js"></script>
