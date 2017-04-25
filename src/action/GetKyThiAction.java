@@ -1,6 +1,7 @@
 package action;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,9 @@ import org.codehaus.jackson.map.ObjectWriter;
 
 import form.KyThiActionForm;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 
 public class GetKyThiAction extends Action{
 
@@ -27,11 +30,16 @@ public class GetKyThiAction extends Action{
 		String maKyThi=frm.getMaKyThi();
 		KyThiBO ktBO = new KyThiBO();
 		KyThiBean kt = ktBO.getKyThi(maKyThi);
+		MonThiBO mtBO = new MonThiBO();
+		List<MonThiBean> lst= mtBO.getListMonThi(maKyThi);
+		
+		Object[] ot=new Object[2];
+		ot[0]=kt;
+		ot[1]=lst;
 		
 		ObjectWriter ow= new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String json=ow.writeValueAsString(kt);
+		String json=ow.writeValueAsString(ot);
 		PrintWriter pw=response.getWriter();
-		
 		pw.print(json);
 		return null;
 	}

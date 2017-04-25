@@ -1,6 +1,9 @@
 function suaKyThi(maKyThi){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="SuaKyThi.do?maKyThi="+maKyThi;
+	$(".xoaMonThi").each(function(){
+		$(this).click();
+	});
 	$(".modal-title").html("Sửa kỳ thi");
 	$.ajax({
 		type: "POST",
@@ -10,14 +13,26 @@ function suaKyThi(maKyThi){
 		url:"GetKyThi.do",
 		success: function (result) {
 			result=JSON.parse(result);
+			var kyThi=result[0];
+			var arrMonThi=result[1];
 			test=result;
-			$("#f_tenKyThi").val(result["tenKyThi"]);
-			$("#f_ngayThi").val(result["ngayThi"]);
-			$("#f_namTuyenSinh").val(result["namTuyenSinh"]);
-			$("#f_nganh").val(result["nganh"]);
-			$("#f_hinhThucDT").val(result["hinhThucDT"]);
-			$("#f_coSoLKDT").val(result["coSoLKDT"]);
-			$("#soMonThi").val(result["soMonThi"]);
+			$("#f_tenKyThi").val(kyThi["tenKyThi"]);
+			$("#f_ngayThi").val(kyThi["ngayThi"]);
+			$("#f_namTuyenSinh").val(kyThi["namTuyenSinh"]);
+			$("#f_nganh").val(kyThi["nganh"]);
+			$("#f_hinhThucDT").val(kyThi["hinhThucDT"]);
+			$("#f_coSoLKDT").val(kyThi["coSoLKDT"]);
+			$("#soMonThi").val(kyThi["soMonThi"]);
+			for(var i=0;i<arrMonThi.length;i++)
+				$("#taoMonThi").click();
+			var j=0;		
+			$(".monthi input[type='text']").each(function(){
+				$(this).val(arrMonThi[j++].tenMonThi);
+			});
+			j=0;
+			$(".monthi input[type='number']").each(function(){
+				$(this).val(arrMonThi[j++].heSo);
+			});
 	    }
 	});
 	$("#modal-kythi").modal();
@@ -26,6 +41,10 @@ function suaKyThi(maKyThi){
 function taoKyThi(){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="ThemKyThi.do";
+	$(".xoaMonThi").each(function(){
+		$(this).click();
+	});
+	$("#taoMonThi").click();
 	$(".modal-title").html("Thêm kỳ thi");
 	$("#modal-kythi").modal();
 }
@@ -37,7 +56,8 @@ function xoaKyThi(maKyThi){
 }
 
 function taoHTMLMonThi(that){
-	var htmlMonThi='<div class="form-group row"><div class="col-sm-7"><input type="text" class="form-control" name="monThi[${stt+1}].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi[${stt+1}].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var x=$(".monthi").length;
+	var htmlMonThi='<div class="form-group row monthi"><div class="col-sm-7"><input type="text" class="form-control" name="monThi['+x+'].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi['+x+'].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 }
 

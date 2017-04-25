@@ -422,7 +422,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT * FROM THISINH, KYTHI WHERE THISINH.maKyThi=?";
+			String sql = "SELECT * FROM THISINH, KYTHI WHERE THISINH.maKyThi=? and THISINH.maKyThi = KYTHI.maKyThi";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();

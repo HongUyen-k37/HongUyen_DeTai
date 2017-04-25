@@ -176,18 +176,18 @@
 						  		<label class="control-label col-sm-7">Tên môn thi</label>
 						  		<label class="control-label col-sm-5">Hệ số</label>
 						  	</div>
-						  	<bean:define id="stt" value="0"/>
-						  	<div class="form-group row">
+						  	
+						  	<div class="form-group row monthi">
 						    	<div class="col-sm-7">
-						    		<input type="text" class="form-control" name="monThi[${stt}].tenMonThi">
+						    		<input type="text" class="form-control" name="monThi[0].tenMonThi">
 						    	</div>
 						    	<div class="col-sm-3">
-						    		<input type="number" class="form-control" name="monThi[${stt}].heSo" value="1" min="1">
+						    		<input type="number" class="form-control" name="monThi[0].heSo" value="1" min="1">
 						    	</div>
 						    	<!-- <button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button> -->
-						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
+						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
-						  	<button type="button" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
+						  	<button type="button" id="taoMonThi" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				<!-- <br>
 				<p style="margin-top: 30px"><i>(*): Thông tin bắt buộc</i></p> -->
 				</div>

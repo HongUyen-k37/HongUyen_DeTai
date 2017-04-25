@@ -41,6 +41,7 @@ public class ThongKeDSTSTrungTuyenAction extends Action{
 		//show danh sách
 		ThiSinhBO tsBO = new ThiSinhBO();
 		frm.setListTrungTuyen(tsBO.getListThiSinhTrungTuyen(maKyThi));
+		
 		return mapping.findForward("success");
 	}
 }
