@@ -27,7 +27,9 @@ public class KyThiActionForm extends ActionForm{
 	private int trangThai;
 	private String submit;
 	private String search;
-	
+	private String notice;
+	private String add;
+	private Boolean nhoHonDiemLiet;
 	public String getMaKyThi() {
 		return maKyThi;
 	}
@@ -133,6 +135,30 @@ public class KyThiActionForm extends ActionForm{
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
+	}
+
+	public Boolean getNhoHonDiemLiet() {
+		return nhoHonDiemLiet;
+	}
+
+	public void setNhoHonDiemLiet(Boolean nhoHonDiemLiet) {
+		this.nhoHonDiemLiet = nhoHonDiemLiet;
+	}
+
+	public String getAdd() {
+		return add;
+	}
+
+	public void setAdd(String add) {
+		this.add = add;
 	}
 
 	

@@ -15,7 +15,7 @@ public class KyThiBean {
 	private int soLuongChuSo;
 	private double diemChuan;
 	private double diemLiet;
-
+	private boolean nhoHonDiemLiet;
 	public String getTenKyThi() {
 		return tenKyThi;
 	}
@@ -94,11 +94,27 @@ public class KyThiBean {
 	public void setDiemLiet(double diemLiet) {
 		this.diemLiet = diemLiet;
 	}
+
+	public KyThiBean() {
+		super();
+	}
+	public String getMaKyThi() {
+		return maKyThi;
+	}
+	public void setMaKyThi(String maKyThi) {
+		this.maKyThi = maKyThi;
+	}
+	public boolean isNhoHonDiemLiet() {
+		return nhoHonDiemLiet;
+	}
+	public void setNhoHonDiemLiet(boolean nhoHonDiemLiet) {
+		this.nhoHonDiemLiet = nhoHonDiemLiet;
+	}
 	public KyThiBean(String maKyThi, String tenKyThi, String ngayThi, int namTuyenSinh, String nganh, String hinhThucDT,
 			String coSoLKDT, int soMonThi, int trangThai, String tiepDauNgu, int soBatDau, int soLuongChuSo,
-			double diemChuan, double diemLiet) {
+			double diemChuan, double diemLiet, boolean nhoHonDiemLiet) {
 		super();
-		this.setMaKyThi(maKyThi);
+		this.maKyThi = maKyThi;
 		this.tenKyThi = tenKyThi;
 		this.ngayThi = ngayThi;
 		this.namTuyenSinh = namTuyenSinh;
@@ -112,14 +128,7 @@ public class KyThiBean {
 		this.soLuongChuSo = soLuongChuSo;
 		this.diemChuan = diemChuan;
 		this.diemLiet = diemLiet;
+		this.nhoHonDiemLiet = nhoHonDiemLiet;
 	}
-	public KyThiBean() {
-		super();
-	}
-	public String getMaKyThi() {
-		return maKyThi;
-	}
-	public void setMaKyThi(String maKyThi) {
-		this.maKyThi = maKyThi;
-	}
+	
 }

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 
 public class MonThiDAO extends DataAccessObject {
@@ -68,6 +69,33 @@ public class MonThiDAO extends DataAccessObject {
 			pstm.setNString(2, monThi.getTenMonThi());
 			pstm.setInt(3, monThi.getTrangThaiMonThi());
 			pstm.setInt(4, monThi.getHeSo());
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	public boolean update(MonThiBean monThi) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update MONTHI Set tenMonThi=?, trangThaiMonThi=?, coSoPhongThi=?, coSoTui=?, heSo=?, soLuot=? where maMonThi=?, maKyThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(7, monThi.getMaMonThi());
+			pstm.setString(8, monThi.getMaKyThi());
+			pstm.setString(1, monThi.getTenMonThi());
+			pstm.setInt(2, monThi.getTrangThaiMonThi());
+			pstm.setInt(3, monThi.getCoSoPhongThi());
+			pstm.setInt(4, monThi.getCoSoTui());
+			pstm.setInt(5, monThi.getHeSo());
+			pstm.setInt(6, monThi.getSoLuot());
+			
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {

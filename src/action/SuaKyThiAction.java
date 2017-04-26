@@ -38,11 +38,13 @@ public class SuaKyThiAction extends Action {
 		String nganh = frm.getNganh();
 		String hinhThucDT = frm.getHinhThucDT();
 		String coSoLKDT = frm.getCoSoLKDT();
-		int soMonThi = 3;
+		Boolean nhoHonDiemLiet = frm.getNhoHonDiemLiet();
+		int soMonThi = frm.getSoMonThi();
 		int trangThai = 1;
 		KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-				trangThai, null, 0, 0, 0, 0);
+				trangThai, null, 0, 0, 0, 0, nhoHonDiemLiet);
 		ktBO.update(kt);
+		frm.setNotice("Sửa kỳ thi thành công");
 		return mapping.findForward("success");
 	}
 	

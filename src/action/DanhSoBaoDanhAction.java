@@ -36,6 +36,7 @@ public class DanhSoBaoDanhAction extends Action{
 		//danh sbd
 		if ("submit".equals(frm.getSubmit())){
 			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), "KT0001");
+			frm.setNotice("Đánh số báo danh thành công");
 		}
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)

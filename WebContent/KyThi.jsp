@@ -171,7 +171,9 @@
 						  	</div>
 						  	
 						  	<div class="form-group row"><hr>
-							  	<p class="title">DANH SÁCH MÔN THI</p>
+							  	<p class="title">DANH SÁCH MÔN THI</p>				
+							  				 							  		
+						    	<input type="text" class="form-control" name="soMonThi" value="1" id="soMonThi">
 							  	<!-- <label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label> -->
 						  		<label class="control-label col-sm-7">Tên môn thi</label>
 						  		<label class="control-label col-sm-5">Hệ số</label>
@@ -184,10 +186,11 @@
 						    	<div class="col-sm-3">
 						    		<input type="number" class="form-control" name="monThi[0].heSo" value="1" min="1">
 						    	</div>
+						    	
 						    	<!-- <button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button> -->
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
-						  	<button type="button" id="taoMonThi" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
+						  	<button type="button" name="add" id="taoMonThi" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
@@ -200,5 +203,12 @@
 	</div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="kyThiActionForm" property="notice">
+			showNotice('${kyThiActionForm.notice}');
+		</logic:notEmpty>
+	});
+</script>
 </body>
-</htm>>
+</htm>

@@ -48,6 +48,7 @@ public class PhanPhongThiAction extends Action{
 		frm.setSoLuongThiSinh(listThiSinh.size());
 		if ("bienChe".equals(frm.getBienChe())) {
 			tsBO.phanPhongThi(maKyThi);
+			frm.setNotice("Biên chế thành công");
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

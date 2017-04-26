@@ -44,11 +44,14 @@ public class ThemKyThiAction extends Action {
 			int namTuyenSinh = frm.getNamTuyenSinh();
 			String hinhThucDT = frm.getHinhThucDT();
 			String coSoLKDT = frm.getCoSoLKDT();
-			int soMonThi = 3;
+		
+			int soMonThi = frm.getSoMonThi();
+			System.out.println(soMonThi);
 			int trangThai = 1;
 			KyThiBean kt = new KyThiBean(null, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-					trangThai, null, 0, 0, 0, 0);
+					trangThai, null, 0, 0, 0, 0, false);
 			ktBO.insert(kt);
+			frm.setNotice("Thêm kỳ thi thành công");
 			return mapping.findForward("ThemKyThi");
 		}
 		return mapping.findForward("ShowKyThi");

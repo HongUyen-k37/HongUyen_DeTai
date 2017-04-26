@@ -50,6 +50,7 @@ public class ThiSinhActionForm extends ActionForm{
 	private int soLuong;
 	private String submit;
 	private String search;
+	private String notice;
 	public String getSubmit() {
 		return submit;
 	}
@@ -212,6 +213,14 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 	
 }

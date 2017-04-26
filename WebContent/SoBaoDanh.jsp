@@ -89,5 +89,12 @@
 
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="thiSinhActionForm" property="notice">
+			showNotice('${thiSinhActionForm.notice}');
+		</logic:notEmpty>
+	});
+</script>
 </body>
 </html>

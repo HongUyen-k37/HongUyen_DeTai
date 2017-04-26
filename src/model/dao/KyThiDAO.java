@@ -24,7 +24,7 @@ public class KyThiDAO extends DataAccessObject{
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"),
 						rs.getInt("trangThai"), rs.getString("tiepDauNgu"),
 						rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), rs.getDouble("diemChuan"),
-						rs.getDouble("diemLiet"));
+						rs.getDouble("diemLiet"),rs.getBoolean("nhoHonDiemLiet"));
 				lst.add(kt);
 			}
 		} catch (Exception ex) {
@@ -42,7 +42,7 @@ public class KyThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, kyThi.getTenKyThi());
 			pstm.setString(2, kyThi.getNgayThi());
@@ -51,12 +51,13 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setString(5, kyThi.getHinhThucDT());
 			pstm.setString(6, kyThi.getCoSoLKDT());
 			pstm.setInt(7, kyThi.getSoMonThi());
-			pstm.setString(8, kyThi.getTiepDauNgu());
-			pstm.setInt(9, kyThi.getSoBatDau());
-			pstm.setInt(10, kyThi.getSoLuongChuSo());
-			pstm.setDouble(11, (float) kyThi.getDiemChuan());
-			pstm.setDouble(12, kyThi.getDiemLiet());
-			pstm.setInt(13, kyThi.getTrangThai());
+			pstm.setInt(8, kyThi.getTrangThai());
+			pstm.setString(9, kyThi.getTiepDauNgu());
+			pstm.setInt(10, kyThi.getSoBatDau());
+			pstm.setInt(11, kyThi.getSoLuongChuSo());
+			pstm.setDouble(12, (float) kyThi.getDiemChuan());
+			pstm.setDouble(13, kyThi.getDiemLiet());
+			pstm.setBoolean(14, kyThi.isNhoHonDiemLiet());
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -75,7 +76,7 @@ public class KyThiDAO extends DataAccessObject{
 		PreparedStatement pstm = null;
 		try {
 			String sql = "Update KYTHI Set tenKyThi=?, ngayThi=?, namTuyenSinh=?, nganh=?, hinhThucDT=?, coSoLKDT=?, soMonThi=?,"
-					+ "trangThai=?, tiepDauNgu=?, soBatDau=?, soLuongChuSo=?, diemChuan=?, diemLiet=? where maKyThi=? ";
+					+ "trangThai=?, tiepDauNgu=?, soBatDau=?, soLuongChuSo=?, diemChuan=?, diemLiet=?, nhoHonDiemLiet=? where maKyThi=? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(14, kyThi.getMaKyThi());
 			pstm.setString(1, kyThi.getTenKyThi());
@@ -85,12 +86,13 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setString(5, kyThi.getHinhThucDT());
 			pstm.setString(6, kyThi.getCoSoLKDT());
 			pstm.setInt(7, kyThi.getSoMonThi());
-			pstm.setString(8, kyThi.getTiepDauNgu());
-			pstm.setInt(9, kyThi.getSoBatDau());
-			pstm.setInt(10, kyThi.getSoLuongChuSo());
-			pstm.setDouble(11, (float) kyThi.getDiemChuan());
-			pstm.setDouble(12, kyThi.getDiemLiet());
-			pstm.setInt(13, kyThi.getTrangThai());
+			pstm.setInt(8, kyThi.getTrangThai());
+			pstm.setString(9, kyThi.getTiepDauNgu());
+			pstm.setInt(10, kyThi.getSoBatDau());
+			pstm.setInt(11, kyThi.getSoLuongChuSo());
+			pstm.setDouble(12, (float) kyThi.getDiemChuan());
+			pstm.setDouble(13, kyThi.getDiemLiet());
+			pstm.setBoolean(14, kyThi.isNhoHonDiemLiet());
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -138,7 +140,7 @@ public class KyThiDAO extends DataAccessObject{
 				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"), 
 						rs.getInt("trangThai"), rs.getString("tiepDauNgu"), rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), 
-						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"));
+						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"),rs.getBoolean("nhoHonDiemLiet"));
 			}
 	
 		} catch (Exception ex) {
@@ -164,7 +166,7 @@ public class KyThiDAO extends DataAccessObject{
 				kt = new KyThiBean(rs.getString("maKyThi"), rs.getString("tenKyThi"), rs.getString("ngayThi"), rs.getInt("namTuyenSinh"),
 						rs.getString("nganh"), rs.getString("hinhThucDT"), rs.getString("coSoLKDT"), rs.getInt("soMonThi"), 
 						rs.getInt("trangThai"), rs.getString("tiepDauNgu"), rs.getInt("soBatDau"), rs.getInt("soLuongChuSo"), 
-						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"));
+						rs.getDouble("diemChuan"), rs.getDouble("diemLiet"),rs.getBoolean("nhoHonDiemLiet"));
 				lst.add(kt);
 			}
 		} catch (Exception ex) {

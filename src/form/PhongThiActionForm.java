@@ -24,6 +24,7 @@ public class PhongThiActionForm extends ActionForm {
 	private int soLuongThiSinh;
 	private String submit;
 	private String bienChe;
+	private String notice;
 	private KyThiBean kyThi;
 	private List<ThiSinhBean> listThiSinh;
 	private PhongThiBean phongThi;
@@ -102,5 +103,11 @@ public class PhongThiActionForm extends ActionForm {
 	}
 	public void setSubmit(String submit) {
 		this.submit = submit;
+	}
+	public String getNotice() {
+		return notice;
+	}
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 }

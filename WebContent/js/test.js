@@ -59,24 +59,27 @@ function taoHTMLMonThi(that){
 	var x=$(".monthi").length;
 	var htmlMonThi='<div class="form-group row monthi"><div class="col-sm-7"><input type="text" class="form-control" name="monThi['+x+'].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi['+x+'].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
+	var soMonThi = $("#soMonThi").val();
+	soMonThi++;
+	$("#soMonThi").val(soMonThi);
 }
 
-function luuMonThi(that){
+/*function luuMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax insert: "+tenMonThi);
 	that.disabled = true;
-	var soMonThi = $("#soMonThi").html();
+	var soMonThi = $("#soMonThi").val();
 	soMonThi++;
-	$("#soMonThi").html(soMonThi);
-}
+	$("#soMonThi").val(soMonThi);
+}*/
 
 function xoaMonThi(that){
 	var tenMonThi=$(that).parent().find("input").val();
 	console.log("Load ajax delete: "+tenMonThi);
 	$(that).parent().remove();
-	var soMonThi = $("#soMonThi").html();
+	var soMonThi = $("#soMonThi").val();
 	soMonThi--;
-	$("#soMonThi").html(soMonThi);
+	$("#soMonThi").val(soMonThi);
 }
 
 function taoThiSinh(maKyThi){

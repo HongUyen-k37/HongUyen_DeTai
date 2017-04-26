@@ -16,4 +16,7 @@ public class MonThiBO {
 	public boolean insert(String maKyThi, MonThiBean monThi){
 		return mt.insert(maKyThi, monThi);
 	}
+	public boolean update(MonThiBean monThi) {
+		return mt.update(monThi);
+	}
 }
