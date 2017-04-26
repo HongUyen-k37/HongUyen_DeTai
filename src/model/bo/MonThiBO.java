@@ -13,8 +13,10 @@ public class MonThiBO {
 	public MonThiBean getMonThi(String maMonThi){	
 		return mt.getMonThi(maMonThi);
 	}
-	public boolean insert(String maKyThi, MonThiBean monThi){
-		return mt.insert(maKyThi, monThi);
+	public void insert(String maKyThi, List<MonThiBean> listMonThi){
+		for (MonThiBean monThi : listMonThi) {
+			mt.insert(maKyThi, monThi);
+		}
 	}
 	public boolean update(MonThiBean monThi) {
 		return mt.update(monThi);

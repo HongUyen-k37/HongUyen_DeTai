@@ -28,9 +28,10 @@ public class XoaKyThiAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
+		System.out.println(maKyThi);
 		if(maKyThi==null || maKyThi.equals("")) 
 			return mapping.findForward("error");
-		
+		//xóa
 		ktBO.delete(maKyThi);
 		return mapping.findForward("success");
 	}

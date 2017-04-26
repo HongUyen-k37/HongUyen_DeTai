@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 
 public class MonThiDAO extends DataAccessObject {
@@ -63,12 +62,15 @@ public class MonThiDAO extends DataAccessObject {
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "INSERT INTO MONTHI VALUES(?,?,?,?)";
+			String sql = "INSERT INTO MONTHI VALUES(?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setNString(2, monThi.getTenMonThi());
-			pstm.setInt(3, monThi.getTrangThaiMonThi());
-			pstm.setInt(4, monThi.getHeSo());
+			pstm.setInt(3, 0);
+			pstm.setInt(4, 0);
+			pstm.setInt(5, 0);
+			pstm.setInt(6, 0);
+			pstm.setInt(7, monThi.getHeSo());
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -105,6 +107,10 @@ public class MonThiDAO extends DataAccessObject {
 			tryToClose(cnn);
 			tryToClose(pstm);
 		}
+		return result;
+	}
+	public boolean delete(String maKyThi){
+		boolean result = false;
 		return result;
 	}
 }

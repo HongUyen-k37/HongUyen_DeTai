@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 
 public class KyThiDAO extends DataAccessObject{
 	public List<KyThiBean> getListKyThi(){
@@ -37,12 +38,13 @@ public class KyThiDAO extends DataAccessObject{
 		return lst;
 	}
 	
-	public boolean insert(KyThiBean kyThi) {
-		boolean result = false;
+	public void insert(KyThiBean kyThi, List<MonThiBean> listMonThi) {
+		ResultSet rs = null;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
+		String maKyThi = null;
 		try {
-			String sql = "INSERT INTO KYTHI VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO KYTHI OUTPUT Inserted.maKyThi VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, kyThi.getTenKyThi());
 			pstm.setString(2, kyThi.getNgayThi());
@@ -58,16 +60,20 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setDouble(12, (float) kyThi.getDiemChuan());
 			pstm.setDouble(13, kyThi.getDiemLiet());
 			pstm.setBoolean(14, kyThi.isNhoHonDiemLiet());
-			pstm.executeUpdate();
-			result = true;
+			rs = pstm.executeQuery();
+			while(rs.next()){
+				maKyThi = rs.getString("maKyThi");
+				for (MonThiBean monThi : listMonThi) {
+					MonThiDAO mt = new MonThiDAO();
+					mt.insert(maKyThi, monThi);
+				}
+			}
 		} catch (Exception ex) {
-			result = false;
 			getMessenger(ex);
 		} finally {
 			tryToClose(cnn);
 			tryToClose(pstm);
 		}
-		return result;
 	}
 	
 	public boolean update(KyThiBean kyThi) {
@@ -110,9 +116,7 @@ public class KyThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Delete from KYTHI where maKyThi=?"
-					+ "Delete from THISINH where maKyThi=?"
-					+ "Delete from PHONGTHI where maKyThi=?";
+			String sql = "Delete from KYTHI where maKyThi=?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			result = pstm.execute();

@@ -3,10 +3,13 @@ package model.bo;
 import java.util.List;
 
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.dao.KyThiDAO;
+import model.dao.MonThiDAO;
 
 public class KyThiBO {
 	KyThiDAO kt = new KyThiDAO();
+	MonThiDAO mt = new MonThiDAO();
 	public List<KyThiBean> getListKyThi(){
 		return kt.getListKyThi();
 	}
@@ -14,13 +17,14 @@ public class KyThiBO {
 		return kt.getKyThi(MaKyThi);
 	}
 	public boolean delete(String maKyThi) {
+		mt.delete(maKyThi);
 		return kt.delete(maKyThi);
 	}
 	public boolean update(KyThiBean kyThi) {
 		return kt.update(kyThi);	
 	}
-	public boolean insert(KyThiBean kyThi) {
-		return kt.insert(kyThi);	
+	public void insert(KyThiBean kyThi, List<MonThiBean> listMonThi) {
+		kt.insert(kyThi, listMonThi);
 	}
 	public List<KyThiBean> searchKyThi(String key){
 		return kt.searchKyThi(key);

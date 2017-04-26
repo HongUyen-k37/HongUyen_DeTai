@@ -172,13 +172,11 @@
 						  	
 						  	<div class="form-group row"><hr>
 							  	<p class="title">DANH SÁCH MÔN THI</p>				
-							  				 							  		
-						    	<input type="text" class="form-control" name="soMonThi" value="1" id="soMonThi">
 							  	<!-- <label class="control-label col-sm-6" >Số môn thi <i id="soMonThi" name="soMonThi">0</i></label> -->
 						  		<label class="control-label col-sm-7">Tên môn thi</label>
 						  		<label class="control-label col-sm-5">Hệ số</label>
 						  	</div>
-						  	
+						 
 						  	<div class="form-group row monthi">
 						    	<div class="col-sm-7">
 						    		<input type="text" class="form-control" name="monThi[0].tenMonThi">

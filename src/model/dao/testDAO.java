@@ -20,5 +20,7 @@ public class testDAO {
 		System.out.println(diem3mon[0]);
 		System.out.println(diem3mon[1]);
 		System.out.println(diem3mon[2]);
+		
+		
 	}
 }

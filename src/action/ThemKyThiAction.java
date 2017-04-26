@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMapping;
 
 import form.KyThiActionForm;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
 
@@ -40,17 +41,18 @@ public class ThemKyThiAction extends Action {
 					return mapping.findForward("error");
 				}
 			}
+			List<MonThiBean> listMonThi = null;
+			if(frm.getListMonThi()!=null){
+				listMonThi = frm.getListMonThi();
+			}
 			String ngayThi = frm.getNgayThi();
 			int namTuyenSinh = frm.getNamTuyenSinh();
 			String hinhThucDT = frm.getHinhThucDT();
 			String coSoLKDT = frm.getCoSoLKDT();
-		
-			int soMonThi = frm.getSoMonThi();
-			System.out.println(soMonThi);
-			int trangThai = 1;
+			int soMonThi = listMonThi.size();
 			KyThiBean kt = new KyThiBean(null, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-					trangThai, null, 0, 0, 0, 0, false);
-			ktBO.insert(kt);
+					0, null, 0, 0, 0, 0, false);
+			ktBO.insert(kt, listMonThi);
 			frm.setNotice("Thêm kỳ thi thành công");
 			return mapping.findForward("ThemKyThi");
 		}

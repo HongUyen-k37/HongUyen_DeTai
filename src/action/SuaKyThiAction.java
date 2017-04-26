@@ -11,8 +11,10 @@ import org.apache.struts.action.ActionMapping;
 
 import form.KyThiActionForm;
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 
 public class SuaKyThiAction extends Action {
 
@@ -40,10 +42,19 @@ public class SuaKyThiAction extends Action {
 		String coSoLKDT = frm.getCoSoLKDT();
 		Boolean nhoHonDiemLiet = frm.getNhoHonDiemLiet();
 		int soMonThi = frm.getSoMonThi();
-		int trangThai = 1;
 		KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-				trangThai, null, 0, 0, 0, 0, nhoHonDiemLiet);
+				0, null, 0, 0, 0, 0, nhoHonDiemLiet);
 		ktBO.update(kt);
+		//sửa môn thi
+		MonThiBO mtBO = new MonThiBO();
+		if(frm.getListMonThi()!=null){
+			for (MonThiBean monThi : frm.getListMonThi()) {
+				mtBO.update(monThi);
+			}
+		}
+		else{
+			ktBO.insert(kt, frm.getListMonThi());
+		}
 		frm.setNotice("Sửa kỳ thi thành công");
 		return mapping.findForward("success");
 	}

@@ -1,6 +1,7 @@
 package form;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 import model.bean.KyThiBean;
+import model.bean.MonThiBean;
 
 public class KyThiActionForm extends ActionForm{
 	/**
@@ -30,6 +32,25 @@ public class KyThiActionForm extends ActionForm{
 	private String notice;
 	private String add;
 	private Boolean nhoHonDiemLiet;
+	//get list value
+	private List<MonThiBean> listMonThi;
+	public List<MonThiBean> getListMonThi() {
+		return listMonThi;
+	}
+	public void setListMonThi(List<MonThiBean> listMonThi) {
+		this.listMonThi = listMonThi;
+	}
+	public MonThiBean getMonThi(int index){
+		if(listMonThi==null) listMonThi=new ArrayList<>();
+		while(index >= listMonThi.size()){
+			listMonThi.add(new MonThiBean());
+		}
+		return this.listMonThi.get(index);
+	}
+	public void setMonThi(int index, MonThiBean monThi){
+		this.listMonThi.add(index, monThi);
+	}
+	
 	public String getMaKyThi() {
 		return maKyThi;
 	}
