@@ -110,7 +110,22 @@ public class MonThiDAO extends DataAccessObject {
 		return result;
 	}
 	public boolean delete(String maKyThi){
+		
 		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Delete from MONTHI where maKyThi=?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			result = pstm.execute();
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
 		return result;
 	}
 }
