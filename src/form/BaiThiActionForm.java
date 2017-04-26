@@ -38,6 +38,7 @@ public class BaiThiActionForm extends ActionForm{
 	private int soLuot;
 	private String cal;
 	private String submit;
+	private String notice;
 	public String getCal() {
 		return cal;
 	}
@@ -157,6 +158,12 @@ public class BaiThiActionForm extends ActionForm{
 	}
 	public void setListTrangThai(List<TrangThaiBean> listTrangThai) {
 		this.listTrangThai = listTrangThai;
+	}
+	public String getNotice() {
+		return notice;
+	}
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 
 }

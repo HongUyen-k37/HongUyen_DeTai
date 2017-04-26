@@ -89,10 +89,11 @@ public class XuLyBaiThiAction extends Action{
 					else{
 						//ngược lại => update
 						btBO.update(maKyThi, maMonThi, trangThai.getMaThiSinh(), trangThai.getTrangThaiDuThi());
-					}
-				}
+					}	
+				}			
 			}
 			else System.out.println("NULL");
+			frm.setNotice("Lưu thành công");
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

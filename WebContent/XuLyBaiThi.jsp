@@ -71,7 +71,7 @@
 							<td>
 							
 							<input type="hidden" name="trangThai[${stt-1}].maThiSinh" value="${dsts.maThiSinh}" >
-							<select name="trangThai[${stt-1}].trangThaiDuThi" class="form-control">
+							<select name="trangThai[${stt-1}].trangThaiDuThi" class="form-control" >
 								<option value="1">Dự thi</option>
 								<option value="2">Khiển trách</option>
 								<option value="3">Cảnh cáo</option>
@@ -104,5 +104,12 @@
 </div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="baiThiActionForm" property="notice">
+			showNotice('${baiThiActionForm.notice}');
+		</logic:notEmpty>
+	});
+</script>
 </body>
 </html>
