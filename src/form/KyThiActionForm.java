@@ -32,6 +32,8 @@ public class KyThiActionForm extends ActionForm{
 	private String notice;
 	private String add;
 	private Boolean nhoHonDiemLiet;
+	private String error;
+	private KyThiBean kyThi;
 	//get list value
 	private List<MonThiBean> listMonThi;
 	public List<MonThiBean> getListMonThi() {
@@ -180,6 +182,18 @@ public class KyThiActionForm extends ActionForm{
 
 	public void setAdd(String add) {
 		this.add = add;
+	}
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
+	}
+	public KyThiBean getKyThi() {
+		return kyThi;
+	}
+	public void setKyThi(KyThiBean kyThi) {
+		this.kyThi = kyThi;
 	}
 
 	

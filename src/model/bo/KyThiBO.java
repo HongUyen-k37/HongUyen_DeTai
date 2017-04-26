@@ -20,8 +20,8 @@ public class KyThiBO {
 		mt.delete(maKyThi);
 		return kt.delete(maKyThi);
 	}
-	public boolean update(KyThiBean kyThi) {
-		return kt.update(kyThi);	
+	public boolean update(KyThiBean kyThi, List<MonThiBean> listMonThi) {
+		return kt.update(kyThi, listMonThi);
 	}
 	public void insert(KyThiBean kyThi, List<MonThiBean> listMonThi) {
 		kt.insert(kyThi, listMonThi);

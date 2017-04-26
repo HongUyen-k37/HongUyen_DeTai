@@ -29,7 +29,7 @@ public class DangNhapAction extends Action{
 		}
 		else{
 			frm.setError("Dữ liệu không đúng. Vui lòng nhập lại!");
-			return mapping.findForward("error");
+			return mapping.findForward("login");
 		}
 	}
 }

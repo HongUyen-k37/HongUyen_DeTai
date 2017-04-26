@@ -35,7 +35,7 @@ public class ThemKyThiAction extends Action {
 			String tenKyThi = frm.getTenKyThi();
 			String nganh = frm.getNganh();
 			List<KyThiBean> lst = ktBO.getListKyThi();
-			
+			//kiểm tra trùng
 			for (KyThiBean kt1 : lst) {
 				if(kt1.getTenKyThi().equals(tenKyThi) && kt1.getNganh().equals(nganh)){
 					return mapping.findForward("error");

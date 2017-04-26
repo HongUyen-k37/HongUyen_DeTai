@@ -64,6 +64,9 @@
 		</div>
 	</div>
 	</div>
+	<logic:notEmpty name="kyThiActionForm" property="error">
+		<h5>${kyThiActionForm.error }</h5>
+	</logic:notEmpty>
 </div>
 </div>
 
@@ -178,6 +181,7 @@
 						  	</div>
 						 
 						  	<div class="form-group row monthi">
+						    	<input type="hidden" class="form-control" name="monThi[0].maMonThi">
 						    	<div class="col-sm-7">
 						    		<input type="text" class="form-control" name="monThi[0].tenMonThi">
 						    	</div>

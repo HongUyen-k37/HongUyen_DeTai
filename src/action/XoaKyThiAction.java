@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.KyThiActionForm;
+import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
 
@@ -25,15 +26,22 @@ public class XoaKyThiAction extends Action{
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("error");
+		if(user == null) return mapping.findForward("login");
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
 		System.out.println(maKyThi);
 		if(maKyThi==null || maKyThi.equals("")) 
 			return mapping.findForward("error");
+		//get thông tin kỳ thi
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		if(kyThi.getTrangThai()!=0){
+			return mapping.findForward("error");
+		}
+		else{
 		//xóa
 		ktBO.delete(maKyThi);
 		return mapping.findForward("success");
+		}
 	}
 	
 }

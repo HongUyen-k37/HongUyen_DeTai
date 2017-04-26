@@ -76,7 +76,7 @@ public class KyThiDAO extends DataAccessObject{
 		}
 	}
 	
-	public boolean update(KyThiBean kyThi) {
+	public boolean update(KyThiBean kyThi, List<MonThiBean> listMonThi) {
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
@@ -84,14 +84,14 @@ public class KyThiDAO extends DataAccessObject{
 			String sql = "Update KYTHI Set tenKyThi=?, ngayThi=?, namTuyenSinh=?, nganh=?, hinhThucDT=?, coSoLKDT=?, soMonThi=?,"
 					+ "trangThai=?, tiepDauNgu=?, soBatDau=?, soLuongChuSo=?, diemChuan=?, diemLiet=?, nhoHonDiemLiet=? where maKyThi=? ";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setString(14, kyThi.getMaKyThi());
+			pstm.setString(15, kyThi.getMaKyThi());
 			pstm.setString(1, kyThi.getTenKyThi());
 			pstm.setString(2, kyThi.getNgayThi());
 			pstm.setInt(3, kyThi.getNamTuyenSinh());
 			pstm.setString(4, kyThi.getNganh());
 			pstm.setString(5, kyThi.getHinhThucDT());
 			pstm.setString(6, kyThi.getCoSoLKDT());
-			pstm.setInt(7, kyThi.getSoMonThi());
+			pstm.setInt(7, listMonThi.size());
 			pstm.setInt(8, kyThi.getTrangThai());
 			pstm.setString(9, kyThi.getTiepDauNgu());
 			pstm.setInt(10, kyThi.getSoBatDau());
@@ -99,6 +99,10 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setDouble(12, (float) kyThi.getDiemChuan());
 			pstm.setDouble(13, kyThi.getDiemLiet());
 			pstm.setBoolean(14, kyThi.isNhoHonDiemLiet());
+			for (MonThiBean monThi : listMonThi) {
+				MonThiDAO mt = new MonThiDAO();
+				mt.update(kyThi.getMaKyThi(), monThi);
+			}
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {

@@ -29,6 +29,13 @@ public class MonThiBean {
 		this.heSo = heSo;
 	}
 
+	public MonThiBean(String maMonThi, String tenMonThi, int heSo) {
+		super();
+		this.maMonThi = maMonThi;
+		this.tenMonThi = tenMonThi;
+		this.heSo = heSo;
+	}
+
 	public String getMaMonThi() {
 		return maMonThi;
 	}

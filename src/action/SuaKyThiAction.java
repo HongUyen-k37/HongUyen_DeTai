@@ -1,5 +1,7 @@
 package action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +16,6 @@ import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
-import model.bo.MonThiBO;
 
 public class SuaKyThiAction extends Action {
 
@@ -32,31 +33,31 @@ public class SuaKyThiAction extends Action {
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
 		if(maKyThi==null || maKyThi.equals("")) 
+			return mapping.findForward("login");
+		//get thông tin kỳ thi
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		if(kyThi.getTrangThai()!=0){
 			return mapping.findForward("error");
-		
+		}
+		else{
+		//get list môn thi
+		List<MonThiBean> listMonThi = null;
+		if(frm.getListMonThi()!=null){
+			listMonThi = frm.getListMonThi();
+		}
 		String tenKyThi = frm.getTenKyThi();
 		String ngayThi = frm.getNgayThi();
 		int namTuyenSinh = frm.getNamTuyenSinh();
 		String nganh = frm.getNganh();
 		String hinhThucDT = frm.getHinhThucDT();
 		String coSoLKDT = frm.getCoSoLKDT();
-		Boolean nhoHonDiemLiet = frm.getNhoHonDiemLiet();
-		int soMonThi = frm.getSoMonThi();
+		int soMonThi = listMonThi.size();
 		KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-				0, null, 0, 0, 0, 0, nhoHonDiemLiet);
-		ktBO.update(kt);
-		//sửa môn thi
-		MonThiBO mtBO = new MonThiBO();
-		if(frm.getListMonThi()!=null){
-			for (MonThiBean monThi : frm.getListMonThi()) {
-				mtBO.update(monThi);
-			}
-		}
-		else{
-			ktBO.insert(kt, frm.getListMonThi());
-		}
+				0, null, 0, 0, 0, 0, false);
+		ktBO.update(kt, listMonThi);
 		frm.setNotice("Sửa kỳ thi thành công");
 		return mapping.findForward("success");
+		}
 	}
 	
 }

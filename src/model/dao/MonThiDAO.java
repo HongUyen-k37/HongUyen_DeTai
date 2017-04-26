@@ -82,22 +82,21 @@ public class MonThiDAO extends DataAccessObject {
 		}
 		return result;
 	}
-	public boolean update(MonThiBean monThi) {
+	public boolean update(String maKyThi, MonThiBean monThi) {
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Update MONTHI Set tenMonThi=?, trangThaiMonThi=?, coSoPhongThi=?, coSoTui=?, heSo=?, soLuot=? where maMonThi=?, maKyThi=? ";
+			String sql = "Update MONTHI Set tenMonThi=?, trangThaiMonThi=?, coSoPhongThi=?, coSoTui=?, heSo=?, soLuot=? where maMonThi=? and maKyThi=? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(7, monThi.getMaMonThi());
-			pstm.setString(8, monThi.getMaKyThi());
+			pstm.setString(8, maKyThi);
 			pstm.setString(1, monThi.getTenMonThi());
 			pstm.setInt(2, monThi.getTrangThaiMonThi());
 			pstm.setInt(3, monThi.getCoSoPhongThi());
 			pstm.setInt(4, monThi.getCoSoTui());
 			pstm.setInt(5, monThi.getHeSo());
 			pstm.setInt(6, monThi.getSoLuot());
-			
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -110,7 +109,6 @@ public class MonThiDAO extends DataAccessObject {
 		return result;
 	}
 	public boolean delete(String maKyThi){
-		
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;

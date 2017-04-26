@@ -22,10 +22,14 @@ function suaKyThi(maKyThi){
 			$("#f_nganh").val(kyThi["nganh"]);
 			$("#f_hinhThucDT").val(kyThi["hinhThucDT"]);
 			$("#f_coSoLKDT").val(kyThi["coSoLKDT"]);
-			$("#soMonThi").val(kyThi["soMonThi"]);
+			//$("#soMonThi").val(kyThi["soMonThi"]);
 			for(var i=0;i<arrMonThi.length;i++)
 				$("#taoMonThi").click();
-			var j=0;		
+			var j=0;
+			$(".monthi input[type='hidden']").each(function(){
+				$(this).val(arrMonThi[j++].maMonThi);
+			});
+			j=0;
 			$(".monthi input[type='text']").each(function(){
 				$(this).val(arrMonThi[j++].tenMonThi);
 			});
@@ -57,7 +61,7 @@ function xoaKyThi(maKyThi){
 
 function taoHTMLMonThi(that){
 	var x=$(".monthi").length;
-	var htmlMonThi='<div class="form-group row monthi"><div class="col-sm-7"><input type="text" class="form-control" name="monThi['+x+'].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi['+x+'].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
+	var htmlMonThi='<div class="form-group row monthi"><input type="hidden" class="form-control" name="monThi['+x+'].maMonThi"><div class="col-sm-7"><input type="text" class="form-control" name="monThi['+x+'].tenMonThi"></div><div class="col-sm-3"><input type="number" class="form-control" name="monThi['+x+'].heSo" value="1" min="1"></div><button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button></div>'
 	$(htmlMonThi).insertBefore($(that));
 	var soMonThi = $("#soMonThi").val();
 	soMonThi++;
