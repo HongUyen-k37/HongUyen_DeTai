@@ -197,4 +197,25 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
+	public boolean updateDonTui(int tuiSo, int soPhach) {
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			
+			String sql = "Update BAITHI Set soPhach = ?, tuiSo = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setInt(1, soPhach);
+			pstm.setInt(2, tuiSo);
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }
