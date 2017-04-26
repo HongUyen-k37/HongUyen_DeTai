@@ -10,6 +10,28 @@ public class BaiThiBean {
 	private float diemChamThi;
 	private float diemChinhThuc;
 	private String ghiChu;
+	private String phong;
+	private String soBaoDanh;
+	
+	public BaiThiBean(int soPhach, int tuiSo, String phong, String soBaoDanh) {
+		super();
+		this.soPhach = soPhach;
+		this.tuiSo = tuiSo;
+		this.phong = phong;
+		this.soBaoDanh = soBaoDanh;
+	}
+	public String getPhong() {
+		return phong;
+	}
+	public void setPhong(String phong) {
+		this.phong = phong;
+	}
+	public String getSoBaoDanh() {
+		return soBaoDanh;
+	}
+	public void setSoBaoDanh(String soBaoDanh) {
+		this.soBaoDanh = soBaoDanh;
+	}
 	public String getMaKyThi() {
 		return maKyThi;
 	}

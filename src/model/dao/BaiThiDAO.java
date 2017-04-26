@@ -175,7 +175,7 @@ public class BaiThiDAO extends DataAccessObject{
 		PreparedStatement pstm = null;		
 		try {
 			String sql = "SELECT * FROM BAITHI, THISINH WHERE BAITHI.maThiSinh = THISINH.maThiSinh and BAITHI.maKyThi = ?"
-					+ "and maMonThi = ? and maPhongThi = ?";
+					+ " and maMonThi = ? and maPhongThi = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);
@@ -197,16 +197,20 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public boolean updateDonTui(int tuiSo, int soPhach) {
+	public boolean updateDonTui(String maKyThi, String maMonThi, String maThiSinh, int tuiSo, int soPhach) {
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
-		try {
-			
-			String sql = "Update BAITHI Set soPhach = ?, tuiSo = ?";
+		try {		
+			String sql = "Update BAITHI Set soPhach = ?, tuiSo = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setInt(1, soPhach);
 			pstm.setInt(2, tuiSo);
+			pstm.setString(3, maKyThi);
+			pstm.setString(4, maMonThi);
+			pstm.setString(5, maThiSinh);
+			//moas code xong deo test DAO chi het a -_-
+			//boy mowis them voo, eos biet
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -217,5 +221,30 @@ public class BaiThiDAO extends DataAccessObject{
 			tryToClose(pstm);
 		}
 		return result;
+	}
+	public List<BaiThiBean> getListDonTui(String maKyThi){
+		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM BAITHI, THISINH, PHONGTHI WHERE BAITHI.maThiSinh = THISINH.maThiSinh"
+					+ "and THISINH.maPhongThi = PHONGTHI.maPhongThi and BAITHI.maKyThi = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			rs = pstm.executeQuery();
+			BaiThiBean bt = null;
+			while (rs.next()) {
+				bt = new BaiThiBean(rs.getInt("soPhach"), rs.getInt("tuiSo"), rs.getString("soHieuPhongThi"), rs.getString("soBaoDanh"));
+				lst.add(bt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
 	}
 }

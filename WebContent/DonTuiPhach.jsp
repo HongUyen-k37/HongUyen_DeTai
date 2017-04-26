@@ -52,9 +52,8 @@
 				</div>
 			</div>
 			<div class="btn-gr col-md-2">
-				<button type="submit" class="btn btn-success btn-all" name="cal" value="cal">Tính số lượt</button>
+				<button type="submit" class="btn btn-success btn-all" name="submit" value="cal">Tính số lượt</button>
 			</div>
-			</html:form>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
@@ -73,128 +72,24 @@
 				</div>	
 			</div>
 			<div class="col-md-2">
-				<button style="width: 96px" type="submit" class="btn btn-success btn-all" name="execute">Thực hiện</button>
+				<button type="submit" class="btn btn-success btn-all" name="submit" value="execute">Thực hiện</button>
 			</div>
+			</html:form>
 		</div>
 	</div>
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">
-			<thead>
-				<tr>
-					<th></th>
-					<th colspan="2">Phòng 1</th>
-					<th colspan="2">Phòng 2</th>
-					<th colspan="2">Phòng 3</th>
-					<th colspan="2">Phòng 4</th>
-					<th colspan="2">Phòng 5</th>
+			<thead id="headTable">
+				<tr id="soPhong">
+					<th rowspan="2"></th>
+					<!-- In so phong tai day -->
+				</tr>
+				<tr id="soBaiDanhSoPhach">
+					<!-- In cap text tuong ung voi so phong tai day -->
 				</tr>
 			</thead>
-			<thead>
-				<tr>
-					<th></th>
-					<th>SBD</th>
-					<th>Số phách</th>
-					<th>SBD</th>
-					<th>Số phách</th>
-					<th>SBD</th>
-					<th>Số phách</th>
-					<th>SBD</th>
-					<th>Số phách</th>
-					<th>SBD</th>
-					<th>Số phách</th>
-				</tr>
-			</thead>
-			<tbody>
-			<thead>
-				<tr>
-					<th>Túi 1</th>
-						<td>001</td>
-						<td>167</td>
-						<td>002</td>
-						<td>168</td>
-						<td>003</td>
-						<td>169</td>
-						<td>004</td>
-						<td>170</td>
-						<td>005</td>
-						<td>171</td>
-				</tr>
-			</thead>
-			<thead>
-				<tr>
-					<th></th>
-						<td>001</td>
-						<td>167</td>
-						<td>002</td>
-						<td>168</td>
-						<td></td>
-						<td></td>
-						<td>004</td>
-						<td>170</td>
-						<td>005</td>
-						<td>171</td>
-				</tr>
-			</thead>
-			<thead>
-				<tr>
-					<th></th>
-						<td>001</td>
-						<td>167</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>004</td>
-						<td>170</td>
-						<td></td>
-						<td></td>
-				</tr>
-			</thead>
-			<thead>
-				<tr>
-					<th>Túi 2</th>
-						<td>001</td>
-						<td>167</td>
-						<td>002</td>
-						<td>168</td>
-						<td>003</td>
-						<td>169</td>
-						<td>004</td>
-						<td>170</td>
-						<td>005</td>
-						<td>171</td>
-				</tr>
-			</thead>
-			<thead>
-				<tr>
-					<th>Túi 3</th>
-						<td>001</td>
-						<td>167</td>
-						<td>002</td>
-						<td>168</td>
-						<td>003</td>
-						<td>169</td>
-						<td>004</td>
-						<td>170</td>
-						<td>005</td>
-						<td>171</td>
-				</tr>
-			</thead>
-			<thead>
-				<tr>
-					<th>Túi 4</th>
-						<td>001</td>
-						<td>167</td>
-						<td>002</td>
-						<td>168</td>
-						<td>003</td>
-						<td>169</td>
-						<td>004</td>
-						<td>170</td>
-						<td>005</td>
-						<td>171</td>
-				</tr>
-			</thead>
+			<tbody id="bodyTable">
+				
 			</tbody>
 			</table>
 			<div class="row">
@@ -208,5 +103,47 @@
 
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+
+	var listPhong=[15,23,31,41];
+	var baiThi1={"soBaoDanh":5,"soPhach":10,"phong":15,};
+	var baiThi2={"soBaoDanh":5,"soPhach":10,"phong":23};
+	var baiThi3={"soBaoDanh":5,"soPhach":10,"phong":31};
+	var baiThi4={"soBaoDanh":5,"soPhach":10,"phong":41};
+
+	var tui=[baiThi1,baiThi1,baiThi1,baiThi2,baiThi2,baiThi2,baiThi2,baiThi3,baiThi3,baiThi3,baiThi4,baiThi4];
+	var listTui=[tui,tui,tui];
+	var phong1=[baiThi1,baiThi1,baiThi1,baiThi1,baiThi1,baiThi1]
+	var listPhong=
+		for(var i=0;i<listPhong.length;i++){
+			var html='<th colspan="2">Phòng '+listPhong[i]+'</th>';
+			$("#soPhong").append(html);
+			$("#soBaiDanhSoPhach").append("<th>SBD</th><th>So Phach</th>");
+		}
+		for(var i=0;i<listTui.length;i++){
+			var size=Math.ceil(listTui[i].length/listPhong.length);
+			var html='<tr><th rowspan="'+size+'">Tui '+(i+1)+'</th>';
+			for(var j=0;j<size;j++){
+				for(var k=0;k<listPhong.length;k++){
+					html+='<td id="sbd_'+i+'_'+j+'_'+listPhong[k]+'"></td>';
+					html+='<td id="sp_'+i+'_'+j+'_'+listPhong[k]+'"></td>';
+				}
+				if(j!=size-1) html+="</tr><tr>";
+			}
+			html+="</tr>";
+			$("#bodyTable").append(html);
+		}
+		for(var i=0;i<listTui.length;i++){
+			for(var j=0;j<listTui[i].length;j++){
+				var baiThi=listTui[i][j];
+				var locationSBD="#sbd_"+i+"_"+(j%listPhong.length)+"_"+baiThi.phong;
+				var locationSP="#sp_"+i+"_"+(j%listPhong.length)+"_"+baiThi.phong;
+				$(locationSBD).append(baiThi.soBaoDanh);
+				$(locationSP).append(baiThi.soPhach);
+			}
+			
+		}
+
+</script>
 </body>
 </html>

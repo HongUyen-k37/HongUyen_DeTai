@@ -12,7 +12,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.BaiThiActionForm;
-import model.bean.BaiThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
 import model.bean.NguoiDungBean;
@@ -51,36 +50,37 @@ public class DonTuiPhachAction extends Action{
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
 		System.out.println(maMonThi);
-		//list all bài thi theo môn
-		BaiThiBO btBO = new BaiThiBO();
-		//lan 1
-		//current = 0;
-		/*for(chay tu i+current => co so phong*luot){
-			List<BaiThiBean> listBaiThi = btBO.getListTheoMon(maKyThi, maMonThi, );
-			current+=cosophong*luot;
-			
-		}
-		//lan 2
-*/		
 		//list all phòng thi
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		//dồn túi
-		int coSoTui = frm.getCoSoTui();
-		if("cal".equals(frm.getCal())){
+		int coSoPhong = frm.getCoSoPhong();
+		if("cal".equals(frm.getSubmit())){
 			//get input
 			int tongSoPhong = listPhongThi.size();
 			System.out.println(tongSoPhong);
-			System.out.println(frm.getCoSoPhong());
+			System.out.println(coSoPhong);
 			//tính tổng số lượt
-			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/frm.getCoSoPhong()));
+			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
 		}
-		int listTui[] = new int[coSoTui*frm.getSoLuot()];
+		/*int listTui[] = new int[coSoTui*frm.getSoLuot()];
 		for(int i = 0; i < coSoTui*frm.getSoLuot(); i++){
 			listTui[i] = i+1;
 			System.out.println(listTui[i]);
+		}*///chua gan form :'( cai no la form long` form lan
+		//Long cai cc
+		if("execute".equals(frm.getSubmit())){
+			int coSoTui = frm.getCoSoTui();
+			int luot = frm.getLuot();
+			int soLuotThucHien = frm.getSoLuot();
+			System.out.println(coSoPhong);
+			System.out.println(coSoTui);
+			System.out.println(luot);
+			System.out.println(soLuotThucHien);
+			BaiThiBO btBO = new BaiThiBO();
+			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhong, coSoTui, luot, soLuotThucHien);
+			//GetListBaiThiOrderBy Tui,Phong ok
 		}
-		
 		return mapping.findForward("success");
 	}
 	
