@@ -53,7 +53,15 @@ public class DonTuiPhachAction extends Action{
 		System.out.println(maMonThi);
 		//list all bài thi theo môn
 		BaiThiBO btBO = new BaiThiBO();
-		List<BaiThiBean> listBaiThi = btBO.getListTheoMon(maKyThi, maMonThi);
+		//lan 1
+		//current = 0;
+		/*for(chay tu i+current => co so phong*luot){
+			List<BaiThiBean> listBaiThi = btBO.getListTheoMon(maKyThi, maMonThi, );
+			current+=cosophong*luot;
+			
+		}
+		//lan 2
+*/		
 		//list all phòng thi
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);

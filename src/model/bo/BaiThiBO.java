@@ -25,7 +25,7 @@ public class BaiThiBO {
 	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
 		return bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo);
 	}
-	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi){
-		return bt.getListTheoMon(maKyThi, maMonThi);
+	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi, String maPhongThi){
+		return bt.getListTheoMon(maKyThi, maMonThi, maPhongThi);
 	}
 }

@@ -246,6 +246,12 @@ function getNhapDiemThi(){
 	window.location.href="NhapDiemThi.do?maKyThi="+makt+"&maMonThi="+mamt+"&tuiSo="+tuiso;
 }
 
+function getDonTuiPhach(){
+	var makt = $("#f_maKyThi").val();
+	var mamt = $("#f_maMonThi").val();
+	window.location.href="DonTuiPhach.do?maKyThi="+makt+"&maMonThi="+mamt;
+}
+
 function lock(){
 	$('#save')[0].disabled = true;
 	$('#delete')[0].disabled = true;

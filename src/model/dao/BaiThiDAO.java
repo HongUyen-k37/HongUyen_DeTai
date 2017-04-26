@@ -168,16 +168,18 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return result;
 	}
-	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi){
+	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi, String maPhongThi){
 		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ?";
+			String sql = "SELECT * FROM BAITHI, THISINH WHERE BAITHI.maThiSinh = THISINH.maThiSinh and BAITHI.maKyThi = ?"
+					+ "and maMonThi = ? and maPhongThi = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);
+			pstm.setString(3, maPhongThi);
 			rs = pstm.executeQuery();
 			BaiThiBean bt = null;
 			while (rs.next()) {

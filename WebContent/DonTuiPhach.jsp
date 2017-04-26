@@ -32,7 +32,7 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<label class="col-sm-3">Môn thi:</label>
     		<div class="col-sm-9">
-	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getTKBangDiemTheoMon()">
+	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getDonTuiPhach()">
                 	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
 	            </html:select>
             </div>
