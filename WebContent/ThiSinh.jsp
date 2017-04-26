@@ -152,9 +152,9 @@
 							<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
 							<div class="col-md-9">
 								<html:select styleId="f_doiTuong" property="doiTuong" styleClass="form-control" value="">
-									<html:option value=""></html:option>	
-									<html:option value="01">01</html:option>
-									<html:option value="02">02</html:option>													
+									<html:option value="KƯT">KƯT</html:option>	
+									<html:option value="ƯT1">ƯT1</html:option>
+									<html:option value="ƯT2">ƯT2</html:option>													
 								</html:select>
 							</div>
 						</div>
