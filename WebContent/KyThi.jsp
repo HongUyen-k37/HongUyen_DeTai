@@ -53,7 +53,7 @@
 						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>
-						<td class="control-label">
+						<td style="text-align: right">
 						<bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						
 						<td>	                    

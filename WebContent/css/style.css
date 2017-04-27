@@ -221,9 +221,9 @@ tr td{
 .details_info{
 	margin: 5px;
 }
-.control-label{
+/* .control-label{
 	text-align: left;
-}
+} */
 li.export-excel{
 	float:right;
 }
