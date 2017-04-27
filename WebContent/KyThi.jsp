@@ -160,7 +160,7 @@
 						    		<html:select styleId="f_hinhThucDT" property="hinhThucDT" styleClass="form-control">
 										<html:option value="Đại học - Vừa làm vừa học">Đại học - Vừa làm vừa học</html:option>
 										<html:option value="Liên thông Cao đẳng lên Đại học - Vừa học vừa làm">Liên thông Cao đẳng lên Đại học - Vừa học vừa làm</html:option>
-										<html:option value="Bằng thứ 2 - Vừa học vừa làm">Bằng thứ 2 - Vừa học vừa làm</html:option>					
+										<html:option value="Đại Học bằng 2 - Vừa học vừa làm">Đại Học bằng 2 - Vừa học vừa làm</html:option>					
 									</html:select>	
 						    		<!-- <input type="text" class="form-control" id="f_hinhThucDT" name="hinhThucDT" required> -->
 					    		</div>
