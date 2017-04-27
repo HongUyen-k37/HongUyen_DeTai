@@ -47,7 +47,9 @@
 			  	<div class="form-group">
 			    	<label class="col-sm-6">Danh sách các môn thi:</label>
 			    	<div class="col-sm-6">
-			      		<textarea class="form-control" rows="3" disabled></textarea>
+			      		<logic:iterate id="mt" name="listMaKyThi" property="listMonThi">
+			      			<a><bean:write name="mt" property="tenMonThi"/></a>
+			      		</logic:iterate>
 			   		 </div>
 			  	</div>
 			  	</form>
