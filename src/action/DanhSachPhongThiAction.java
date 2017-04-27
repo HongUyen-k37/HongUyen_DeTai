@@ -16,6 +16,7 @@ import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bean.PhongThiBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 import model.bo.PhongThiBO;
 import model.bo.ThiSinhBO;
 
@@ -39,6 +40,9 @@ public class DanhSachPhongThiAction extends Action {
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list mon thi cua ky thi
+		MonThiBO mtBO = new MonThiBO();
+		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		//get list phong thi theo ky thi
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);

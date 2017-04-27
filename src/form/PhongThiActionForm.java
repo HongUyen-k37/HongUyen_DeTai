@@ -30,6 +30,8 @@ public class PhongThiActionForm extends ActionForm {
 	private List<ThiSinhBean> listThiSinh;
 	private PhongThiBean phongThi;
 	private List<MonThiBean> listMonThi;
+	private int tongSoCho;
+	private String error;
 	public PhongThiBean getPhongThi() {
 		return phongThi;
 	}
@@ -117,5 +119,17 @@ public class PhongThiActionForm extends ActionForm {
 	}
 	public void setListMonThi(List<MonThiBean> listMonThi) {
 		this.listMonThi = listMonThi;
+	}
+	public int getTongSoCho() {
+		return tongSoCho;
+	}
+	public void setTongSoCho(int tongSoCho) {
+		this.tongSoCho = tongSoCho;
+	}
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
 	}
 }

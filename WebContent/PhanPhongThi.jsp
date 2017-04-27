@@ -63,12 +63,16 @@
 						</div>
 						<div class="col-sm-3">
 							<html:form action="/PhanPhongThi" method="POST">
+								<input type="hidden" name="tongSoCho" value="$('#tongSoLuong').html();"/>
 								<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name="bienChe" value="bienChe">Biên chế</button>
 							</html:form>
 						</div>
 					</div>
 				</div>
 			</div>
+			<logic:notEmpty name="phongThiActionForm" property="error">
+				<h5>${phongThiActionForm.error }</h5>
+			</logic:notEmpty>
 		</div>
 	</div>
 </div>

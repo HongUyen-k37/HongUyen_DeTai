@@ -66,9 +66,6 @@
 		</div>
 	</div>
 	</div>
-	<logic:notEmpty name="kyThiActionForm" property="error">
-		<h5>${kyThiActionForm.error }</h5>
-	</logic:notEmpty>
 </div>
 </div>
 
