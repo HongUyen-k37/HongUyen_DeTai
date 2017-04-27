@@ -53,7 +53,7 @@ public class ThemKyThiAction extends Action {
 			KyThiBean kt = new KyThiBean(null, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.insert(kt, listMonThi);
-			session.setAttribute("notice", "Thêm kỳ thi thành công");
+			/*session.setAttribute("notice", "Thêm kỳ thi thành công");*/
 			frm.setNotice("Thêm kỳ thi thành công");
 			return mapping.findForward("success");
 		}

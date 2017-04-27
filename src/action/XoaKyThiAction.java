@@ -40,7 +40,7 @@ public class XoaKyThiAction extends Action{
 		else{
 			//xóa
 			ktBO.delete(maKyThi);
-			session.setAttribute("notice", "Xoá kỳ thi thành công");
+			/*session.setAttribute("notice", "Xoá kỳ thi thành công");*/
 			return mapping.findForward("success");
 		}
 	}

@@ -42,7 +42,10 @@ public class SuaKyThiAction extends Action {
 		else{
 			//get list môn thi
 			List<MonThiBean> listMonThi = null;
-			if(frm.getListMonThi()!=null){
+			if(frm.getListMonThi()==null){
+				return mapping.findForward("error");
+			}
+			else{
 				listMonThi = frm.getListMonThi();
 			}
 			String tenKyThi = frm.getTenKyThi();
@@ -55,7 +58,7 @@ public class SuaKyThiAction extends Action {
 			KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.update(kt, listMonThi);
-			session.setAttribute("notice", "Sửa kỳ thi thành công");
+			/*session.setAttribute("notice", "Sửa kỳ thi thành công");*/
 			frm.setNotice("Sửa kỳ thi thành công");
 			return mapping.findForward("success");
 		}

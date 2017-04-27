@@ -63,22 +63,20 @@ public class DonTuiPhachAction extends Action{
 			//tính tổng số lượt
 			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
 		}
-		/*int listTui[] = new int[coSoTui*frm.getSoLuot()];
-		for(int i = 0; i < coSoTui*frm.getSoLuot(); i++){
-			listTui[i] = i+1;
-			System.out.println(listTui[i]);
-		}*///chua gan form :'( cai no la form long` form lan
-		//Long cai cc
 		if("execute".equals(frm.getSubmit())){
-			int coSoTui = frm.getCoSoTui();
-			int luot = frm.getLuot();
-			int soLuotThucHien = frm.getSoLuot();
+			//get input
+			int tongSoPhong = listPhongThi.size();
+			System.out.println(tongSoPhong);
 			System.out.println(coSoPhong);
+			//tính tổng số lượt
+			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
+			//thuc hien
+			int coSoTui = frm.getCoSoTui();
+			int soLuotThucHien = frm.getSoLuot();
 			System.out.println(coSoTui);
-			System.out.println(luot);
 			System.out.println(soLuotThucHien);
 			BaiThiBO btBO = new BaiThiBO();
-			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhong, coSoTui, luot, soLuotThucHien);
+			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhong, coSoTui, soLuotThucHien);
 			//GetListBaiThiOrderBy Tui,Phong ok
 		}
 		return mapping.findForward("success");

@@ -99,11 +99,19 @@ public class KyThiDAO extends DataAccessObject{
 			pstm.setDouble(12, (float) kyThi.getDiemChuan());
 			pstm.setDouble(13, kyThi.getDiemLiet());
 			pstm.setBoolean(14, kyThi.isNhoHonDiemLiet());
-			for (MonThiBean monThi : listMonThi) {
-				MonThiDAO mt = new MonThiDAO();
-				mt.update(kyThi.getMaKyThi(), monThi);
+			MonThiDAO mt = new MonThiDAO();
+			if(listMonThi.size()==mt.getListMonThi(kyThi.getMaKyThi()).size()){
+				for (MonThiBean monThi : listMonThi) {
+					mt.update(kyThi.getMaKyThi(), monThi);
+				}
+				pstm.executeUpdate();
 			}
-			pstm.executeUpdate();
+			else{
+				mt.delete(kyThi.getMaKyThi());
+				for (MonThiBean monThi : listMonThi) {
+					mt.insert(kyThi.getMaKyThi(), monThi);
+				}
+			}
 			result = true;
 		} catch (Exception ex) {
 			result = false;

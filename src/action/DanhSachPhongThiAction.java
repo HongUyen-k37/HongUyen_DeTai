@@ -56,6 +56,7 @@ public class DanhSachPhongThiAction extends Action {
 		//get list thi sinh theo phong thi
 		ThiSinhBO tsBO = new ThiSinhBO();
 		frm.setListThiSinh(tsBO.getListThiSinhTheoPhongThi(maPhongThi));
+		ktBO.updateTrangThai(maKyThi, 3);
 		return mapping.findForward("success");
 	}
 	

@@ -59,18 +59,18 @@ public class XuLyBaiThiAction extends Action{
 		if(frm.getMaPhongThi()!=null)
 			maPhongThi = frm.getMaPhongThi();
 		//get mã môn thi
-		/*String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
+		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
-			maMonThi = frm.getMaMonThi();*/
+			maMonThi = frm.getMaMonThi();
 		//get list thí sinh theo phòng
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
+		//get list bai thi
+		BaiThiBO btBO = new BaiThiBO();
+		List<BaiThiBean> listBaiThi = btBO.getListXuLy(maKyThi, maMonThi, maPhongThi);
+		frm.setListBaiThi(listBaiThi);
 		frm.setListThiSinh(listThiSinh);
 		if ("save".equals(frm.getSave())) {
-			//get mã môn thi
-			String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
-			if(frm.getMaMonThi()!=null)
-				maMonThi = frm.getMaMonThi();
 			System.out.println(maMonThi);
 			//get mã thí sinh và trạng thái
 			if(frm.getListTrangThai()!=null){
@@ -78,21 +78,25 @@ public class XuLyBaiThiAction extends Action{
 				for (TrangThaiBean trangThai : frm.getListTrangThai()) {
 					System.out.println(trangThai.getMaThiSinh()+" "+trangThai.getTrangThaiDuThi());
 					//kiểm tra đã có bài thi hay chưa?
-					BaiThiBO btBO = new BaiThiBO();
-					List<BaiThiBean> listBaiThi = btBO.getList(maKyThi, maMonThi, trangThai.getMaThiSinh());
-					if(listBaiThi.size()==0){
+					List<BaiThiBean> listBaiThi1 = btBO.getList(maKyThi, maMonThi, trangThai.getMaThiSinh());
+					if(listBaiThi1.size()==0){
 						//không có => thêm mới
 						BaiThiBean baiThi = new BaiThiBean(maKyThi, maMonThi, trangThai.getMaThiSinh(), 0, 0,
 								trangThai.getTrangThaiDuThi(), 0, 0, null);
 						btBO.insert(baiThi);
+						listBaiThi = btBO.getListXuLy(maKyThi, maMonThi, maPhongThi);
+						frm.setListBaiThi(listBaiThi);
 					}
 					else{
 						//ngược lại => update
 						btBO.update(maKyThi, maMonThi, trangThai.getMaThiSinh(), trangThai.getTrangThaiDuThi());
+						listBaiThi = btBO.getListXuLy(maKyThi, maMonThi, maPhongThi);
+						frm.setListBaiThi(listBaiThi);
 					}	
 				}			
 			}
-			else System.out.println("NULL");
+			else return mapping.findForward("error");
+			ktBO.updateTrangThai(maKyThi, 4);
 			frm.setNotice("Lưu thành công");
 			return mapping.findForward("success");
 		}

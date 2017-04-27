@@ -67,13 +67,14 @@ public class NhapDiemThiAction extends Action{
 				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
 			}
 			frm.setNotice("Lưu điểm thi thành công");
+			frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 			return mapping.findForward("success");
 		}
-		if("xoaHet".equals(frm.getXoaHet())){
+		/*if("xoaHet".equals(frm.getXoaHet())){
 			btBO.delete(maKyThi, maMonThi, tuiSo);
 			frm.setNotice("Xóa hết thành công");
 			return mapping.findForward("success");
-		}
+		}*/
 		return mapping.findForward("success");
 	}
 	

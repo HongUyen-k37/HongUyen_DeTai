@@ -63,7 +63,7 @@
 						</div>
 						<div class="col-sm-3">
 							<html:form action="/PhanPhongThi" method="POST">
-								<input type="hidden" name="tongSoCho" value="$('#tongSoLuong').html();"/>
+								<input type="hidden" name="tongSoCho" id="tongSoCho"/>
 								<button style="margin-left: 50px" type="submit" class="btn btn-success btn-all" name="bienChe" value="bienChe">Biên chế</button>
 							</html:form>
 						</div>
@@ -141,6 +141,8 @@
 			showNotice('${phongThiActionForm.notice}');
 		</logic:notEmpty>
 	});
+	var x = $('#tongSoLuong').html();
+	$('#tongSoCho').val(x);
 </script>
 </body>
 </html>

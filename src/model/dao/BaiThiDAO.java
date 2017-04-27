@@ -209,8 +209,6 @@ public class BaiThiDAO extends DataAccessObject{
 			pstm.setString(3, maKyThi);
 			pstm.setString(4, maMonThi);
 			pstm.setString(5, maThiSinh);
-			//moas code xong deo test DAO chi het a -_-
-			//boy mowis them voo, eos biet
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -266,5 +264,33 @@ public class BaiThiDAO extends DataAccessObject{
 			tryToClose(pstm);
 		}
 		return result;
+	}
+	public List<BaiThiBean> getListXuLy(String maKyThi, String maMonThi, String maPhongThi){
+		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM BAITHI, THISINH WHERE BAITHI.maThiSinh = THISINH.maThiSinh and BAITHI.maKyThi = ?"
+					+ " and maMonThi = ? and maPhongThi = ? ORDER BY ten, hoDem";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, maMonThi);
+			pstm.setString(3, maPhongThi);
+			rs = pstm.executeQuery();
+			BaiThiBean bt = null;
+			while (rs.next()) {
+				bt = new BaiThiBean(rs.getString("maThiSinh"), rs.getInt("trangThaiDuThi"), rs.getString("soBaoDanh"), rs.getString("hoDem"),
+						rs.getString("ten"), rs.getString("ngaySinh"));
+				lst.add(bt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
 	}
 }

@@ -12,7 +12,39 @@ public class BaiThiBean {
 	private String ghiChu;
 	private String phong;
 	private String soBaoDanh;
+	private String hoDem;
+	private String ten;
+	private String ngaySinh;
 	
+	
+	public BaiThiBean(String maThiSinh, int trangThaiDuThi, String soBaoDanh, String hoDem, String ten,
+			String ngaySinh) {
+		super();
+		this.maThiSinh = maThiSinh;
+		this.trangThaiDuThi = trangThaiDuThi;
+		this.soBaoDanh = soBaoDanh;
+		this.hoDem = hoDem;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+	}
+	public String getHoDem() {
+		return hoDem;
+	}
+	public void setHoDem(String hoDem) {
+		this.hoDem = hoDem;
+	}
+	public String getTen() {
+		return ten;
+	}
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+	public String getNgaySinh() {
+		return ngaySinh;
+	}
+	public void setNgaySinh(String ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
 	public BaiThiBean(int soPhach, int tuiSo, String phong, String soBaoDanh) {
 		super();
 		this.soPhach = soPhach;

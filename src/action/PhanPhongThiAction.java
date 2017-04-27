@@ -57,6 +57,7 @@ public class PhanPhongThiAction extends Action{
 			}
 			else{
 				tsBO.phanPhongThi(maKyThi);
+				ktBO.updateTrangThai(maKyThi, 2);
 				frm.setNotice("Biên chế thành công");
 				return mapping.findForward("success");
 			}

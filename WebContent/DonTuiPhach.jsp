@@ -45,23 +45,27 @@
 					<input type="number" class="form-control" name="coSoPhong" min="1" value="${baiThiActionForm.coSoPhong}">
 				</div>
 			</div>
-			<div class="col-md-5 form-group">
+			<div class="col-md-4 form-group">
 				<label class="col-md-5">Cơ số túi:</label>
 				<div class="col-md-7 no-pad">
 					<input type="number" class="form-control" name="coSoTui" min="1" value="${baiThiActionForm.coSoTui}">
 				</div>
 			</div>
-			<div class="btn-gr col-md-2">
-				<button type="submit" class="btn btn-success btn-all" name="submit" value="cal">Tính số lượt</button>
+			<div class="col-sm-3">
+				<button type="submit" class="btn btn-success btn-all" name="submit" value="execute">Thực hiện</button>
 			</div>
+			</html:form>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
 				<div class="col-md-3 form-group">
 					<label>Lượt:</label>
 				</div>
-				<div class="col-md-9">
-					<input class="form-control" type="number" name="luot">
+				<div class="col-md-9 form-group">
+					<select>
+						<option>1</option>
+						<option>2</option>
+					</select>
 				</div>
 			</div>
 			<div class="col-md-5">
@@ -71,10 +75,6 @@
 				<div class="col-md-6 no-pad">
 				</div>	
 			</div>
-			<div class="col-md-2">
-				<button type="submit" class="btn btn-success btn-all" name="submit" value="execute">Thực hiện</button>
-			</div>
-			</html:form>
 		</div>
 	</div>
 		<div class="details_info">
@@ -93,8 +93,7 @@
 			</tbody>
 			</table>
 			<div class="row">
-				<p class="col-md-10">Danh sách gồm có: <span> 50/100 </span> sinh viên</p>
-				<div class="col-md-2"><button type="submit" class="btn btn-success btn-all" name="execute">In dồn túi</button></div>
+				<div class="col-md-2"><button type="submit" class="btn btn-success btn-all" name="execute">In don túi</button></div>
 			</div>
 		</div>
 	</div>
@@ -104,46 +103,73 @@
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 <script type="text/javascript">
-
-	var listPhong=[15,23,31,41];
-	var baiThi1={"soBaoDanh":5,"soPhach":10,"phong":15,};
-	var baiThi2={"soBaoDanh":5,"soPhach":10,"phong":23};
-	var baiThi3={"soBaoDanh":5,"soPhach":10,"phong":31};
-	var baiThi4={"soBaoDanh":5,"soPhach":10,"phong":41};
-
-	var tui=[baiThi1,baiThi1,baiThi1,baiThi2,baiThi2,baiThi2,baiThi2,baiThi3,baiThi3,baiThi3,baiThi4,baiThi4];
-	var listTui=[tui,tui,tui];
-	var phong1=[baiThi1,baiThi1,baiThi1,baiThi1,baiThi1,baiThi1]
-	var listPhong=
-		for(var i=0;i<listPhong.length;i++){
-			var html='<th colspan="2">Phòng '+listPhong[i]+'</th>';
-			$("#soPhong").append(html);
-			$("#soBaiDanhSoPhach").append("<th>SBD</th><th>So Phach</th>");
+	$.ajax({
+		type: "POST",
+		data:{
+			maKyThi : maKyThi,
+		},
+		url:"GetKyThi.do",
+		success: function (result) {
+			result=JSON.parse(result);
+			var kyThi=result[0];
+			var arrMonThi=result[1];
+	var listPhong=[1,2,3];
+	var listTui=[[],[],[],[]];
+	var listBaiThi=[];
+	var maxRoom=new Array(listTui.length);
+	for(var i=0;i<30;i++){
+		var baiThi={};
+		baiThi.soBaoDanh=i+1;
+		baiThi.soPhach=parseInt(Math.random()*100+1);
+		baiThi.phong=parseInt(Math.random()*listPhong.length+1);
+		baiThi.tui=parseInt(Math.random()*listTui.length);
+		listBaiThi.push(baiThi);
+		listTui[baiThi.tui].push(baiThi);
+	}
+	
+	var maxRoom=[];
+	for(var i=0;i<listTui.length;i++)
+	{
+		var roomSlot={};
+		for(var j=0;j<listPhong.length;j++) roomSlot[listPhong[j]]=0;
+		for(var j=0;j<listTui[i].length;j++){
+			roomSlot[listTui[i][j].phong]++;
 		}
-		for(var i=0;i<listTui.length;i++){
-			var size=Math.ceil(listTui[i].length/listPhong.length);
-			var html='<tr><th rowspan="'+size+'">Tui '+(i+1)+'</th>';
-			for(var j=0;j<size;j++){
-				for(var k=0;k<listPhong.length;k++){
-					html+='<td id="sbd_'+i+'_'+j+'_'+listPhong[k]+'"></td>';
-					html+='<td id="sp_'+i+'_'+j+'_'+listPhong[k]+'"></td>';
-				}
-				if(j!=size-1) html+="</tr><tr>";
+		var max=0;
+		for(var j=0;j<listPhong.length;j++) if(max<roomSlot[listPhong[j]]) max=roomSlot[listPhong[j]];
+		maxRoom.push(max);
+		console.log(roomSlot);
+	}
+	for(var i=0;i<listPhong.length;i++){
+		var html='<th colspan="2">Phòng '+listPhong[i]+'</th>';
+		$("#soPhong").append(html);
+		$("#soBaiDanhSoPhach").append("<th>SBD</th><th>Số phách</th>");
+	}
+	for(var i=0;i<listTui.length;i++){
+		var size=maxRoom[i];
+		var html='<tr><th rowspan="'+size+'">Túi '+(i+1)+'</th>';
+		for(var j=0;j<size;j++){
+			for(var k=0;k<listPhong.length;k++){
+				html+='<td id="sbd_'+i+'_'+listPhong[k]+'_'+j+'"></td>';
+				html+='<td id="sp_'+i+'_'+listPhong[k]+'_'+j+'"></td>';
 			}
-			html+="</tr>";
-			$("#bodyTable").append(html);
+			if(j!=size-1) html+="</tr><tr>";
 		}
-		for(var i=0;i<listTui.length;i++){
-			for(var j=0;j<listTui[i].length;j++){
-				var baiThi=listTui[i][j];
-				var locationSBD="#sbd_"+i+"_"+(j%listPhong.length)+"_"+baiThi.phong;
-				var locationSP="#sp_"+i+"_"+(j%listPhong.length)+"_"+baiThi.phong;
-				$(locationSBD).append(baiThi.soBaoDanh);
-				$(locationSP).append(baiThi.soPhach);
+		html+="</tr>";
+		$("#bodyTable").append(html);
+	}
+	for(var i=0;i<listBaiThi.length;i++){
+			var baiThi=listBaiThi[i];
+			var locationSBD="#sbd_"+baiThi.tui+"_"+baiThi.phong+"_";
+			var locationSP="#sp_"+baiThi.tui+"_"+baiThi.phong+"_";
+			var x=0;
+			while($(locationSBD+x).html()!=""){
+				x++;
 			}
-			
-		}
-
+			$(locationSBD+x).append(baiThi.soBaoDanh);
+			$(locationSP+x).append(baiThi.soPhach);
+	}
+	
 </script>
 </body>
 </html>

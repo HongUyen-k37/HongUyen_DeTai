@@ -34,12 +34,13 @@ public class BaiThiBO {
 	public boolean updateDonTui(String maKyThi, String maMonThi, String maThiSinh, int tuiSo, int soPhach) {
 		return bt.updateDonTui(maKyThi, maMonThi, maThiSinh, tuiSo, soPhach);
 	}
-	public void DonTuiPhach(String maKyThi, String maMonThi, int coSoPhong, int coSoTui, int luot, int soLuotThucHien){
+	public void DonTuiPhach(String maKyThi, String maMonThi, int coSoPhong, int coSoTui, int soLuotThucHien){
 		PhongThiBO ptBO = new PhongThiBO();
 		BaiThiBO btBO = new BaiThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		List<BaiThiBean> listAll = new ArrayList<>();
-		for(int i = (luot-1)*coSoPhong; i < luot*coSoPhong; i++){
+		for(int l = 1; l <= soLuotThucHien; l++){
+		for(int i = (l-1)*coSoPhong; i < l*coSoPhong; i++){
 			List<BaiThiBean> listBaiThiTheoPhong = btBO.getListTheoMon(maKyThi, maMonThi, listPhongThi.get(i).getMaPhongThi());
 			listAll.addAll(listBaiThiTheoPhong);
 		}
@@ -51,11 +52,15 @@ public class BaiThiBO {
 				if(j > listAll.size()) break;
 			}
 		}
+		}
 	}
 	public List<BaiThiBean> getListDonTui(String maKyThi){
 		return bt.getListDonTui(maKyThi);
 	}
 	public boolean delete(String maKyThi, String maMonThi, int tuiSo) {
 		return bt.delete(maKyThi, maMonThi, tuiSo);
+	}
+	public List<BaiThiBean> getListXuLy(String maKyThi, String maMonThi, String maPhongThi){
+		return bt.getListXuLy(maKyThi, maMonThi, maPhongThi);
 	}
 }

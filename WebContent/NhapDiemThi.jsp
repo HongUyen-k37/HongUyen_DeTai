@@ -64,7 +64,8 @@
 						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
 					</td>
 					<td>
-						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}">
+						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
+						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control">
 					</td>
 					<%-- <td>
 						<span id="output${stt-1}"></span>
@@ -80,7 +81,7 @@
 				<div class="col-sm-3" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
 					<!-- <button type="submit" class="btn btn-success btn-all" name="delete" id="delete" name="resetForm" onclick="clearCheckbox()">Xóa hết</button> -->
-					<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa hết</button>
+					<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button>
 				</div>
 			</div>
 		</div>
