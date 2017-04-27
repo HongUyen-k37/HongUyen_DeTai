@@ -15,6 +15,7 @@ import form.DiemActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 import model.bo.ThiSinhBO;
 
 public class XacDinhDiemChuanAction extends Action{
@@ -39,6 +40,9 @@ public class XacDinhDiemChuanAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get mon thi cua ky thi
+		MonThiBO mtBO = new MonThiBO();
+		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		frm.setNotice(null);
 		//chức năng
 		if ("test".equals(frm.getKiemTra()) || "submit".equals(frm.getSubmit())) {
