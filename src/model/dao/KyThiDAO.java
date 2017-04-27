@@ -208,4 +208,25 @@ public class KyThiDAO extends DataAccessObject{
 		}
 		return result;
 	}
+
+	public boolean updateTrangThai(String maKyThi, int trangThai){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update KYTHI Set trangThai=? where maKyThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setInt(1, trangThai);
+			pstm.setString(2,maKyThi);		
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }

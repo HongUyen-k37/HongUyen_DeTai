@@ -205,7 +205,7 @@ tr td{
     font-size: 13px;
     padding: 5px;
 }
-.table > thead > tr > th, .table > tbody > tr > td{
+.table > thead > tr > th{
 	padding: 5px;
 	font-size: 13px;
 	cursor: pointer;
