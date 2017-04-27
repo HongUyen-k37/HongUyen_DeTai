@@ -29,7 +29,7 @@ public class ThemKyThiAction extends Action {
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("error");
+		if(user == null) return mapping.findForward("login");
 		//them
 		if ("submit".equals(frm.getSubmit())) {
 			String tenKyThi = frm.getTenKyThi();
@@ -53,10 +53,11 @@ public class ThemKyThiAction extends Action {
 			KyThiBean kt = new KyThiBean(null, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.insert(kt, listMonThi);
+			session.setAttribute("notice", "Thêm kỳ thi thành công");
 			frm.setNotice("Thêm kỳ thi thành công");
-			return mapping.findForward("ThemKyThi");
+			return mapping.findForward("success");
 		}
-		return mapping.findForward("ShowKyThi");
+		return mapping.findForward("home");
 	}
 	
 }

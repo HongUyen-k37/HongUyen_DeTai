@@ -22,8 +22,8 @@ public class DanhSachKyThiAction extends Action{
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("error");
-		
+		if(user == null) return mapping.findForward("login");
+		//show list kythi
 		KyThiBO ktBO = new KyThiBO();
 		frm.setListKyThi(ktBO.getListKyThi());
 		return mapping.findForward("success");

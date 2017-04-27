@@ -38,9 +38,10 @@ public class XoaKyThiAction extends Action{
 			return mapping.findForward("error");
 		}
 		else{
-		//xóa
-		ktBO.delete(maKyThi);
-		return mapping.findForward("success");
+			//xóa
+			ktBO.delete(maKyThi);
+			session.setAttribute("notice", "Xoá kỳ thi thành công");
+			return mapping.findForward("success");
 		}
 	}
 	

@@ -15,6 +15,7 @@ import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 import model.bo.ThiSinhBO;
 
 public class DanhSachThiSinhAction extends Action{
@@ -31,13 +32,16 @@ public class DanhSachThiSinhAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		
+		//get mã kỳ thi
 		ThiSinhBO tsBO = new ThiSinhBO();
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
 		if(frm.getMaKyThi()!=null)
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list môn thi của kỳ thi
+		MonThiBO mtBO = new MonThiBO();
+		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		//get list thi sinh theo ky thi
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));
 		return mapping.findForward("success");

@@ -29,34 +29,35 @@ public class SuaKyThiAction extends Action {
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("error");
+		if(user == null) return mapping.findForward("login");
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
 		if(maKyThi==null || maKyThi.equals("")) 
-			return mapping.findForward("login");
+			return mapping.findForward("error");
 		//get thông tin kỳ thi
 		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
 		if(kyThi.getTrangThai()!=0){
 			return mapping.findForward("error");
 		}
 		else{
-		//get list môn thi
-		List<MonThiBean> listMonThi = null;
-		if(frm.getListMonThi()!=null){
-			listMonThi = frm.getListMonThi();
-		}
-		String tenKyThi = frm.getTenKyThi();
-		String ngayThi = frm.getNgayThi();
-		int namTuyenSinh = frm.getNamTuyenSinh();
-		String nganh = frm.getNganh();
-		String hinhThucDT = frm.getHinhThucDT();
-		String coSoLKDT = frm.getCoSoLKDT();
-		int soMonThi = listMonThi.size();
-		KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
-				0, null, 0, 0, 0, 0, false);
-		ktBO.update(kt, listMonThi);
-		frm.setNotice("Sửa kỳ thi thành công");
-		return mapping.findForward("success");
+			//get list môn thi
+			List<MonThiBean> listMonThi = null;
+			if(frm.getListMonThi()!=null){
+				listMonThi = frm.getListMonThi();
+			}
+			String tenKyThi = frm.getTenKyThi();
+			String ngayThi = frm.getNgayThi();
+			int namTuyenSinh = frm.getNamTuyenSinh();
+			String nganh = frm.getNganh();
+			String hinhThucDT = frm.getHinhThucDT();
+			String coSoLKDT = frm.getCoSoLKDT();
+			int soMonThi = listMonThi.size();
+			KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
+					0, null, 0, 0, 0, 0, false);
+			ktBO.update(kt, listMonThi);
+			session.setAttribute("notice", "Sửa kỳ thi thành công");
+			frm.setNotice("Sửa kỳ thi thành công");
+			return mapping.findForward("success");
 		}
 	}
 	
