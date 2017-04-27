@@ -55,4 +55,7 @@ public class BaiThiBO {
 	public List<BaiThiBean> getListDonTui(String maKyThi){
 		return bt.getListDonTui(maKyThi);
 	}
+	public boolean delete(String maKyThi, String maMonThi, int tuiSo) {
+		return bt.delete(maKyThi, maMonThi, tuiSo);
+	}
 }

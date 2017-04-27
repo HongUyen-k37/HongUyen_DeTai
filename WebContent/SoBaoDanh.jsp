@@ -74,7 +74,7 @@
 					<td><bean:write name="dsts" property="soBaoDanh"/></td>
 					<td><bean:write name="dsts" property="hoDem"/></td>
 					<td><bean:write name="dsts" property="ten"/></td>
-					<td><bean:write name="dsts" property="ngaySinh"/></td>
+					<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
 				</tr>
 				</logic:iterate>
 			</tbody>

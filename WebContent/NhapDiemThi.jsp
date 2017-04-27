@@ -74,12 +74,13 @@
 			</tbody>
 			</table>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-9">
 				<p>Danh sách gồm có: <span id="soBaiThi"> ${stt} </span> bài thi.</p>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-3" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-					<button type="submit" class="btn btn-success btn-all" name="delete" id="delete" onclick="clearCheckbox()">Xóa hết</button>
+					<!-- <button type="submit" class="btn btn-success btn-all" name="delete" id="delete" name="resetForm" onclick="clearCheckbox()">Xóa hết</button> -->
+					<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa hết</button>
 				</div>
 			</div>
 		</div>
@@ -92,5 +93,12 @@
 </div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="diemActionForm" property="notice">
+			showNotice('${diemActionForm.notice}');
+		</logic:notEmpty>
+	});
+</script>
 </body>
 </html>

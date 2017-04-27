@@ -51,16 +51,16 @@
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
-								<th rowspan="2">STT</th>						
-								<th rowspan="2">Số báo danh</th>
-								<th rowspan="2" colspan="2">Họ và tên</th>
-								<th rowspan="2">Ngày sinh</th>
-								<th rowspan="2">Khu vực</th>
-								<th rowspan="2">Nhóm đối tượng</th>
+								<th rowspan="2" style="line-height: 45px;">STT</th>						
+								<th rowspan="2" style="line-height: 45px;">Số báo danh</th>
+								<th rowspan="2" style="line-height: 45px;"colspan="2">Họ và tên</th>
+								<th rowspan="2" style="line-height: 45px;">Ngày sinh</th>
+								<th rowspan="2" style="line-height: 45px;">Khu vực</th>
+								<th rowspan="2" style="line-height: 45px;">Nhóm đối tượng</th>
 								<th colspan="4">Điểm thi</th>
-								<th rowspan="2">Điểm ƯT</th>
-								<th rowspan="2">Cộng</th>
-								<th rowspan="2">Ghi chú</th>
+								<th rowspan="2" style="line-height: 45px;">Điểm ƯT</th>
+								<th rowspan="2" style="line-height: 45px;">Cộng</th>
+								<th rowspan="2" style="line-height: 45px;">Ghi chú</th>
 							</tr>
 							<tr>
 								<th>Môn 1</th>						
@@ -78,15 +78,15 @@
 									<td><bean:write name="dsts" property="soBaoDanh"/></td>
 									<td><bean:write name="dsts" property="hoDem"/></td>
 									<td><bean:write name="dsts" property="ten"/></td>
-									<td><bean:write name="dsts" property="ngaySinh"/></td>
-									<td><bean:write name="dsts" property="khuVuc"/></td>
-									<td><bean:write name="dsts" property="doiTuong"/></td>
-									<td><bean:write name="dsts" property="diemMon1"/></td>
-									<td><bean:write name="dsts" property="diemMon2"/></td>
-									<td><bean:write name="dsts" property="diemMon3"/></td>
-									<td>${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3}</td>
-									<td><bean:write name="dsts" property="diemUuTien"/></td>
-									<td>${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
+									<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon1"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon2"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon3"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3}</td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
 									<td><bean:write name="dsts" property="ghiChu"/></td>                    
 								</tr>
 							</logic:iterate>

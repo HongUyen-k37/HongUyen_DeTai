@@ -85,18 +85,18 @@
 								<tr>	
 									<bean:define id="stt" value="${stt+1}"/>
 									<td>${stt}</td>
-									<td><bean:write name="dsts" property="soBaoDanh"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="soBaoDanh"/></td>
 									<td><bean:write name="dsts" property="hoDem"/></td>
 									<td><bean:write name="dsts" property="ten"/></td>
-									<td><bean:write name="dsts" property="ngaySinh"/></td>
-									<td><bean:write name="dsts" property="khuVuc"/></td>
-									<td><bean:write name="dsts" property="doiTuong"/></td>
-									<td><bean:write name="dsts" property="diemMon1"/></td>
-									<td><bean:write name="dsts" property="diemMon2"/></td>
-									<td><bean:write name="dsts" property="diemMon3"/></td>
-									<td>${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3}</td>
-									<td><bean:write name="dsts" property="diemUuTien"/></td>
-									<td>${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
+									<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+									<td  style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon1"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon2"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon3"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3}</td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
 									<td><bean:write name="dsts" property="ghiChu"/></td>                    
 								</tr>
 							</logic:iterate>

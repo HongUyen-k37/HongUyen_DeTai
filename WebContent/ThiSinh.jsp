@@ -65,9 +65,9 @@
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
-							<td style="text-align: right"><bean:write name="dsts" property="khuVuc"/></td>
-							<td style="text-align: right"><bean:write name="dsts" property="doiTuong"/></td>
-							<td>
+							<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
+							<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
+							<td style="text-align: center">
 							<a href="javascript:void(0)" onclick="suaThiSinh('${maKyThi}', '${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
 	                   		<a href="javascript:void(0)" onclick="xoaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
 	                   		</td>	                    

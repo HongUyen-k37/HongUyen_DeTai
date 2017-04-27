@@ -40,9 +40,9 @@
 			<td><bean:write name="dsts" property="soBaoDanh"/></td>
 			<td>${dsts.hoDem}</td>
 			<td>${dsts.ten}</td>
-			<td><bean:write name="dsts" property="ngaySinh"/></td>
-			<td><bean:write name="dsts" property="khuVuc"/></td>
-			<td><bean:write name="dsts" property="doiTuong"/></td>
+			<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+			<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
+			<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 			<td></td>
 		</tr>
 	</logic:iterate>

@@ -28,7 +28,7 @@
 		<thead>
 			<tr>
 				<th>STT</th>
-				<th>Họ và tên</th>
+				<th colspan="2">Họ và tên</th>
 				<th>Ngày sinh</th>
 				<th>SBD</th>
 				<th>Số tờ</th>
@@ -42,8 +42,9 @@
 		<tr>	
 			<bean:define id="stt" value="${stt+1}"/>
 			<td>${stt}</td>
-			<td><bean:write name="dsts" property="hoDem"/> <bean:write name="dsts" property="ten"/></td>
-			<td><bean:write name="dsts" property="ngaySinh"/></td>
+			<td>${dsts.hoDem}</td>
+			<td>${dsts.ten}</td>
+			<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
 			<td><bean:write name="dsts" property="soBaoDanh"/></td>
 			<td></td>
 			<td></td>

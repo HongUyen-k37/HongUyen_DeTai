@@ -66,6 +66,12 @@ public class NhapDiemThiAction extends Action{
 			for (DiemThiBean diemThi : lst) {
 				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
 			}
+			frm.setNotice("Lưu điểm thi thành công");
+			return mapping.findForward("success");
+		}
+		if("xoaHet".equals(frm.getXoaHet())){
+			btBO.delete(maKyThi, maMonThi, tuiSo);
+			frm.setNotice("Xóa hết thành công");
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

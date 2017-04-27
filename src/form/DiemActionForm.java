@@ -3,6 +3,7 @@ package form;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.apache.struts.action.ActionForm;
 
 import model.bean.BaiThiBean;
@@ -17,6 +18,7 @@ public class DiemActionForm extends ActionForm{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String maKyThi;
+	private String xoaHet;
 	private KyThiBean kyThi;
 	private List<KyThiBean> listKyThi;
 	private float diemLiet;
@@ -147,4 +149,12 @@ public class DiemActionForm extends ActionForm{
 	public void setNotice(String notice) {
 		this.notice = notice;
 	}
+	public String getXoaHet() {
+		return xoaHet;
+	}
+	public void setXoaHet(String xoaHet) {
+		this.xoaHet = xoaHet;
+	}
+
+
 }

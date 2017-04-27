@@ -56,7 +56,7 @@
 						<td style="text-align: right">
 						<bean:write name="dskt" property="ngayThi" />/<bean:write name="dskt" property="namTuyenSinh" /></td>
 						
-						<td>	                    
+						<td style="text-align: center">	                    
 						<a href="javascript:void(0)" onclick="suaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa kỳ thi"><i class="glyphicon glyphicon-edit"></i></a> 
 	                    <a href="javascript:void(0)" onclick="xoaKyThi('${maKyThi}')" data-toggle="modal" class="icon icon-danger" title="Xóa kỳ thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 						</tr>
