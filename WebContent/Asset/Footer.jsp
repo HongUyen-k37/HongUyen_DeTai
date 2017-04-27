@@ -10,3 +10,11 @@
 </div>
 <span class="alert alert-success" id="notice"></span>
 <script src="js/test.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		<logic:notEmpty name="notice" scope="session">
+			showNotice('${notice}');
+			<bean:define id="notice" name="notice" scope="session"></bean:define>
+		</logic:notEmpty>
+	});
+</script>

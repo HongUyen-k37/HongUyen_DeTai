@@ -32,4 +32,7 @@ public class KyThiBO {
 	public boolean xacDinhDiemChuan(String maKyThi, float diemChuan, float diemLiet, boolean nhoHonDiemLiet) {
 		return kt.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, nhoHonDiemLiet);
 	}
+	public boolean updateTrangThai(String maKyThi, int trangThai){
+		return kt.updateTrangThai(maKyThi, trangThai);
+	}
 }
