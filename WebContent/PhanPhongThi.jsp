@@ -71,7 +71,9 @@
 				</div>
 			</div>
 			<logic:notEmpty name="phongThiActionForm" property="error">
-				<h5>${phongThiActionForm.error }</h5>
+				<div class="alert alert-warning">
+				  <strong>Warning!</strong>${phongThiActionForm.error }
+				</div>	
 			</logic:notEmpty>
 		</div>
 	</div>

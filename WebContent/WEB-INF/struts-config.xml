@@ -15,6 +15,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 	<global-forwards>
 		<forward name="login" path="/DangNhap.jsp"></forward>
 		<forward name="error" path="/ErrorPage.jsp"></forward>
+		<forward name="errorStatus" path="/ErrorStatusPage.jsp"></forward>
 	</global-forwards>
 	<action-mappings>
 		<action path="/DangNhap" name="dangNhapActionForm"

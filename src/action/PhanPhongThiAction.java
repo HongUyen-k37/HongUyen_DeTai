@@ -52,7 +52,7 @@ public class PhanPhongThiAction extends Action{
 		frm.setSoLuongThiSinh(listThiSinh.size());
 		if ("bienChe".equals(frm.getBienChe())) {
 			if(frm.getTongSoCho()!=frm.getSoLuongThiSinh()){	//truong hop khac so luong
-				frm.setError("Can dieu chinh so luong cho bang so luong sinh vien!");
+				frm.setError("Cần điều chỉnh tổng số lượng chỗ bằng tổng số lượng thí sinh dự thi!"); 
 				return mapping.findForward("success");
 			}
 			else{

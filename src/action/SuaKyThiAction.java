@@ -29,7 +29,7 @@ public class SuaKyThiAction extends Action {
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("login");
+		if(user == null) return mapping.findForward("error");
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
 		if(maKyThi==null || maKyThi.equals("")) 
@@ -37,7 +37,7 @@ public class SuaKyThiAction extends Action {
 		//get thông tin kỳ thi
 		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
 		if(kyThi.getTrangThai()!=0){
-			return mapping.findForward("error");
+			return mapping.findForward("errorStatus");
 		}
 		else{
 			//get list môn thi

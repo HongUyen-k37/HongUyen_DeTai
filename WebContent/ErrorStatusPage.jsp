@@ -20,9 +20,9 @@
     		<hr>
     		<h1 class="title-h1">404 Page not found</h1>
     		<hr>
-    		<p>Trang không khả dụng. Xin vui lòng thử lại.</p>
+    		<h5>Trang không khả dụng. Trạng thái hiện tại của kỳ thi không cho phép thực hiện chức năng này.</h5>
     		<p>
-    			<a href="DangNhap.do" class="btn btn-primary">Trở về trang Đăng nhập</a>
+    			<a href="KyThi.do" class="btn btn-primary">Trở về trang thông tin kỳ thi</a>
     		</p>
     	</div>
     </div>
