@@ -24,4 +24,7 @@ public class MonThiBO {
 	public boolean updateDonTui(String maMonThi, int coSoPhongThi, int coSoTui, int soLuot){
 		return mt.updateDonTui(maMonThi, coSoPhongThi, coSoTui, soLuot);
 	}
+	public boolean updateTrangThai(String maMonThi, int trangThai){
+		return mt.updateTrangThai(maMonThi, trangThai);
+	}
 }

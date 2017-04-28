@@ -109,6 +109,8 @@ public class XuLyBaiThiAction extends Action{
 			}
 			else return mapping.findForward("error");
 			ktBO.updateTrangThai(maKyThi, 4);
+			MonThiBO mtBO = new MonThiBO();
+			mtBO.updateTrangThai(maMonThi, 1);
 			frm.setNotice("Lưu thành công");
 			return mapping.findForward("success");
 		}

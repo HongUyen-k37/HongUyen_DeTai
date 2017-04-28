@@ -36,6 +36,7 @@ public class SuaKyThiAction extends Action {
 			return mapping.findForward("error");
 		//get thông tin kỳ thi
 		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		//get list mon thi cua ky thi
 		if(kyThi.getTrangThai()!=0){
 			return mapping.findForward("errorStatus");
 		}

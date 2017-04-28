@@ -47,7 +47,8 @@ public class NhapDiemThiAction extends Action{
 			session.setAttribute("maKyThi", maKyThi);
 		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get list Môn
 		MonThiBO mtBO = new MonThiBO();
 		List<MonThiBean> listMonThi = mtBO.getListMonThi(maKyThi);
@@ -69,6 +70,9 @@ public class NhapDiemThiAction extends Action{
 		//get Bài thi theo Môn và Túi
 		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 		if("save".equals(frm.getSave())){
+			if(kyThi.getTrangThai()>6){
+				return mapping.findForward("errorStatus");
+			}
 			List<DiemThiBean> lst = frm.getListDiemThi();
 			for (DiemThiBean diemThi : lst) {
 				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
@@ -79,6 +83,7 @@ public class NhapDiemThiAction extends Action{
 		}
 		if("finish".equals(frm.getSave())){
 			ktBO.updateTrangThai(maKyThi, 6);
+			mtBO.updateTrangThai(maMonThi, 3);
 			frm.setNotice("Đã kết thúc nhập điểm");
 			return mapping.findForward("success");
 		}

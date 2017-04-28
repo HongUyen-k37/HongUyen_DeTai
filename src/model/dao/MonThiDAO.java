@@ -148,4 +148,24 @@ public class MonThiDAO extends DataAccessObject {
 		}
 		return result;
 	}
+	public boolean updateTrangThai(String maMonThi, int trangThai){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update KYTHI Set trangThai=? where maKyThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setInt(1, trangThai);
+			pstm.setString(2, maMonThi);		
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }

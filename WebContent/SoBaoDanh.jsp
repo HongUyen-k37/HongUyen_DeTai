@@ -45,14 +45,20 @@
 				<div class="form-group row">
 				<label class="col-md-3" for="sl">Số lượng chữ số:</label>
 				<div class="col-md-9">
-					<input type="number" class="form-control" name="soLuong" min="1">
+					<input type="number" class="form-control" name="soLuong" min="1" pattern="">
 				</div>
 				</div>
+				<input type="hidden" name="soLuongSV" id="soLuongSV"/>
 				<div class="btn-gr">
 					<button type="submit" name="submit" value="submit" class="btn btn-success">Thực hiện</button>
 				</div>
 			</html:form>
 			</div>
+			<logic:notEmpty name="thiSinhActionForm" property="error">
+				<div class="alert alert-danger">
+				  ${thiSinhActionForm.error }
+				</div>
+			</logic:notEmpty>
 		<div class="details_info">
 		<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<table class="table table-bordered table-hover table-striped">
@@ -80,7 +86,7 @@
 			</tbody>
 			</table>
 			<div class="totalCandidates">
-					<p>Danh sách gồm có: <span> ${stt} </span> sinh viên</p>
+					<p>Danh sách gồm có: <span id="soSV"> ${stt} </span> sinh viên</p>
 			</div>
 		</div> <!-- end details -->
 		</div>
@@ -95,6 +101,8 @@
 			showNotice('${thiSinhActionForm.notice}');
 		</logic:notEmpty>
 	});
+	var x = $('#soSV').html();
+	$('#soLuongSV').val(x);
 </script>
 </body>
 </html>

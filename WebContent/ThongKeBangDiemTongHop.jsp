@@ -39,11 +39,11 @@
 						<p style="padding-left:30px;">Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
 					</div>
 				</div>
-				<div class="col-md-7">	
+				<div class="col-md-6">	
 					<p>Hình thức đào tạo: ${thongKeActionForm.kyThi.hinhThucDT}</p>
 					<p>Ngành: ${thongKeActionForm.kyThi.nganh}</p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<p>Điểm thi: ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
 				<div class="details_info">

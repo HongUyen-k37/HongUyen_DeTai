@@ -88,6 +88,7 @@ public class DonTuiPhachAction extends Action{
 			mtBO.updateDonTui(maMonThi, coSoPhongThi, coSoTui, soLuot);
 			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhongThi, coSoTui, soLuot);
 			ktBO.updateTrangThai(maKyThi, 5);
+			mtBO.updateTrangThai(maMonThi, 2);
 		}
 		return mapping.findForward("success");
 	}

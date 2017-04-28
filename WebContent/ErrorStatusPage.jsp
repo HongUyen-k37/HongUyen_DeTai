@@ -20,7 +20,7 @@
     		<hr>
     		<h1 class="title-h1">404 Page not found</h1>
     		<hr>
-    		<p>Trang không khả dụng. Trạng thái hiện tại của kỳ thi không cho phép thực hiện chức năng này.</p>
+    		<p>Trang không khả dụng. Trạng thái hiện tại của kỳ thi hoặc môn thi không cho phép thực hiện chức năng này.</p>
     		<p>
     			<a href="KyThi.do" class="btn btn-primary">Trở về trang thông tin kỳ thi</a>
     		</p>

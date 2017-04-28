@@ -56,9 +56,15 @@ public class DanhSoBaoDanhAction extends Action{
 			if(kyThi.getTrangThai()>1){
 				return mapping.findForward("errorStatus");
 			}
-			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), maKyThi);
-			frm.setNotice("Đánh số báo danh thành công");
-			ktBO.updateTrangThai(maKyThi, 1);
+			int soLuongChuSo = frm.getSoLuong();
+			String soLuongSV = frm.getSoLuongSV();
+			if(soLuongChuSo < soLuongSV.length())
+				frm.setError("Cần nhập số lượng chữ số hợp lệ!");
+			else{
+				tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), soLuongChuSo, maKyThi);
+				frm.setNotice("Đánh số báo danh thành công");
+				ktBO.updateTrangThai(maKyThi, 1);
+			}
 		}
 		//show list thi sinh
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));

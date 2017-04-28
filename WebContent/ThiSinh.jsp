@@ -190,7 +190,7 @@
 					<div class="form-group">
 						<label class="col-md-2" for="phone">SĐT:</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_dienThoai" name="dienThoai" data-original-title="Chỉ chứa số, độ dài từ 10-12 số" maxlength="12" pattern="[0-9]{10,12}" onchange="this.value=this.value.trim()">
+							<input type="text" class="form-control" id="f_dienThoai" name="dienThoai" data-original-title="Chỉ chứa số" maxlength="11" onchange="this.value=this.value.trim()">
 						</div>
 					</div>	
 					<div class="form-group" style="margin-right: 0px; margin-left: 0px;">

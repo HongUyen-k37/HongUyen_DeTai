@@ -47,13 +47,17 @@ public class XacDinhDiemChuanAction extends Action{
 			session.setAttribute("maKyThi", maKyThi);
 		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get mon thi cua ky thi
 		MonThiBO mtBO = new MonThiBO();
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		frm.setNotice(null);
 		//chức năng
 		if ("test".equals(frm.getKiemTra()) || "submit".equals(frm.getSubmit())) {
+			if(kyThi.getTrangThai()>6){
+				return mapping.findForward("errorStatus");
+			}
 			//get input
 			float diemLiet = frm.getDiemLiet();
 			boolean check = frm.getCheck();

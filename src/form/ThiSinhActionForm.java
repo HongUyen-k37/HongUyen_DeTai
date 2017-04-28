@@ -54,6 +54,7 @@ public class ThiSinhActionForm extends ActionForm{
 	private String search;
 	private String error;
 	private String notice;
+	private String soLuongSV;
 	public String getSubmit() {
 		return submit;
 	}
@@ -241,6 +242,14 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setNotice(String notice) {
 		this.notice = notice;
+	}
+
+	public String getSoLuongSV() {
+		return soLuongSV;
+	}
+
+	public void setSoLuongSV(String soLuongSV) {
+		this.soLuongSV = soLuongSV;
 	}
 	
 }
