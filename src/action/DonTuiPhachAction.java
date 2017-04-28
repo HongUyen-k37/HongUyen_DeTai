@@ -49,23 +49,21 @@ public class DonTuiPhachAction extends Action{
 		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
-		System.out.println(maMonThi);
+		
 		//list all phòng thi
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		//dồn túi
 		int coSoPhong = frm.getCoSoPhong();
-		if("cal".equals(frm.getSubmit())){
+		if("execute".equals(frm.getSubmit())){
+			System.out.println(maMonThi);
 			//get input
 			int tongSoPhong = listPhongThi.size();
-			System.out.println(tongSoPhong);
-			System.out.println(coSoPhong);
+			
 			//tính tổng số lượt
 			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
-		}
-		if("execute".equals(frm.getSubmit())){
 			//get input
-			int tongSoPhong = listPhongThi.size();
+			//int tongSoPhong = listPhongThi.size();
 			System.out.println(tongSoPhong);
 			System.out.println(coSoPhong);
 			//tính tổng số lượt

@@ -100,7 +100,7 @@ public class BaiThiDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ? and tuiSo = ?";
+			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ? and tuiSo = ? and trangThaiDuThi <> 5";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);
@@ -175,7 +175,7 @@ public class BaiThiDAO extends DataAccessObject{
 		PreparedStatement pstm = null;		
 		try {
 			String sql = "SELECT * FROM BAITHI, THISINH WHERE BAITHI.maThiSinh = THISINH.maThiSinh and BAITHI.maKyThi = ?"
-					+ " and maMonThi = ? and maPhongThi = ?";
+					+ " and maMonThi = ? and maPhongThi = ? and trangThaiDuThi <> 5";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);
@@ -202,7 +202,7 @@ public class BaiThiDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {		
-			String sql = "Update BAITHI Set soPhach = ?, tuiSo = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
+			String sql = "Update BAITHI Set soPhach = ?, tuiSo = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setInt(1, soPhach);
 			pstm.setInt(2, tuiSo);
@@ -220,16 +220,17 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return result;
 	}
-	public List<BaiThiBean> getListDonTui(String maKyThi){
+	public List<BaiThiBean> getListDonTui(String maKyThi, String maMonThi){
 		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM BAITHI, THISINH, PHONGTHI WHERE BAITHI.maThiSinh = THISINH.maThiSinh"
-					+ "and THISINH.maPhongThi = PHONGTHI.maPhongThi and BAITHI.maKyThi = ?";
+			String sql = "SELECT * FROM BAITHI, THISINH, PHONGTHI WHERE BAITHI.maThiSinh = THISINH.maThiSinh "
+					+ "and THISINH.maPhongThi = PHONGTHI.maPhongThi and BAITHI.maKyThi = ? and BAITHI.maMonThi = ? ORDER BY soHieuPhongThi, soBaoDanh, tuiSo";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
+			pstm.setString(2, maMonThi);
 			rs = pstm.executeQuery();
 			BaiThiBean bt = null;
 			while (rs.next()) {
