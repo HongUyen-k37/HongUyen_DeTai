@@ -25,8 +25,21 @@ public class BaiThiBO {
 	public List<BaiThiBean> getListTheoTui(String maKyThi, String maMonThi, int tuiSo){
 		return bt.getListTheoTui(maKyThi, maMonThi, tuiSo);
 	}
-	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
-		return bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo);
+	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
+		bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo);
+		List<BaiThiBean> lst = bt.getListDiem(maKyThi, maMonThi);
+		for (BaiThiBean baiThi : lst) {
+			if(baiThi.getTrangThaiDuThi()==5)
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), -1);
+			if(baiThi.getTrangThaiDuThi()==4)
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), 0);
+			if(baiThi.getTrangThaiDuThi()==3)
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), (float)50/100*baiThi.getDiemChamThi());
+			if(baiThi.getTrangThaiDuThi()==2)
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), (float)75/100*baiThi.getDiemChamThi());
+			if(baiThi.getTrangThaiDuThi()==1)
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), baiThi.getDiemChamThi());
+		}
 	}
 	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi, String maPhongThi){
 		return bt.getListTheoMon(maKyThi, maMonThi, maPhongThi);

@@ -22,7 +22,7 @@ public class ThongKeDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				ThongKeBean tk =  new ThongKeBean(rs.getString("hoDem"),rs.getString("ten"),rs.getString("ngaySinh"),
-						rs.getString("soBaoDanh"),rs.getInt("soPhach"), rs.getFloat("diemChamThi"), "", rs.getString("ghiChu"));
+						rs.getString("soBaoDanh"),rs.getInt("soPhach"), rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"));
 				lst.add(tk);
 			}
 		} catch (Exception ex) {

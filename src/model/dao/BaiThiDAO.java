@@ -36,7 +36,7 @@ public class BaiThiDAO extends DataAccessObject{
 		pstm.setInt(6, baiThi.getTrangThaiDuThi());
 		pstm.setFloat(7, baiThi.getDiemChamThi());
 		pstm.setFloat(8, baiThi.getDiemChinhThuc());
-		pstm.setString(9, baiThi.getGhiChu());
+		pstm.setNString(9, baiThi.getGhiChu());
 		pstm.executeUpdate();
 		result = true;
 	} catch (Exception ex) {
@@ -163,12 +163,11 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public boolean nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
-		boolean result = false;
+	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
+		//boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			
 			String sql = "Update BAITHI Set diemChamThi = ? where maKyThi = ? and maMonThi = ? and soPhach = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setFloat(1, diemSo);
@@ -176,15 +175,15 @@ public class BaiThiDAO extends DataAccessObject{
 			pstm.setString(3, maMonThi);
 			pstm.setInt(4, soPhach);
 			pstm.executeUpdate();
-			result = true;
+			//result = true;
 		} catch (Exception ex) {
-			result = false;
+			//result = false;
 			getMessenger(ex);
 		} finally {
 			tryToClose(cnn);
 			tryToClose(pstm);
 		}
-		return result;
+		//return result;
 	}
 	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi, String maPhongThi){
 		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
@@ -301,6 +300,55 @@ public class BaiThiDAO extends DataAccessObject{
 			while (rs.next()) {
 				bt = new BaiThiBean(rs.getString("maThiSinh"), rs.getInt("trangThaiDuThi"), rs.getString("soBaoDanh"), rs.getString("hoDem"),
 						rs.getString("ten"), rs.getString("ngaySinh"));
+				lst.add(bt);
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return lst;
+	}
+	public boolean updateDiemChinhThuc(String maKyThi, String maMonThi, String maThiSinh, float diemChinhThuc){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update BAITHI Set diemChinhThuc = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setFloat(1, diemChinhThuc);
+			pstm.setString(2, maKyThi);
+			pstm.setString(3, maMonThi);
+			pstm.setString(4, maThiSinh);
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
+	public List<BaiThiBean> getListDiem(String maKyThi, String maMonThi){
+		List<BaiThiBean> lst=new ArrayList<BaiThiBean>();
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;		
+		try {
+			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setString(2, maMonThi);
+			rs = pstm.executeQuery();
+			BaiThiBean bt = null;
+			while (rs.next()) {
+				bt = new BaiThiBean(rs.getString("maKyThi"), rs.getString("maMonThi"), rs.getString("maThiSinh"),
+						rs.getInt("soPhach"), rs.getInt("tuiSo"), rs.getInt("trangThaiDuThi"), rs.getFloat("diemChamThi"),
+						rs.getFloat("diemChinhThuc"), rs.getString("ghiChu"));
 				lst.add(bt);
 			}
 		} catch (Exception ex) {

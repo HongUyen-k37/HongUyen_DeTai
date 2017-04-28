@@ -84,14 +84,21 @@
 									<td><bean:write name="dsts" property="hoDem"/></td>
 									<td><bean:write name="dsts" property="ten"/></td>
 									<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
-									<td  style="text-align: center"> <bean:write name="dsts" property="soBaoDanh"/></td>
+									<td style="text-align: center"> <bean:write name="dsts" property="soBaoDanh"/></td>
 									<td style="text-align: center"><bean:write name="dsts" property="soPhach"/></td>
+									<logic:notEqual value="-1" name="dsts" property="diemChinhThuc">
 									<td style="text-align: center">
-									<bean:write name="dsts" property="diemChamThi" />
+									<bean:write name="dsts" property="diemChinhThuc" />
 									<input type="hidden" id="input${stt-1}" value="${dsts.diemChamThi}" />
 									</td>
 				                    <td><span id="output${stt-1}"></span></td>
-				                    <td><bean:write name="dsts" property="ghiChu"/></td>
+				                    </logic:notEqual>
+				                    <logic:equal value="-1" name="dsts" property="diemChinhThuc">
+				                    <input type="hidden" id="input${stt-1}" value="" />
+				                    <td></td>
+				                    <td><span id="output${stt-1}"></span></td>
+				                    </logic:equal>
+				                    <td style="text-align: center"><bean:write name="dsts" property="ghiChu"/></td>
 								</tr>
 							</logic:iterate>
 						</tbody>

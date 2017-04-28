@@ -9,8 +9,20 @@ public class ThongKeBean {
 	private float diemChamThi;
 	private String diemChu;
 	private String ghiChu;
+	private float diemChinhThuc;
 	public String getDiemChu() {
 		return diemChu;
+	}
+	public ThongKeBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach, float diemChinhThuc,
+			String ghiChu) {
+		super();
+		this.hoDem = hoDem;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+		this.soBaoDanh = soBaoDanh;
+		this.soPhach = soPhach;
+		this.diemChinhThuc = diemChinhThuc;
+		this.ghiChu = ghiChu;
 	}
 	public void setDiemChu(String diemChu) {
 		this.diemChu = diemChu;
@@ -52,7 +64,7 @@ public class ThongKeBean {
 	public void setSoPhach(int soPhach) {
 		this.soPhach = soPhach;
 	}
-	public ThongKeBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach,
+/*	public ThongKeBean(String hoDem, String ten, String ngaySinh, String soBaoDanh, int soPhach,
 			float diemChamThi, String diemChu, String ghiChu) {
 		super();
 		this.hoDem = hoDem;
@@ -63,7 +75,7 @@ public class ThongKeBean {
 		this.diemChamThi = diemChamThi;
 		this.diemChu = diemChu;
 		this.ghiChu = ghiChu;
-	}
+	}*/
 	public float getDiemChamThi() {
 		return diemChamThi;
 	}
@@ -73,6 +85,12 @@ public class ThongKeBean {
 	public ThongKeBean() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public float getDiemChinhThuc() {
+		return diemChinhThuc;
+	}
+	public void setDiemChinhThuc(float diemChinhThuc) {
+		this.diemChinhThuc = diemChinhThuc;
 	}
 	
 }
