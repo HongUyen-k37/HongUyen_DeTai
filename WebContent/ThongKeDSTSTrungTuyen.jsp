@@ -102,6 +102,16 @@
 							</logic:iterate>
 						</tbody>
 						</table>
+						<div class="row totalCandidates">
+							<div class="col-md-7">
+								<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>
+							</div>
+							<div class="col-md-5 btn-group" style="text-align: center">
+								<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
+								<p>T.M. Hội đồng tuyển sinh</p>
+								<p>Chủ tịch</p>
+							</div>
+						</div>
 					</div>
 				</div>
 	    	</div>
