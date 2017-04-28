@@ -34,10 +34,15 @@ public class TimKiemKyThiAction extends Action{
 			frm.setListKyThi(kt.getListKyThi());
 		else{		
 			/*search = new String(search.getBytes("ISO-8859-1"), "UTF-8");*/
-			frm.setListKyThi(kt.searchKyThi(search));	
+			if(kt.searchKyThi(search).size()!=0)
+				frm.setListKyThi(kt.searchKyThi(search));	
+			else{
+				frm.setListKyThi(kt.searchKyThi(search));	
+				frm.setError("Không tìm thấy dữ liệu hợp lệ!"); 
+			}
 		}
 		// Lay list tim kiem
-	
+			
 		return mapping.findForward("success");
 	}
 

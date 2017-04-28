@@ -13,16 +13,16 @@
 </head>
 <body>
 <jsp:include page="Asset/Header.jsp" />
-<jsp:include page="Asset/Menu2.jsp" />
+<jsp:include page="Asset/Menu1.jsp" />
 <div class="content" style="min-height: 600px">
     <div class="container">
     	<div class="text-center">
     		<hr>
     		<h1 class="title-h1">404 Page not found</h1>
     		<hr>
-    		<p>Trang không khả dụng. Trạng thái hiện tại của kỳ thi không cho phép thực hiện chức năng này.</p>
+    		<p>Trang không khả dụng. Xin vui lòng thử lại.</p>
     		<p>
-    			<a href="KyThi.do" class="btn btn-primary">Trở về trang thông tin kỳ thi</a>
+    			<a href="DangNhap.jsp" class="btn btn-primary">Trở về trang Đăng nhập</a>
     		</p>
     	</div>
     </div>

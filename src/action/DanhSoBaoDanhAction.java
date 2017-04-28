@@ -35,18 +35,24 @@ public class DanhSoBaoDanhAction extends Action{
 		frm.setListKyThi(listKyThi);
 		//get makythi
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+		}
+		else{
+			return mapping.findForward("error");
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get listmonthi cua kythi
 		MonThiBO mtBO = new MonThiBO();
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		//danh sbd
-		if ("submit".equals(frm.getSubmit())){
-			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), "KT0001");
+		if ("submit".equals(frm.getSubmit())&&( frm.getMaKyThi()!=null)){
+			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), frm.getMaKyThi());
 			frm.setNotice("Đánh số báo danh thành công");
 			ktBO.updateTrangThai(maKyThi, 1);
+		}else{
+			return mapping.findForward("error");
 		}
 		//show list thi sinh
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));

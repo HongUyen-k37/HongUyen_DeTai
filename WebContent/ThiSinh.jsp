@@ -31,10 +31,10 @@
 			<bean:define id="kyThi" name="thiSinhActionForm" property="kyThi"></bean:define>
 			<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
 			<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
-			<div class="col-md-4 col-xs-6" style="float:right">
+			<div class="col-md-7 col-xs-6" style="float:right">
 				<html:form action="/TimKiemThiSinh" styleClass="input-group" method="POST"> 				
 			        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">
-			        <input class="form-control" type="text" size="9" name="search" style="border-radius: 5px 0 0 5px; height: 34px" placeholder="Nhập tên thí sinh, khu vực để tìm kiếm..">
+			        <input class="form-control" type="text" size="9" name="search" style="border-radius: 5px 0 0 5px; height: 34px" placeholder="Nhập tên thí sinh, khu vực, đối tượng để tìm kiếm...">
 					<span class="input-group-btn">
 				        <button style="height: 34px;" for="menu_my_bootstrap_menu_settings_main_menu_search" type="submit" name="submit" value="submit" class="btn ">
 						<i class="glyphicon glyphicon-search"></i></button>
@@ -80,7 +80,12 @@
 				</div>
 			</div><!-- end details_info -->
 		</div>
-		</div>
+		<logic:notEmpty name="thiSinhActionForm" property="error">
+			<div class="alert alert-warning">
+				${thiSinhActionForm.error }
+			</div>	
+		</logic:notEmpty>
+		</div>	
 	</div>
 </div>
 <div class="modal fade" id="xoaThiSinh">

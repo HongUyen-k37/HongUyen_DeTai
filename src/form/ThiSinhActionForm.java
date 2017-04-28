@@ -52,6 +52,7 @@ public class ThiSinhActionForm extends ActionForm{
 	private int soLuong;
 	private String submit;
 	private String search;
+	private String error;
 	private String notice;
 	public String getSubmit() {
 		return submit;
@@ -217,13 +218,6 @@ public class ThiSinhActionForm extends ActionForm{
 		this.search = search;
 	}
 
-	public String getNotice() {
-		return notice;
-	}
-
-	public void setNotice(String notice) {
-		this.notice = notice;
-	}
 
 	public List<MonThiBean> getListMonThi() {
 		return listMonThi;
@@ -231,6 +225,22 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setListMonThi(List<MonThiBean> listMonThi) {
 		this.listMonThi = listMonThi;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 	
 }

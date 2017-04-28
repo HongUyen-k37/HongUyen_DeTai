@@ -58,8 +58,6 @@ public class SuaKyThiAction extends Action {
 			KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.update(kt, listMonThi);
-			/*session.setAttribute("notice", "Sửa kỳ thi thành công");*/
-			frm.setNotice("Sửa kỳ thi thành công");
 			return mapping.findForward("success");
 		}
 	}
