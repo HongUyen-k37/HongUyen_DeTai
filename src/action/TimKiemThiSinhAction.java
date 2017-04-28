@@ -15,6 +15,7 @@ import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
+import model.bo.MonThiBO;
 import model.bo.ThiSinhBO;
 
 public class TimKiemThiSinhAction extends Action{
@@ -37,6 +38,9 @@ public class TimKiemThiSinhAction extends Action{
 			maKyThi = frm.getMaKyThi();
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		//get list mon thi
+		MonThiBO mtBO = new MonThiBO();
+		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		//get từ khóa tìm kiếm về
 		String search = frm.getSearch();
 		System.out.println(search);
@@ -47,8 +51,13 @@ public class TimKiemThiSinhAction extends Action{
 		if (submit == null ||search == null || search.equals("")) 
 			frm.setListThiSinh(ts.getListThiSinh(maKyThi));
 		else{		
-			/*search = new String(search.getBytes("ISO-8859-1"), "UTF-8");*/
-			frm.setListThiSinh(ts.searchThiSinh(search));	
+			if(ts.searchThiSinh(search).size()!=0)
+				frm.setListThiSinh(ts.searchThiSinh(search));	
+			else
+			{
+				frm.setListThiSinh(ts.searchThiSinh(search));
+				frm.setError("Không tìm thấy dữ liệu hợp lệ!");
+			}
 		}
 		// Lay list tim kiem
 	

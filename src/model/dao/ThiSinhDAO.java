@@ -171,7 +171,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' or doiTuong Like N'%"+key+"%' ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;

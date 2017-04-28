@@ -31,7 +31,13 @@ public class DanhSachThiSinhAction extends Action{
 		//get list ky thi de select
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
-		frm.setListKyThi(listKyThi);
+		if(listKyThi.size()!=0){
+			frm.setListKyThi(listKyThi);
+		}
+		else
+			return mapping.findForward("error");
+		
+		
 		//get mã kỳ thi
 		ThiSinhBO tsBO = new ThiSinhBO();
 		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();

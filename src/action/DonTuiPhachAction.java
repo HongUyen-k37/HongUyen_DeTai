@@ -77,7 +77,6 @@ public class DonTuiPhachAction extends Action{
 			System.out.println(soLuotThucHien);
 			BaiThiBO btBO = new BaiThiBO();
 			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhong, coSoTui, soLuotThucHien);
-			//GetListBaiThiOrderBy Tui,Phong ok
 		}
 		return mapping.findForward("success");
 	}

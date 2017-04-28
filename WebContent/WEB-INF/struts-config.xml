@@ -13,7 +13,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="diemActionForm" type="form.DiemActionForm" />
 	</form-beans>
 	<global-forwards>
-		<forward name="login" path="/DangNhap.jsp"></forward>
 		<forward name="error" path="/ErrorPage.jsp"></forward>
 		<forward name="errorStatus" path="/ErrorStatusPage.jsp"></forward>
 	</global-forwards>
@@ -21,6 +20,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action path="/DangNhap" name="dangNhapActionForm"
 				type="action.DangNhapAction" scope="request">
 			<forward name="success" path="/KyThi.do" redirect="true"/>
+			<forward name="login" path="/DangNhap.jsp"/>
 		</action>
 		<action path="/DangXuat" name="dangXuatActionForm"
 				type="action.DangXuatAction" scope="request">
@@ -50,13 +50,11 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<action path="/ThiSinh" name="thiSinhActionForm"
 				type="action.DanhSachThiSinhAction" scope="request">
 			<forward name="success" path="/ThiSinh.jsp" />
-			<forward name="error" path="/DangNhap.jsp" />
 		</action>
 		
 		<action path="/SoBaoDanh" name="thiSinhActionForm"
 				type="action.DanhSoBaoDanhAction" scope="request">
 			<forward name="success" path="/SoBaoDanh.jsp" />
-			<forward name="error" path="/DangNhap.jsp" />
 		</action>
 		<action path="/ThemThiSinh" type="action.ThemThiSinhAction" scope="request" name="thiSinhActionForm">
 			<forward name="ThemThiSinh" path="/ThiSinh.do" redirect="true"></forward>

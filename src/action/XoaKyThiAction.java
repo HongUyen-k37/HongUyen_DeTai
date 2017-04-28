@@ -26,7 +26,7 @@ public class XoaKyThiAction extends Action{
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("login");
+		if(user == null) return mapping.findForward("error");
 		//get maKyThi
 		String maKyThi = frm.getMaKyThi();
 		System.out.println(maKyThi);
@@ -35,12 +35,11 @@ public class XoaKyThiAction extends Action{
 		//get thông tin kỳ thi
 		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
 		if(kyThi.getTrangThai()!=0){
-			return mapping.findForward("error");
+			return mapping.findForward("errorStatus");
 		}
 		else{
 			//xóa
 			ktBO.delete(maKyThi);
-			/*session.setAttribute("notice", "Xoá kỳ thi thành công");*/
 			return mapping.findForward("success");
 		}
 	}

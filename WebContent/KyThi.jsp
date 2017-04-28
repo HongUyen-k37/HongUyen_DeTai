@@ -66,6 +66,11 @@
 		</div>
 	</div>
 	</div>
+	<logic:notEmpty name="kyThiActionForm" property="error">
+		<div class="alert alert-warning">
+			${kyThiActionForm.error }
+		</div>	
+	</logic:notEmpty>
 </div>
 </div>
 
@@ -204,12 +209,5 @@
 	</div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
-<script type="text/javascript">
-	$(document).ready(function(){
-		<logic:notEmpty name="kyThiActionForm" property="notice">
-			showNotice('${kyThiActionForm.notice}');
-		</logic:notEmpty>
-	});
-</script>
 </body>
 </html>

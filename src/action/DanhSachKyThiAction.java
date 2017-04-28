@@ -22,7 +22,7 @@ public class DanhSachKyThiAction extends Action{
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("login");
+		if(user == null) return mapping.findForward("error");
 		//show list kythi
 		KyThiBO ktBO = new KyThiBO();
 		frm.setListKyThi(ktBO.getListKyThi());

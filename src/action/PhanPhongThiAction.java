@@ -28,7 +28,7 @@ public class PhanPhongThiAction extends Action{
 		//check login
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
-		if(user == null) return mapping.findForward("login");
+		if(user == null) return mapping.findForward("error");
 		//get list ky thi de select
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
