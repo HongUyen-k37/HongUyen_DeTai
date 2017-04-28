@@ -80,13 +80,13 @@
 				</div>
 				<div class="col-sm-3" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-					<!-- <button type="submit" class="btn btn-success btn-all" name="delete" id="delete" name="resetForm" onclick="clearCheckbox()">Xóa hết</button> -->
-					<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button>
+					<button type="submit" class="btn btn-success btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
+					<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 				</div>
 			</div>
 		</div>
 		<div class="text-center">
-			<button type="submit" class="btn btn-danger btn-all" name="save" value="finish" onclick="lock()">Kết thúc nhập</button>
+			<button type="submit" id="finish" class="btn btn-danger btn-all" name="save" value="finish">Kết thúc nhập</button>
 		</div>
 		</html:form>
 	</div>

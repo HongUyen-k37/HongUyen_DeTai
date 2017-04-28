@@ -263,12 +263,13 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public boolean delete(String maKyThi, String maMonThi, int tuiSo) {
+
+	public boolean deleteAllScore(String maKyThi, String maMonThi, int tuiSo) {
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Delete from BAITHI where maKyThi=?, maMonThi=?, tuiSo=?";
+			String sql = "update BAITHI set diemChamThi=0.0, diemChinhThuc = 0.0 where maKyThi=? and maMonThi=? and tuiSo=?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);

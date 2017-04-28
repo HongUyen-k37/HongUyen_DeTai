@@ -72,10 +72,10 @@ public class BaiThiBO {
 	public List<BaiThiBean> getListDonTui(String maKyThi, String maMonThi){
 		return bt.getListDonTui(maKyThi, maMonThi);
 	}
-	public boolean delete(String maKyThi, String maMonThi, int tuiSo) {
-		return bt.delete(maKyThi, maMonThi, tuiSo);
-	}
 	public List<BaiThiBean> getListXuLy(String maKyThi, String maMonThi, String maPhongThi){
 		return bt.getListXuLy(maKyThi, maMonThi, maPhongThi);
+	}
+	public boolean deleteAllScore(String maKyThi, String maMonThi, int tuiSo) {
+		return bt.deleteAllScore(maKyThi, maMonThi, tuiSo);
 	}
 }
