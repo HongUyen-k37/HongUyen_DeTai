@@ -35,10 +35,17 @@ public class NhapDiemThiAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		//get mã kỳ thi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
-		System.out.println(maKyThi);
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list Môn
@@ -70,11 +77,11 @@ public class NhapDiemThiAction extends Action{
 			frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 			return mapping.findForward("success");
 		}
-		/*if("xoaHet".equals(frm.getXoaHet())){
-			btBO.delete(maKyThi, maMonThi, tuiSo);
-			frm.setNotice("Xóa hết thành công");
+		if("finish".equals(frm.getSave())){
+			ktBO.updateTrangThai(maKyThi, 6);
+			frm.setNotice("Đã kết thúc nhập điểm");
 			return mapping.findForward("success");
-		}*/
+		}
 		return mapping.findForward("success");
 	}
 	

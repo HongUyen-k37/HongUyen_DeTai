@@ -26,7 +26,7 @@
 		</div>
 		<div class="col-md-8">
 			<div class="group-content">
-				<bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define>
+				<%-- <bean:define id="kyThi" name="phongThiActionForm" property="kyThi"></bean:define> --%>
 				<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
 				<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoPhongThi('${maKyThi}')">Thêm phòng thi</a>
 				

@@ -165,14 +165,15 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return result;
 	}
-	public List<ThiSinhBean> searchThiSinh(String key){
+	public List<ThiSinhBean> searchThiSinh(String maKyThi, String key){
 		List<ThiSinhBean> lst = new ArrayList<ThiSinhBean>();
 		Connection cnn = getConnection();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH where ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' or doiTuong Like N'%"+key+"%' ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH where maKyThi = ? and ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' or doiTuong Like N'%"+key+"%' ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
 			while (rs.next()) {

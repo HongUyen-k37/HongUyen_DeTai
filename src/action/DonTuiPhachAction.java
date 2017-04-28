@@ -36,11 +36,20 @@ public class DonTuiPhachAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		//get mã kỳ thi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get list mon thi de select
 		MonThiBO mtBO = new MonThiBO();
 		List<MonThiBean> listMonThi = mtBO.getListMonThi(maKyThi);
@@ -54,27 +63,31 @@ public class DonTuiPhachAction extends Action{
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		//dồn túi
-		int coSoPhong = frm.getCoSoPhong();
+		int coSoPhongThi = frm.getCoSoPhong();
 		if("execute".equals(frm.getSubmit())){
+			if(kyThi.getTrangThai()>5){
+				return mapping.findForward("errorStatus");
+			}
 			System.out.println(maMonThi);
 			//get input
 			int tongSoPhong = listPhongThi.size();
-			
 			//tính tổng số lượt
-			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
+			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhongThi));
 			//get input
 			//int tongSoPhong = listPhongThi.size();
 			System.out.println(tongSoPhong);
-			System.out.println(coSoPhong);
+			System.out.println(coSoPhongThi);
 			//tính tổng số lượt
-			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhong));
+			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhongThi));
 			//thuc hien
 			int coSoTui = frm.getCoSoTui();
-			int soLuotThucHien = frm.getSoLuot();
+			int soLuot = frm.getSoLuot();
 			System.out.println(coSoTui);
-			System.out.println(soLuotThucHien);
+			System.out.println(soLuot);
 			BaiThiBO btBO = new BaiThiBO();
-			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhong, coSoTui, soLuotThucHien);
+			mtBO.updateDonTui(maMonThi, coSoPhongThi, coSoTui, soLuot);
+			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhongThi, coSoTui, soLuot);
+			ktBO.updateTrangThai(maKyThi, 5);
 		}
 		return mapping.findForward("success");
 	}

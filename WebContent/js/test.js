@@ -223,21 +223,25 @@ function soSangChu(str) {
 function convertCode(){
 	var str=$input.val();
 	str = soSangChu(str);
-	if (str=="Một Không") {
+	if (str=="Một Không chấm Không") {
 		str = "Mười";
 	}
+	if(str=="Không chấm Không"){
+		str="Không";
+	}
 	$output.html(str);
-	ClipboardHelper.copyText(str);
-	$input.focus();
+	//ClipboardHelper.copyText(str);
+	//$input.focus();
 }
 
-var soBaiThi = $("#soBaiThi").html();
+var soBaiThi = $("#soBaiThi").val();
 for(var i = 0; i < soBaiThi; i++){
 	var $input = $("#input"+i);
 	var $output = $("#output"+i);
-	$input.on("input",function(){
+	/*$input.on("input",function(){
 		convertCode();
-	});
+	});*/
+	convertCode();
 }
 
 function getTKBangDiemTheoMon(){

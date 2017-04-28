@@ -85,10 +85,10 @@
 				</div>
 			</div>
 		</div>
-		</html:form>
 		<div class="text-center">
-			<button type="submit" class="btn btn-danger btn-all" name="finish" onclick="lock()">Kết thúc nhập</button>
+			<button type="submit" class="btn btn-danger btn-all" name="save" value="finish" onclick="lock()">Kết thúc nhập</button>
 		</div>
+		</html:form>
 	</div>
 </div>
 </div>

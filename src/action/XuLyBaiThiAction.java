@@ -40,12 +40,21 @@ public class XuLyBaiThiAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		//get ma ky thi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		//get makythi
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get list phòng để select
 		PhongThiBO pt = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = pt.getListPhongThiTheoMaKyThi(maKyThi);
@@ -71,6 +80,9 @@ public class XuLyBaiThiAction extends Action{
 		frm.setListBaiThi(listBaiThi);
 		frm.setListThiSinh(listThiSinh);
 		if ("save".equals(frm.getSave())) {
+			if(kyThi.getTrangThai()>4){
+				return mapping.findForward("errorStatus");
+			}
 			System.out.println(maMonThi);
 			//get mã thí sinh và trạng thái
 			if(frm.getListTrangThai()!=null){

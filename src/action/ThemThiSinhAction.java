@@ -10,8 +10,10 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.ThiSinhActionForm;
+import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bean.ThiSinhBean;
+import model.bo.KyThiBO;
 import model.bo.ThiSinhBO;
 
 public class ThemThiSinhAction extends Action{
@@ -27,6 +29,12 @@ public class ThemThiSinhAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		String maKyThi = frm.getMaKyThi();
 		System.out.println(maKyThi);
+		//get thông tin kỳ thi
+		KyThiBO ktBO = new KyThiBO();
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		if(kyThi.getTrangThai()!=0){
+			return mapping.findForward("errorStatus");
+		}
 		if ("submit".equals(frm.getSubmit())) {
 			String hoDem = frm.getHoDem();
 			String ten = frm.getTen();

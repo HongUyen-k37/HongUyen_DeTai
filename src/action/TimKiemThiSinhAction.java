@@ -32,10 +32,18 @@ public class TimKiemThiSinhAction extends Action{
 		KyThiBO ktBO = new KyThiBO();
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
-		
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		//get makythi
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list mon thi
@@ -51,11 +59,11 @@ public class TimKiemThiSinhAction extends Action{
 		if (submit == null ||search == null || search.equals("")) 
 			frm.setListThiSinh(ts.getListThiSinh(maKyThi));
 		else{		
-			if(ts.searchThiSinh(search).size()!=0)
-				frm.setListThiSinh(ts.searchThiSinh(search));	
+			if(ts.searchThiSinh(maKyThi, search).size()!=0)
+				frm.setListThiSinh(ts.searchThiSinh(maKyThi, search));	
 			else
 			{
-				frm.setListThiSinh(ts.searchThiSinh(search));
+				frm.setListThiSinh(ts.searchThiSinh(maKyThi, search));
 				frm.setError("Không tìm thấy dữ liệu hợp lệ!");
 			}
 		}

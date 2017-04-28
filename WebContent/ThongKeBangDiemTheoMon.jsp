@@ -86,13 +86,17 @@
 									<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
 									<td  style="text-align: center"> <bean:write name="dsts" property="soBaoDanh"/></td>
 									<td style="text-align: center"><bean:write name="dsts" property="soPhach"/></td>
-									<td style="text-align: center"><bean:write name="dsts" property="diemChamThi"/></td>								
-				                    <td><bean:write name="dsts" property="diemChu"/></td>
+									<td style="text-align: center">
+									<bean:write name="dsts" property="diemChamThi" />
+									<input type="hidden" id="input${stt-1}" value="${dsts.diemChamThi}" />
+									</td>
+				                    <td><span id="output${stt-1}"></span></td>
 				                    <td><bean:write name="dsts" property="ghiChu"/></td>
 								</tr>
 							</logic:iterate>
 						</tbody>
 						</table>
+						<input type="hidden" id="soBaiThi" value="${stt}"/>
 					</div>
 				</div>
 	    	</div>

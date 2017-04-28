@@ -15,7 +15,7 @@ public class ThongKeDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT * FROM TKBangDiemTheoMon WHERE maKyThi=? and maMonThi=?";
+			String sql = "SELECT * FROM TKBangDiemTheoMon WHERE maKyThi=? and maMonThi=? ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);

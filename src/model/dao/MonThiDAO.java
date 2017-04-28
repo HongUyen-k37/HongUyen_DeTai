@@ -126,4 +126,26 @@ public class MonThiDAO extends DataAccessObject {
 		}
 		return result;
 	}
+	public boolean updateDonTui(String maMonThi, int coSoPhongThi, int coSoTui, int soLuot){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update MONTHI Set coSoPhongThi = ?, coSoTui = ?, soLuot = ? where maMonThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setInt(1, coSoPhongThi);
+			pstm.setInt(2, coSoTui);
+			pstm.setInt(3, soLuot);
+			pstm.setString(4, maMonThi);	
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }

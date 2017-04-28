@@ -7,9 +7,10 @@
 <p class="title">THÔNG TIN KỲ THI</p>
 			<form class="form-horizontal">
 				<div class="form-group">
+					<bean:define id="kyThi" name="listMaKyThi" property="kyThi"></bean:define>
 			   		<label class="col-sm-3">Tên kỳ thi:</label>
 			    	<div class="col-sm-9">
-				      	<html:select property="maKyThi" name="listMaKyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="kyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="listMaKyThi" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>

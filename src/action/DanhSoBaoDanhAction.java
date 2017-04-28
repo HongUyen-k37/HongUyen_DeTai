@@ -34,25 +34,31 @@ public class DanhSoBaoDanhAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		//get makythi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null ){
-			maKyThi = frm.getMaKyThi();
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
 		}
 		else{
-			return mapping.findForward("error");
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
+			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
 		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get listmonthi cua kythi
 		MonThiBO mtBO = new MonThiBO();
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		//danh sbd
-		if ("submit".equals(frm.getSubmit())&&( frm.getMaKyThi()!=null)){
-			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), frm.getMaKyThi());
+		if ("submit".equals(frm.getSubmit())){
+			if(kyThi.getTrangThai()>1){
+				return mapping.findForward("errorStatus");
+			}
+			tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), frm.getSoLuong(), maKyThi);
 			frm.setNotice("Đánh số báo danh thành công");
 			ktBO.updateTrangThai(maKyThi, 1);
-		}else{
-			return mapping.findForward("error");
 		}
 		//show list thi sinh
 		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));

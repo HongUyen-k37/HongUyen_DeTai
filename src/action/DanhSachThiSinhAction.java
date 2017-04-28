@@ -39,17 +39,26 @@ public class DanhSachThiSinhAction extends Action{
 		
 		
 		//get mã kỳ thi
-		ThiSinhBO tsBO = new ThiSinhBO();
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list môn thi của kỳ thi
 		MonThiBO mtBO = new MonThiBO();
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
+		ThiSinhBO tsBO = new ThiSinhBO();
 		//get list thi sinh theo ky thi
-		frm.setListThiSinh(tsBO.getListThiSinh(maKyThi));
+		frm.setListThiSinh(tsBO .getListThiSinh(maKyThi));
 		return mapping.findForward("success");
 	}
 	

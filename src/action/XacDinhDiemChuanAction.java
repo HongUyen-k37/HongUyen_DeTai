@@ -34,10 +34,18 @@ public class XacDinhDiemChuanAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		//java.util.Collections.shuffle(listKyThi);
 		frm.setListKyThi(listKyThi);
-		//get mã kỳ thi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		//get makythi
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get mon thi cua ky thi
@@ -56,6 +64,7 @@ public class XacDinhDiemChuanAction extends Action{
 			frm.setNotice("Kiểm tra thành công");
 			if("submit".equals(frm.getSubmit())){
 				ktBO.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, check);
+				ktBO.updateTrangThai(maKyThi, 7);
 				frm.setNotice("Xác định điểm chuẩn thành công");
 				return mapping.findForward("success");
 			}

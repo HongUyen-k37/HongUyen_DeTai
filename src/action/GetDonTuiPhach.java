@@ -28,7 +28,7 @@ public class GetDonTuiPhach extends Action {
 			HttpServletResponse response) throws Exception {
 		response.setCharacterEncoding("UTF-8");
 		BaiThiActionForm frm = (BaiThiActionForm)form;
-		
+	
 		String maKyThi = frm.getMaKyThi();
 		String maMonThi = frm.getMaMonThi();
 		System.out.println(maKyThi+" "+maMonThi);

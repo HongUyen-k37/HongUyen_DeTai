@@ -31,8 +31,8 @@ public class ThiSinhBO {
 	public boolean delete(String maThiSinh) {
 		return ts.delete(maThiSinh);	
 	}
-	public List<ThiSinhBean> searchThiSinh(String key){
-		return ts.searchThiSinh(key);	
+	public List<ThiSinhBean> searchThiSinh(String maKyThi, String key){
+		return ts.searchThiSinh(maKyThi, key);
 	}
 	public List<ThiSinhBean> getListThiSinhTheoPhongThi(String maPhongThi){
 		return ts.getListThiSinhTheoPhongThi(maPhongThi);

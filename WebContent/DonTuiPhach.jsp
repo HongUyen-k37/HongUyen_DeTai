@@ -30,7 +30,7 @@
 			<div class="row main-nav">
 		<p class="title">DỒN TÚI</p>
 		<html:form action="/DonTuiPhach" method="post">
-		<div class="col-sm-6 col-sm-offset-3">
+		<div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 10px;">
 			<label class="col-sm-3">Môn thi:</label>
     		<div class="col-sm-9">
 	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getDonTuiPhach()">
@@ -93,7 +93,7 @@
 			</tbody>
 			</table>
 			<div class="row">
-				<div class="col-md-2"><button type="submit" class="btn btn-success btn-all" name="execute">In don túi</button></div>
+				<div class="col-md-2"><button type="submit" class="btn btn-success btn-all" name="execute">In dồn túi</button></div>
 			</div>
 		</div>
 	</div>

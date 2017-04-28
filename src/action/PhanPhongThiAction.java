@@ -34,15 +34,24 @@ public class PhanPhongThiAction extends Action{
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		//get ma ky thi
-		PhongThiBO ptBO = new PhongThiBO();
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
 		//get list mon thi cua ky thi
 		MonThiBO mtBO = new MonThiBO();
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
+		PhongThiBO ptBO  = new PhongThiBO();
 		//get list phong thi theo ky thi
 		frm.setListPhongThi(ptBO.getListPhongThiTheoMaKyThi(maKyThi));
 		//get list thi sinh theo ky thi
@@ -51,6 +60,9 @@ public class PhanPhongThiAction extends Action{
 		//so luong thi sinh
 		frm.setSoLuongThiSinh(listThiSinh.size());
 		if ("bienChe".equals(frm.getBienChe())) {
+			if(kyThi.getTrangThai()>2){
+				return mapping.findForward("errorStatus");
+			}
 			if(frm.getTongSoCho()!=frm.getSoLuongThiSinh()){	//truong hop khac so luong
 				frm.setError("Cần điều chỉnh tổng số lượng chỗ bằng tổng số lượng thí sinh dự thi!"); 
 				return mapping.findForward("success");

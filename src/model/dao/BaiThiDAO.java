@@ -17,6 +17,15 @@ public class BaiThiDAO extends DataAccessObject{
 		if(baiThi.getTrangThaiDuThi()==5){
 			baiThi.setGhiChu("Vắng thi");
 		}
+		if(baiThi.getTrangThaiDuThi()==4){
+			baiThi.setGhiChu("Đình chỉ thi");
+		}
+		if(baiThi.getTrangThaiDuThi()==3){
+			baiThi.setGhiChu("Cảnh cáo");
+		}
+		if(baiThi.getTrangThaiDuThi()==2){
+			baiThi.setGhiChu("Khiển trách");
+		}
 		String sql = "INSERT INTO BAITHI VALUES (?,?,?,?,?,?,?,?,?) ";
 		pstm = cnn.prepareStatement(sql);
 		pstm.setString(1, baiThi.getMaKyThi());
@@ -76,6 +85,15 @@ public class BaiThiDAO extends DataAccessObject{
 			if(trangThaiDuThi==5){
 				ghiChu = "Vắng thi";
 			}
+			if(trangThaiDuThi==4){
+				ghiChu = "Đình chỉ thi";
+			}
+			if(trangThaiDuThi==3){
+				ghiChu = "Cảnh cáo";
+			}
+			if(trangThaiDuThi==2){
+				ghiChu = "Khiển trách";
+			}
 			String sql = "Update BAITHI Set trangThaiDuThi = ?, ghiChu = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setInt(1, trangThaiDuThi);
@@ -100,7 +118,7 @@ public class BaiThiDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ? and tuiSo = ? and trangThaiDuThi <> 5";
+			String sql = "SELECT * FROM BAITHI WHERE maKyThi = ? and maMonThi = ? and tuiSo = ? and trangThaiDuThi <> 5 ORDER BY soPhach";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);

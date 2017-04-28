@@ -35,9 +35,17 @@ public class DanhSachPhongThiAction extends Action {
 		List<KyThiBean> listKyThi=ktBO.getListKyThi();
 		frm.setListKyThi(listKyThi);
 		//get ma ky thi
-		String maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
-		if(frm.getMaKyThi()!=null)
+		String maKyThi = null;
+		if(session.getAttribute("maKyThi")!=null){
+			maKyThi = (String)session.getAttribute("maKyThi");
+		}
+		else{
+			maKyThi = listKyThi.size()==0?"":listKyThi.get(0).getMaKyThi();
+		}
+		if(frm.getMaKyThi()!=null ){
 			maKyThi = frm.getMaKyThi();
+			session.setAttribute("maKyThi", maKyThi);
+		}
 		//get thong tin cua ky thi duoc chon
 		frm.setKyThi(ktBO.getKyThi(maKyThi));
 		//get list mon thi cua ky thi
@@ -56,7 +64,6 @@ public class DanhSachPhongThiAction extends Action {
 		//get list thi sinh theo phong thi
 		ThiSinhBO tsBO = new ThiSinhBO();
 		frm.setListThiSinh(tsBO.getListThiSinhTheoPhongThi(maPhongThi));
-		ktBO.updateTrangThai(maKyThi, 3);
 		return mapping.findForward("success");
 	}
 	

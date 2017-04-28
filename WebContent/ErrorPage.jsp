@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="Asset/Header.jsp" />
-<jsp:include page="Asset/Menu1.jsp" />
+<jsp:include page="Asset/Menu2.jsp" />
 <div class="content" style="min-height: 600px">
     <div class="container">
     	<div class="text-center">
