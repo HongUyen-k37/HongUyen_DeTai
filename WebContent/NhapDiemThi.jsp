@@ -80,7 +80,7 @@
 				</div>
 				<div class="col-sm-3" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-					<button type="submit" class="btn btn-success btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
+					<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
 					<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 				</div>
 			</div>

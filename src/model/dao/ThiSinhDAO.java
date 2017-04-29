@@ -63,9 +63,9 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return ts;
 	}
-	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
+	public void danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
 		if(tiepDauNgu==null || tiepDauNgu.equals("")) System.out.println("Nothing");
-		boolean result = false;
+		//boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
@@ -75,15 +75,15 @@ public class ThiSinhDAO extends DataAccessObject{
 			pstm.setInt(2, soBatDau);
 			pstm.setInt(3, soLuong);
 			pstm.setString(4, maKyThi);
-			result = pstm.execute();
+			pstm.execute();
+			//result = true;
 		} catch (Exception ex) {
-			result = false;
+			//result = false;
 			getMessenger(ex);
 		} finally {
 			tryToClose(cnn);
 			tryToClose(pstm);
 		}
-		return result;
 	}
 	
 	public boolean insert(ThiSinhBean thiSinh) {
@@ -245,7 +245,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT distinct khuVuc FROM THISINH";
+			String sql = "SELECT distinct khuVuc FROM THISINH where khuVuc is not null";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -267,7 +267,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT distinct doiTuong FROM THISINH";
+			String sql = "SELECT distinct doiTuong FROM THISINH where doiTuong is not null";
 			pstm = cnn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			while (rs.next()) {

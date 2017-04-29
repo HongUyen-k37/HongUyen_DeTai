@@ -33,19 +33,19 @@
 				<div class="form-group row">
 				<label class="col-md-3" for="tdn">Tiếp đầu ngữ:</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" name="tiepDauNgu">
+					<input type="text" class="form-control" name="tiepDauNgu" value="${thiSinhActionForm.tiepDauNgu}">
 				</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-md-3" for="sbd">Số bắt đầu:</label>
 				<div class="col-md-9">
-					<input type="number" class="form-control" name="soBatDau" min="1">
+					<input type="number" class="form-control" name="soBatDau" min="1" value="${thiSinhActionForm.soBatDau}">
 				</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-md-3" for="sl">Số lượng chữ số:</label>
 				<div class="col-md-9">
-					<input type="number" class="form-control" name="soLuong" min="1" pattern="">
+					<input type="number" class="form-control" name="soLuong" min="1" value="${thiSinhActionForm.soLuong}">
 				</div>
 				</div>
 				<input type="hidden" name="soLuongSV" id="soLuongSV"/>

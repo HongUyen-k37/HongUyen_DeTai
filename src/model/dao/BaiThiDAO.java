@@ -146,7 +146,7 @@ public class BaiThiDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT distinct tuiSo FROM BAITHI where maKyThi = ?";
+			String sql = "SELECT distinct tuiSo FROM BAITHI where maKyThi = ? and tuiSo <> 0";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
@@ -163,14 +163,14 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
+	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, double diemSo) {
 		//boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
 			String sql = "Update BAITHI Set diemChamThi = ? where maKyThi = ? and maMonThi = ? and soPhach = ?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setFloat(1, diemSo);
+			pstm.setFloat(1, Math.round(diemSo*100)/100);
 			pstm.setString(2, maKyThi);
 			pstm.setString(3, maMonThi);
 			pstm.setInt(4, soPhach);

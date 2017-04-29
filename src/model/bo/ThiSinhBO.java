@@ -8,6 +8,7 @@ import model.bean.DiemChuanBean;
 import model.bean.KetQuaThiSinhBean;
 import model.bean.PhongThiBean;
 import model.bean.ThiSinhBean;
+import model.dao.KyThiDAO;
 import model.dao.PhongThiDAO;
 import model.dao.ThiSinhDAO;
 
@@ -19,8 +20,10 @@ public class ThiSinhBO {
 	public ThiSinhBean getThiSinh(String maThiSinh) {
 		return ts.getThiSinh(maThiSinh);
 	}
-	public boolean danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
-		return ts.danhSoBaoDanh(tiepDauNgu, soBatDau, soLuong, maKyThi);
+	public void danhSoBaoDanh(String tiepDauNgu, int soBatDau, int soLuong, String maKyThi){
+		ts.danhSoBaoDanh(tiepDauNgu, soBatDau, soLuong, maKyThi);
+		KyThiDAO kt = new KyThiDAO();
+		kt.updateSBD(maKyThi, tiepDauNgu, soBatDau, soLuong);
 	}
 	public boolean insert(ThiSinhBean thiSinh) {
 		return ts.insert(thiSinh);

@@ -58,7 +58,9 @@ public class DanhSoBaoDanhAction extends Action{
 			}
 			int soLuongChuSo = frm.getSoLuong();
 			String soLuongSV = frm.getSoLuongSV();
-			if(soLuongChuSo < soLuongSV.length())
+			System.out.println(soLuongSV);
+			System.out.println(soLuongSV.length()-2);
+			if(soLuongChuSo < soLuongSV.length()-2)
 				frm.setError("Cần nhập số lượng chữ số hợp lệ!");
 			else{
 				tsBO.danhSoBaoDanh(frm.getTiepDauNgu(), frm.getSoBatDau(), soLuongChuSo, maKyThi);

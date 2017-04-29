@@ -236,4 +236,26 @@ public class KyThiDAO extends DataAccessObject{
 		}
 		return result;
 	}
+	public boolean updateSBD(String maKyThi, String tiepDauNgu, int soBatDau, int soLuongChuSo){
+		boolean result = false;
+		Connection cnn = getConnection();
+		PreparedStatement pstm = null;
+		try {
+			String sql = "Update KYTHI Set tiepDauNgu = ?, soBatDau = ?, soLuongChuSo = ? where maKyThi=? ";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, tiepDauNgu);
+			pstm.setInt(2, soBatDau);
+			pstm.setInt(3, soLuongChuSo);
+			pstm.setString(4, maKyThi);		
+			pstm.executeUpdate();
+			result = true;
+		} catch (Exception ex) {
+			result = false;
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+		}
+		return result;
+	}
 }
