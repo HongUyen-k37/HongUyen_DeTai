@@ -55,9 +55,9 @@ public class XacDinhDiemChuanAction extends Action{
 		frm.setNotice(null);
 		//chức năng
 		if ("test".equals(frm.getKiemTra()) || "submit".equals(frm.getSubmit())) {
-			if(kyThi.getTrangThai()>6){
+		/*	if(kyThi.getTrangThai()>6){
 				return mapping.findForward("errorStatus");
-			}
+			}*/
 			//get input
 			float diemLiet = frm.getDiemLiet();
 			boolean check = frm.getCheck();

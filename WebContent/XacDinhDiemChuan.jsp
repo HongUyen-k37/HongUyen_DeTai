@@ -79,6 +79,7 @@
 					</table>
 					<div class="text-center">
 						<button type="submit" class="btn btn-success btn-all" name="submit" value="submit">Xác định điểm chuẩn</button>
+						<button type="submit" class="btn btn-success btn-all" name="submit" value="download">Tải xuống</button>
 					</div>
 			</div>
 		</html:form>

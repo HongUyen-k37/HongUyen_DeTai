@@ -80,7 +80,7 @@ public class XuLyBaiThiAction extends Action{
 		frm.setListBaiThi(listBaiThi);
 		frm.setListThiSinh(listThiSinh);
 		if ("save".equals(frm.getSave())) {
-			if(kyThi.getTrangThai()>4){
+			if(kyThi.getTrangThai()<2){
 				return mapping.findForward("errorStatus");
 			}
 			System.out.println(maMonThi);
