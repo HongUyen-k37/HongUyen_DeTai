@@ -67,7 +67,7 @@
 							<td style="text-align:center"><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
-							<td style="text-align:right"><bean:write name="dsts" property="ngaySinh"/></td>
+							<td style="text-align:center"><bean:write name="dsts" property="ngaySinh"/></td>
 							<td>
 							<input type="hidden" name="trangThai[${stt-1}].maThiSinh" value="${dsts.maThiSinh}" >
 							<select name="trangThai[${stt-1}].trangThaiDuThi" class="form-control" >

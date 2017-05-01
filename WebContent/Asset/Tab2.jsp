@@ -11,7 +11,7 @@
 			<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 		</div>
 		<div class="title-right col-md-6">
-			<h5>BIÊN BẢN THU BÀI THI</h5>
+			<h5><b>BIÊN BẢN THU BÀI THI</b></h5>
 			<h6>Môn: ..........</h6>
 		</div>
 	</div>
@@ -44,8 +44,8 @@
 			<td>${stt}</td>
 			<td>${dsts.hoDem}</td>
 			<td>${dsts.ten}</td>
-			<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
-			<td><bean:write name="dsts" property="soBaoDanh"/></td>
+			<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+			<td style="text-align: center"><bean:write name="dsts" property="soBaoDanh"/></td>
 			<td></td>
 			<td></td>
 			<td></td>

@@ -21,8 +21,8 @@
 	<div class="col-md-4 col-xs-6" style="float:right">
 	<html:form action="/TimKiemKyThi" styleClass="input-group" method="POST"> 
 	
-        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">
-        <input class="form-control" type="text" size="9" name="search" style="border-radius: 5px 0 0 5px" placeholder="Nhập tên kỳ thi, ngành để tìm kiếm..">
+<!--         <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden"> -->
+        <input class="form-control" type="text" size="9" name="search"  value="${kyThiActionForm.search}" style="border-radius: 5px 0 0 5px" placeholder="Nhập tên kỳ thi, ngành để tìm kiếm..">
 		<span class="input-group-btn">
 	        <button style="height: 34px;" for="menu_my_bootstrap_menu_settings_main_menu_search" type="submit" name="submit" value="submit" class="btn ">
 			<i class="glyphicon glyphicon-search"></i></button>

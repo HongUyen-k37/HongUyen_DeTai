@@ -11,7 +11,7 @@
 					<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 				</div>
 				<div class="title-right col-md-6">
-					<h6>DANH SÁCH THÍ SINH ĐĂNG KÝ DỰ THI</h6>
+					<h6><b>DANH SÁCH THÍ SINH ĐĂNG KÝ DỰ THI</b></h6>
 					<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 				</div>
 			</div>
