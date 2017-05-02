@@ -62,13 +62,13 @@
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
-								<th  rowspan="2" style="line-height: 45px;">STT</th>						
+								<th rowspan="2" style="line-height: 45px;">STT</th>						
 								<th rowspan="2" style="line-height: 45px;" colspan="2">Họ và tên</th>
 								<th rowspan="2" style="line-height: 45px;">Ngày sinh</th>
-								<th  rowspan="2" style="line-height: 45px;">Số báo danh</th>
+								<th rowspan="2" style="line-height: 45px;">Số báo danh</th>
 								<th rowspan="2" style="line-height: 45px;">Số phách</th>
 								<th colspan="2">Điểm thi</th>
-								<th  rowspan="2" style="line-height: 45px;">Ghi chú</th>
+								<th rowspan="2" style="line-height: 45px;">Ghi chú</th>
 							</tr>
 							<tr>
 								<th>Bằng số</th>
@@ -89,18 +89,16 @@
 									
 									<logic:notEqual value="-1" name="dsts" property="diemChinhThuc">
 									<td style="text-align: center">
-									<bean:write name="dsts" property="diemChinhThuc" />
+									<bean:write name="dsts" property="diemChinhThuc"/>
 									<input type="hidden" id="input${stt-1}" value="${dsts.diemChinhThuc}" />
 									</td>
 				                    <td><span id="output${stt-1}"></span></td>
-				                    </logic:notEqual>
-				                    
+				                    </logic:notEqual>   
 				                    <logic:equal value="-1" name="dsts" property="diemChinhThuc">
-				                    <input type="hidden" id="input${stt-1}" value="" />
+				                    <input type="hidden" id="input${stt-1}" value=""/>
 				                    <td></td>
 				                    <td><span id="output${stt-1}"></span></td>
 				                    </logic:equal>
-				                    
 				                    <td style="text-align: center"><bean:write name="dsts" property="ghiChu"/></td>
 								</tr>
 							</logic:iterate>

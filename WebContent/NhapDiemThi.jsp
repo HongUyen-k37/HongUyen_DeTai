@@ -86,7 +86,7 @@
 					<bean:define id="stt" value="${stt+1}"/>
 					<td>${stt}</td>
 					<td>
-						${bt.soPhach}
+						
 						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
 					</td>
 					<td>
