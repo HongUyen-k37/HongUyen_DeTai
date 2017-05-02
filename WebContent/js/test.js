@@ -283,3 +283,16 @@ $('#finish').click(function(e) {
 	$('#delete')[0].disabled = true;
     return false;
 });
+
+function getTKBienBanTongHop(){
+	var makt = $("#f_maKyThi").val();
+	var mamt = $("#f_maMonThi").val();
+	var tuiso = $("#f_tuiSo").val();
+	window.location.href="ThongKeBienBanTongHopChamThi.do?maKyThi="+makt+"&maMonThi="+mamt+"&tuiSo="+tuiso;
+}
+
+function getTKBienBanChamThi(){
+	var makt = $("#f_maKyThi").val();
+	var mamt = $("#f_maMonThi").val();
+	window.location.href="ThongKeBienBanChamThi.do?maKyThi="+makt+"&maMonThi="+mamt;
+}

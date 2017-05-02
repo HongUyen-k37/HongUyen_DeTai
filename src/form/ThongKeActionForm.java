@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
+import model.bean.BaiThiBean;
 import model.bean.KetQuaThiSinhBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
@@ -18,6 +19,22 @@ public class ThongKeActionForm extends ActionForm {
 	private List<KyThiBean> listKyThi;
 	private KyThiBean kyThi;
 	private MonThiBean monThi;
+	private List<Integer> listTui;
+	public List<Integer> getListTui() {
+		return listTui;
+	}
+	public void setListTui(List<Integer> listTui) {
+		this.listTui = listTui;
+	}
+	public int getTuiSo() {
+		return tuiSo;
+	}
+	public void setTuiSo(int tuiSo) {
+		this.tuiSo = tuiSo;
+	}
+	private int tuiSo;
+	private List<BaiThiBean> listTKBienBan;
+	private List<BaiThiBean> listTKBienBanTH;
 	private List<KetQuaThiSinhBean> listTKTongHop;
 	private List<KetQuaThiSinhBean> listTrungTuyen;
 	public String getMaMonThi() {
@@ -73,5 +90,17 @@ public class ThongKeActionForm extends ActionForm {
 	}
 	public void setListTrungTuyen(List<KetQuaThiSinhBean> listTrungTuyen) {
 		this.listTrungTuyen = listTrungTuyen;
+	}
+	public List<BaiThiBean> getListTKBienBan() {
+		return listTKBienBan;
+	}
+	public void setListTKBienBan(List<BaiThiBean> listTKBienBan) {
+		this.listTKBienBan = listTKBienBan;
+	}
+	public List<BaiThiBean> getListTKBienBanTH() {
+		return listTKBienBanTH;
+	}
+	public void setListTKBienBanTH(List<BaiThiBean> listTKBienBanTH) {
+		this.listTKBienBanTH = listTKBienBanTH;
 	}
 }

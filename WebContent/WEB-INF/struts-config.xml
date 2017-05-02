@@ -128,6 +128,14 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 				type="action.ThongKeDSTSTrungTuyenAction" scope="request">
 			<forward name="success" path="/ThongKeDSTSTrungTuyen.jsp"/>
 		</action>
+		<action path="/ThongKeBienBanChamThi" name="thongKeActionForm"
+				type="action.ThongKeBienBanChamThiAction" scope="request">
+			<forward name="success" path="/ThongKeBienBanChamThi.jsp"/>
+		</action>
+		<action path="/ThongKeBienBanTongHopChamThi" name="thongKeActionForm"
+				type="action.ThongKeBienBanTongHopChamThiAction" scope="request">
+			<forward name="success" path="/ThongKeBienBanTongHopChamThi.jsp"/>
+		</action>
 		<action path="/GetBaiThiDonTui" name="baiThiActionForm" type="action.GetDonTuiPhach" scope="request">
 		</action>
 	</action-mappings>

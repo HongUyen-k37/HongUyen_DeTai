@@ -17,9 +17,11 @@ public class DiemActionForm extends ActionForm{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String namTuyenSinh;
 	private String maKyThi;
 	private String xoaHet;
 	private KyThiBean kyThi;
+	private MonThiBean monThi;
 	private List<KyThiBean> listKyThi;
 	private float diemLiet;
 	private boolean check;
@@ -154,6 +156,18 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setXoaHet(String xoaHet) {
 		this.xoaHet = xoaHet;
+	}
+	public String getNamTuyenSinh() {
+		return namTuyenSinh;
+	}
+	public void setNamTuyenSinh(String namTuyenSinh) {
+		this.namTuyenSinh = namTuyenSinh;
+	}
+	public MonThiBean getMonThi() {
+		return monThi;
+	}
+	public void setMonThi(MonThiBean monThi) {
+		this.monThi = monThi;
 	}
 
 

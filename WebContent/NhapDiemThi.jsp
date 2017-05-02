@@ -45,13 +45,35 @@
 					</div>
 				</div>
 			</div>
+		<div class="group-content">
+  	    		<div class="title-content">
+				<div class="col-md-6">
+					<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
+					<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM ${diemActionForm.kyThi.namTuyenSinh}</b></h6>
+				</div>
+				<div class="col-md-6">
+					<h6><b>BIÊN BẢN TỔNG HỢP CHẤM THI TUYỂN SINH</b></h6>
+					<p style="padding-left:30px;">Hình thức đào tạo:  ${diemActionForm.kyThi.hinhThucDT}</p>
+				</div>
+			</div>
+			<div class="col-md-7">	
+				<p>Ngành:  ${diemActionForm.kyThi.nganh}</p>
+				<p>Điểm thi:  ${diemActionForm.kyThi.coSoLKDT}</p>
+			</div>
+			<div class="col-md-5">
+				<p><b>Môn thi: ${diemActionForm.monThi.tenMonThi}</b></p>
+				<p>Túi số: ${diemActionForm.tuiSo}</p>
+			</div>
+				
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
+					<th>STT</th>
 					<th>Số phách</th>
 					<th>Điểm</th>
-					<!-- <th>Điểm chữ</th> -->
+					<th>Điểm chữ</th>
+					<th>Ghi chú</th>
 				</tr>
 			</thead>
 			<bean:define id="stt" value="0"/>
@@ -59,6 +81,7 @@
 				<logic:iterate id="bt" name="diemActionForm" property="listBaiThi">
 				<tr>
 					<bean:define id="stt" value="${stt+1}"/>
+					<td>${stt}</td>
 					<td>
 						${bt.soPhach}
 						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
@@ -67,24 +90,33 @@
 						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
 						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control">
 					</td>
-					<%-- <td>
+					<td>
 						<span id="output${stt-1}"></span>
-					</td> --%>
+					</td>
+					<td style="text-align: center"><bean:write name="bt" property="ghiChu"/></td>
 				</tr>
 				</logic:iterate>
 			</tbody>
 			</table>
-			<div class="row">
-				<div class="col-sm-9">
-				<p>Danh sách gồm có: <span id="soBaiThi"> ${stt} </span> bài thi.</p>
+			<div class="row totalCandidates">
+			<div><div class="col-md-7">
+					<p>Danh sách gồm có: <span> ${stt} </span> bài thi.</p>
+					<p>Cán bộ chấm thi</p>
 				</div>
+				<div class="col-md-5 btn-group" style="text-align: center">
+					<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
+					<p>TRƯỞNG BAN CHẤM THI</p>
+				</div></div>			
+			</div>	
+		</div>
+		</div>
+		<div class="row">
 				<div class="col-sm-3" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
 					<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
 					<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 				</div>
 			</div>
-		</div>
 		<div class="text-center">
 			<button type="submit" id="finish" class="btn btn-danger btn-all" name="save" value="finish">Kết thúc nhập</button>
 		</div>
