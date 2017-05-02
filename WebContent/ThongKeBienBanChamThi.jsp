@@ -79,9 +79,8 @@
 									<bean:define id="stt" value="${stt+1}"/>
 									<td>${stt}</td>
 									<td><bean:write name="dsbt" property="soPhach"/></td>
-									<td></td>
-									<td></td>
-									<%-- <logic:notEqual value="-1" name="dsbt" property="diemChinhThuc">
+									
+									<logic:notEqual value="-1" name="dsbt" property="diemChinhThuc">
 										<td style="text-align: center">
 											<bean:write name="dsbt" property="diemChinhThuc" />
 											<input type="hidden" id="input${stt-1}" value="${dsbt.diemChamThi}" />
@@ -92,7 +91,7 @@
 					                    <input type="hidden" id="input${stt-1}" value="" />
 					                    <td></td>
 					                    <td><span id="output${stt-1}"></span></td>
-				                    </logic:equal> --%>
+				                    </logic:equal>
 				                    <td style="text-align: center"><bean:write name="dsbt" property="ghiChu"/></td>
 								</tr>
 							</logic:iterate>
