@@ -20,6 +20,7 @@ public class ThongKeActionForm extends ActionForm {
 	private KyThiBean kyThi;
 	private MonThiBean monThi;
 	private List<Integer> listTui;
+	private int soMonThi;
 	public List<Integer> getListTui() {
 		return listTui;
 	}
@@ -102,5 +103,11 @@ public class ThongKeActionForm extends ActionForm {
 	}
 	public void setListTKBienBanTH(List<BaiThiBean> listTKBienBanTH) {
 		this.listTKBienBanTH = listTKBienBanTH;
+	}
+	public int getSoMonThi() {
+		return soMonThi;
+	}
+	public void setSoMonThi(int soMonThi) {
+		this.soMonThi = soMonThi;
 	}
 }

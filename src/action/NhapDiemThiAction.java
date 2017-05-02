@@ -71,9 +71,9 @@ public class NhapDiemThiAction extends Action{
 		//get Bài thi theo Môn và Túi
 		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 		if("save".equals(frm.getSave())){
-			if(kyThi.getTrangThai()>6){
+			/*if(kyThi.getTrangThai()>6){
 				return mapping.findForward("errorStatus");
-			}
+			}*/
 			List<DiemThiBean> lst = frm.getListDiemThi();
 			for (DiemThiBean diemThi : lst) {
 				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());

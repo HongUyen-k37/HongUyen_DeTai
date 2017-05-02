@@ -216,7 +216,7 @@ var ClipboardHelper = {
         document.execCommand("copy");
         $tempInput.remove();
     }
-};
+}
 
 function soSangChu(str) {
 	str = str.replace(/1/g, ' Một');
@@ -245,8 +245,8 @@ function convertCode(){
 		str="Không";
 	}
 	$output.html(str);
-	//ClipboardHelper.copyText(str);
-	//$input.focus();
+	ClipboardHelper.copyText(str);
+	$input.focus();
 }
 
 var soBaiThi = $("#soBaiThi").val();
@@ -258,7 +258,16 @@ for(var i = 0; i < soBaiThi; i++){
 	});*/
 	convertCode();
 }
-
+/*
+var soBT = $("#soBT").html();
+for(var i = 0; i < soBT; i++){
+	var $input = $("#in"+i);
+	var $output = $("#out"+i);
+	$input.on("input",function(){
+		convertCode();
+	});
+}
+*/
 function getTKBangDiemTheoMon(){
 	var makt = $("#f_maKyThi").val();
 	var mamt = $("#f_maMonThi").val();

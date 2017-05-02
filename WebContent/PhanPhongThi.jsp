@@ -46,11 +46,11 @@
 							<logic:iterate id="dspt" name="phongThiActionForm" property="listPhongThi" >	
 							<tr>
 								<bean:define id="stt" value="${stt+1}"/>
-								<td>${stt}</td>				
+								<td style="text-align: center">${stt}</td>				
 								<bean:define id="maPhongThi" name="dspt" property="maPhongThi"></bean:define>
-								<td><bean:write name="dspt" property="soHieuPhongThi"/></td>
-								<td class="soLuongThiSinh"><bean:write name="dspt" property="soLuongThiSinh" /></td>		
-								<td>
+								<td style="text-align: center"><bean:write name="dspt" property="soHieuPhongThi"/></td>
+								<td style="text-align: center" class="soLuongThiSinh"><bean:write name="dspt" property="soLuongThiSinh" /></td>		
+								<td style="text-align: center">
 								<a href="javascript:void(0)" onclick="suaPhongThi('${maKyThi}', '${maPhongThi}')" data-toggle="modal" class="icon icon-primary" title="Sửa phòng thi"><i class="glyphicon glyphicon-edit"></i></a>
 								<a href="javascript:void(0)" onclick="xoaPhongThi('${maPhongThi}')" data-toggle="modal" class="icon icon-danger" title="Xóa phòng thi"><i class="glyphicon glyphicon-trash"></i></a></td>
 							</tr>
@@ -113,14 +113,14 @@
 				<p class="title">THÔNG TIN PHÒNG THI</p>
 					<form>
 						<div class="form-group row">
-							<label class="col-md-3" for="first-name">Số hiệu phòng thi:</label>
-							<div class="col-md-9">
+							<label class="col-md-4 text-center" for="first-name">Số hiệu phòng thi:</label>
+							<div class="col-md-8">
 								<input type="text" class="form-control" id="f_soHieuPhongThi" name="soHieuPhongThi">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-md-3" for="first-name">Số lượng chỗ:</label>
-							<div class="col-md-9">
+							<label class="col-md-4 text-center" for="first-name">Số lượng chỗ:</label>
+							<div class="col-md-8">
 								<input type="number" class="form-control" id="f_soLuongThiSinh" name="soLuongThiSinh" min="0">
 							</div>
 						</div>

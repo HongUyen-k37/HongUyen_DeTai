@@ -43,7 +43,7 @@
 	            </html:select>
 	    	</div>
 			</div>
-		<div class="details_info" id="xuLyBaiThi">
+		<div class="details_info main-nav" id="xuLyBaiThi">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<div class="main-list">
 				<table class="table table-bordered table-hover table-striped">
@@ -63,7 +63,7 @@
 					<logic:iterate id="dsts" name="baiThiActionForm" property="listThiSinh" indexId="rowindex">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
-							<td>${stt}</td>
+							<td style="text-align:center">${stt}</td>
 							<td style="text-align:center"><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
@@ -89,7 +89,7 @@
 							<td style="text-align:center"><bean:write name="dsts" property="soBaoDanh"/></td>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
-							<td style="text-align:right"><bean:write name="dsts" property="ngaySinh"/></td>
+							<td style="text-align:center"><bean:write name="dsts" property="ngaySinh"/></td>
 							<td>
 							<input type="hidden" name="trangThai[${stt-1}].maThiSinh" value="${dsts.maThiSinh}" >
 							<%-- <select name="trangThai[${stt-1}].trangThaiDuThi" class="form-control" value="${dsts.trangThaiDuThi }">

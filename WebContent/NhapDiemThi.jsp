@@ -91,10 +91,10 @@
 					</td>
 					<td>
 						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
-						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control">
+						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="in${stt-1}">
 					</td>
 					<td>
-						<span id="output${stt-1}"></span>
+						<span id="out${stt-1}"></span>
 					</td>
 					<td style="text-align: center"><bean:write name="bt" property="ghiChu"/></td>
 				</tr>
@@ -103,7 +103,7 @@
 			</table>
 			<div class="row totalCandidates">
 			<div><div class="col-md-7">
-					<p>Danh sách gồm có: <span> ${stt} </span> bài thi.</p>
+					<p>Danh sách gồm có: <span id="soBT"> ${stt} </span> bài thi.</p>
 					<p>Cán bộ chấm thi</p>
 				</div>
 				<div class="col-md-5 btn-group" style="text-align: center">
@@ -114,7 +114,7 @@
 		</div>
 		</div>
 		<div class="row">
-				<div class="col-sm-3" >
+				<div class="col-sm-3" style="float: right;" >
 					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
 					<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
 					<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->

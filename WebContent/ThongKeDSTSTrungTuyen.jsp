@@ -36,8 +36,8 @@
 							<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h6>
 						</div>
 						<div class="col-md-8 text-center">
-							<h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
-							<h6>Độc lập - Tự do - Hạnh phúc</h6>
+							<h5><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5>
+							<h6><b>Độc lập - Tự do - Hạnh phúc</b></h6>
 						</div>
 						<div style="height: 100px;text-align:center;">
 							<h5><b>DANH SÁCH THÍ SINH TRÚNG TUYỂN ĐẠI HỌC HỆ KHÔNG CHÍNH QUY NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h5>

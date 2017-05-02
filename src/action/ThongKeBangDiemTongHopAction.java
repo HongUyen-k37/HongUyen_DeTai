@@ -45,8 +45,10 @@ public class ThongKeBangDiemTongHopAction extends Action{
 			session.setAttribute("maKyThi", maKyThi);
 		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
-		//show list tong hop
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
+		int soMonThi = kyThi.getSoMonThi();
+		frm.setSoMonThi(soMonThi);
 		ThiSinhBO tsBO = new ThiSinhBO();
 		frm.setListTKTongHop(tsBO.getListKetQuaThiSinh(maKyThi));
 		return mapping.findForward("success");

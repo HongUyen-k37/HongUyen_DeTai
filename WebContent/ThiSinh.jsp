@@ -60,11 +60,11 @@
 						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
 						<tr>	
 							<bean:define id="stt" value="${stt+1}"/>
-							<td>${stt}</td>
+							<td style="text-align: center">${stt}</td>
 							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
-							<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+							<td style="text-align: center"><bean:write name="dsts" property="ngaySinh"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 							<td style="text-align: center">

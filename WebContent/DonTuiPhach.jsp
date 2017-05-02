@@ -77,7 +77,7 @@
 			</div>
 		</div>
 	</div>
-		<div class="details_info" id="donTuiPhach">
+		<div class="details_info" style="text-align:center" id="donTuiPhach">
 			<table class="table table-bordered table-hover table-striped">
 			<thead id="headTable">
 				<tr id="soPhong">
@@ -184,7 +184,7 @@
 				}
 			}
 		});
-	}
+	}}
 	
 </script>
 </body>
