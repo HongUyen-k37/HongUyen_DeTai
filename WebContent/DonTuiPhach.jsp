@@ -93,7 +93,7 @@
 			</tbody>
 			</table>
 		</div>
-		<button type="submit" class="btn btn-success btn-all" onclick="printDiv('donTuiPhach')">In dồn túi</button>
+		<button class="btn btn-success btn-all" onclick="printDiv('donTuiPhach')">In dồn túi</button>
 	</div>
 </div>
 </div>
