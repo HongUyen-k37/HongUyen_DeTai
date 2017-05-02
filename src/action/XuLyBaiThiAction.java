@@ -80,10 +80,10 @@ public class XuLyBaiThiAction extends Action{
 		frm.setListBaiThi(listBaiThi);
 		frm.setListThiSinh(listThiSinh);
 		if ("save".equals(frm.getSave())) {
-			if(kyThi.getTrangThai()<2){
+			/*if(kyThi.getTrangThai()<2){
 				return mapping.findForward("errorStatus");
 			}
-			System.out.println(maMonThi);
+			System.out.println(maMonThi);*/
 			//get mã thí sinh và trạng thái
 			if(frm.getListTrangThai()!=null){
 				System.out.println(frm.getListTrangThai().size());

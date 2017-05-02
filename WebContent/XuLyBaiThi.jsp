@@ -43,7 +43,7 @@
 	            </html:select>
 	    	</div>
 			</div>
-		<div class="details_info">
+		<div class="details_info" id="xuLyBaiThi">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<div class="main-list">
 				<table class="table table-bordered table-hover table-striped">
@@ -114,11 +114,11 @@
 				</table>
 				<div class="col-sm-9">
 						<p>Danh sách gồm có: <span> ${stt} </span> sinh viên</p>
-				</div>
-				<button type="submit" name="save" value="save" class="btn btn-success btn-all">Lưu</button>
-				<button type="submit" class="btn btn-success btn-all" name='execute'>In Danh sách</button>
+				</div>	
 			</div>
 		</div>
+				<button type="submit" name="save" value="save" class="btn btn-success btn-all">Lưu</button>
+				<button type="submit" class="btn btn-success btn-all" onclick="printDiv('xuLyBaiThi')">In Danh sách</button>
 		</html:form>
 		</div>
 	</div>

@@ -377,9 +377,9 @@ public class ThiSinhDAO extends DataAccessObject{
 				KetQuaThiSinhBean ts = new KetQuaThiSinhBean(maKyThi, rs.getString("maThiSinh"),  rs.getString("soBaoDanh"), rs.getString("hoDem"), rs.getString("khuVuc"), 
 						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("doiTuong"));
 				float[] diem3Mon=getDiem3Mon(maKyThi, ts.getMaThiSinh());
-				ts.setDiemMon1(diem3Mon[0]);
-				ts.setDiemMon2(diem3Mon[1]);
-				ts.setDiemMon3(diem3Mon[2]);
+				ts.setDiemMon1((double)Math.round(diem3Mon[0]*100)/100);
+				ts.setDiemMon2((double)Math.round(diem3Mon[1]*100)/100);
+				ts.setDiemMon3((double)Math.round(diem3Mon[2]*100)/100);
 				ts.setDiemUuTien(Define.getDiemCongDoiTuong().get(ts.getDoiTuong())+Define.getDiemCongKhuVuc().get(ts.getKhuVuc()));
 				lst.add(ts);
 			}

@@ -81,13 +81,13 @@ public class NhapDiemThiAction extends Action{
 			}
 			frm.setNotice("Lưu điểm thi thành công");
 			frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
-			return mapping.findForward("success");
+			/*return mapping.findForward("success");*/
 		}
 		if("xoaHet".equals(frm.getXoaHet())){
 			btBO.deleteAllScore(maKyThi, maMonThi, tuiSo);
 			frm.setNotice("Xóa hết thành công");
 			frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
-			return mapping.findForward("success");
+			/*return mapping.findForward("success");*/
 		}
 		/*if("finish".equals(frm.getSave())){
 			ktBO.updateTrangThai(maKyThi, 6);

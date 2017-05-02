@@ -35,7 +35,7 @@
     		<div class="col-sm-9">
 	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getDonTuiPhach()">
                 	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
-	            </html:select>
+	            </html:select>	
             </div>
 		</div>
 		<div class="row">
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 	</div>
-		<div class="details_info">
+		<div class="details_info" id="donTuiPhach">
 			<table class="table table-bordered table-hover table-striped">
 			<thead id="headTable">
 				<tr id="soPhong">
@@ -92,10 +92,8 @@
 				
 			</tbody>
 			</table>
-			<div class="row">
-				<div class="col-md-2"><button type="submit" class="btn btn-success btn-all" name="execute">In dồn túi</button></div>
-			</div>
 		</div>
+		<button type="submit" class="btn btn-success btn-all" onclick="printDiv('donTuiPhach')">In dồn túi</button>
 	</div>
 </div>
 </div>

@@ -30,20 +30,20 @@
 	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
 	    	<div class="group-content main-nav">
    	    		<div class="title-content">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h6>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-8 text-center">
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
-						<p style="padding-left:30px;">Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
+						<p>Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
 					</div>
 				</div>
-				<div class="col-md-6">	
+				<div class="col-md-4">	
 					<p>Hình thức đào tạo: ${thongKeActionForm.kyThi.hinhThucDT}</p>
 					<p>Ngành: ${thongKeActionForm.kyThi.nganh}</p>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8 text-center">
 					<p>Điểm thi: ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
 				<div class="details_info">

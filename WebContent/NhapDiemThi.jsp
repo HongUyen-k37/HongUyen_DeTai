@@ -47,24 +47,27 @@
 			</div>
 		<div class="group-content">
   	    		<div class="title-content">
-				<div class="col-md-6">
-					<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-					<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM ${diemActionForm.kyThi.namTuyenSinh}</b></h6>
+  	    		<div class="row">
+					<div class="col-md-5 text-center">
+						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
+						<h6><b>TUYỂN SINH NĂM ${diemActionForm.kyThi.namTuyenSinh}</b></h6>
+					</div>
+					<div class="col-md-7 text-center">
+						<h6><b>BIÊN BẢN TỔNG HỢP CHẤM THI TUYỂN SINH</b></h6>
+						<p>Hình thức đào tạo:  ${diemActionForm.kyThi.hinhThucDT}</p>
+					</div>
 				</div>
-				<div class="col-md-6">
-					<h6><b>BIÊN BẢN TỔNG HỢP CHẤM THI TUYỂN SINH</b></h6>
-					<p style="padding-left:30px;">Hình thức đào tạo:  ${diemActionForm.kyThi.hinhThucDT}</p>
+				<div class="row">
+					<div class="col-md-6">	
+						<p>Ngành:  ${diemActionForm.kyThi.nganh}</p>
+						<p>Điểm thi:  ${diemActionForm.kyThi.coSoLKDT}</p>
+					</div>
+					<div class="col-md-4 col-sm-offset-1">
+						<p><b>Môn thi: ${diemActionForm.monThi.tenMonThi}</b></p>
+						<p>Túi số: ${diemActionForm.tuiSo}</p>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-7">	
-				<p>Ngành:  ${diemActionForm.kyThi.nganh}</p>
-				<p>Điểm thi:  ${diemActionForm.kyThi.coSoLKDT}</p>
-			</div>
-			<div class="col-md-5">
-				<p><b>Môn thi: ${diemActionForm.monThi.tenMonThi}</b></p>
-				<p>Túi số: ${diemActionForm.tuiSo}</p>
-			</div>
-				
+				</div>
 		<div class="details_info">
 			<table class="table table-bordered table-hover table-striped">
 			<thead>

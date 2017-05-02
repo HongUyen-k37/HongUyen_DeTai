@@ -10,9 +10,9 @@ public class KetQuaThiSinhBean {
 	private String ngaySinh;
 	private String doiTuong;
 	private float diemUuTien;
-	private float diemMon1;
-	private float diemMon2;
-	private float diemMon3;
+	private double diemMon1;
+	private double diemMon2;
+	private double diemMon3;
 	private String ghiChu;
 	private float diemChuan;
 	private float diemLiet;
@@ -32,6 +32,24 @@ public class KetQuaThiSinhBean {
 		this.diemChuan = diemChuan;
 		this.diemLiet = diemLiet;
 		this.nhoHonDiemLiet = nhoHonDiemLiet;
+	}
+	public double getDiemMon1() {
+		return diemMon1;
+	}
+	public void setDiemMon1(double diemMon1) {
+		this.diemMon1 = diemMon1;
+	}
+	public double getDiemMon2() {
+		return diemMon2;
+	}
+	public void setDiemMon2(double diemMon2) {
+		this.diemMon2 = diemMon2;
+	}
+	public double getDiemMon3() {
+		return diemMon3;
+	}
+	public void setDiemMon3(double diemMon3) {
+		this.diemMon3 = diemMon3;
 	}
 	public float getDiemChuan() {
 		return diemChuan;
@@ -117,21 +135,6 @@ public class KetQuaThiSinhBean {
 	}
 	public void setDiemUuTien(float diemUuTien) {
 		this.diemUuTien = diemUuTien;
-	}
-	public float getDiemMon1() {
-		return diemMon1;
-	}
-	public void setDiemMon1(float diemMon1) {
-		this.diemMon1 = diemMon1;
-	}
-	public float getDiemMon2() {
-		return diemMon2;
-	}
-	public void setDiemMon2(float diemMon2) {
-		this.diemMon2 = diemMon2;
-	}
-	public float getDiemMon3() {
-		return diemMon3;
 	}
 	public void setDiemMon3(float diemMon3) {
 		this.diemMon3 = diemMon3;

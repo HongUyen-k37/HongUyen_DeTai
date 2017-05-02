@@ -296,3 +296,11 @@ function getTKBienBanChamThi(){
 	var mamt = $("#f_maMonThi").val();
 	window.location.href="ThongKeBienBanChamThi.do?maKyThi="+makt+"&maMonThi="+mamt;
 }
+
+function printDiv(divId) {
+   var printContents = document.getElementById(divId).innerHTML;
+   var originalContents = document.body.innerHTML;
+   document.body.innerHTML = printContents;
+   window.print();
+   document.body.innerHTML = originalContents;
+}

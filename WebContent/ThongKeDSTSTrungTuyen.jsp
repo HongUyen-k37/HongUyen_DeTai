@@ -17,7 +17,7 @@
 <div class="container">
 		<div class="group-content">
 			<div class="row main-nav">
-				<!-- <p class="title">DANH SÁCH THÍ SINH TRÚNG TUYỂN</p> -->
+				<p class="title">DANH SÁCH THÍ SINH TRÚNG TUYỂN</p>
 	    		<div class="form-group col-sm-8 col-sm-offset-2">
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
@@ -28,35 +28,33 @@
 			  	</div>
 	    	</div>
 	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content">
+	    	<div class="group-content main-nav">
    	    		<div class="title-content">
-   	    			<div>
-						<div class="col-md-5">
+   	    		
+						<div class="col-md-4">
 							<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 							<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h6>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8 text-center">
 							<h5>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
-							<h6 style="padding-left:70px;">Độc lập - Tự do - Hạnh phúc</h6>
+							<h6>Độc lập - Tự do - Hạnh phúc</h6>
 						</div>
-					</div>
-				
-					<div style="height: 100px;text-align:center;"><h5><b>DANH SÁCH THÍ SINH TRÚNG TUYỂN ĐẠI HỌC HỆ KHÔNG CHÍNH QUY NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h5></div>
+						<div style="height: 100px;text-align:center;">
+							<h5><b>DANH SÁCH THÍ SINH TRÚNG TUYỂN ĐẠI HỌC HỆ KHÔNG CHÍNH QUY NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h5>
+						</div>
 					
-					<div>
-					<div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<p>Loại hình đào tạo: ${thongKeActionForm.kyThi.hinhThucDT}</p>
 							<p>Ngành: ${thongKeActionForm.kyThi.nganh}</p>
 						</div>
-						<div class="col-md-6">
-							<p style="padding-left:30px;">Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
+						<div class="col-md-8 text-center">
+							<p>Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
 							<p>Điểm thi: ${thongKeActionForm.kyThi.coSoLKDT}</p>
 						</div>
-					</div>
+					
 					<p style="padding-left:15px;">Kèm theo Quyết định số..../QĐ-ĐHKH ngày..../..../.... của Chủ tịch Hội đồng tuyển sinh, Hiệu trưởng trường Đại học Khoa học</p>
 				</div>
-				<div class="details_info main-nav">
+				<div class="details_info">
 					<div class="main-list">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
