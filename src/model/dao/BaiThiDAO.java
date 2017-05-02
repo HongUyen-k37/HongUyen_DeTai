@@ -163,14 +163,14 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, double diemSo) {
+	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
 		//boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
 			String sql = "Update BAITHI Set diemChamThi = ? where maKyThi = ? and maMonThi = ? and soPhach = ?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setFloat(1, Math.round(diemSo*100)/100);
+			pstm.setDouble(1, (double)Math.round(diemSo*100)/100);
 			pstm.setString(2, maKyThi);
 			pstm.setString(3, maMonThi);
 			pstm.setInt(4, soPhach);
@@ -312,14 +312,14 @@ public class BaiThiDAO extends DataAccessObject{
 		}
 		return lst;
 	}
-	public boolean updateDiemChinhThuc(String maKyThi, String maMonThi, String maThiSinh, float diemChinhThuc){
+	public boolean updateDiemChinhThuc(String maKyThi, String maMonThi, String maThiSinh, double diemChinhThuc){
 		boolean result = false;
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
 			String sql = "Update BAITHI Set diemChinhThuc = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setFloat(1, diemChinhThuc);
+			pstm.setDouble(1, diemChinhThuc);
 			pstm.setString(2, maKyThi);
 			pstm.setString(3, maMonThi);
 			pstm.setString(4, maThiSinh);

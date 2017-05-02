@@ -25,7 +25,7 @@ public class BaiThiBO {
 	public List<BaiThiBean> getListTheoTui(String maKyThi, String maMonThi, int tuiSo){
 		return bt.getListTheoTui(maKyThi, maMonThi, tuiSo);
 	}
-	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, double diemSo) {
+	public void nhapDiem(String maKyThi, String maMonThi, int soPhach, float diemSo) {
 		bt.nhapDiem(maKyThi, maMonThi, soPhach, diemSo);
 		List<BaiThiBean> lst = bt.getListDiem(maKyThi, maMonThi);
 		for (BaiThiBean baiThi : lst) {
@@ -33,12 +33,18 @@ public class BaiThiBO {
 				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), -1);
 			if(baiThi.getTrangThaiDuThi()==4)
 				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), 0);
-			if(baiThi.getTrangThaiDuThi()==3)
-				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), Math.round(50/100*baiThi.getDiemChamThi()*100)/100);
-			if(baiThi.getTrangThaiDuThi()==2)
-				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), Math.round(75/100*baiThi.getDiemChamThi()*100)/100);
-			if(baiThi.getTrangThaiDuThi()==1)
-				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), baiThi.getDiemChamThi());
+			if(baiThi.getTrangThaiDuThi()==3){
+				float diemChinhThuc = (float)50/100*baiThi.getDiemChamThi();
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), (double)Math.round(diemChinhThuc*100)/100);
+			}
+			if(baiThi.getTrangThaiDuThi()==2){
+				float diemChinhThuc = (float)75/100*baiThi.getDiemChamThi();
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), (double)Math.round(diemChinhThuc*100)/100);
+			}
+			if(baiThi.getTrangThaiDuThi()==1){
+				float diemChinhThuc = baiThi.getDiemChamThi();
+				bt.updateDiemChinhThuc(maKyThi, maMonThi, baiThi.getMaThiSinh(), (double)Math.round(diemChinhThuc*100)/100);
+			}	
 		}
 	}
 	public List<BaiThiBean> getListTheoMon(String maKyThi, String maMonThi, String maPhongThi){
