@@ -6,11 +6,11 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <div class="main-nav row">
 	<div class="title-content">
-		<div class="title-left col-md-6">
+		<div class="title-left col-xs-6">
 			<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 			<h6>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></h6>
 		</div>
-		<div class="title-right col-md-6">
+		<div class="title-right col-xs-6">
 			<h5><b>BIÊN BẢN THU BÀI THI</b></h5>
 			<h6>Môn: ..........</h6>
 		</div>
@@ -54,16 +54,16 @@
 	</tbody>
 		</table>
 	<div class="row totalCandidates">
-		<div class="col-md-12">
+		<div class="col-xs-12">
 			<p>Tổng cộng danh sách có ..... bài thi và ..... tờ giấy thi.</p>
 		</div>
-		<div class="col-md-3" style="text-align: center">
+		<div class="col-xs-3" style="text-align: center">
 			<p>Cán bộ coi thi 1</p>
 		</div>
-		<div class="col-md-3" style="text-align: center">
+		<div class="col-xs-3" style="text-align: center">
 			<p>Cán bộ coi thi 2</p>
 		</div>
-		<div class="col-md-6 btn-group" style="text-align: center">
+		<div class="col-xs-6 btn-group" style="text-align: center">
 			<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
 			<p>Trưởng ban coi thi</p>
 		</div>

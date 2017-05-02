@@ -52,13 +52,7 @@
 						<li class="export-excel">
 							<a href="javascript:download()">Tải xuống</a>
 						</li>
-						<script type="text/javascript">
-							function download(){
-								var id=1;
-								if($("#bienbanPhongThi").hasClass("active")) id=2;
-								//Gửi dữ liệu lên server để tải = Ajax
-							}
-						</script>
+						
 					</ul>
 					<!-- Tab panes -->
 					
@@ -76,5 +70,10 @@
 	</div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+<script type="text/javascript">
+	function download(){
+		printDiv($(".tab-pane.active.in").attr("id"));
+	}
+</script>
 </body>
 </html>

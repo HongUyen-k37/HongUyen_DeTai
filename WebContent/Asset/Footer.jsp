@@ -9,6 +9,8 @@
 	<p> &copy; Bản quyền Trường Đại Học Khoa Học Huế </p>
 </div>
 <span class="alert alert-success" id="notice"></span>
+<div id="printSection">
+</div>
 <script src="js/test.js"></script>
 <!-- <script type="text/javascript">
 	$(document).ready(function(){

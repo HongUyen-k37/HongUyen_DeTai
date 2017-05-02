@@ -347,3 +347,20 @@ textarea{
 	border: 1px solid #ccc;
 	background: #eeeeee;
 }
+@media screen {
+    #printSection {
+       display: none;
+    }
+}
+
+@media print {
+    body > *:not(#printSection) {
+       display: none;
+    }
+    #printSection, #printSection * {
+        visibility: visible;
+    }
+    #printSection {
+        display:block;	
+    }
+}

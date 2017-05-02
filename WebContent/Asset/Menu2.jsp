@@ -7,7 +7,7 @@
 <div id="menu">
 	<div  class="container">
 		<ul>
-			<li> <a href="#">Tổ chức thi</a>
+			<li onmouseover="mouseOn(this)" onmouseleave="mouseOut(this)"> <a href="#">Tổ chức thi</a>
 			<ul>
 				<li><a href="KyThi.do">Thông tin kỳ thi</a></li>
 				<li><a href="ThiSinh.do">Thí sinh dự thi</a></li>
@@ -16,7 +16,7 @@
 				<li><a href="DanhSachPhongThi.do">Danh sách phòng thi</a></li>
 			</ul>
 			</li>
-			<li><a href="#">Tổ chức chấm thi</a>
+			<li onmouseover="mouseOn(this)" onmouseleave="mouseOut(this)"><a href="#">Tổ chức chấm thi</a>
 			<ul>
 				<li><a href="XuLyBaiThi.do">Xử lý bài thi</a></li>
 				<li><a href="DonTuiPhach.do">Dồn túi phách</a></li>
@@ -25,7 +25,7 @@
 			</ul>
 			</li>
 			
-			<li> <a href="#">Báo cáo - Thống kê</a>
+			<li onmouseover="mouseOn(this)" onmouseleave="mouseOut(this)"> <a href="#">Báo cáo - Thống kê</a>
 			<ul>
 				<li><a href="ThongKeBangDiemTheoMon.do">Bảng điểm theo môn thi</a></li>
 				<li><a href="ThongKeBangDiemTongHop.do">Bảng điểm tổng hợp</a></li>
@@ -43,13 +43,3 @@
 		</ul>
 	</div>
 </div>
-<script type="text/javascript">
-	$('#menu li').hover(
-  		function() {
-   		 $('ul', this).stop().slideDown(200);
- 		 },
-  		function() {
-   		 $('ul', this).stop().slideUp(200);
- 		 }
-	);
-</script>

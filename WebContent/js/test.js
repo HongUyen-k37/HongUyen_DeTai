@@ -1,3 +1,18 @@
+//$('#menu li').hover(
+//	function() {
+//	 $('ul', this).stop().slideDown(200);
+//	 },
+//	function() {
+//	 $('ul', this).stop().slideUp(200);
+//	 }
+//);
+function mouseOn(that){
+	 $('ul', that).stop().slideDown(200);
+}
+function mouseOut(that){
+	 $('ul', that).stop().slideUp(200);
+}
+
 function suaKyThi(maKyThi){
 	document.forms.formCreateEdit.reset();
 	document.forms.formCreateEdit.action="SuaKyThi.do?maKyThi="+maKyThi;
@@ -299,9 +314,9 @@ function getTKBienBanChamThi(){
 
 function printDiv(divId) {
    var printContents = document.getElementById(divId).innerHTML;
-   var originalContents = document.body.innerHTML;
-   document.body.innerHTML = printContents;
+   //var originalContents = document.body.innerHTML;
+   //document.body.innerHTML = printContents;
+   printSection.innerHTML=printContents;
    window.print();
-   document.body.innerHTML = originalContents;
-   return window.location.href;
+   //document.body.innerHTML = originalContents;
 }
