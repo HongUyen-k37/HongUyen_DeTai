@@ -39,25 +39,25 @@
 	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
 	    	<div class="group-content">
    	    		<div class="title-content">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 						<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-8 text-center">
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
-						<p style="padding-left:30px;">Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
+						<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 					</div>
 				</div>
-				<div class="col-md-7">	
+				<div class="col-md-4">	
 					<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
 					<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-8 text-center">
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 				</div>
 				
-				<div class="details_info">
+				<div class="details_info main-nav">
 					<div class="main-list">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>

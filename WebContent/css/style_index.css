@@ -60,15 +60,12 @@ form{
 	text-align: center;
 	font-size: 16px;
 }
-.title-left{
+/* .title-left{
 	padding-left: 85px !important;
-}
+} */
 .title-left h4,.title-left h5,.title-right h4{
 	text-transform: uppercase;
 	font-weight: bold;
-}
-.title-right h4{
-	te
 }
 .branch #name span{
 	font-weight: bold;

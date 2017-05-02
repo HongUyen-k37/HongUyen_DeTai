@@ -67,7 +67,7 @@
 				</div>
 				
 				
-				<div class="details_info">
+				<div class="details_info main-nav">
 					<div class="main-list">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>

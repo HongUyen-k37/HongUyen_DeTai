@@ -16,7 +16,7 @@
 <jsp:include page="Asset/Menu2.jsp" />
 <div class="container">
 
-<div class="row">
+<div class="row main-nav">
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
@@ -30,7 +30,7 @@
 		<div class="group-content">
 			<%-- <bean:define id="kyThi" name="thiSinhActionForm" property="kyThi"></bean:define> --%>
 			<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
-			<a class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
+			<a class="btn btn-success " data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
 			<div class="col-md-7 col-xs-6" style="float:right">
 				<html:form action="/TimKiemThiSinh" styleClass="input-group" method="POST"> 				
 			        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">

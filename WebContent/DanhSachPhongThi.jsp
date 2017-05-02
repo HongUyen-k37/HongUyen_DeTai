@@ -16,7 +16,7 @@
 <jsp:include page="Asset/Menu2.jsp" />
 <div class="container">
 	
-<div class="row">
+<div class="row main-nav">
 	<div class="col-md-4 no-pad">
 		<div class="thongtinkithi group-content">
 			<div class="main-nav">
@@ -40,7 +40,7 @@
 					</div>
 				</form>
 				</div>
-				<div role="tabpanel">
+				<div role="tabpanel ">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active">

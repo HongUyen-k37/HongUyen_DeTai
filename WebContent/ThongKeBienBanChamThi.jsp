@@ -44,20 +44,20 @@
 						<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
-					<div class="col-md-6">
-						<h6><b>BIÊN BẢN CHẤM THI</b></h6>
-						<p style="padding-left:30px;">Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
+					<div class="col-md-6 text-center">
+						<h6 ><b>BIÊN BẢN CHẤM THI</b></h6>
+						<p >Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 					</div>
 				</div>
-				<div class="col-md-7">	
+				<div class="col-md-6">	
 					<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
 					<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6 text-center">
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 				</div>
 				
-				<div class="details_info">
+				<div class="details_info main-nav">
 					<div class="main-list">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
@@ -106,13 +106,14 @@
 							<div class="col-md-5 btn-group" style="text-align: center">
 								<p>Thừa Thiên Huế, ngày.....tháng.....năm 20...</p>
 							</div></div>
-						<div><div class="col-md-4">
+						<div class="row">
+							<div class="col-md-3 text-center">
 								<p>Cán bộ đọc điểm</p>	
 							</div>
-							<div class="col-md-4">				
+							<div class="col-md-4 text-center">				
 								<p>Cán bộ nhập điểm</p>		
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-5 text-center">
 								<p>TRƯỞNG BAN CHẤM THI</p>			
 							</div>
 						</div>				

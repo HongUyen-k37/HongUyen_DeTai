@@ -56,7 +56,7 @@
 					</div>
 					<p style="padding-left:15px;">Kèm theo Quyết định số..../QĐ-ĐHKH ngày..../..../.... của Chủ tịch Hội đồng tuyển sinh, Hiệu trưởng trường Đại học Khoa học</p>
 				</div>
-				<div class="details_info">
+				<div class="details_info main-nav">
 					<div class="main-list">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>

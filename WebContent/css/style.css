@@ -325,6 +325,9 @@ input[type=text]:focus {
 .btn1{
     width: 71px;
 }
+.btn{
+	font-size:13px;
+}
 textarea{
 	max-width: 100%;
 }

@@ -15,7 +15,7 @@
 <jsp:include page="Asset/Header.jsp" />
 <jsp:include page="Asset/Menu2.jsp" />
 <div class="container">
-<div class="row">
+<div class="row main-nav">
 <br>
 <a type="" class="btn btn-success" data-toggle="modal" href="javascript:void(0)" onclick="taoKyThi()" >Tạo kỳ thi</a>
 	<div class="col-md-4 col-xs-6" style="float:right">
@@ -196,7 +196,7 @@
 						    	<!-- <button type="button" onclick="luuMonThi(this)" class="btn btn-default" title="Lưu câu hỏi"><i class="glyphicon glyphicon-ok"></i></button> -->
 						  		<button type="button" onclick="xoaMonThi(this)" class="btn btn-default xoaMonThi" title="Xóa môn thi"><i class="glyphicon glyphicon-remove"></i></button>
 						  	</div>
-						  	<button type="button" name="add" id="taoMonThi" class="btn btn-default" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
+						  	<button type="button" name="add" id="taoMonThi" class="btn btn-default btn-all" onclick="taoHTMLMonThi(this)">Thêm môn thi</button>
 				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>

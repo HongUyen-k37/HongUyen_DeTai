@@ -28,7 +28,7 @@
 			  	</div>
 	    	</div>
 	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content">
+	    	<div class="group-content main-nav">
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
