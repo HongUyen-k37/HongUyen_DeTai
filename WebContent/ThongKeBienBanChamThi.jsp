@@ -77,8 +77,8 @@
 							<logic:iterate id="dsbt" name="thongKeActionForm" property="listTKBienBan">	
 								<tr>	
 									<bean:define id="stt" value="${stt+1}"/>
-									<td>${stt}</td>
-									<td><bean:write name="dsbt" property="soPhach"/></td>
+									<td style="text-align: center">${stt}</td>
+									<td style="text-align: center"><bean:write name="dsbt" property="soPhach"/></td>
 									
 									<logic:notEqual value="-1" name="dsbt" property="diemChinhThuc">
 										<td style="text-align: center">

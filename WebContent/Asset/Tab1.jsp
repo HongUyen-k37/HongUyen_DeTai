@@ -6,19 +6,20 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <div class="main-nav row">
 			<div class="title-content">
-				<div class="title-left col-xs-6">
+				<div class="col-xs-5">
 					<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-					<h6><b>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
+					<h6 class="text-center"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 				</div>
-				<div class="title-right col-xs-6">
+				<div class="text-center col-xs-7">
 					<h6><b>DANH SÁCH THÍ SINH ĐĂNG KÝ DỰ THI</b></h6>
 					<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 				</div>
 			</div>
 			<div style="text-align: center">	
-				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
-				<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
+				<p><b>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></b></p>
+				
 			</div>
+			<p><b>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></b></p>
 	<table class="table table-bordered table-hover table-striped">
 	<thead>
 		<tr>
@@ -36,11 +37,11 @@
 	<logic:iterate id="dsts" name="phongThiActionForm" property="listThiSinh">	
 		<tr>	
 			<bean:define id="stt" value="${stt+1}"/>
-			<td>${stt}</td>
-			<td><bean:write name="dsts" property="soBaoDanh"/></td>
+			<td style="text-align: center">${stt}</td>
+			<td style="text-align: center"><bean:write name="dsts" property="soBaoDanh"/></td>
 			<td>${dsts.hoDem}</td>
 			<td>${dsts.ten}</td>
-			<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+			<td style="text-align: center"><bean:write name="dsts" property="ngaySinh"/></td>
 			<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
 			<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 			<td></td>

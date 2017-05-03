@@ -49,7 +49,7 @@
 					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
 					<tr>
 						<bean:define id="stt" value="${stt+1}"/>
-						<td>${stt}</td>	
+						<td style="text-align: center">${stt}</td>	
 						<bean:define id="maKyThi" name="dskt" property="maKyThi"></bean:define>
 						<td><bean:write name="dskt" property="tenKyThi" /></td>
 						<td><bean:write name="dskt" property="nganh" /></td>

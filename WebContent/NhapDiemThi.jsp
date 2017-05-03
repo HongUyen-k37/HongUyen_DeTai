@@ -84,9 +84,8 @@
 				<logic:iterate id="bt" name="diemActionForm" property="listBaiThi">
 				<tr>
 					<bean:define id="stt" value="${stt+1}"/>
-					<td>${stt}</td>
-					<td>
-						
+					<td style="text-align: center">${stt}</td>
+					<td>	
 						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
 					</td>
 					<td>

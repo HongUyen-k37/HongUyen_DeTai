@@ -6,22 +6,24 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles"%>
 <div class="main-nav row">
 	<div class="title-content">
-		<div class="title-left col-xs-6">
+		<div class="col-xs-5">
 			<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-			<h6><b>HỘI ĐỒNG TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
+			<h6 class="text-center"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 		</div>
-		<div class="title-right col-xs-6">
+		<div class="col-xs-7 text-center">
 			<h5><b>BIÊN BẢN THU BÀI THI</b></h5>
 			<h6>Môn: ..........</h6>
 		</div>
 	</div>
-	<div class="col-md-10" style="text-align: center">	
-				<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
-				<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
+	<div class="text-center">	
+		<p><b>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></b></p>
 	</div>
-	<div class="numberroom col-md-2">
-		<bean:define id="phongThi" name="phongThiActionForm" property="phongThi"></bean:define>
-		<p>Phòng thi: <bean:write name="phongThi" property="soHieuPhongThi"></bean:write></p>
+	<div class="no-pad">
+		<p class="col-md-7 no-pad"><b>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></b></p>
+		<div class="numberroom col-md-5">
+			<bean:define id="phongThi" name="phongThiActionForm" property="phongThi"></bean:define>
+			<p style="float:right">Phòng thi: <bean:write name="phongThi" property="soHieuPhongThi"></bean:write></p>
+		</div>
 	</div>
 	<div class="room-info">
 		<table class="table table-bordered table-hover table-striped">
@@ -40,11 +42,12 @@
 	<tbody>
 	<logic:iterate id="dsts" name="phongThiActionForm" property="listThiSinh">	
 		<tr>	
+			
 			<bean:define id="stt" value="${stt+1}"/>
-			<td>${stt}</td>
+			<td style="text-align: center">${stt}</td>
 			<td>${dsts.hoDem}</td>
 			<td>${dsts.ten}</td>
-			<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+			<td style="text-align: center"><bean:write name="dsts" property="ngaySinh"/></td>
 			<td style="text-align: center"><bean:write name="dsts" property="soBaoDanh"/></td>
 			<td></td>
 			<td></td>
