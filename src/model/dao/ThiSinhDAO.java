@@ -17,7 +17,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH WHERE maKyThi = ? ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH WHERE maKyThi = ? ORDER BY ten COLLATE Vietnamese_CI_AS, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
@@ -198,7 +198,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH WHERE maPhongThi = ? ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH WHERE maPhongThi = ? ORDER BY ten COLLATE Vietnamese_CI_AS, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maPhongThi);
 			rs = pstm.executeQuery();
@@ -369,7 +369,7 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		try {
-			String sql = "SELECT * FROM THISINH WHERE maKyThi=? ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH WHERE maKyThi=? ORDER BY ten COLLATE Vietnamese_CI_AS, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
