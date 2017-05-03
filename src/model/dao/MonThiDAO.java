@@ -153,7 +153,7 @@ public class MonThiDAO extends DataAccessObject {
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Update KYTHI Set trangThai=? where maKyThi=? ";
+			String sql = "Update MONTHI Set trangThaiMonThi=? where maMonThi=? ";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setInt(1, trangThai);
 			pstm.setString(2, maMonThi);		

@@ -39,6 +39,7 @@ public class BaiThiActionForm extends ActionForm{
 	private String cal;
 	private String submit;
 	private String notice;
+	private String error;
 	public String getCal() {
 		return cal;
 	}
@@ -164,6 +165,12 @@ public class BaiThiActionForm extends ActionForm{
 	}
 	public void setNotice(String notice) {
 		this.notice = notice;
+	}
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
 	}
 
 }

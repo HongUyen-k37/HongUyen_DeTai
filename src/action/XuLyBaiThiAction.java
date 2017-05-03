@@ -71,7 +71,14 @@ public class XuLyBaiThiAction extends Action{
 		String maMonThi = listMonThi.size()==0?"":listMonThi.get(0).getMaMonThi();
 		if(frm.getMaMonThi()!=null)
 			maMonThi = frm.getMaMonThi();
-		//get list thí sinh theo phòng
+		//get trạng thái môn thi
+		MonThiBean mtBean = mt.getMonThi(maMonThi);
+		int trangThaiMT = mtBean.getTrangThaiMonThi();
+		frm.setError(null);
+		if(trangThaiMT >= 1){
+			frm.setError("Đã xử lý thi");
+		}
+		//gia tri ban dau` cua error la` = may ??
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
 		//get list bai thi

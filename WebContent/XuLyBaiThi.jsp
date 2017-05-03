@@ -31,18 +31,25 @@
 			<div class="row main-nav">
 			<p class="title">XỬ LÝ BÀI THI</p>
 			<label class="control-label col-sm-2">Phòng thi:</label>
-	    	<div class="col-sm-4">
+	    	<div class="col-sm-2">
 	    		<html:select property="maPhongThi" name="baiThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getXuLyBaiThi()">
                 	<html:optionsCollection name="baiThiActionForm" property="listPhongThi" label="soHieuPhongThi" value="maPhongThi"/>
 	            </html:select>
 	    	</div>
 	    	<label class="control-label col-sm-2">Môn thi:</label>
-	    	<div class="col-sm-4">
+	    	<div class="col-sm-2">
 	    		<html:select property="maMonThi" name="baiThiActionForm" styleId="f_maMonThi" styleClass="form-control" onchange="getXuLyBaiThi()">
                 	<html:optionsCollection name="baiThiActionForm" property="listMonThi" label="tenMonThi" value="maMonThi"/>
 	            </html:select>
 	    	</div>
+	    	<div class="col-sm-4"><logic:notEmpty name="baiThiActionForm" property="error">
+				<div class="alert alert-danger" style="padding: 5px;">
+				  ${baiThiActionForm.error }
+				</div>	
+			</logic:notEmpty></div>
 			</div>
+			
+			
 		<div class="details_info main-nav" id="xuLyBaiThi">
 			<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<div class="main-list">
@@ -121,6 +128,7 @@
 				<button type="submit" class="btn btn-success btn-all" onclick="printDiv('xuLyBaiThi')">In Danh sách</button>
 		</html:form>
 		</div>
+		
 	</div>
 </div>
 </div>
