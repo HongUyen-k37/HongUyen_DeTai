@@ -25,7 +25,6 @@ public class DangNhapAction extends Action{
 		if(ndBO.checkLogin(username, password)){
 			HttpSession session=request.getSession();
 			session.setAttribute("user", ndBO.getUserByUsername(username));
-			System.out.println(session.getAttribute("user"));
 			return mapping.findForward("success");
 		}
 		else{

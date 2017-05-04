@@ -54,7 +54,11 @@
 			<div class="col-sm-3">
 				<button type="submit" class="btn btn-success btn-all" name="submit" value="execute">Thực hiện</button>
 			</div>
-			
+			<logic:notEmpty name="baiThiActionForm" property="error">
+				<div class="alert alert-danger" style="padding: 5px;">
+				  ${baiThiActionForm.error }
+				</div>	
+			</logic:notEmpty>
 		</div>
 		</html:form>
 		<div class="row">
@@ -109,7 +113,8 @@
 		}
 		
 	}
-	loadSelectLuot(${baiThiActionForm.soLuot});
+	var soLuot=${baiThiActionForm.soLuot};
+	loadSelectLuot(soLuot);
 	if($("#soLuot").val()) loadData($("#soLuot").val());
 	$("#soLuot").on("change load",function(){
 		loadData($(this).val());
@@ -184,7 +189,7 @@
 				}
 			}
 		});
-	}}
+	}
 	
 </script>
 </body>

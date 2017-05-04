@@ -78,7 +78,7 @@ public class XuLyBaiThiAction extends Action{
 		if(trangThaiMT >= 1){
 			frm.setError("Đã xử lý thi");
 		}
-		//gia tri ban dau` cua error la` = may ??
+		
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
 		//get list bai thi
@@ -119,6 +119,7 @@ public class XuLyBaiThiAction extends Action{
 			MonThiBO mtBO = new MonThiBO();
 			mtBO.updateTrangThai(maMonThi, 1);
 			frm.setNotice("Lưu thành công");
+			frm.setError("Đã xử lý thi");
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");

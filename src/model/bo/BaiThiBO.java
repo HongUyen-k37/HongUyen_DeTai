@@ -53,26 +53,55 @@ public class BaiThiBO {
 	public boolean updateDonTui(String maKyThi, String maMonThi, String maThiSinh, int tuiSo, int soPhach) {
 		return bt.updateDonTui(maKyThi, maMonThi, maThiSinh, tuiSo, soPhach);
 	}
-	public void DonTuiPhach(String maKyThi, String maMonThi, int coSoPhong, int coSoTui, int soLuotThucHien){
+	public void DonTuiPhach1(String maKyThi, String maMonThi, int coSoPhong, int coSoTui, int soLuotThucHien){
 		PhongThiBO ptBO = new PhongThiBO();
 		BaiThiBO btBO = new BaiThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		int soPhach=1;
-		for(int l = 1; l <= soLuotThucHien; l++){
+		for(int l = 1; l <= soLuotThucHien; l++){ //1
 			List<BaiThiBean> listAll = new ArrayList<>();
-			for(int i = (l-1)*coSoPhong; i < l*coSoPhong; i++){
+			for(int i = (l-1)*coSoPhong; i < l*coSoPhong; i++){ //0
 				List<BaiThiBean> listBaiThiTheoPhong = btBO.getListTheoMon(maKyThi, maMonThi, listPhongThi.get(i).getMaPhongThi());
-				listAll.addAll(listBaiThiTheoPhong);
+				listAll.addAll(listBaiThiTheoPhong); //so sv phong 1: 20 sv
 			}
 			Collections.shuffle(listAll);
-			int sizeTui=(int) Math.ceil(1.0*listAll.size()/coSoTui);
-			for(int i=0;i<coSoTui;i++){
-				for(int j = i*sizeTui; j < sizeTui*(i+1); j++){
+			int sizeTui=(int) Math.ceil(1.0*listAll.size()/coSoTui); //20/1 = 20
+			for(int i=0;i<coSoTui;i++){ //0
+				for(int j = i*sizeTui; j < sizeTui*(i+1); j++){ //0
 					if(j >= listAll.size()) break;
 					btBO.updateDonTui(maKyThi, maMonThi, listAll.get(j).getMaThiSinh(), i+1+coSoTui*(l-1), soPhach++);
 					
 				}
 			}
+		}
+	}
+	public void DonTuiPhach(String maKyThi, String maMonThi, int coSoPhong, int coSoTui, int soLuotThucHien){
+		PhongThiBO ptBO = new PhongThiBO();
+		BaiThiBO btBO = new BaiThiBO();
+		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
+		int soPhach=1;
+		for(int l = 1; l <= soLuotThucHien; l++){ //1
+			List<BaiThiBean> listAll = new ArrayList<>();
+			for(int i = (l-1)*coSoPhong; i < l*coSoPhong; i++){ //0
+				List<BaiThiBean> listBaiThiTheoPhong = btBO.getListTheoMon(maKyThi, maMonThi, listPhongThi.get(i).getMaPhongThi());
+				Collections.shuffle(listBaiThiTheoPhong);
+				int sizeTui=(int) Math.ceil(1.0*listBaiThiTheoPhong.size()/coSoTui); //20/1 = 20
+				for(int x=0;x<coSoTui;x++){ //0
+					for(int j = x*sizeTui; j < sizeTui*(x+1); j++){ //0
+						if(j >= listBaiThiTheoPhong.size()) break;
+						btBO.updateDonTui(maKyThi, maMonThi, listBaiThiTheoPhong.get(j).getMaThiSinh(), x+1+coSoTui*(l-1), soPhach++);						
+					}
+				}
+			}
+//			Collections.shuffle(listAll);
+//			int sizeTui=(int) Math.ceil(1.0*listAll.size()/coSoTui); //20/1 = 20
+//			for(int i=0;i<coSoTui;i++){ //0
+//				for(int j = i*sizeTui; j < sizeTui*(i+1); j++){ //0
+//					if(j >= listAll.size()) break;
+//					btBO.updateDonTui(maKyThi, maMonThi, listAll.get(j).getMaThiSinh(), i+1+coSoTui*(l-1), soPhach++);
+//					
+//				}
+//			}
 		}
 	}
 	public List<BaiThiBean> getListDonTui(String maKyThi, String maMonThi){
