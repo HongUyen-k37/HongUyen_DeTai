@@ -75,16 +75,15 @@ public class XuLyBaiThiAction extends Action{
 		MonThiBean mtBean = mt.getMonThi(maMonThi);
 		int trangThaiMT = mtBean.getTrangThaiMonThi();
 		frm.setError(null);
-		for  (PhongThiBean ptBean : listPhongThi) {	
-			if(equal(maPhongThi, ptBean.getMaPhongThi())&&trangThaiMT >= 1){
-				frm.setError("Đã xử lý thi");
-			}	
+		BaiThiBO btBO = new BaiThiBO();
+		if(btBO.getListTheoMon(maKyThi, maMonThi, maPhongThi).size()!=0 &&trangThaiMT >= 1){
+			frm.setError("Đã xử lý thi");
 		}
 		
 		ThiSinhBO ts = new ThiSinhBO();
 		List<ThiSinhBean> listThiSinh = ts.getListThiSinhTheoPhongThi(maPhongThi);
 		//get list bai thi
-		BaiThiBO btBO = new BaiThiBO();
+		
 		List<BaiThiBean> listBaiThi = btBO.getListXuLy(maKyThi, maMonThi, maPhongThi);
 		frm.setListBaiThi(listBaiThi);
 		frm.setListThiSinh(listThiSinh);
@@ -125,10 +124,5 @@ public class XuLyBaiThiAction extends Action{
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");
-	}
-
-	private boolean equal(String maPhongThi, String maPhongThi2) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }
