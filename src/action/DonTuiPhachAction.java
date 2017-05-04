@@ -76,6 +76,7 @@ public class DonTuiPhachAction extends Action{
 			if(coSoPhongThi>tongSoPhong){
 				frm.setError("Cơ số phòng lớn hơn tổng số phòng. Vui lòng nhập lại cơ số phòng!");
 			}
+			else{
 			//tính tổng số lượt
 			frm.setSoLuot((int)Math.ceil(1.0f*tongSoPhong/coSoPhongThi));
 			//get input
@@ -94,7 +95,7 @@ public class DonTuiPhachAction extends Action{
 			btBO.DonTuiPhach(maKyThi, maMonThi, coSoPhongThi, coSoTui, soLuot);
 			ktBO.updateTrangThai(maKyThi, 5);
 			mtBO.updateTrangThai(maMonThi, 2);
-		}
+		}}
 		return mapping.findForward("success");
 	}
 	

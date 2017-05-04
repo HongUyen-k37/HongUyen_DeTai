@@ -54,11 +54,7 @@
 			<div class="col-sm-3">
 				<button type="submit" class="btn btn-success btn-all" name="submit" value="execute">Thực hiện</button>
 			</div>
-			<logic:notEmpty name="baiThiActionForm" property="error">
-				<div class="alert alert-danger" style="padding: 5px;">
-				  ${baiThiActionForm.error }
-				</div>	
-			</logic:notEmpty>
+			
 		</div>
 		</html:form>
 		<div class="row">
@@ -80,6 +76,11 @@
 				</div>	
 			</div>
 		</div>
+		<logic:notEmpty name="baiThiActionForm" property="error">
+			<div class="alert alert-danger" style="padding: 5px;">
+			  ${baiThiActionForm.error }
+			</div>	
+		</logic:notEmpty>
 	</div>
 		<div class="details_info" style="text-align:center" id="donTuiPhach">
 			<table class="table table-bordered table-hover table-striped">
