@@ -31,7 +31,7 @@
 				<p class="title">PHÒNG THI</p>
 				<form>
 					<div class="form-group row">
-						<label class="col-md-2" for="sl">Danh sách:</label>
+						<label class="col-md-2" for="sl">Phòng thi:</label>
 						<div class="col-md-10">
 							<html:select property="maPhongThi" name="phongThiActionForm" styleId="f_maPhongThi" styleClass="form-control" onchange="getDanhSachPhongThi()">
 	                    		<html:optionsCollection name="phongThiActionForm" property="listPhongThi" label="soHieuPhongThi" value="maPhongThi"/>
