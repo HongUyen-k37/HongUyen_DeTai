@@ -75,8 +75,10 @@ public class XuLyBaiThiAction extends Action{
 		MonThiBean mtBean = mt.getMonThi(maMonThi);
 		int trangThaiMT = mtBean.getTrangThaiMonThi();
 		frm.setError(null);
-		if(trangThaiMT >= 1){
-			frm.setError("Đã xử lý thi");
+		for  (PhongThiBean ptBean : listPhongThi) {	
+			if(equal(maPhongThi, ptBean.getMaPhongThi())&&trangThaiMT >= 1){
+				frm.setError("Đã xử lý thi");
+			}	
 		}
 		
 		ThiSinhBO ts = new ThiSinhBO();
@@ -123,5 +125,10 @@ public class XuLyBaiThiAction extends Action{
 			return mapping.findForward("success");
 		}
 		return mapping.findForward("success");
+	}
+
+	private boolean equal(String maPhongThi, String maPhongThi2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
