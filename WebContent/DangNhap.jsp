@@ -28,7 +28,7 @@
 	    <button type="submit" class="btn btn-success" name="submit">Đăng nhập</button>
  	</html:form>
  	<p class="message">
- 		<bean:write name="dangNhapActionForm" property="error"/>
+ 		<bean:write name="nguoiDungActionForm" property="error"/>
  	</p>		
 </div>
 </div>
