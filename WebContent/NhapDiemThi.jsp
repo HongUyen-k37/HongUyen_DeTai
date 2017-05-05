@@ -116,7 +116,7 @@
 		<div class="row">
 			<div class="col-sm-3" style="float: right;" >
 				<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-				<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
+				<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()" id="delete">Xóa hết</button>
 				<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 			  ${diemActionForm.error }
 			</div>	
 		</logic:notEmpty></div>
-		<div class="text-center">
+		<div class="text-center" style="margin-bottom: 10px">
 			<button type="submit" id="finish" class="btn btn-danger btn-all" name="save" value="finish">Kết thúc nhập</button>
 		</div>
 		

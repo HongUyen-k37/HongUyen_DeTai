@@ -249,19 +249,6 @@ function convertCode(){
 	$input.focus();
 }
 
-function convertCode2(){
-	var str=$input.val();
-	str = soSangChu(str);
-	if (str=="Một Không chấm Không") {
-		str = "Mười";
-	}
-	if(str=="Không chấm Không"){
-		str="Không";
-	}
-	$output.html(str);
-	//ClipboardHelper.copyText(str);
-}
-
 var soBaiThi = $("#soBaiThi").val();
 for(var i = 0; i < soBaiThi; i++){
 	var $input = $("#input"+i);
@@ -269,11 +256,26 @@ for(var i = 0; i < soBaiThi; i++){
 	convertCode();
 }
 
+function convertCode2(){
+	var str=$input[i].val();
+	str = soSangChu(str);
+	if (str=="Một Không chấm Không") {
+		str = "Mười";
+	}
+	if(str=="Không chấm Không"){
+		str="Không";
+	}
+	$output[i].html(str);
+	ClipboardHelper.copyText(str);
+	$input[i].focus();
+}
 var soBT = $("#soBT").html();
+var $input = [soBT];
+var $output = [soBT];
 for(var i = 0; i < soBT; i++){
-	var $input = $("#in"+i);
-	var $output = $("#out"+i);
-	$input.on("input",function(){
+	$input[i] = $("#in"+i);
+	$output[i] = $("#out"+i);
+	$input[i].on("input",function(){
 		convertCode2();
 	});
 }
