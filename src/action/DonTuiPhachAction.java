@@ -74,7 +74,7 @@ public class DonTuiPhachAction extends Action{
 			//check coSoPhong
 			frm.setError(null);
 			if(coSoPhongThi>tongSoPhong){
-				frm.setError("Cơ số phòng lớn hơn tổng số phòng. Vui lòng nhập lại cơ số phòng!");
+				frm.setError("Cơ số phòng phải nhỏ hơn tổng số phòng. Vui lòng nhập lại cơ số phòng!");
 			}
 			else{
 			//tính tổng số lượt

@@ -37,6 +37,7 @@ public class DiemActionForm extends ActionForm{
 	private List<DiemThiBean> listDiemThi;
 	private String submit;
 	private String notice;
+	private String error;
 	//get list value
 	public DiemThiBean getDiemThi(int index){
 		if(listDiemThi==null) listDiemThi=new ArrayList<>();
@@ -168,6 +169,12 @@ public class DiemActionForm extends ActionForm{
 	}
 	public void setMonThi(MonThiBean monThi) {
 		this.monThi = monThi;
+	}
+	public String getError() {
+		return error;
+	}
+	public void setError(String error) {
+		this.error = error;
 	}
 
 

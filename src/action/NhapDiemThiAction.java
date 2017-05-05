@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.DiemActionForm;
+import model.bean.BaiThiBean;
 import model.bean.DiemThiBean;
 import model.bean.KyThiBean;
 import model.bean.MonThiBean;
@@ -70,17 +71,25 @@ public class NhapDiemThiAction extends Action{
 		frm.setTuiSo(tuiSo);
 		//get Bài thi theo Môn và Túi
 		frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
+		for (BaiThiBean baiThi : btBO.getListTheoTui(maKyThi, maMonThi, tuiSo)) {
+			System.out.println(baiThi.getSoPhach());
+		}
 		if("save".equals(frm.getSave())){
 			/*if(kyThi.getTrangThai()>6){
 				return mapping.findForward("errorStatus");
 			}*/
-			List<DiemThiBean> lst = frm.getListDiemThi();
-			for (DiemThiBean diemThi : lst) {
-				btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
-				System.out.println(diemThi.getDiemChamThi());
+			int size = btBO.getListTheoTui(maKyThi, maMonThi, tuiSo).size();
+			if(size!=0){
+				List<DiemThiBean> lst = frm.getListDiemThi();
+				for (DiemThiBean diemThi : lst) {
+					btBO.nhapDiem(maKyThi, maMonThi, diemThi.getSoPhach(), diemThi.getDiemChamThi());
+					System.out.println(diemThi.getDiemChamThi());
+				}
+				frm.setNotice("Lưu điểm thi thành công");
+				frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
+			}else{
+				frm.setError("Chưa thực hiện đánh số phách! Vui lòng đánh số phách rồi mới nhập điểm!");
 			}
-			frm.setNotice("Lưu điểm thi thành công");
-			frm.setListBaiThi(btBO.getListTheoTui(maKyThi, maMonThi, tuiSo));
 			/*return mapping.findForward("success");*/
 		}
 		if("xoaHet".equals(frm.getXoaHet())){

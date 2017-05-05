@@ -27,11 +27,11 @@
 			
 			<li onmouseover="mouseOn(this)" onmouseleave="mouseOut(this)"> <a href="#">Báo cáo - Thống kê</a>
 			<ul>
-				<li><a href="ThongKeBangDiemTheoMon.do">Bảng điểm theo môn thi</a></li>
-				<li><a href="ThongKeBangDiemTongHop.do">Bảng điểm tổng hợp</a></li>
-				<li><a href="ThongKeDSTSTrungTuyen.do">Danh sách trúng tuyển</a></li>
 				<li><a href="ThongKeBienBanChamThi.do">Biên bản chấm thi</a></li>
 				<li><a href="ThongKeBienBanTongHopChamThi.do">Biên bản tổng hợp chấm thi</a></li>
+				<li><a href="ThongKeBangDiemTheoMon.do">Bảng điểm theo môn thi</a></li>
+				<li><a href="ThongKeBangDiemTongHop.do">Bảng điểm tổng hợp</a></li>
+				<li><a href="ThongKeDSTSTrungTuyen.do">Danh sách trúng tuyển</a></li>				
 			</ul></li>
 			<li> <a href="#">Hướng dẫn - Hỗ trợ</a></li>
 			<div class="log-out">

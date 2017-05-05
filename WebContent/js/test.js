@@ -249,25 +249,35 @@ function convertCode(){
 	$input.focus();
 }
 
+function convertCode2(){
+	var str=$input.val();
+	str = soSangChu(str);
+	if (str=="Một Không chấm Không") {
+		str = "Mười";
+	}
+	if(str=="Không chấm Không"){
+		str="Không";
+	}
+	$output.html(str);
+	//ClipboardHelper.copyText(str);
+}
+
 var soBaiThi = $("#soBaiThi").val();
 for(var i = 0; i < soBaiThi; i++){
 	var $input = $("#input"+i);
 	var $output = $("#output"+i);
-	/*$input.on("input",function(){
-		convertCode();
-	});*/
 	convertCode();
 }
-/*
+
 var soBT = $("#soBT").html();
 for(var i = 0; i < soBT; i++){
 	var $input = $("#in"+i);
 	var $output = $("#out"+i);
 	$input.on("input",function(){
-		convertCode();
+		convertCode2();
 	});
 }
-*/
+
 function getTKBangDiemTheoMon(){
 	var makt = $("#f_maKyThi").val();
 	var mamt = $("#f_maMonThi").val();

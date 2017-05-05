@@ -85,15 +85,16 @@
 				<tr>
 					<bean:define id="stt" value="${stt+1}"/>
 					<td style="text-align: center">${stt}</td>
-					<td>	
+					<td style="text-align: right">
+						${bt.soPhach}	
 						<input type="hidden" name="diemThi[${stt-1}].soPhach" value="${bt.soPhach}" >
 					</td>
 					<td>
 						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
-						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="in${stt-1}">
+						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control in" id="in${stt-1}">
 					</td>
 					<td>
-						<span id="out${stt-1}"></span>
+						<span id="out${stt-1}" class="out"></span>
 					</td>
 					<td style="text-align: center"><bean:write name="bt" property="ghiChu"/></td>
 				</tr>
@@ -113,15 +114,21 @@
 		</div>
 		</div>
 		<div class="row">
-				<div class="col-sm-3" style="float: right;" >
-					<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
-					<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
-					<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
-				</div>
+			<div class="col-sm-3" style="float: right;" >
+				<button type="submit" class="btn btn-success btn-all" name="save" id="save" value="save">Lưu</button>
+				<button type="submit" class="btn btn-warning btn-all" name="xoaHet" value="xoaHet" onclick="clearCheckbox()">Xóa hết</button>
+				<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 			</div>
+		</div>
+		<logic:notEmpty name="diemActionForm" property="error">
+			<div class="alert alert-danger" style="padding: 5px;">
+			  ${diemActionForm.error }
+			</div>	
+		</logic:notEmpty></div>
 		<div class="text-center">
 			<button type="submit" id="finish" class="btn btn-danger btn-all" name="save" value="finish">Kết thúc nhập</button>
 		</div>
+		
 		</html:form>
 	</div>
 </div>
