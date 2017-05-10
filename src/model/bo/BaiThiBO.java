@@ -81,7 +81,7 @@ public class BaiThiBO {
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
 		int soPhach=1;
 		for(int l = 1; l <= soLuotThucHien; l++){ //1
-			List<BaiThiBean> listAll = new ArrayList<>();
+			//List<BaiThiBean> listAll = new ArrayList<>();
 			for(int i = (l-1)*coSoPhong; i < l*coSoPhong; i++){ //0
 				List<BaiThiBean> listBaiThiTheoPhong = btBO.getListTheoMon(maKyThi, maMonThi, listPhongThi.get(i).getMaPhongThi());
 				Collections.shuffle(listBaiThiTheoPhong);

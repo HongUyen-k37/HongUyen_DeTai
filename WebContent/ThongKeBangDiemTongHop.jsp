@@ -109,7 +109,20 @@
 									</logic:equal>
 									
 									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
-									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemUuTien}</td>
+									
+									<logic:notEqual value="-1" name="dsts" property="diemMon1">
+										<logic:notEqual value="-1" name="dsts" property="diemMon2">											
+										<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemUuTien}</td>
+											</logic:notEqual>
+										</logic:notEqual>
+								
+									<logic:equal value="-1" name="dsts" property="diemMon1">
+										<td></td>
+									</logic:equal>
+									<logic:equal value="-1" name="dsts" property="diemMon2">
+										<td></td>
+									</logic:equal>
+							
 									<td><bean:write name="dsts" property="ghiChu"/></td>                
 								</tr>
 							</logic:iterate>
@@ -185,8 +198,26 @@
 									<logic:equal value="-1" name="dsts" property="diemMon3">
 										<td></td>
 									</logic:equal>
+									
 									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
-									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
+									
+									<logic:notEqual value="-1" name="dsts" property="diemMon1">
+										<logic:notEqual value="-1" name="dsts" property="diemMon2">
+											<logic:notEqual value="-1" name="dsts" property="diemMon3">
+										<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemMon3 + dsts.diemUuTien}</td>
+											</logic:notEqual>
+										</logic:notEqual>
+									</logic:notEqual>
+									<logic:equal value="-1" name="dsts" property="diemMon1">
+										<td></td>
+									</logic:equal>
+									<logic:equal value="-1" name="dsts" property="diemMon2">
+										<td></td>
+									</logic:equal>
+									<logic:equal value="-1" name="dsts" property="diemMon3">
+										<td></td>
+									</logic:equal>
+								
 									<td><bean:write name="dsts" property="ghiChu"/></td>                    
 								</tr>
 							</logic:iterate>

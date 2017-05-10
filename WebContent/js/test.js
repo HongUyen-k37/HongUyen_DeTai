@@ -232,18 +232,21 @@ function soSangChu(str) {
 	str = str.replace(/0/g, ' Không');
 	str = str.replace(/\./g, ' chấm');
 	str = str.trim();
+	if (str=="Một Không chấm Không") {
+		str = "Mười";
+	}
+	if (str=="Một Không") {
+		str = "Mười";
+	}
+	if(str=="Không chấm Không"){
+		str="Không";
+	}
 	return str;
 }
 
 function convertCode(){
 	var str=$input.val();
 	str = soSangChu(str);
-	if (str=="Một Không chấm Không") {
-		str = "Mười";
-	}
-	if(str=="Không chấm Không"){
-		str="Không";
-	}
 	$output.html(str);
 	ClipboardHelper.copyText(str);
 	$input.focus();
@@ -256,27 +259,12 @@ for(var i = 0; i < soBaiThi; i++){
 	convertCode();
 }
 
-function convertCode2(){
-	var str=$input[i].val();
-	str = soSangChu(str);
-	if (str=="Một Không chấm Không") {
-		str = "Mười";
-	}
-	if(str=="Không chấm Không"){
-		str="Không";
-	}
-	$output[i].html(str);
-	ClipboardHelper.copyText(str);
-	$input[i].focus();
-}
 var soBT = $("#soBT").html();
-var $input = [soBT];
-var $output = [soBT];
-for(var i = 0; i < soBT; i++){
-	$input[i] = $("#in"+i);
-	$output[i] = $("#out"+i);
-	$input[i].on("input",function(){
-		convertCode2();
+for(var i=0;i<parseInt(soBT);i++){
+	$("#in"+i).parent().parent().find(".out").html(soSangChu($("#in"+i).val()));
+	$("#in"+i).on("keyup",function(){
+		$(this).parent().parent().find(".out").html(soSangChu($(this).val()));
+		console.log(soSangChu($(this).val()));
 	});
 }
 
