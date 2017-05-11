@@ -14,7 +14,7 @@ import org.apache.struts.upload.FormFile;
 import model.bean.ThiSinhBean;
 
 public class ReadFileExcel {
-	public static List<ThiSinhBean> getListFromFile(FormFile formFile) throws Exception{
+	public static List<ThiSinhBean> getListFromFile(FormFile formFile, String maKyThi) throws Exception{
 		List<ThiSinhBean> lstThiSinh =new  ArrayList<ThiSinhBean>();
 		@SuppressWarnings("resource")
 		XSSFWorkbook workbook = new XSSFWorkbook(formFile.getInputStream());
@@ -47,10 +47,9 @@ public class ReadFileExcel {
 				if(i==7) dienThoai = value;
 				if(i==8) email = value;
 				if(i==9) diaChi = value;
-				i++;
-				
+				i++;		
 			}
-			ThiSinhBean ts = new ThiSinhBean(null, null, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			if(!hoDem.equals("") && !ten.equals("") && !ngaySinh.equals("") && !doiTuong.equals("") && !khuVuc.equals(""))
 			lstThiSinh.add(ts);
 		}

@@ -30,7 +30,8 @@
 		<div class="group-content">
 			<%-- <bean:define id="kyThi" name="thiSinhActionForm" property="kyThi"></bean:define> --%>
 			<bean:define id="maKyThi" name="kyThi" property="maKyThi"></bean:define>
-			<a class="btn btn-success " data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
+			<a class="btn btn-success "data-toggle="modal" href="javascript:void(0)" onclick="taoThiSinh('${maKyThi}')">Thêm thí sinh</a>
+			<a class="btn btn-danger" data-toggle="modal" href="javascript:void(0)" onclick="readFile('${maKyThi}')">Nhập bằng file</a>
 			<div class="col-md-7 col-xs-6" style="float:right">
 				<html:form action="/TimKiemThiSinh" styleClass="input-group" method="POST"> 				
 			        <input type="text" id="menu_my_bootstrap_menu_settings_main_menu_search" value="search" class="btn form-control hidden">
@@ -69,7 +70,7 @@
 							<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 							<td style="text-align: center">
 							<a href="javascript:void(0)" onclick="suaThiSinh('${maKyThi}', '${maThiSinh}')" data-toggle="modal" class="icon icon-primary" title="Sửa thí sinh"><i class="glyphicon glyphicon-edit"></i></a> 
-	                   		<a href="javascript:void(0)" onclick="xoaThiSinh('${maThiSinh}')" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
+	                   		<a href="javascript:void(0)" onclick="xoaThiSinh('${maKyThi}', '${maThiSinh}')" data-toggle="modal" class="icon icon-danger" title="Xóa thí sinh"><i class="glyphicon glyphicon-trash"></i></a>
 	                   		</td>	                    
 						</tr>
 						</logic:iterate>
@@ -208,6 +209,36 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="modal-file">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	<html:form action="/NhapFile" styleId="upload" styleClass="form-horizontal" enctype="multipart/form-data">
+        	<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Nhập thí sinh bằng file excel</h4>
+            </div>
+            
+             <div class="modal-body">
+             	<input id="uploadfile" name="file" type="file">
+             	<hr>
+             	<p>Để dữ liệu câu hỏi upload được đảm bảo đúng và không xảy ra lỗi, bạn nên làm theo mẫu.
+             	Xem mẫu hướng dẫn ở đây</p>
+             	<a href="Files/Template.xlsx">File mẫu</a>
+             </div>
+            </html:form>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
 <jsp:include page="Asset/Footer.jsp" />
+	<script type="text/javascript">
+        // Code javascript
+        $("#uploadfile").change(function(){
+    		document.forms.upload.submit();
+    	});
+    </script>
 </body>
 </html>

@@ -3,6 +3,8 @@ package form;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
+import model.bean.KyThiBean;
+
 public class FileActionForm extends ActionForm{
 
 	/**
@@ -11,6 +13,8 @@ public class FileActionForm extends ActionForm{
 	private static final long serialVersionUID = 1L;
 	
 	private FormFile file;
+	private String maKyThi;
+	private KyThiBean kyThi;
 
 	public FormFile getFile() {
 		return file;
@@ -19,20 +23,20 @@ public class FileActionForm extends ActionForm{
 	public void setFile(FormFile file) {
 		this.file = file;
 	}
-	public String getIdBaiThi() {
-		return idBaiThi;
+	
+	public String getMaKyThi() {
+		return maKyThi;
 	}
 
-	public void setIdBaiThi(String idBaiThi) {
-		this.idBaiThi = idBaiThi;
-	}
-	public String getAction() {
-		return action;
+	public void setMaKyThi(String maKyThi) {
+		this.maKyThi = maKyThi;
 	}
 
-	public void setAction(String action) {
-		this.action = action;
+	public KyThiBean getKyThi() {
+		return kyThi;
 	}
-	private String idBaiThi;
-	private String action;
+
+	public void setKyThi(KyThiBean kyThi) {
+		this.kyThi = kyThi;
+	}
 }

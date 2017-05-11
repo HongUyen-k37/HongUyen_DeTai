@@ -10,6 +10,7 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		<form-bean name="baiThiActionForm" type="form.BaiThiActionForm" />
 		<form-bean name="thongKeActionForm" type="form.ThongKeActionForm" />
 		<form-bean name="diemActionForm" type="form.DiemActionForm" />
+		<form-bean name="fileActionForm" type="form.FileActionForm" />
 	</form-beans>
 	<global-forwards>
 		<forward name="error" path="/ErrorLoginPage.jsp"></forward>
@@ -136,6 +137,10 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 			<forward name="success" path="/ThongKeBienBanTongHopChamThi.jsp"/>
 		</action>
 		<action path="/GetBaiThiDonTui" name="baiThiActionForm" type="action.GetDonTuiPhach" scope="request">
+		</action>
+		<action path="/NhapFile" name="fileActionForm" type="action.NhapBangFileAction" scope="request">
+			<forward name="success" path="/ThiSinh.do" redirect="true"/>
+			<forward name="Error" path="/ErrorPage.jsp"/>
 		</action>
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />

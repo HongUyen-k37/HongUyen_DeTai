@@ -135,9 +135,9 @@ function suaThiSinh(maKyThi, maThiSinh){
 	$("#modal-thisinh").modal();
 }
 
-function xoaThiSinh(maThiSinh){
+function xoaThiSinh(maKyThi, maThiSinh){
 	document.forms.formDelete.reset();
-	document.forms.formDelete.action="XoaThiSinh.do?maThiSinh="+maThiSinh;
+	document.forms.formDelete.action="XoaThiSinh.do?maKyThi="+maKyThi+"&maThiSinh="+maThiSinh;
 	$("#xoaThiSinh").modal();
 }
 
@@ -328,4 +328,11 @@ function printDiv(divId) {
    printSection.innerHTML=printContents;
    window.print();
    //document.body.innerHTML = originalContents;
+}
+
+function readFile(maKyThi){
+	document.forms.upload.reset();
+	document.forms.upload.action="NhapFile.do?maKyThi="+maKyThi;
+	$(".modal-title").html("Nhập thí sinh bằng file excel");
+	$("#modal-file").modal();
 }
