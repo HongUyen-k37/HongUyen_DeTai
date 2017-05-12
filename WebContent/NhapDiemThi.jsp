@@ -120,6 +120,7 @@
 				<!-- <button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn-all" id="delete">Xóa hết</button> -->
 			</div>
 		</div>
+		</html:form>
 		<logic:notEmpty name="diemActionForm" property="error">
 			<div class="alert alert-danger" style="padding: 5px;">
 			  ${diemActionForm.error }
@@ -128,10 +129,7 @@
 		<div class="text-center" style="margin-bottom: 10px">
 			<button type="submit" id="finish" class="btn btn-danger btn-all" name="save" value="finish">Kết thúc nhập</button>
 		</div>
-		
-		</html:form>
 	</div>
-</div>
 </div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />

@@ -49,8 +49,7 @@ public class ReadFileExcel {
 				if(i==9) diaChi = value;
 				i++;		
 			}
-			if(hoDem ==null || ten ==null || ngaySinh ==null || noiSinh ==null || khuVuc ==null || doiTuong ==null
-					|| dienThoai ==null || email ==null || diaChi ==null){
+			if(hoDem ==null || ten ==null || ngaySinh ==null || khuVuc ==null || doiTuong ==null){
 				lstThiSinh = null;
 				break;
 			}

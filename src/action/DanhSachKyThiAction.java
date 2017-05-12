@@ -28,6 +28,9 @@ public class DanhSachKyThiAction extends Action{
 		HttpSession session = request.getSession(true);
 		NguoiDungBean user = (NguoiDungBean)session.getAttribute("user");
 		if(user == null) return mapping.findForward("error");
+		//xoa session kythi
+		if((String)session.getAttribute("maKyThi")!=null)
+			session.removeAttribute("maKyThi");
 		//show list kythi
 		KyThiBO ktBO = new KyThiBO();
 		PhanTrang phanTrang=new PhanTrang(5,frm.getPage(), ktBO.getListKyThi());

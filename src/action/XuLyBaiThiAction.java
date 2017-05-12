@@ -62,7 +62,7 @@ public class XuLyBaiThiAction extends Action{
 		//get list môn để select
 		MonThiBO mt = new MonThiBO();
 		List<MonThiBean> listMonThi = mt.getListMonThi(maKyThi);
-		frm.setListMonThi(listMonThi);;
+		frm.setListMonThi(listMonThi);
 		//get ma phong thi
 		String maPhongThi = listPhongThi.size()==0?"":listPhongThi.get(0).getMaPhongThi();
 		if(frm.getMaPhongThi()!=null)
@@ -73,6 +73,9 @@ public class XuLyBaiThiAction extends Action{
 			maMonThi = frm.getMaMonThi();
 		//get trạng thái môn thi
 		MonThiBean mtBean = mt.getMonThi(maMonThi);
+		if(mtBean==null){
+			return mapping.findForward("error");
+		}
 		int trangThaiMT = mtBean.getTrangThaiMonThi();
 		frm.setError(null);
 		BaiThiBO btBO = new BaiThiBO();
