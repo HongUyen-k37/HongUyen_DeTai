@@ -20,9 +20,10 @@
 				<p class="title">THỐNG KÊ BẢNG ĐIỂM THEO MÔN</p>
 				<div class="row">
 				<div class="form-group col-sm-7">
+				<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
-				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="kyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
@@ -41,7 +42,6 @@
    	    		<div class="title-content">
 					<div class="col-md-4">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-						<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
 					<div class="col-md-8 text-center">

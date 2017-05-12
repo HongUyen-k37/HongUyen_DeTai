@@ -311,6 +311,34 @@ public class ThiSinhDAO extends DataAccessObject{
 		}
 		return total;
 	}
+	public int getSoThiSinhDat2Mon(String maKyThi, String khuVuc, String doiTuong, float diemChuan, float diemLiet, boolean check){
+		int total = 0;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT *, tongDiem + diemKhuVuc + diemDoiTuong AS diemChinhThuc FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ? AND tongDiem + diemKhuVuc + diemDoiTuong >= ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setNString(2, khuVuc);
+			pstm.setNString(3, doiTuong);
+			pstm.setFloat(4, diemChuan);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				String maThiSinh = rs.getString("maThiSinh");
+				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
+				if(diem3Mon[0] > diemLiet && diem3Mon[1] > diemLiet && check == false) total++;
+				if(diem3Mon[0] >= diemLiet && diem3Mon[1] >= diemLiet && check == true) total++;
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return total;
+	}
 	public int getSoThiSinhBiDiemLiet(String maKyThi, String khuVuc, String doiTuong, float diemLiet, boolean check){
 		int total = 0;
 		Connection cnn = getConnection();
@@ -328,6 +356,33 @@ public class ThiSinhDAO extends DataAccessObject{
 				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
 				if((diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet || diem3Mon[2] <= diemLiet && check == false)
 						|| (diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet || diem3Mon[2] < diemLiet && check == true)) total++;
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}
+		return total;
+	}
+	public int getSoThiSinhBiDiemLiet2Mon(String maKyThi, String khuVuc, String doiTuong, float diemLiet, boolean check){
+		int total = 0;
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT * FROM v_TinhDiem WHERE maKyThi = ? AND khuVuc = ? AND doiTuong = ?";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			pstm.setNString(2, khuVuc);
+			pstm.setNString(3, doiTuong);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				String maThiSinh = rs.getString("maThiSinh");
+				float[] diem3Mon = getDiem3Mon(maKyThi, maThiSinh);
+				if((diem3Mon[0] <= diemLiet || diem3Mon[1] <= diemLiet && check == false)
+						|| (diem3Mon[0] < diemLiet || diem3Mon[1] < diemLiet && check == true)) total++;
 			}
 		} catch (Exception ex) {
 			getMessenger(ex);
@@ -446,6 +501,45 @@ public class ThiSinhDAO extends DataAccessObject{
 								&& ts.getDiemMon1()>ts.getDiemLiet()
 								&& ts.getDiemMon2()>ts.getDiemLiet()
 								&& ts.getDiemMon3()>ts.getDiemLiet()
+								&& ts.isNhoHonDiemLiet()==false)){
+					lst.add(ts);
+				}
+			}
+		} catch (Exception ex) {
+			getMessenger(ex);
+		} finally {
+			tryToClose(cnn);
+			tryToClose(pstm);
+			tryToClose(rs);
+		}	
+		return lst;
+	}
+	public List<KetQuaThiSinhBean> getListThiSinhTrungTuyen2Mon(String maKyThi){
+		List<KetQuaThiSinhBean> lst = new ArrayList<>();	
+		Connection cnn = getConnection();
+		ResultSet rs = null;
+		PreparedStatement pstm = null;
+		try {
+			String sql = "SELECT * FROM THISINH, KYTHI WHERE THISINH.maKyThi=? and THISINH.maKyThi = KYTHI.maKyThi";
+			pstm = cnn.prepareStatement(sql);
+			pstm.setString(1, maKyThi);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				KetQuaThiSinhBean ts = new KetQuaThiSinhBean(maKyThi, rs.getString("maThiSinh"),  rs.getString("soBaoDanh"),
+						rs.getString("hoDem"), rs.getString("khuVuc"), rs.getString("ten"), rs.getString("ngaySinh"),
+						rs.getString("doiTuong"), rs.getFloat("diemChuan"), rs.getFloat("diemLiet"),
+						rs.getBoolean("nhoHonDiemLiet"));
+				float[] diem3Mon=getDiem3Mon(maKyThi, ts.getMaThiSinh());
+				ts.setDiemMon1(diem3Mon[0]);
+				ts.setDiemMon2(diem3Mon[1]);
+				ts.setDiemUuTien(Define.getDiemCongDoiTuong().get(ts.getDoiTuong())+Define.getDiemCongKhuVuc().get(ts.getKhuVuc()));
+				if((ts.getDiemMon1()+ts.getDiemMon2()+ts.getDiemUuTien()>ts.getDiemChuan()
+						&& ts.getDiemMon1()>=ts.getDiemLiet()
+						&& ts.getDiemMon2()>=ts.getDiemLiet()
+						&& ts.isNhoHonDiemLiet()==true)
+						|| (ts.getDiemMon1()+ts.getDiemMon2()+ts.getDiemUuTien()>ts.getDiemChuan()
+								&& ts.getDiemMon1()>ts.getDiemLiet()
+								&& ts.getDiemMon2()>ts.getDiemLiet()
 								&& ts.isNhoHonDiemLiet()==false)){
 					lst.add(ts);
 				}

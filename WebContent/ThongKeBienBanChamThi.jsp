@@ -21,8 +21,9 @@
 				<div class="row">
 				<div class="form-group col-sm-7">
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
+			   		<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 			    	<div class="col-sm-10">
-				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="kyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
@@ -41,7 +42,6 @@
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
-						<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
 					<div class="col-md-6 text-center">

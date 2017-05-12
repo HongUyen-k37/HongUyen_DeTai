@@ -45,11 +45,17 @@ public class ThongKeDSTSTrungTuyenAction extends Action{
 			session.setAttribute("maKyThi", maKyThi);
 		}
 		//get thong tin cua ky thi duoc chon
-		frm.setKyThi(ktBO.getKyThi(maKyThi));
+		KyThiBean kyThi = ktBO.getKyThi(maKyThi);
+		frm.setKyThi(kyThi);
+		frm.setSoMonThi(kyThi.getSoMonThi());
 		//show danh sách
 		ThiSinhBO tsBO = new ThiSinhBO();
-		frm.setListTrungTuyen(tsBO.getListThiSinhTrungTuyen(maKyThi));
-		
+		if(kyThi.getSoMonThi()==3){
+			frm.setListTrungTuyen(tsBO.getListThiSinhTrungTuyen(maKyThi));
+		}
+		else{
+			frm.setListTrungTuyen(tsBO.getListThiSinhTrungTuyen2Mon(maKyThi));
+		}
 		return mapping.findForward("success");
 	}
 }

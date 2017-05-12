@@ -43,7 +43,7 @@
 				</html:form>
 			</div>
 			<div class="details_info">
-				<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
+				<p class="title" style="margin-top: 20px">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 				<table id="table" class="table table-bordered table-hover table-striped">
 					<thead>
 						<tr>
@@ -56,7 +56,7 @@
 							<th style="width: 92px;"></th>
 						</tr>
 					</thead>
-						<bean:define id="stt" value="0"/>
+						<bean:define id="stt" value="${(thiSinhActionForm.page-1)*10}"/>
 					<tbody>
 						<logic:iterate id="dsts" name="thiSinhActionForm" property="listThiSinh">	
 						<tr>	
@@ -76,8 +76,13 @@
 						</logic:iterate>
 					</tbody>
 				</table>
+				<div class="phan-trang text-center" id="phan-trang">
+                <ul class="pagination" style="margin: 0">
+                	
+                </ul>
+            	</div>
 				<div class="totalCandidates">
-					<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>
+					<p>Danh sách gồm có: <span> ${thiSinhActionForm.tong} </span> sinh viên.</p>
 				</div>
 			</div><!-- end details_info -->
 		</div>
@@ -236,6 +241,9 @@
 <jsp:include page="Asset/Footer.jsp" />
 	<script type="text/javascript">
         // Code javascript
+        var numPage=${thiSinhActionForm.total};
+        var currentPage=${thiSinhActionForm.page};
+        loadPhanTrang("phan-trang");
         $("#uploadfile").change(function(){
     		document.forms.upload.submit();
     	});

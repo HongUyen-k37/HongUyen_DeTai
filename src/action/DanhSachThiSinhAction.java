@@ -11,15 +11,18 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.PhanTrang;
 import form.ThiSinhActionForm;
 import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
+import model.bean.ThiSinhBean;
 import model.bo.KyThiBO;
 import model.bo.MonThiBO;
 import model.bo.ThiSinhBO;
 
 public class DanhSachThiSinhAction extends Action{
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -58,7 +61,10 @@ public class DanhSachThiSinhAction extends Action{
 		frm.setListMonThi(mtBO.getListMonThi(maKyThi));
 		ThiSinhBO tsBO = new ThiSinhBO();
 		//get list thi sinh theo ky thi
-		frm.setListThiSinh(tsBO .getListThiSinh(maKyThi));
+		PhanTrang phanTrang=new PhanTrang(10,frm.getPage(), tsBO.getListThiSinh(maKyThi));
+		frm.setListThiSinh((List<ThiSinhBean>) phanTrang.getLst());
+		frm.setTotal(phanTrang.getTotal());
+		frm.setTong(tsBO.getListThiSinh(maKyThi).size());
 		return mapping.findForward("success");
 	}
 	

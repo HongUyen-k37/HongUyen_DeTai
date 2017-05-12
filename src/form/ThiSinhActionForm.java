@@ -55,6 +55,25 @@ public class ThiSinhActionForm extends ActionForm{
 	private String error;
 	private String notice;
 	private String soLuongSV;
+	private int page = 1;
+	private int total = 1;
+	private int tong;
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
 	public String getSubmit() {
 		return submit;
 	}
@@ -250,6 +269,14 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setSoLuongSV(String soLuongSV) {
 		this.soLuongSV = soLuongSV;
+	}
+
+	public int getTong() {
+		return tong;
+	}
+
+	public void setTong(int tong) {
+		this.tong = tong;
 	}
 	
 }

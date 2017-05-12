@@ -75,10 +75,30 @@ public class ThiSinhBO {
 		}
 		return lst;
 	}
+	public List<DiemChuanBean> kiemTraDiemChuan2Mon(String maKyThi, float diemLiet, float diemChuan, boolean check){
+		List<DiemChuanBean> lst = new ArrayList<>();
+		List<String> listKhuVuc = ts.getListKhuVuc();
+		List<String> listDoiTuong = ts.getListDoiTuong();
+		for(int i = 0; i < listKhuVuc.size(); i++){
+			for(int j = 0; j < listDoiTuong.size(); j++){
+				DiemChuanBean d = new DiemChuanBean(listKhuVuc.get(i)+" - "+listDoiTuong.get(j),
+						diemChuan+Define.getDiemCongKhuVuc().get(listKhuVuc.get(i))+Define.getDiemCongDoiTuong().get(listDoiTuong.get(j)),
+						ts.getSoThiSinhDat2Mon(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemChuan, diemLiet, check),
+						ts.getTongSoThiSinh(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j))-ts.getSoThiSinhDat2Mon(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemChuan, diemLiet, check),
+						ts.getSoThiSinhBiDiemLiet2Mon(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j), diemLiet, check),
+						ts.getTongSoThiSinh(maKyThi, listKhuVuc.get(i), listDoiTuong.get(j)));
+				lst.add(d);
+			}
+		}
+		return lst;
+	}	
 	public List<KetQuaThiSinhBean> getListKetQuaThiSinh(String maKyThi){
 		return ts.getListKetQuaThiSinh(maKyThi);
 	}
 	public List<KetQuaThiSinhBean> getListThiSinhTrungTuyen(String maKyThi){
 		return ts.getListThiSinhTrungTuyen(maKyThi);
+	}
+	public List<KetQuaThiSinhBean> getListThiSinhTrungTuyen2Mon(String maKyThi){
+		return ts.getListThiSinhTrungTuyen2Mon(maKyThi);
 	}
 }

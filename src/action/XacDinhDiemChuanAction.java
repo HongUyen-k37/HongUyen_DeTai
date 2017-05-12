@@ -64,7 +64,12 @@ public class XacDinhDiemChuanAction extends Action{
 			float diemChuan = frm.getDiemChuan();
 			//xu ly
 			ThiSinhBO tsBO = new ThiSinhBO();
-			frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
+			if(kyThi.getSoMonThi()==3){
+				frm.setListResult(tsBO.kiemTraDiemChuan(maKyThi, diemLiet, diemChuan, check));
+			}
+			else{
+				frm.setListResult(tsBO.kiemTraDiemChuan2Mon(maKyThi, diemLiet, diemChuan, check));
+			}
 			frm.setNotice("Kiểm tra thành công");
 			if("submit".equals(frm.getSubmit())){
 				ktBO.xacDinhDiemChuan(maKyThi, diemChuan, diemLiet, check);

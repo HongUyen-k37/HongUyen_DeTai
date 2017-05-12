@@ -19,9 +19,10 @@
 			<div class="row main-nav">
 				<p class="title">DANH SÁCH THÍ SINH TRÚNG TUYỂN</p>
 	    		<div class="form-group col-sm-8 col-sm-offset-2">
+	    		<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
-				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="kyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
@@ -56,6 +57,53 @@
 				</div>
 				<div class="details_info">
 					<div class="main-list">
+					<!-- Bảng điểm 2 môn -->
+					<logic:equal value="2" name="thongKeActionForm" property="soMonThi">
+						<table class="table table-bordered table-hover table-striped">
+						<thead>
+							<tr>
+								<th rowspan="2" style="line-height: 45px;">STT</th>						
+								<th rowspan="2" style="line-height: 45px;">Số báo danh</th>
+								<th rowspan="2" colspan="2" style="line-height: 45px;">Họ và tên</th>
+								<th rowspan="2" style="line-height: 45px;">Ngày sinh</th>
+								<th rowspan="2" style="line-height: 45px;">Khu vực</th>
+								<th rowspan="2" style="line-height: 45px;">Nhóm đối tượng</th>
+								<th colspan="3">Điểm thi</th>
+								<th rowspan="2" style="line-height: 45px;">Điểm ƯT</th>
+								<th rowspan="2" style="line-height: 45px;">Cộng</th>
+								<th rowspan="2" style="line-height: 45px;">Ghi chú</th>
+							</tr>
+							<tr>
+								<th>Môn 1</th>						
+								<th>Môn 2</th>
+								<th>Tổng</th>
+							</tr>
+						</thead>
+						<bean:define id="stt" value="0"/>
+						<tbody>
+							<logic:iterate id="dsts" name="thongKeActionForm" property="listTrungTuyen">	
+								<tr>	
+									<bean:define id="stt" value="${stt+1}"/>
+									<td>${stt}</td>
+									<td style="text-align: center"><bean:write name="dsts" property="soBaoDanh"/></td>
+									<td><bean:write name="dsts" property="hoDem"/></td>
+									<td><bean:write name="dsts" property="ten"/></td>
+									<td  style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
+									<td  style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon1"/></td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemMon2"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2}</td>
+									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
+									<td style="text-align: center">${dsts.diemMon1 + dsts.diemMon2 + dsts.diemUuTien}</td>
+									<td><bean:write name="dsts" property="ghiChu"/></td>                    
+								</tr>
+							</logic:iterate>
+						</tbody>
+						</table>
+					</logic:equal>
+					<!-- Bảng điểm 3 môn -->
+					<logic:notEqual value="2" name="thongKeActionForm" property="soMonThi">
 						<table class="table table-bordered table-hover table-striped">
 						<thead>
 							<tr>
@@ -100,6 +148,7 @@
 							</logic:iterate>
 						</tbody>
 						</table>
+					</logic:notEqual>
 						<div class="row totalCandidates">
 							<div class="col-md-7">
 								<p>Danh sách gồm có: <span> ${stt} </span> sinh viên.</p>

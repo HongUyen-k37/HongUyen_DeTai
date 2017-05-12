@@ -37,7 +37,6 @@ function suaKyThi(maKyThi){
 			$("#f_nganh").val(kyThi["nganh"]);
 			$("#f_hinhThucDT").val(kyThi["hinhThucDT"]);
 			$("#f_coSoLKDT").val(kyThi["coSoLKDT"]);
-			//$("#soMonThi").val(kyThi["soMonThi"]);
 			for(var i=0;i<arrMonThi.length;i++)
 				$("#taoMonThi").click();
 			var j=0;
@@ -335,4 +334,46 @@ function readFile(maKyThi){
 	document.forms.upload.action="NhapFile.do?maKyThi="+maKyThi;
 	$(".modal-title").html("Nhập thí sinh bằng file excel");
 	$("#modal-file").modal();
+}
+
+function loadPhanTrang(id){
+	if(numPage<=1) return;
+	id="#"+id;
+	var next='<li><a href="javascript:void(0)" onclick="nextPage()">&raquo;</a></li>';
+	if(currentPage<=1){
+		currentPage=1;
+		$(id+" .pagination").append('<li class="disabled"><a href="javascript:void(0)" onclick="prevPage()">&laquo;</a></li>');
+	}
+	else $(id+" .pagination").append('<li><a href="javascript:void(0)" onclick="prevPage()">&laquo;</a></li>');
+	if(currentPage>=numPage){
+		currentPage=numPage;
+		next='<li class="disabled"><a href="javascript:void(0)" onclick="nextPage()">&raquo;</a></li>'
+	}
+	for(var i=1;i<=numPage;i++){
+		if(i==currentPage) $(id+" .pagination").append('<li class="active" ><a href="javascript:void(0)" onclick="goPage('+i+')">'+i+'</a></li>');
+		else $(id+" .pagination").append('<li ><a href="javascript:void(0)" onclick="goPage('+i+')">'+i+'</a></li>');
+	}
+	$(id+" .pagination").append(next);
+}
+function goPage(page){
+	var url=$(location).attr('href');
+	if(url.indexOf("page=")>0){
+		var x="";
+		if(url.indexOf("&page=")>0) x=url.substr(url.indexOf("&page="));
+		else x=url.substr(url.indexOf("page="));
+		url=url.replace(x,"");
+	}
+	if(url.indexOf(".do?")>0) url+="&page="+page;
+	else	url+="?page="+page;
+	window.location=url;
+}
+function nextPage(){
+	currentPage++;
+	if(currentPage>=numPage) currentPage=numPage;
+	goPage(currentPage);
+}
+function prevPage(){
+	currentPage--;
+	if(currentPage<=1) currentPage=1;
+	goPage(currentPage);
 }

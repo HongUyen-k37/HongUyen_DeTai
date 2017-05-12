@@ -19,9 +19,10 @@
 			<div class="row main-nav">
 				<p class="title">THỐNG KÊ BẢNG ĐIỂM TỔNG HỢP</p>
 	    		<div class="form-group col-sm-8 col-sm-offset-2">
+	    		<bean:define id="kyThi" name="thongKeActionForm" property="kyThi"></bean:define>
 			   		<label class="col-sm-2">Tên kỳ thi:</label>
 			    	<div class="col-sm-10">
-				      	<html:select property="maKyThi" name="thongKeActionForm" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
+				      	<html:select property="maKyThi" name="kyThi" styleId="f_maKyThi" styleClass="form-control" onchange="getMaKyThi()">
 	                    		<html:optionsCollection name="thongKeActionForm" property="listKyThi" label="tenKyThi" value="maKyThi"/>
 		             	</html:select>
 			    	</div>
