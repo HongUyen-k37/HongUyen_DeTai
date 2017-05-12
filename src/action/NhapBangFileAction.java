@@ -46,11 +46,13 @@ public class NhapBangFileAction extends Action{
 		FormFile formFile=frm.getFile();
 		
 		if(formFile==null) 
-			return mapping.findForward("Error");
+			return mapping.findForward("error");
 		String s=formFile.getFileName();
 		String[] arr=s.split("[.]");
 		if(!arr[arr.length-1].equals("xlsx")) return new ActionForward("/ErrorFilePage.jsp");
 		List<ThiSinhBean> lstThiSinh=ReadFileExcel.getListFromFile(formFile, maKyThi);
+		if(lstThiSinh==null)
+			return new ActionForward("/ErrorFilePage.jsp");
 		for (ThiSinhBean ts : lstThiSinh) {
 			tsBO.insert(ts);
 		}

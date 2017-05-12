@@ -44,7 +44,7 @@
 						 <th style="width: 92px;"></th>
 					</tr>
 				</thead>
-					<bean:define id="stt" value="0"/>
+					<bean:define id="stt" value="${(kyThiActionForm.page-1)*5}"/>
 				<tbody>
 					<logic:iterate name="kyThiActionForm" property="listKyThi" id="dskt">
 					<tr>
@@ -63,6 +63,11 @@
 					</logic:iterate>
 				</tbody>
 			</table>
+			<div class="phan-trang text-center" id="phan-trang">
+                <ul class="pagination" style="margin: 0">
+                	
+                </ul>
+            </div>
 		</div>
 	</div>
 	</div>
@@ -209,5 +214,11 @@
 	</div>
 </div>
 <jsp:include page="Asset/Footer.jsp" />
+	<script type="text/javascript">
+        // Code javascript
+        var numPage=${kyThiActionForm.total};
+        var currentPage=${kyThiActionForm.page};
+        loadPhanTrang("phan-trang");
+    </script>
 </body>
 </html>

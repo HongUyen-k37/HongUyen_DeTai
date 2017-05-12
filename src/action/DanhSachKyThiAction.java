@@ -1,5 +1,7 @@
 package action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,12 +11,15 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import common.PhanTrang;
 import form.KyThiActionForm;
+import model.bean.KyThiBean;
 import model.bean.NguoiDungBean;
 import model.bo.KyThiBO;
 
 public class DanhSachKyThiAction extends Action{
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -25,7 +30,11 @@ public class DanhSachKyThiAction extends Action{
 		if(user == null) return mapping.findForward("error");
 		//show list kythi
 		KyThiBO ktBO = new KyThiBO();
-		frm.setListKyThi(ktBO.getListKyThi());
+		PhanTrang phanTrang=new PhanTrang(5,frm.getPage(), ktBO.getListKyThi());
+		frm.setListKyThi((List<KyThiBean>) phanTrang.getLst());
+		frm.setTotal(phanTrang.getTotal());
+		frm.setTong(ktBO.getListKyThi().size());
+		
 		return mapping.findForward("success");
 	}
 	

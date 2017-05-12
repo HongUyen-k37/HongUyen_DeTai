@@ -34,6 +34,27 @@ public class KyThiActionForm extends ActionForm{
 	private Boolean nhoHonDiemLiet;
 	private String error;
 	private KyThiBean kyThi;
+	private int page = 1;
+	private int total = 1;
+	private int tong;
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	public int getTong() {
+		return tong;
+	}
+	public void setTong(int tong) {
+		this.tong = tong;
+	}
 	//get list value
 	private List<MonThiBean> listMonThi;
 	public List<MonThiBean> getListMonThi() {

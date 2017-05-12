@@ -71,7 +71,7 @@
 					<th>Ngày sinh</th>
 				</tr>
 			</thead>
-			<bean:define id="stt" value="0"/>
+			<bean:define id="stt" value="${(thiSinhActionForm.page-1)*10}"/>
 			<tbody>
 				<logic:iterate name="thiSinhActionForm" property="listThiSinh" id="dsts">
 				<bean:define id="stt" value="${stt+1}"/>
@@ -85,8 +85,13 @@
 				</logic:iterate>
 			</tbody>
 			</table>
+			<div class="phan-trang text-center" id="phan-trang">
+                <ul class="pagination" style="margin: 0">
+                	
+                </ul>
+            </div>
 			<div class="totalCandidates">
-					<p>Danh sách gồm có: <span id="soSV"> ${stt} </span> sinh viên</p>
+					<p>Danh sách gồm có: <span id="soSV"> ${thiSinhActionForm.tong} </span> sinh viên</p>
 			</div>
 		</div> <!-- end details -->
 		</div>
@@ -96,6 +101,14 @@
 </div>
 <jsp:include page="Asset/Footer.jsp" />
 <script type="text/javascript">
+	//Code javascript
+	var numPage=${thiSinhActionForm.total};
+	var currentPage=${thiSinhActionForm.page};
+	loadPhanTrang("phan-trang");
+	$("#uploadfile").change(function(){
+		document.forms.upload.submit();
+	});
+	//notice
 	$(document).ready(function(){
 		<logic:notEmpty name="thiSinhActionForm" property="notice">
 			showNotice('${thiSinhActionForm.notice}');

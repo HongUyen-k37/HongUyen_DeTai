@@ -49,9 +49,14 @@ public class ReadFileExcel {
 				if(i==9) diaChi = value;
 				i++;		
 			}
+			if(hoDem ==null || ten ==null || ngaySinh ==null || noiSinh ==null || khuVuc ==null || doiTuong ==null
+					|| dienThoai ==null || email ==null || diaChi ==null){
+				lstThiSinh = null;
+				break;
+			}
 			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			if(!hoDem.equals("") && !ten.equals("") && !ngaySinh.equals("") && !doiTuong.equals("") && !khuVuc.equals(""))
-			lstThiSinh.add(ts);
+				lstThiSinh.add(ts);
 		}
 		return lstThiSinh;
 	}

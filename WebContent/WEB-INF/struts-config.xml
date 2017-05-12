@@ -140,7 +140,6 @@ Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 		</action>
 		<action path="/NhapFile" name="fileActionForm" type="action.NhapBangFileAction" scope="request">
 			<forward name="success" path="/ThiSinh.do" redirect="true"/>
-			<forward name="Error" path="/ErrorPage.jsp"/>
 		</action>
 	</action-mappings>
 	<message-resources parameter="action.ApplicationResources" />
