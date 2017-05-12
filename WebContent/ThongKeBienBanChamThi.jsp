@@ -37,9 +37,9 @@
 		            </div>
 		    	</div>
 		    	</div>
-	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content">
-   	    		<div class="title-content">
+	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" onclick="printDiv('thongKeBBChamThi')">Tải xuống</a></div>
+	    	<div class="group-content" id="thongKeBBChamThi">
+   	    		<div class="title-content" >
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>

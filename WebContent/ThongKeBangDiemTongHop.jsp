@@ -28,8 +28,8 @@
 			    	</div>
 			  	</div>
 	    	</div>
-	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content main-nav">
+	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" onclick="printDiv('thongKeBangDiemTH')">Tải xuống</a></div>
+	    	<div class="group-content main-nav" id="thongKeBangDiemTH">
    	    		<div class="title-content">
 					<div class="col-md-4">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>

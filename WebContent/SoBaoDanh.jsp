@@ -59,6 +59,7 @@
 				  ${thiSinhActionForm.error }
 				</div>
 			</logic:notEmpty>
+		<logic:notEmpty name="thiSinhActionForm" property="listThiSinh">
 		<div class="details_info">
 		<p class="title">DANH SÁCH CÁC THÍ SINH DỰ THI</p>
 			<table class="table table-bordered table-hover table-striped">
@@ -94,6 +95,7 @@
 					<p>Danh sách gồm có: <span id="soSV"> ${thiSinhActionForm.tong} </span> sinh viên</p>
 			</div>
 		</div> <!-- end details -->
+		</logic:notEmpty>
 		</div>
 	</div>
 </div>

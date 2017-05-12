@@ -45,23 +45,23 @@
 				</div>
 				</div>
 		    	</div>
-	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content">
+	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" onclick="printDiv('thongKeBBChamThiTH')">Tải xuống</a></div>
+	    	<div class="group-content" id="thongKeBBChamThiTH">
    	    		<div class="title-content">
 					<div class="col-md-6">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>
 						<h6 style="padding-left:30px;"><b>TUYỂN SINH NĂM <bean:write name="kyThi" property="namTuyenSinh"></bean:write></b></h6>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6 text-center">
 						<h6><b>BIÊN BẢN TỔNG HỢP CHẤM THI TUYỂN SINH</b></h6>
-						<p style="padding-left:30px;">Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
+						<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 					</div>
 				</div>
-				<div class="col-md-7">	
+				<div class="col-md-6">	
 					<p>Ngành:  ${thongKeActionForm.kyThi.nganh}</p>
 					<p>Điểm thi:  ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-md-6 text-center">
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 					<p>Túi số: ${thongKeActionForm.tuiSo}</p>
 				</div>

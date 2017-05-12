@@ -28,8 +28,8 @@
 			    	</div>
 			  	</div>
 	    	</div>
-	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" href="javascript:download()">Tải xuống</a></div>
-	    	<div class="group-content main-nav">
+	    	<div style="padding-bottom: 30px"><a class="btn btn-success btn-all" style="float:right;" onclick="printDiv('thongKeDSTSTT')">Tải xuống</a></div>
+	    	<div class="group-content main-nav" id="thongKeDSTSTT">
    	    		<div class="title-content">
    	    		
 						<div class="col-md-4">
@@ -40,7 +40,7 @@
 							<h5><b>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></h5>
 							<h6><b>Độc lập - Tự do - Hạnh phúc</b></h6>
 						</div>
-						<div style="height: 100px;text-align:center;">
+						<div style="text-align:center;">
 							<h5><b>DANH SÁCH THÍ SINH TRÚNG TUYỂN ĐẠI HỌC HỆ KHÔNG CHÍNH QUY NĂM ${thongKeActionForm.kyThi.namTuyenSinh}</b></h5>
 						</div>
 					

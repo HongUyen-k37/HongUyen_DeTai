@@ -7,9 +7,7 @@
 <div id="navBar">
 			<div id="menu">
 				<ul>
-					<li><a href="DangNhap.jsp">Trang chủ</a></li>
-					<li> <a href="#">Liên hệ</a></li>
-					
+					<li> <a href="LienHe.do">Liên hệ</a></li>	
 				</ul>
 			</div>
 		</div>

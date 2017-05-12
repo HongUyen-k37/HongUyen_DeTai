@@ -33,7 +33,7 @@
 				<li><a href="ThongKeBangDiemTongHop.do">Bảng điểm tổng hợp</a></li>
 				<li><a href="ThongKeDSTSTrungTuyen.do">Danh sách trúng tuyển</a></li>				
 			</ul></li>
-			<li> <a href="LienHe.jsp">Liên hệ</a></li>
+			<li> <a href="LienHe.do">Liên hệ</a></li>
 			<div class="log-out">
 				<logic:notEmpty name="user" scope="session">
 				<span style="color: #fff;">Xin chào, <b><bean:write name="user" property="tenDangNhap" scope="session"/></b>!</span>

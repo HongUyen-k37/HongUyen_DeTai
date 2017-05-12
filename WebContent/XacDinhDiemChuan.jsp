@@ -52,7 +52,8 @@
 					<button type="submit" class="btn btn-success btn-gr btn-all" name="kiemTra" value="test">Kiểm tra</button>
 				</div>
 			</div>
-			<div class="details_info">
+			<div class="details_info" id="xacDinhDiemChuan">
+			<p class="title">THỐNG KÊ ĐỀ NGHỊ ĐIỂM TRÚNG TUYỂN</p>
 				<table class="table table-bordered table-hover table-striped">
 							<thead>
 								<tr>
@@ -76,11 +77,11 @@
 								</tr>
 							</logic:iterate>
 							</tbody>
-					</table>
-					<div class="text-center">
-						<button type="submit" class="btn btn-success btn-all" name="submit" value="submit">Xác định điểm chuẩn</button>
-						<button type="submit" class="btn btn-success btn-all" name="submit" value="download">Tải xuống</button>
-					</div>
+					</table>				
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-success btn-all" name="submit" value="submit">Xác định điểm chuẩn</button>
+				<button type="submit" class="btn btn-success btn-all" name="submit" onclick="printDiv('xacDinhDiemChuan')">Tải xuống</button>
 			</div>
 		</html:form>
 		</div>

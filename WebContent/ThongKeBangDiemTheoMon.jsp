@@ -38,7 +38,7 @@
 		    	</div>
 		    	</div>
 	    		<div style="padding-bottom: 20px"><a class="btn btn-success btn-all" style="float:right;" onclick="printDiv('thongKeBangDiemTheoMon')">Tải xuống</a></div>
-	    	<div class="group-content">
+	    	<div class="group-content" id="thongKeBangDiemTheoMon">
    	    		<div class="title-content">
 					<div class="col-md-4">
 						<h5>TRƯỜNG ĐẠI HỌC KHOA HỌC</h5>

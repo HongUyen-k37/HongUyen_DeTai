@@ -13,7 +13,12 @@
 </head>
 <body>
 <jsp:include page="Asset/Header.jsp" />
+<logic:notEmpty name="user" scope="session">
 <jsp:include page="Asset/Menu2.jsp" />
+</logic:notEmpty>
+<logic:empty name="user" scope="session">
+<jsp:include page="Asset/Menu1.jsp" />
+</logic:empty>
 <div class="content" style="min-height: 600px">
     <div class="container">
     	<div class="text-center">
@@ -22,6 +27,11 @@
     		<hr>
     		<p>Email: tuyensinhdhkhhue@gmail.com</p>
             <p>Điện thoại: (0234) 3898.420 – 01253.655.941</p>
+            <logic:empty name="user" scope="session">
+			<p>
+    			<a href="DangNhap.jsp" class="btn btn-primary">Trở về trang Đăng nhập</a>
+    		</p>
+			</logic:empty>
     	</div>
     </div>
 </div>   

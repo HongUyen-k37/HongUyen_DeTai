@@ -76,7 +76,6 @@ public class DanhSoBaoDanhAction extends Action{
 		frm.setListThiSinh((List<ThiSinhBean>) phanTrang.getLst());
 		frm.setTotal(phanTrang.getTotal());
 		frm.setTong(tsBO.getListThiSinh(maKyThi).size());
-		
 		return mapping.findForward("success");
 	}
 	
