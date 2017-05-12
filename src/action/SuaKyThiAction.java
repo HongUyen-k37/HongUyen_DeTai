@@ -56,6 +56,7 @@ public class SuaKyThiAction extends Action {
 			String hinhThucDT = frm.getHinhThucDT();
 			String coSoLKDT = frm.getCoSoLKDT();
 			int soMonThi = listMonThi.size();
+			System.out.println(soMonThi);
 			KyThiBean kt = new KyThiBean(maKyThi, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.update(kt, listMonThi);

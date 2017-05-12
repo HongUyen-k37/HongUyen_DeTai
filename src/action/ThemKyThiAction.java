@@ -42,7 +42,10 @@ public class ThemKyThiAction extends Action {
 				}
 			}
 			List<MonThiBean> listMonThi = null;
-			if(frm.getListMonThi()!=null){
+			if(frm.getListMonThi()==null){
+				return mapping.findForward("error");
+			}
+			else{
 				listMonThi = frm.getListMonThi();
 			}
 			String ngayThi = frm.getNgayThi();
@@ -50,6 +53,7 @@ public class ThemKyThiAction extends Action {
 			String hinhThucDT = frm.getHinhThucDT();
 			String coSoLKDT = frm.getCoSoLKDT();
 			int soMonThi = listMonThi.size();
+			System.out.println(soMonThi);
 			KyThiBean kt = new KyThiBean(null, tenKyThi, ngayThi, namTuyenSinh, nganh, hinhThucDT, coSoLKDT, soMonThi,
 					0, null, 0, 0, 0, 0, false);
 			ktBO.insert(kt, listMonThi);		
