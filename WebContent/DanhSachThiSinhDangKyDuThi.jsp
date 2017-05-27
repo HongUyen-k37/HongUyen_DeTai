@@ -44,7 +44,10 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active">
-							<a href="#dsPhongThi" aria-controls="home" role="tab" data-toggle="tab">Danh sách thí sinh dự thi</a>
+							<a href="#dsPhongThi" aria-controls="home" role="tab" data-toggle="tab">Danh sách thí sinh đăng ký dự thi</a>
+						</li>						
+						<li role="presentation" class="">
+							<a href="#dsTheoDoiTSDT" aria-controls="tab" role="tab" data-toggle="tab">Danh sách theo dõi thí sinh dự thi</a>
 						</li>
 						<li role="presentation" class="">
 							<a href="#bienBanPhongThi" aria-controls="tab" role="tab" data-toggle="tab">Biên bản thu bài thi</a>
@@ -59,6 +62,9 @@
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="dsPhongThi">
 							<%@include file="Asset/Tab1.jsp" %>
+						</div>						
+						<div role="tabpanel" class="tab-pane fade" id="dsTheoDoiTSDT">
+							<%@include file="Asset/Tab3.jsp" %>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="bienBanPhongThi">
 							<%@include file="Asset/Tab2.jsp" %>

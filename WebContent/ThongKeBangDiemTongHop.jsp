@@ -39,12 +39,14 @@
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
 						<p>Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
 					</div>
-				</div>
+				</div>			
 				<div class="col-md-4">	
+					<br>
 					<p>Hình thức đào tạo: ${thongKeActionForm.kyThi.hinhThucDT}</p>
 					<p>Ngành: ${thongKeActionForm.kyThi.nganh}</p>
 				</div>
 				<div class="col-md-8 text-center">
+					<br>
 					<p>Điểm thi: ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
 				<div class="details_info">

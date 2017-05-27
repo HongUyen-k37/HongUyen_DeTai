@@ -50,10 +50,12 @@
 					</div>
 				</div>
 				<div class="col-md-4">	
+					<br>
 					<p>Ngành: <bean:write name="kyThi" property="nganh"></bean:write></p>
 					<p>Điểm thi: <bean:write name="kyThi" property="coSoLKDT"></bean:write></p>
 				</div>
 				<div class="col-md-8 text-center">
+					<br>
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 				</div>
 				
@@ -85,19 +87,18 @@
 									<td><bean:write name="dsts" property="ten"/></td>
 									<td style="text-align: right"><bean:write name="dsts" property="ngaySinh"/></td>
 									<td style="text-align: center"> <bean:write name="dsts" property="soBaoDanh"/></td>
-									<td style="text-align: center"><bean:write name="dsts" property="soPhach"/></td>
-									
+									<td style="text-align: center"><bean:write name="dsts" property="soPhach"/></td>									
 									<logic:notEqual value="-1" name="dsts" property="diemChinhThuc">
-									<td style="text-align: center">
-									<bean:write name="dsts" property="diemChinhThuc"/>
-									<input type="hidden" id="input${stt-1}" value="${dsts.diemChinhThuc}" />
-									</td>
-				                    <td><span id="output${stt-1}"></span></td>
+										<td style="text-align: center">
+											<bean:write name="dsts" property="diemChinhThuc"/>
+											<input type="hidden" id="input${stt-1}" value="${dsts.diemChinhThuc}" />
+										</td>
+					                    <td><span id="output${stt-1}"></span></td>
 				                    </logic:notEqual>   
 				                    <logic:equal value="-1" name="dsts" property="diemChinhThuc">
-				                    <input type="hidden" id="input${stt-1}" value=""/>
-				                    <td></td>
-				                    <td><span id="output${stt-1}"></span></td>
+					                    <input type="hidden" id="input${stt-1}"/> 
+					                    <td class="text-center">- -</td>
+					                    <td class="text-center"><span id="output${stt-1}"></span>- -</td>
 				                    </logic:equal>
 				                    <td style="text-align: center"><bean:write name="dsts" property="ghiChu"/></td>
 								</tr>
