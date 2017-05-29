@@ -31,7 +31,8 @@ public class ReadFileExcel {
 			// Lấy Iterator cho tất cả các cell của dòng hiện tại.
 			Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
 			String hoDem = null,ten = null,ngaySinh = null,noiSinh = null,khuVuc = null,doiTuong = null,
-					dienThoai = null, email = null, diaChi = null;
+					dienThoai = null, email = null, diaChi = null, gt = null;
+			boolean gioiTinh = false;
 			int i = 0;
 
 			while (cellIterator.hasNext()) {
@@ -41,19 +42,21 @@ public class ReadFileExcel {
 				if(i==1) hoDem = value;
 				if(i==2) ten = value;
 				if(i==3) ngaySinh = value;
-				if(i==4) noiSinh = value;
-				if(i==5) khuVuc = value;
-				if(i==6) doiTuong = value;
-				if(i==7) dienThoai = value;
-				if(i==8) email = value;
-				if(i==9) diaChi = value;
+				if(i==4) gt = value;
+				if(gt.equals("Nam")) gioiTinh = true;
+				if(i==5) noiSinh = value;
+				if(i==6) khuVuc = value;
+				if(i==7) doiTuong = value;
+				if(i==8) dienThoai = value;
+				if(i==9) email = value;
+				if(i==10) diaChi = value;
 				i++;		
 			}
-			if(hoDem ==null || ten ==null || ngaySinh ==null || khuVuc ==null || doiTuong ==null){
+			if(hoDem ==null || ten ==null || ngaySinh ==null || gt==null || khuVuc ==null || doiTuong ==null){
 				lstThiSinh = null;
 				break;
 			}
-			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, gioiTinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			if(!hoDem.equals("") && !ten.equals("") && !ngaySinh.equals("") && !doiTuong.equals("") && !khuVuc.equals(""))
 				lstThiSinh.add(ts);
 		}

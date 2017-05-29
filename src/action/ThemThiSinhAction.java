@@ -39,6 +39,7 @@ public class ThemThiSinhAction extends Action{
 			String hoDem = frm.getHoDem();
 			String ten = frm.getTen();
 			String ngaySinh = frm.getNgaySinh();
+			boolean gioiTinh = frm.isGioiTinh();
 			String noiSinh = frm.getNoiSinh();
 			String khuVuc = frm.getKhuVuc();
 			String doiTuong = frm.getDoiTuong();
@@ -46,7 +47,7 @@ public class ThemThiSinhAction extends Action{
 			String email = frm.getEmail();
 			String diaChi = frm.getDiaChi();
 		
-			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, gioiTinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 			tsBO.insert(ts);
 			return mapping.findForward("ThemThiSinh");
 		}

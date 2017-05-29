@@ -51,6 +51,7 @@
 							<th>Họ đệm</th>
 							<th>Tên</th>
 							<th>Ngày sinh</th>
+							<th>Giới tính</th>
 							<th>Khu vực</th>
 							<th>Đối tượng</th>
 							<th style="width: 92px;"></th>
@@ -66,6 +67,7 @@
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="ngaySinh"/></td>
+							<td style="text-align: center"><bean:write name="dsts" property="gioiTinh"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 							<td style="text-align: center">
@@ -128,11 +130,11 @@
 			<div class="modal-body">
 				<div class="row main-nav" >
 				<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>
-				<div>
+				<div class="form-group">
 					<div class="col-md-7">
 						<div class="form-group">
 							<label class="col-md-3 no-pad" for="first-name">Họ đệm(*)</label>
-							<div class="col-md-9">
+							<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
 								<input type="text" class="form-control" id="f_hoDem" name="hoDem" required="required" onchange="this.value=this.value.trim()">
 							</div>
 						</div>	
@@ -146,63 +148,74 @@
 						</div>
 					</div>
 				</div>
-					<div class="form-group">
-						<label class="col-md-2"  for="birthday-place">Nơi sinh</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_noiSinh" name="noiSinh" onchange="this.value=this.value.trim()">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-2" style="padding-right:0;" for="birthday">Ngày sinh(*)</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995">
-						</div>
-					</div>
+	
 					<div class="col-md-7">
 						<div class="form-group">
-							<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
-							<div class="col-md-9">
-								<html:select styleId="f_doiTuong" property="doiTuong" styleClass="form-control" value="">
-									<html:option value="KƯT">KƯT</html:option>	
-									<html:option value="ƯT1">ƯT1</html:option>
-									<html:option value="ƯT2">ƯT2</html:option>													
-								</html:select>
-							</div>
+						<label class="col-md-3 no-pad" for="birthday">Ngày sinh(*)</label>
+						<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
+							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995">
+						</div>
 						</div>
 					</div>
 					<div class="col-md-5">
 						<div class="form-group">
-							<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
-							<div class="col-md-8 no-pad">
-								<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="KV3">
-									<html:option value="KV3">Khu vực 3</html:option>
-									<html:option value="KV2">Khu vực 2</html:option>
-									<html:option value="KV2NT">Khu vực 2 - NT</html:option>	
-									<html:option value="KV1">Khu vực 1</html:option>	
-									
-																						
-								</html:select>		               
-							</div>
+						<label class="col-md-5 no-pad" for="gender">Giới tính(*)</label>
+						<div class="col-md-7 no-pad">
+							<html:checkbox property="gioiTinh" value="1" styleId="f_gioiTinh">Nam</html:checkbox>
+							<html:checkbox property="gioiTinh" value="0" styleId="f_gioiTinh">Nữ</html:checkbox>
 						</div>
+						</div>
+					</div>		
+			
+				<div class="form-group">
+					<label class="col-md-2"  for="birthday-place">Nơi sinh</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="f_noiSinh" name="noiSinh" onchange="this.value=this.value.trim()">
 					</div>
+				</div>
+				<div class="col-md-7">
 					<div class="form-group">
-						<label class="col-md-2" for="email">Email</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" id="f_email" name="email" maxlength="50" onchange="this.value=this.value.trim()">
+						<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
+						<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
+							<html:select styleId="f_doiTuong" property="doiTuong" styleClass="form-control" value="">
+								<html:option value="KƯT">KƯT</html:option>	
+								<html:option value="ƯT1">ƯT1</html:option>
+								<html:option value="ƯT2">ƯT2</html:option>													
+							</html:select>
 						</div>
 					</div>
-				
-						
+				</div>
+				<div class="col-md-5">
 					<div class="form-group">
-						<label class="col-md-2" for="phone">SĐT:</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" id="f_dienThoai" name="dienThoai" data-original-title="Chỉ chứa số" maxlength="11" onchange="this.value=this.value.trim()">
+						<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
+						<div class="col-md-8 no-pad">
+							<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="KV3">
+								<html:option value="KV3">Khu vực 3</html:option>
+								<html:option value="KV2">Khu vực 2</html:option>
+								<html:option value="KV2NT">Khu vực 2 - NT</html:option>	
+								<html:option value="KV1">Khu vực 1</html:option>														
+							</html:select>		               
 						</div>
-					</div>	
-					<div class="form-group" style="margin-right: 0px; margin-left: 0px;">
-						<label class="" for="address">Địa chỉ liên hệ:</label>
-						<textarea class="form-control" rows="3" cols="50" id="f_diaChi" name="diaChi" onchange="this.value=this.value.trim()"></textarea>
 					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-2" for="email">Email</label>
+					<div class="col-md-10">
+						<input type="email" class="form-control" id="f_email" name="email" maxlength="50" onchange="this.value=this.value.trim()">
+					</div>
+				</div>
+			
+					
+				<div class="form-group">
+					<label class="col-md-2" for="phone">SĐT:</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="f_dienThoai" name="dienThoai" data-original-title="Chỉ chứa số" maxlength="11" onchange="this.value=this.value.trim()">
+					</div>
+				</div>	
+				<div class="form-group" style="margin-right: 0px; margin-left: 0px;">
+					<label class="" for="address">Địa chỉ liên hệ:</label>
+					<textarea class="form-control" rows="3" cols="50" id="f_diaChi" name="diaChi" onchange="this.value=this.value.trim()"></textarea>
+				</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default btn1" data-dismiss="modal">Hủy</button>
 				<button type="reset" name="resetForm" onclick="clearCheckbox()" class="btn btn-warning btn1">Xóa</button>

@@ -37,13 +37,14 @@ public class SuaThiSinhAction extends Action {
 		String hoDem = frm.getHoDem();
 		String ten = frm.getTen();
 		String ngaySinh = frm.getNgaySinh();
+		boolean gioiTinh = frm.isGioiTinh();
 		String noiSinh = frm.getNoiSinh();
 		String khuVuc = frm.getKhuVuc();
 		String doiTuong = frm.getDoiTuong();
 		String email = frm.getEmail();
 		String dienThoai = frm.getDienThoai();
-		String diaChi = frm.getDiaChi();
-		ThiSinhBean ts =new ThiSinhBean(maThiSinh, maKyThi, null, hoDem, ten, ngaySinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
+		String diaChi = frm.getDiaChi();		
+		ThiSinhBean ts =new ThiSinhBean(maThiSinh, maKyThi, null, hoDem, ten, ngaySinh, gioiTinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
 		tsBO.update(ts);
 		return mapping.findForward("success");
 	}

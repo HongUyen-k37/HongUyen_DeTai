@@ -24,7 +24,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 				lst.add(ts);
@@ -50,7 +50,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 			}
@@ -178,9 +178,9 @@ public class ThiSinhDAO extends DataAccessObject{
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
-						rs.getString("soBaoDanh")) ;
+						rs.getString("soBaoDanh"));
 				lst.add(ts);
 			}
 		} catch (Exception ex) {
@@ -205,7 +205,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 				lst.add(ts);

@@ -123,6 +123,7 @@ function suaThiSinh(maKyThi, maThiSinh){
 			$("#f_hoDem").val(result["hoDem"]);
 			$("#f_ten").val(result["ten"]);
 			$("#f_ngaySinh").val(result["ngaySinh"]);
+			$("#f_gioiTinh").val(result["gioiTinh"]);			
 			$("#f_noiSinh").val(result["noiSinh"]);
 			$("#f_khuVuc").val(result["khuVuc"]);
 			$("#f_doiTuong").val(result["doiTuong"]);
