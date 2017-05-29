@@ -40,6 +40,7 @@ public class ThiSinhActionForm extends ActionForm{
 	private String hoDem;
 	private String ten;
 	private String ngaySinh;
+	private boolean gioiTinh;
 	private String noiSinh;
 	private String khuVuc;
 	private String doiTuong;
@@ -277,6 +278,14 @@ public class ThiSinhActionForm extends ActionForm{
 
 	public void setTong(int tong) {
 		this.tong = tong;
+	}
+
+	public boolean isGioiTinh() {
+		return gioiTinh;
+	}
+
+	public void setGioiTinh(boolean gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 	
 }
