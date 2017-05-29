@@ -57,11 +57,13 @@
 						<p>Hình thức đào tạo: <bean:write name="kyThi" property="hinhThucDT"></bean:write></p>
 					</div>
 				</div>
-				<div class="col-md-6">	
+				<div class="col-md-6">
+					<br>	
 					<p>Ngành:  ${thongKeActionForm.kyThi.nganh}</p>
 					<p>Điểm thi:  ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
 				<div class="col-md-6 text-center">
+					<br>
 					<p><b>Môn thi: ${thongKeActionForm.monThi.tenMonThi}</b></p>
 					<p>Túi số: ${thongKeActionForm.tuiSo}</p>
 				</div>
@@ -93,7 +95,7 @@
 									<logic:notEqual value="-1" name="dsbt" property="diemChinhThuc">
 										<td style="text-align: center">
 											<bean:write name="dsbt" property="diemChinhThuc" />
-											<input type="hidden" id="input${stt-1}" value="${dsbt.diemChamThi}" />
+											<input type="hidden" id="input${stt-1}" value="${dsbt.diemChinhThuc}" />
 										</td>
 					                    <td><span id="output${stt-1}"></span></td>
 					                </logic:notEqual>
