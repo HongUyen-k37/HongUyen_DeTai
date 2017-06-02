@@ -245,7 +245,7 @@ li.export-excel>a:hover,li.export-excel>a:focus{
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-.form-group > label{
+.form-group > label,.form-group > .col-md-7 > label, .form-group > .col-md-5 > label{
 	padding-top: 6px;
 }
 input[type="radio"]{

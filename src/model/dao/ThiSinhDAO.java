@@ -24,7 +24,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getInt("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 				lst.add(ts);
@@ -50,7 +50,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getInt("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 			}
@@ -91,20 +91,21 @@ public class ThiSinhDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "INSERT INTO THISINH VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO THISINH VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, thiSinh.getMaKyThi());
 			pstm.setString(2, thiSinh.getMaPhongThi());
 			pstm.setString(3, thiSinh.getHoDem());
 			pstm.setString(4, thiSinh.getTen());
 			pstm.setString(5, thiSinh.getNgaySinh());
-			pstm.setString(6, thiSinh.getNoiSinh());	
-			pstm.setString(7, thiSinh.getKhuVuc());
-			pstm.setString(8, thiSinh.getDoiTuong());
-			pstm.setString(9, thiSinh.getDienThoai());
-			pstm.setString(10, thiSinh.getEmail());
-			pstm.setString(11, thiSinh.getDiaChi());
-			pstm.setString(12, thiSinh.getSoBaoDanh());
+			pstm.setInt(6, thiSinh.getGioiTinh());
+			pstm.setString(7, thiSinh.getNoiSinh());	
+			pstm.setString(8, thiSinh.getKhuVuc());
+			pstm.setString(9, thiSinh.getDoiTuong());
+			pstm.setString(10, thiSinh.getDienThoai());
+			pstm.setString(11, thiSinh.getEmail());
+			pstm.setString(12, thiSinh.getDiaChi());
+			pstm.setString(13, thiSinh.getSoBaoDanh());
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -122,19 +123,20 @@ public class ThiSinhDAO extends DataAccessObject{
 		Connection cnn = getConnection();
 		PreparedStatement pstm = null;
 		try {
-			String sql = "Update THISINH Set hoDem=?, ten=?, ngaySinh=?, noiSinh=?, khuVuc=?, doiTuong=?, dienThoai=?,"
+			String sql = "Update THISINH Set hoDem=?, ten=?, ngaySinh=?, gioiTinh =?, noiSinh=?, khuVuc=?, doiTuong=?, dienThoai=?,"
 					+ "email=?, diaChi=? where maThiSinh=? ";
 			pstm = cnn.prepareStatement(sql);
-			pstm.setString(10, thiSinh.getMaThiSinh());
+			pstm.setString(11, thiSinh.getMaThiSinh());
 			pstm.setString(1, thiSinh.getHoDem());
 			pstm.setString(2, thiSinh.getTen());
 			pstm.setString(3, thiSinh.getNgaySinh());
-			pstm.setString(4, thiSinh.getNoiSinh());	
-			pstm.setString(5, thiSinh.getKhuVuc());
-			pstm.setString(6, thiSinh.getDoiTuong());
-			pstm.setString(7, thiSinh.getDienThoai());
-			pstm.setString(8, thiSinh.getEmail());
-			pstm.setString(9, thiSinh.getDiaChi());	
+			pstm.setInt(4, thiSinh.getGioiTinh());
+			pstm.setString(5, thiSinh.getNoiSinh());	
+			pstm.setString(6, thiSinh.getKhuVuc());
+			pstm.setString(7, thiSinh.getDoiTuong());
+			pstm.setString(8, thiSinh.getDienThoai());
+			pstm.setString(9, thiSinh.getEmail());
+			pstm.setString(10, thiSinh.getDiaChi());
 			pstm.executeUpdate();
 			result = true;
 		} catch (Exception ex) {
@@ -171,14 +173,14 @@ public class ThiSinhDAO extends DataAccessObject{
 		ResultSet rs = null;
 		PreparedStatement pstm = null;		
 		try {
-			String sql = "SELECT * FROM THISINH where maKyThi = ? and ten Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' or doiTuong Like N'%"+key+"%' ORDER BY ten, hoDem";
+			String sql = "SELECT * FROM THISINH where maKyThi = ? and ten Like N'%"+key +"%' or gioiTinh Like N'%"+key +"%' or khuVuc Like N'%"+key+"%' or doiTuong Like N'%"+key+"%' ORDER BY ten, hoDem";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			rs = pstm.executeQuery();
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getInt("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 				lst.add(ts);
@@ -205,7 +207,7 @@ public class ThiSinhDAO extends DataAccessObject{
 			ThiSinhBean ts = null;
 			while (rs.next()) {
 				ts = new ThiSinhBean(rs.getString("maThiSinh"), rs.getString("maKyThi"), rs.getString("maPhongThi"), rs.getString("hoDem"),
-						rs.getString("ten"), rs.getString("ngaySinh"), rs.getBoolean("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
+						rs.getString("ten"), rs.getString("ngaySinh"), rs.getInt("gioiTinh"), rs.getString("noiSinh"), rs.getString("khuVuc"),
 						rs.getString("doiTuong"), rs.getString("dienThoai"), rs.getString("email"), rs.getString("diaChi"),
 						rs.getString("soBaoDanh"));
 				lst.add(ts);

@@ -64,10 +64,18 @@
 							<bean:define id="stt" value="${stt+1}"/>
 							<td style="text-align: center">${stt}</td>
 							<bean:define id="maThiSinh" name="dsts" property="maThiSinh"></bean:define>
+							
 							<td><bean:write name="dsts" property="hoDem"/></td>
 							<td><bean:write name="dsts" property="ten"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="ngaySinh"/></td>
-							<td style="text-align: center"><bean:write name="dsts" property="gioiTinh"/></td>
+							<logic:equal name="dsts" value="1" property="gioiTinh">
+								<td style="text-align: center">Nam</td>
+							</logic:equal>
+							<logic:notEqual name="dsts" value="1" property="gioiTinh">
+								<td style="text-align: center">Nữ</td>
+							</logic:notEqual>
+							<%-- <td style="text-align: center"><bean:write name="dsts" property="gioiTinh"/></td> --%>
+							
 							<td style="text-align: center"><bean:write name="dsts" property="khuVuc"/></td>
 							<td style="text-align: center"><bean:write name="dsts" property="doiTuong"/></td>
 							<td style="text-align: center">
@@ -132,38 +140,36 @@
 				<p class="title">THÔNG TIN THÍ SINH DỰ THI</p>
 				<div class="form-group">
 					<div class="col-md-7">
-						<div class="form-group">
-							<label class="col-md-3 no-pad" for="first-name">Họ đệm(*)</label>
-							<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
+						<label class="col-md-3 no-pad" for="first-name">Họ đệm(*)</label>
+							<div class="col-md-9 no-pad" style="padding-right: 0px; padding-left: 20px">
 								<input type="text" class="form-control" id="f_hoDem" name="hoDem" required="required" onchange="this.value=this.value.trim()">
 							</div>
-						</div>	
 					</div>
-					<div class="col-md-5">
-						<div class="form-group">
-							<label class="col-md-4 no-pad" for="last-name">Tên(*)</label>
-							<div class="col-md-8 no-pad">
-								<input type="text" class="form-control" id="f_ten" name="ten" required="required" onchange="this.value=this.value.trim()">
-							</div>
+					<div class="col-md-5">		
+						<label class="col-md-4 no-pad" for="last-name">Tên(*)</label>
+						<div class="col-md-8 no-pad">
+							<input type="text" class="form-control" id="f_ten" name="ten" required="required" onchange="this.value=this.value.trim()">
 						</div>
 					</div>
 				</div>
-	
-					<div class="col-md-7">
-						<div class="form-group">
+				<div class="form-group">
+					<div class="col-md-7">		
 						<label class="col-md-3 no-pad" for="birthday">Ngày sinh(*)</label>
-						<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
+						<div class="col-md-9" style="padding-right: 0px; padding-left: 20px">
 							<input type="text" class="form-control" id="f_ngaySinh" name="ngaySinh" required="required" placeholder="Ví dụ: 02/11/1995">
 						</div>
-						</div>
+					
 					</div>
 					<div class="col-md-5">
-						<div class="form-group">
-						<label class="col-md-5 no-pad" for="gender">Giới tính(*)</label>
-						<div class="col-md-7 no-pad">
-							<html:checkbox property="gioiTinh" value="1" styleId="f_gioiTinh">Nam</html:checkbox>
-							<html:checkbox property="gioiTinh" value="0" styleId="f_gioiTinh">Nữ</html:checkbox>
-						</div>
+							<label class="col-md-5 no-pad" for="gender">Giới tính(*)</label>
+							<div class="col-md-7 no-pad" >
+								<html:select styleClass="selectpicker form-control" property="gioiTinh" value="1">
+									<html:option value="1">Nam</html:option>
+									<html:option value="0">Nữ</html:option>
+								</html:select>
+								<%-- <html:radio property="gioiTinh" value="1" styleId="f_gioiTinh">Nam</html:radio>
+								<html:radio property="gioiTinh" value="0" styleId="f_gioiTinh">Nữ</html:radio>	 --%>			
+							</div>
 						</div>
 					</div>		
 			
@@ -173,20 +179,18 @@
 						<input type="text" class="form-control" id="f_noiSinh" name="noiSinh" onchange="this.value=this.value.trim()">
 					</div>
 				</div>
-				<div class="col-md-7">
-					<div class="form-group">
+				<div class="form-group">
+				   <div class="col-md-7">	
 						<label class="col-md-3 no-pad" for="Subjects">Đối tượng(*)</label>
-						<div class="col-md-9" style="margin-left: 2px; margin-right: -2px;">
+						<div class="col-md-9 no-pad" style="padding-left: 20px">
 							<html:select styleId="f_doiTuong" property="doiTuong" styleClass="form-control" value="">
 								<html:option value="KƯT">KƯT</html:option>	
 								<html:option value="ƯT1">ƯT1</html:option>
 								<html:option value="ƯT2">ƯT2</html:option>													
 							</html:select>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="form-group">
+					   </div>
+				   </div>
+				   <div class="col-md-5">
 						<label class="col-md-4 no-pad" for="area">Khu vực(*)</label>
 						<div class="col-md-8 no-pad">
 							<html:select styleId="f_khuVuc" property="khuVuc" styleClass="form-control" value="KV3">
@@ -203,9 +207,7 @@
 					<div class="col-md-10">
 						<input type="email" class="form-control" id="f_email" name="email" maxlength="50" onchange="this.value=this.value.trim()">
 					</div>
-				</div>
-			
-					
+				</div>	
 				<div class="form-group">
 					<label class="col-md-2" for="phone">SĐT:</label>
 					<div class="col-md-10">

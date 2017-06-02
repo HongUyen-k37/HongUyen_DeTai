@@ -91,7 +91,8 @@
 					</td>
 					<td>
 						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
-						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control in" id="in${stt-1}">
+						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control in" id="in${stt-1}"
+						>
 					</td>
 					<td>
 						<span id="out${stt-1}" class="out"></span>

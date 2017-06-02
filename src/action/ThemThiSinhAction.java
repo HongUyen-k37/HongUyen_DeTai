@@ -39,7 +39,7 @@ public class ThemThiSinhAction extends Action{
 			String hoDem = frm.getHoDem();
 			String ten = frm.getTen();
 			String ngaySinh = frm.getNgaySinh();
-			boolean gioiTinh = frm.isGioiTinh();
+			int gioiTinh = frm.getGioiTinh();
 			String noiSinh = frm.getNoiSinh();
 			String khuVuc = frm.getKhuVuc();
 			String doiTuong = frm.getDoiTuong();

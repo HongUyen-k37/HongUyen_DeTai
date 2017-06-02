@@ -7,7 +7,7 @@ public class ThiSinhBean {
 	private String hoDem;
 	private String ten;
 	private String ngaySinh;
-	private boolean gioiTinh;
+	private int gioiTinh;
 	private String noiSinh;
 	private String khuVuc;
 	private String doiTuong;
@@ -90,7 +90,7 @@ public class ThiSinhBean {
 	}
 	
 	public ThiSinhBean(String maThiSinh, String maKyThi, String maPhongThi, String hoDem, String ten, String ngaySinh,
-			boolean gioiTinh, String noiSinh, String khuVuc, String doiTuong, String dienThoai, String email,
+			int gioiTinh, String noiSinh, String khuVuc, String doiTuong, String dienThoai, String email,
 			String diaChi, String soBaoDanh) {
 		super();
 		this.maThiSinh = maThiSinh;
@@ -99,7 +99,7 @@ public class ThiSinhBean {
 		this.hoDem = hoDem;
 		this.ten = ten;
 		this.ngaySinh = ngaySinh;
-		this.gioiTinh = gioiTinh;
+		this.setGioiTinh(gioiTinh);
 		this.noiSinh = noiSinh;
 		this.khuVuc = khuVuc;
 		this.doiTuong = doiTuong;
@@ -123,10 +123,10 @@ public class ThiSinhBean {
 	public void setDiemChinhThuc(float diemChinhThuc) {
 		this.diemChinhThuc = diemChinhThuc;
 	}
-	public boolean isGioiTinh() {
+	public int getGioiTinh() {
 		return gioiTinh;
 	}
-	public void setGioiTinh(boolean gioiTinh) {
+	public void setGioiTinh(int gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 }
