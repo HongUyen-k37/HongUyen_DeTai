@@ -39,14 +39,12 @@
 						<h6><b>KẾT QUẢ CHẤM THI TUYỂN SINH ĐẠI HỌC</b></h6>
 						<p>Ngày thi: ${thongKeActionForm.kyThi.ngayThi} năm ${thongKeActionForm.kyThi.namTuyenSinh}</p>
 					</div>
-				</div>			
+				</div>
 				<div class="col-md-4">	
-					<br>
 					<p>Hình thức đào tạo: ${thongKeActionForm.kyThi.hinhThucDT}</p>
 					<p>Ngành: ${thongKeActionForm.kyThi.nganh}</p>
 				</div>
 				<div class="col-md-8 text-center">
-					<br>
 					<p>Điểm thi: ${thongKeActionForm.kyThi.coSoLKDT}</p>
 				</div>
 				<div class="details_info">
@@ -172,18 +170,19 @@
 									<td style="text-align: center"><bean:write name="dsts" property="diemMon1"/></td>
 									</logic:notEqual>
 									<logic:equal value="-1" name="dsts" property="diemMon1">
-									<td></td>
+									<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:notEqual value="-1" name="dsts" property="diemMon2">
 									<td style="text-align: center"><bean:write name="dsts" property="diemMon2"/></td>
 									</logic:notEqual>
 									<logic:equal value="-1" name="dsts" property="diemMon2">
-									<td></td>
-									</logic:equal><logic:notEqual value="-1" name="dsts" property="diemMon3">
+									<td style="text-align: center">- -</td>
+									</logic:equal>
+									<logic:notEqual value="-1" name="dsts" property="diemMon3">
 									<td style="text-align: center"><bean:write name="dsts" property="diemMon3"/></td>
 									</logic:notEqual>
 									<logic:equal value="-1" name="dsts" property="diemMon3">
-									<td></td>
+									<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:notEqual value="-1" name="dsts" property="diemMon1">
 										<logic:notEqual value="-1" name="dsts" property="diemMon2">
@@ -193,13 +192,13 @@
 										</logic:notEqual>
 									</logic:notEqual>
 									<logic:equal value="-1" name="dsts" property="diemMon1">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:equal value="-1" name="dsts" property="diemMon2">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:equal value="-1" name="dsts" property="diemMon3">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 									
 									<td style="text-align: center"><bean:write name="dsts" property="diemUuTien"/></td>
@@ -212,13 +211,13 @@
 										</logic:notEqual>
 									</logic:notEqual>
 									<logic:equal value="-1" name="dsts" property="diemMon1">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:equal value="-1" name="dsts" property="diemMon2">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 									<logic:equal value="-1" name="dsts" property="diemMon3">
-										<td></td>
+										<td style="text-align: center">- -</td>
 									</logic:equal>
 								
 									<td><bean:write name="dsts" property="ghiChu"/></td>                    

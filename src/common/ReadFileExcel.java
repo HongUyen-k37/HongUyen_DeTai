@@ -32,7 +32,7 @@ public class ReadFileExcel {
 			Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = row.cellIterator();
 			String hoDem = null,ten = null,ngaySinh = null,noiSinh = null,khuVuc = null,doiTuong = null,
 					dienThoai = null, email = null, diaChi = null, gt = null;
-			boolean gioiTinh = false;
+			int gioiTinh = 0;	 
 			int i = 0;
 
 			while (cellIterator.hasNext()) {
@@ -43,7 +43,7 @@ public class ReadFileExcel {
 				if(i==2) ten = value;
 				if(i==3) ngaySinh = value;
 				if(i==4) gt = value;
-				if(gt.equals("Nam")) gioiTinh = true;
+				if(gt.equals("Nam")) gioiTinh = 1; 
 				if(i==5) noiSinh = value;
 				if(i==6) khuVuc = value;
 				if(i==7) doiTuong = value;
