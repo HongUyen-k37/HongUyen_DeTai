@@ -36,11 +36,14 @@ public class GetDonTuiPhach extends Action {
 			return null;
 		PhongThiBO ptBO = new PhongThiBO();
 		List<PhongThiBean> listPhongThi = ptBO.getListPhongThiTheoMaKyThi(maKyThi);
+		System.out.println(listPhongThi.size());
 		BaiThiBO btBO = new BaiThiBO();
 		List<BaiThiBean> listBaiThi = btBO.getListDonTui(maKyThi, maMonThi);
+		System.out.println(listBaiThi.size());
 		
 		MonThiBO mtBO = new MonThiBO();
 		MonThiBean monThi = mtBO.getMonThi(maMonThi);
+		System.out.println(monThi.getTenMonThi());
 		
 		Object[] ot=new Object[3];
 		ot[0]= listPhongThi;

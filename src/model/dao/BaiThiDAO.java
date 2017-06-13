@@ -94,7 +94,7 @@ public class BaiThiDAO extends DataAccessObject{
 			if(trangThaiDuThi==2){
 				ghiChu = "Khiển trách";
 			}
-			String sql = "Update BAITHI Set trangThaiDuThi = ?, ghiChu = ? where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
+			String sql = "Update BAITHI Set trangThaiDuThi = ?, ghiChu = ?, soPhach = 0, tuiSo = 0 where maKyThi = ? and maMonThi = ? and maThiSinh = ?";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setInt(1, trangThaiDuThi);
 			pstm.setNString(2, ghiChu);
@@ -244,7 +244,7 @@ public class BaiThiDAO extends DataAccessObject{
 		PreparedStatement pstm = null;		
 		try {
 			String sql = "SELECT * FROM BAITHI, THISINH, PHONGTHI WHERE BAITHI.maThiSinh = THISINH.maThiSinh "
-					+ "and THISINH.maPhongThi = PHONGTHI.maPhongThi and BAITHI.maKyThi = ? and BAITHI.maMonThi = ? ORDER BY soHieuPhongThi, soBaoDanh, tuiSo";
+					+ "and THISINH.maPhongThi = PHONGTHI.maPhongThi and BAITHI.maKyThi = ? and BAITHI.maMonThi = ? and tuiSo <> 0 ORDER BY soHieuPhongThi, soBaoDanh, tuiSo";
 			pstm = cnn.prepareStatement(sql);
 			pstm.setString(1, maKyThi);
 			pstm.setString(2, maMonThi);
