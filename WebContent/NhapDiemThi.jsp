@@ -92,7 +92,7 @@
 					<td>
 						<%-- <input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control" id="input${stt-1}"> --%>
 						<input value="${bt.diemChamThi}" type="text" name="diemThi[${stt-1}].diemChamThi" class="form-control in" id="in${stt-1}"
-						pattern="(0|([0-9][.][0-9]{1,2})|10)">
+						pattern="(10.0|0|1|2|3|4|5|6|7|8|9|10|([0-9][.][0-9]{1,2}))">
 					</td>
 					<td>
 						<span id="out${stt-1}" class="out"></span>
