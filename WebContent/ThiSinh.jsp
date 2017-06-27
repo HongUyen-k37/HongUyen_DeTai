@@ -242,7 +242,7 @@
              <div class="modal-body">
              	<input id="uploadfile" name="file" type="file">
              	<hr>
-             	<p>Để dữ liệu câu hỏi upload được đảm bảo đúng và không xảy ra lỗi, bạn nên làm theo mẫu.
+             	<p>Để dữ liệu thí sinh upload được đảm bảo đúng và không xảy ra lỗi, bạn nên làm theo mẫu.
              	Xem mẫu hướng dẫn ở đây</p>
              	<a href="Files/Template.xlsx">File mẫu</a>
              </div>

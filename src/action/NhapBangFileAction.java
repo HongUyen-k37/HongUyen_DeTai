@@ -44,7 +44,7 @@ public class NhapBangFileAction extends Action{
 			return mapping.findForward("errorStatus");
 		}
 		FormFile formFile=frm.getFile();
-		
+
 		if(formFile==null) 
 			return mapping.findForward("error");
 		String s=formFile.getFileName();

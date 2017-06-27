@@ -41,9 +41,8 @@ public class ReadFileExcel {
 				String value=dataFormat.formatCellValue(cell).trim();
 				if(i==1) hoDem = value;
 				if(i==2) ten = value;
-				if(i==3) ngaySinh = value;
+				if(i==3) ngaySinh = value; 
 				if(i==4) gt = value;
-				if(gt.equals("Nam")) gioiTinh = 1; 
 				if(i==5) noiSinh = value;
 				if(i==6) khuVuc = value;
 				if(i==7) doiTuong = value;
@@ -52,12 +51,13 @@ public class ReadFileExcel {
 				if(i==10) diaChi = value;
 				i++;		
 			}
-			if(hoDem ==null || ten ==null || ngaySinh ==null || gt==null || khuVuc ==null || doiTuong ==null){
-				lstThiSinh = null;
-				break;
-			}
+//			if(hoDem ==null || ten ==null || ngaySinh ==null || gt==null || khuVuc ==null || doiTuong ==null){
+//				lstThiSinh = null;
+//				break;
+//			}
+			if(gt.equals("Nam") || gt.equals("")) gioiTinh = 1;
 			ThiSinhBean ts = new ThiSinhBean(null, maKyThi, null, hoDem, ten, ngaySinh, gioiTinh, noiSinh, khuVuc, doiTuong, dienThoai, email, diaChi, null);
-			if(!hoDem.equals("") && !ten.equals("") && !ngaySinh.equals("") && !doiTuong.equals("") && !khuVuc.equals(""))
+			if(!hoDem.equals("") && !ten.equals("") && !ngaySinh.equals("") && !gt.equals("") && !doiTuong.equals("") && !khuVuc.equals(""))
 				lstThiSinh.add(ts);
 		}
 		return lstThiSinh;
